@@ -1,0 +1,9 @@
+# Nexus-APCP Gitignore
+PROMPT_READY.txt
+PROMPT_READY.tmp
+*.tmp
+.DS_Store
+.venv
+venv/
+__pycache__/
+.checkpoint
