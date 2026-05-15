@@ -13,7 +13,7 @@ Main function for AI workflow. Sequential logic. Strict execution. No fluff.
 
 ## 🚦 EXECUTION_FLOW (main)
 
-1. [x] **LOAD_CONTEXT**: Read core protocol (APCP, Decision Log, Caveman, Context Optimization).
+1. [x] **LOAD_CONTEXT**: Read core protocol (APCP, Decision Log, Caveman, Context Optimization, Mermaid).
 2. [x] **TASK_ANALYSIS**: Create AI_MAIN.md framework.
 3. [x] **MODEL_DISPATCH**: Roles assigned (Flash for setup).
 4. [x] **IMPLEMENTATION**: Created AI_MAIN, TASK_PROGRESS, scripts/ (checkpoint.ps1, validate-repo.py, apcp-gather.py).
@@ -47,6 +47,7 @@ Main function for AI workflow. Sequential logic. Strict execution. No fluff.
 - [x] Task 4: Verify Caveman compliance.
 - [x] Task 7: Synchronize `AI_MAIN.md` with current repository state.
 - [x] Task 8: Implement Second Brain Sync Scenario (Scenario 0).
+- [x] Task 9: Implement Mermaid Visual Context Flowchart Protocol.
 
 ---
 

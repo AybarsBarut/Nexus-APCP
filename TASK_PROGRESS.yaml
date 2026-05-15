@@ -73,8 +73,16 @@ tasks:
     assignee: "Antigravity (AI)"
     description: "Create Scenario 0 in prompt templates for NotebookLM/Obsidian Knowledge Base export."
 
+  - id: TASK-009
+    title: "Implement Mermaid Visual Context Flowchart Protocol"
+    status: COMPLETED
+    priority: MEDIUM
+    effort: 1
+    assignee: "Antigravity (AI)"
+    description: "Create VISUAL_CONTEXT_MERMAID.md and integrate it into the repository core docs."
+
 metrics:
-  tasks_completed: 8
-  total_tasks: 8
+  tasks_completed: 9
+  total_tasks: 9
   velocity: 1.0
   quality_score: 100%

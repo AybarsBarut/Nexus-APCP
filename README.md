@@ -79,6 +79,7 @@ Paste the generated `PROMPT_READY.txt` into your AI assistant, or start with the
 | [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
 | [`scripts/apcp-gather.py`](./scripts/apcp-gather.py) | Context packer that generates `PROMPT_READY.txt`. |
+| [`VISUAL_CONTEXT_MERMAID.md`](./VISUAL_CONTEXT_MERMAID.md) | Standardized Mermaid.js flowchart protocol for architecture and logic visualization. |
 | [`AGENTS.md`](./AGENTS.md) | Repository instructions for AI coding assistants and automation agents. |
 | [`examples/`](./examples/README.md) | Sanitized starter kits for web apps, backend APIs, and AI/RAG systems. |
 
