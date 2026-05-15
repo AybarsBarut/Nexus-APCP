@@ -1,6 +1,6 @@
-# 📦 AI PROJECT CONTEXT PROTOCOL (APCP) KIT v1.0
+# 📦 Nexus-APCP: AI Project Context Protocol Kit v1.0
 
-**A complete system for efficient development with AI models**
+**A complete context engineering system for AI-assisted development, AI coding assistants, and token-optimized LLM workflows.**
 
 ---
 
@@ -8,7 +8,7 @@
 
 This kit consists of 4 core files. You should use them all together:
 
-### 1️⃣ **AI_PROJECT_CONTEXT.md** (Main Documentation)
+### 1️⃣ **AI_PROJECT_CONTEXT_PROTOCOL.md** (Main Documentation)
 - **Size**: ~20 KB
 - **Purpose**: To fully define the project
 - **Usage**: Load at the beginning of each AI session
@@ -73,7 +73,7 @@ This kit consists of 4 core files. You should use them all together:
 
 ```bash
 # Copy the 4 files to your project root:
-cp AI_PROJECT_CONTEXT.md /your/project/
+cp AI_PROJECT_CONTEXT_PROTOCOL.md /your/project/
 cp TASK_PROGRESS.yaml /your/project/
 cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/docs/
 cp SETUP_GUIDE.md /your/project/docs/
@@ -82,8 +82,8 @@ cp SETUP_GUIDE.md /your/project/docs/
 ### Step 2: Customize APCP (30 min)
 
 ```bash
-# 1. Open AI_PROJECT_CONTEXT.md
-nano AI_PROJECT_CONTEXT.md
+# 1. Open AI_PROJECT_CONTEXT_PROTOCOL.md
+nano AI_PROJECT_CONTEXT_PROTOCOL.md
 
 # Fill in the UPPER_CASE sections:
 # - [PROJECT_NAME]
@@ -98,7 +98,7 @@ nano TASK_PROGRESS.yaml
 # Add your first 5-10 tasks (sprint planning)
 ```
 
-Security rule: the filled `AI_PROJECT_CONTEXT.md` for a real project is private by default. It can expose backend structure, internal architecture, database internals, deployment topology, admin flows, private prompts, and security assumptions. Keep it local or in an approved private knowledge base unless you create a sanitized public version.
+Security rule: the filled `AI_PROJECT_CONTEXT_PROTOCOL.md` for a real project is private by default. It can expose backend structure, internal architecture, database internals, deployment topology, admin flows, private prompts, and security assumptions. Keep it local or in an approved private knowledge base unless you create a sanitized public version.
 
 ### Step 3: Create Helper Scripts (5 min)
 
@@ -117,7 +117,7 @@ git commit -m "chore: add APCP helper scripts"
 ### Step 4: Commit to Git (2 min)
 
 ```bash
-# Commit sanitized templates/docs only. Keep filled AI_PROJECT_CONTEXT.md local/private by default.
+# Commit sanitized templates/docs only. Keep filled AI_PROJECT_CONTEXT_PROTOCOL.md local/private by default.
 git add .gitignore
 git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
 git add docs/SETUP_GUIDE.md
@@ -135,7 +135,7 @@ I'm setting up an AI-assisted development workflow for [PROJECT_NAME].
 
 Here's my complete project context:
 
-[PASTE FULL: AI_PROJECT_CONTEXT.md]
+[PASTE FULL: AI_PROJECT_CONTEXT_PROTOCOL.md]
 
 [PASTE FULL: TASK_PROGRESS.yaml]
 
@@ -153,9 +153,9 @@ Let's begin!
 
 | File | Project Setup | Daily Work | Code Review | Model Switch | Sprint End |
 |-------|---|---|---|---|---|
-| **AI_PROJECT_CONTEXT.md** | ✅ Customize | ✅ Reference | ✅ Check | ✅ **Load** | ⚫ Update |
+| **AI_PROJECT_CONTEXT_PROTOCOL.md** | ✅ Customize | ✅ Reference | ✅ Check | ✅ **Load** | ⚫ Update |
 | **TASK_PROGRESS.yaml** | ✅ Create | ✅ Update | ✅ Check | ⚫ Reload | ✅ **Review** |
-| **PROMPT_TEMPLATES.md** | ⚫ - | ✅ Select scenario | ⚫ - | ✅ Reference | ⚫ - |
+| **AI_ASSISTANT_PROMPT_TEMPLATES.md** | ⚫ - | ✅ Select scenario | ⚫ - | ✅ Reference | ⚫ - |
 | **SETUP_GUIDE.md** | ✅ **Follow** | ⚫ - | ⚫ - | ⚫ - | ⚫ Routine check |
 
 Legend: ✅ = High priority, ⚫ = Optional, **Bold** = Very important
@@ -225,7 +225,7 @@ Quality:
   - Bug fix time: ____h (Target: <4h)
 
 AI Efficiency:
-  - Tokens per session: ______ (Target: <80k for Haiku)
+  - Tokens per session: ______ (Target: below the active model context limit)
   - Context loading time: ______ (Target: 5 min)
   - Model switches smooth: Yes/No
 
@@ -267,7 +267,7 @@ If you already have a project:
 
 ```
 1. Download these 4 files
-2. Customize AI_PROJECT_CONTEXT.md in 30 minutes
+2. Customize AI_PROJECT_CONTEXT_PROTOCOL.md in 30 minutes
    - Run git status, git log, tree src/
    - Use the outputs as reference
 3. Add the latest activities to TASK_PROGRESS.yaml
@@ -285,7 +285,7 @@ Total: 1.5 hours setup, then works smoothly
 An AI session works like this:
 
 1. AI STARTING
-   ├─ Read AI_PROJECT_CONTEXT.md (3k tokens)
+   ├─ Read AI_PROJECT_CONTEXT_PROTOCOL.md (3k tokens)
    ├─ Read TASK_PROGRESS.yaml (1k tokens)
    └─ "Ready!" (4k tokens spent, 96k left for work)
 
@@ -353,7 +353,7 @@ On GitHub:
     └─ Link from project board
 
 Local Clone:
-  ./AI_PROJECT_CONTEXT.md
+  ./AI_PROJECT_CONTEXT_PROTOCOL.md
   ./TASK_PROGRESS.yaml
   ./docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
   ./docs/SETUP_GUIDE.md
@@ -364,7 +364,7 @@ Local Clone:
 ## 💬 FAQ
 
 **Q: When should the files be updated?**
-A: AI_PROJECT_CONTEXT.md: Monthly or major changes. TASK_PROGRESS.yaml: Daily. Others: Rarely.
+A: AI_PROJECT_CONTEXT_PROTOCOL.md: Monthly or major changes. TASK_PROGRESS.yaml: Daily. Others: Rarely.
 
 **Q: Is APCP too big?**
 A: Yes, but it's loaded once per first session. Then it's incremental. Result: token gain.
@@ -379,7 +379,7 @@ A: Yes, the purpose of APCP is to *prevent* this. Load APCP, and it remembers.
 A: Every session, the model learns the project from scratch, tokens are exhausted, and it works inconsistently.
 
 **Q: Disadvantage of using APCP?**
-A: Setup takes 1-2 hours. But ROI: 4-5 hours gain per session (no Haiku → Sonnet switch issues, no restarts).
+A: Setup takes 1-2 hours. But ROI: 4-5 hours gain per session through cleaner model switches, fewer restarts, and less repeated context loading.
 
 ---
 
@@ -414,7 +414,7 @@ Next level:
 - Use for your own project ✅
 - Share with the team ✅
 - Write on a blog ✅ (a link would be nice)
-- Sell ❌
+- Sell or redistribute with the MIT license notice ✅
 - Remove copyright ❌
 
 ---

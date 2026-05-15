@@ -2,6 +2,10 @@ import os
 import datetime
 import sys
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 def gather_context(caveman_mode=False):
     """
     Automates the gathering of APCP files for the AI prompt.
@@ -17,7 +21,7 @@ def gather_context(caveman_mode=False):
     ]
     
     output_file = "PROMPT_READY.txt"
-    timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+    timestamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     
     print(f"🔍 Gathering project context at {timestamp}...")
     if caveman_mode:

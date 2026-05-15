@@ -1,0 +1,28 @@
+# Source of truth for GitHub repository SEO settings.
+# Apply these values in GitHub repository settings or with the GitHub CLI.
+
+name: Nexus-APCP
+description: "AI Project Context Protocol for context engineering, AI-assisted development, prompt engineering, task tracking, ADRs, and token-optimized coding workflows."
+homepage: "https://github.com/AybarsBarut/Nexus-APCP"
+social_preview: "assets/nexus-apcp-social-preview.svg"
+topics:
+  - ai
+  - ai-assisted-development
+  - ai-agents
+  - context-engineering
+  - prompt-engineering
+  - llm
+  - claude-code
+  - cursor-ai
+  - chatgpt
+  - gemini
+  - github-copilot
+  - developer-productivity
+  - token-optimization
+  - architecture-decision-records
+  - adr
+  - documentation
+  - software-development
+  - devtools
+  - open-source
+  - workflow-automation

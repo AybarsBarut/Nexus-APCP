@@ -177,7 +177,7 @@ git commit -m "chore: initialize MACP directory structure and templates"
 cat > scripts/macp-heartbeat.sh << 'EOF'
 #!/bin/bash
 
-# Usage: bash scripts/macp-heartbeat.sh "Claude Sonnet" "backend-2024-01-15-001" "TASK-010" "75"
+# Usage: bash scripts/macp-heartbeat.sh "Balanced Claude model" "backend-2024-01-15-001" "TASK-010" "75"
 
 set -e
 
@@ -213,7 +213,7 @@ chmod +x scripts/macp-heartbeat.sh
 cat > scripts/macp-state-update.sh << 'EOF'
 #!/bin/bash
 
-# Usage: bash scripts/macp-state-update.sh "Claude Sonnet" "ACTIVE" "TASK-010" "75"
+# Usage: bash scripts/macp-state-update.sh "Balanced Claude model" "ACTIVE" "TASK-010" "75"
 
 set -e
 
@@ -491,7 +491,7 @@ Create `MACP_ROLES.yaml` in the project root:
 cat > MACP_ROLES.yaml << 'EOF'
 ai_roles:
   frontend:
-    ai_model: "Claude Haiku 4.5"
+    ai_model: "Lightweight Claude model"
     responsibility:
       - UI components
       - Routes
@@ -501,7 +501,7 @@ ai_roles:
     status: READY
 
   backend:
-    ai_model: "Claude Sonnet 4.6"
+    ai_model: "Balanced Claude model"
     responsibility:
       - API endpoints
       - Business logic
@@ -511,7 +511,7 @@ ai_roles:
     status: READY
 
   database:
-    ai_model: "Codex / GPT-4"
+    ai_model: "Codex / OpenAI GPT model"
     responsibility:
       - Database schema
       - Migrations
@@ -521,7 +521,7 @@ ai_roles:
     status: READY
 
   testing:
-    ai_model: "Claude Haiku 4.5"
+    ai_model: "Lightweight Claude model"
     responsibility:
       - Unit tests
       - Integration tests
@@ -531,7 +531,7 @@ ai_roles:
     status: READY
 
   devops:
-    ai_model: "Claude Opus"
+    ai_model: "Advanced Claude model"
     responsibility:
       - Docker
       - K8s
@@ -562,7 +562,7 @@ cat > .ai_team/handshakes/frontend-2024-01-15-001.json << 'EOF'
     "version": "1.0",
     "timestamp": "2024-01-15T09:00:00Z",
     "initiator": {
-      "ai_model": "Claude Haiku 4.5",
+      "ai_model": "Lightweight Claude model",
       "role": "Frontend",
       "session_id": "frontend-2024-01-15-001",
       "token_budget": {
@@ -585,11 +585,11 @@ cat > .ai_team/handshakes/frontend-2024-01-15-001.json << 'EOF'
     "dependencies": {
       "blocks": ["TASK-005 (needs Backend API routes)"],
       "blocked_by": [],
-      "requires_coordination": ["Backend Sonnet"]
+      "requires_coordination": ["Backend AI agent"]
     },
     "signals": {
       "requesting_review_from": [],
-      "ready_to_be_reviewed_by": ["Testing Haiku"],
+      "ready_to_be_reviewed_by": ["Testing AI agent"],
       "blocking": [],
       "needs_help_with": []
     }
@@ -616,7 +616,7 @@ with open('.ai_team/AI_TEAM_STATE.json', 'r') as f:
 # Add new session
 state['ai_team_state']['active_sessions'].append({
     "session_id": "frontend-2024-01-15-001",
-    "ai_model": "Claude Haiku 4.5",
+    "ai_model": "Lightweight Claude model",
     "role": "Frontend",
     "status": "ACTIVE",
     "start_time": "2024-01-15T09:00:00Z",
@@ -648,12 +648,12 @@ git push
 
 ```bash
 # Frontend Claude, every 30 minutes:
-bash scripts/macp-heartbeat.sh "Claude Haiku 4.5" "frontend-2024-01-15-001" "TASK-001" "60" 35000 100000
+bash scripts/macp-heartbeat.sh "Lightweight Claude model" "frontend-2024-01-15-001" "TASK-001" "60" 35000 100000
 
 # Output:
-# ✅ Heartbeat recorded for Claude Haiku 4.5
+# ✅ Heartbeat recorded for Lightweight Claude model
 #    Task: TASK-001 (60%)
-#    File: .ai_team/heartbeats/claude_haiku_4.5_20240115.log
+#    File: .ai_team/heartbeats/lightweight_claude_model_20240115.log
 ```
 
 ### 6.2 State Check
@@ -666,7 +666,7 @@ bash scripts/macp-sync-check.sh
 # 🔄 MACP Synchronization Check
 # ✅ AI_TEAM_STATE.json exists
 # Active Sessions: 1
-# 🔵 Claude Haiku 4.5
+# 🔵 Lightweight Claude model
 #    Task: TASK-001
 #    Status: ACTIVE
 #    ✅ Heartbeat recent (2 min ago)
@@ -690,14 +690,14 @@ cat > .ai_team/handoffs/frontend-2024-01-15-001-handoff.json << 'EOF'
   "handoff": {
     "version": "1.0",
     "from": {
-      "ai_model": "Claude Haiku 4.5",
+      "ai_model": "Lightweight Claude model",
       "session_id": "frontend-2024-01-15-001",
       "role": "Frontend",
       "session_duration": "2 hours",
       "end_time": "2024-01-15T11:00:00Z"
     },
     "to": {
-      "ai_model": "Claude Haiku 4.5 (Testing)",
+      "ai_model": "Lightweight Claude model (Testing)",
       "role": "Testing",
       "expected_start": "2024-01-15T11:30:00Z"
     },
@@ -734,7 +734,7 @@ cat > .ai_team/handoffs/frontend-2024-01-15-001-handoff.json << 'EOF'
     "blockers": [
       {
         "task": "TASK-005",
-        "blocked_by": "TASK-010 (Backend Sonnet - API routes)",
+        "blocked_by": "TASK-010 (Backend AI agent - API routes)",
         "expected_resolution": "2024-01-15T13:00:00Z"
       }
     ],
@@ -745,7 +745,7 @@ cat > .ai_team/handoffs/frontend-2024-01-15-001-handoff.json << 'EOF'
       "security_scan": "CLEAN"
     },
     "next_steps": [
-      "1. Testing Haiku: Run tests on TASK-001",
+      "1. Testing AI agent: Run tests on TASK-001",
       "2. Wait for Backend to complete TASK-010",
       "3. Continue TASK-005 integration"
     ]
@@ -917,21 +917,21 @@ bash scripts/macp-init.sh
 # 60 min work, then:
 
 # 4. Heartbeat
-bash scripts/macp-heartbeat.sh "Claude Haiku 4.5" "frontend-2024-01-15-001" "TASK-001" "50" 25000 100000
+bash scripts/macp-heartbeat.sh "Lightweight Claude model" "frontend-2024-01-15-001" "TASK-001" "50" 25000 100000
 
 # 5. More work
 # TASK-001: continued
 # 60 min work
 
 # 6. Heartbeat again
-bash scripts/macp-heartbeat.sh "Claude Haiku 4.5" "frontend-2024-01-15-001" "TASK-001" "100" 35000 100000
+bash scripts/macp-heartbeat.sh "Lightweight Claude model" "frontend-2024-01-15-001" "TASK-001" "100" 35000 100000
 
 # 7. Finalize
 # Run tests: bash scripts/checkpoint.sh
 # Create handoff
 # Push to git
 
-# NOON: Backend Sonnet starts
+# NOON: Backend AI agent starts
 
 # 1. Read state
 cat .ai_team/AI_TEAM_STATE.json

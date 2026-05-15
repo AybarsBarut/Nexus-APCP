@@ -4,7 +4,7 @@ version: 1.0.0
 
 active_sprint:
   name: "Sprint 0: Orchestration Setup"
-  goal: "Establish AI execution framework and core helper scripts."
+  goal: "Establish AI execution framework, core helper scripts, and repository discoverability."
   start_date: "2026-05-15"
   end_date: "2026-05-16"
 
@@ -41,8 +41,16 @@ tasks:
     assignee: "Antigravity (AI)"
     description: "Audit existing docs for token efficiency."
 
+  - id: TASK-005
+    title: "Comprehensive Repository SEO Optimization"
+    status: COMPLETED
+    priority: HIGH
+    effort: 3
+    assignee: "Codex"
+    description: "Improve GitHub discoverability with SEO-focused README, metadata, social preview, contribution guidance, and keyword alignment."
+
 metrics:
-  tasks_completed: 3
-  total_tasks: 4
+  tasks_completed: 4
+  total_tasks: 5
   velocity: 1.0
   quality_score: 100%

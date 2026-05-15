@@ -1,86 +1,148 @@
-# 🔗 Nexus-APCP (AI Project Context Protocol)
+# Nexus-APCP: AI Project Context Protocol for AI-Assisted Development
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Token Optimized](https://img.shields.io/badge/Token-Optimized--65%25-green)](https://github.com/JuliusBrussee/caveman)
-[![Workflow: AI-Assisted](https://img.shields.io/badge/Workflow-AI--Assisted-blue)](#)
+![Nexus-APCP social preview](./assets/nexus-apcp-social-preview.svg)
 
-**Nexus-APCP** is a high-performance protocol designed to synchronize human intent with AI intelligence. It provides a standardized framework for developers to maintain project context across multiple AI sessions, models, and agents while drastically reducing token costs using the **Caveman Compression** philosophy.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![AI Workflow](https://img.shields.io/badge/Workflow-AI--assisted-blue)](#quick-start)
+[![Context Engineering](https://img.shields.io/badge/Context-Engineering-green)](#what-nexus-apcp-solves)
+[![Token Optimized](https://img.shields.io/badge/Token-Optimized-brightgreen)](#token-optimization-with-caveman-mode)
+
+**Nexus-APCP** is an open-source **AI Project Context Protocol** for developers who work with AI coding assistants, AI agents, and large language models. It gives every AI session the same project memory, architecture rules, task state, decision history, and token-efficient operating style.
+
+Use Nexus-APCP with **Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, and multi-agent development workflows** to reduce context loss, repeated explanations, inconsistent code suggestions, and prompt bloat.
 
 > Security note: protocol templates may be public, but filled project-context files, backend maps, internal architecture diagrams, deployment maps, database internals, private threat models, and security runbooks should stay local/private unless sanitized and explicitly approved.
 
----
+## What Nexus-APCP Solves
 
-## 🎯 Why Nexus-APCP?
+AI-assisted software development gets slower when every new model, chat, IDE agent, or pull request review starts from zero. Nexus-APCP creates a durable context layer for the repository so the AI can understand the project before it suggests code.
 
-In professional software development, AI agents often lose context between sessions or suggest inconsistent patterns. **Nexus-APCP** solves this by creating a "Shared Memory" between the developer and the AI.
+- **Persistent AI project context**: architecture, folder structure, conventions, security rules, and delivery gates stay in one reusable protocol.
+- **Token optimization**: Caveman Mode keeps responses compact while preserving technical depth.
+- **Decision memory**: architecture decision records explain why choices were made and reduce refactor loops.
+- **Task continuity**: `TASK_PROGRESS.yaml` tracks active work, sprint goals, checkpoints, and quality gates.
+- **Model portability**: move between Claude, Cursor, ChatGPT, Gemini, Copilot, and local agents without rebuilding context.
+- **Safer publishing**: domain-specific `.gitignore` guidance helps prevent secrets, internal maps, customer data, and generated context from leaking.
 
-- 🧠 **Persistent Context**: Never explain your architecture twice.
-- 📉 **Token Efficiency**: Save ~65% of output tokens with built-in Caveman Mode.
-- 🏛️ **History of Intent**: Track *why* decisions were made with Architecture Decision Records (ADR).
-- 🚀 **Seamless Handover**: Switch between Claude, Gemini, and GPT-4 without losing a single line of progress.
+## Core Features
 
----
-
-## 📂 Core Kit Components
-
-| Component | Purpose |
+| Feature | What it does |
 | :--- | :--- |
-| [AI_PROJECT_CONTEXT_PROTOCOL.md](./AI_PROJECT_CONTEXT_PROTOCOL.md) | The "Single Source of Truth" for your architecture and rules. |
-| [TASK_PROGRESS.yaml](./TASK_PROGRESS.yaml) | Dynamic task tracking with velocity metrics. |
-| [DECISION_LOG_PROTOCOL.md](./DECISION_LOG_PROTOCOL.md) | Records architectural intent to prevent refactor loops. |
-| [CAVEMAN_RULES.md](./CAVEMAN_RULES.md) | 🪨 Rules for ultra-efficient, token-saving communication. |
-| [WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Mandatory workspace-specific delivery gates for security, AI safety, penetration testing, packaging, and scalability. |
-| [DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Field-specific `.gitignore` templates and AI prompts for safe GitHub publishing and customer packaging. |
-| [PROMPT_TEMPLATES.md](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | 16+ Ready-to-use scenarios for every dev stage. |
-| [MASTER_PROMPT.md](./MASTER_PROMPT.md) | 👑 The entry point to initialize Nexus-APCP in any repo. |
+| AI Project Context Protocol | Keeps project identity, architecture, workflows, and constraints available to every AI session. |
+| Caveman Compression | Reduces verbose AI output with short, high-signal technical language. |
+| ADR-style Decision Log | Records technical intent so agents do not undo settled architecture. |
+| Task Progress YAML | Gives humans and agents a shared source of truth for status, priorities, and checkpoints. |
+| Prompt Templates | Provides ready-to-use prompts for implementation, review, debugging, refactoring, and handoff. |
+| Delivery Protocols | Adds release gates for web apps, backend services, AI/LLM products, games, mobile apps, DevOps, and security work. |
+| GitHub Safety Rules | Includes broad `.gitignore` patterns for AI artifacts, secrets, generated files, domain data, and private docs. |
 
----
+## Quick Start
 
-## 🚀 Quick Start
+Clone the repository:
 
-### 1. Initialize the Nexus
-Copy the kit into your project:
 ```bash
-cp *.md /your/project/
-cp TASK_PROGRESS.yaml /your/project/
-mkdir -p /your/project/scripts && cp scripts/*.py /your/project/scripts/
+git clone https://github.com/AybarsBarut/Nexus-APCP.git
+cd Nexus-APCP
 ```
 
-### 2. Gather Context
-Automatically pack your project context for the AI:
+Copy the protocol into your project:
+
+```bash
+cp AI_PROJECT_CONTEXT_PROTOCOL.md /your/project/
+cp TASK_PROGRESS.yaml /your/project/
+cp DECISION_LOG_PROTOCOL.md /your/project/
+cp CAVEMAN_RULES.md /your/project/
+mkdir -p /your/project/scripts
+cp scripts/apcp-gather.py /your/project/scripts/
+```
+
+Generate an AI-ready context package:
+
 ```bash
 python scripts/apcp-gather.py --caveman
 ```
-*This generates a `PROMPT_READY.txt` optimized for token saving.*
 
-### 3. Deploy to AI
-Paste the gathered context into your AI session (Claude Code, Cursor, etc.) and start building with 100% synchronization.
+Paste the generated `PROMPT_READY.txt` into your AI assistant, or start with the ready-made prompt in [`MASTER_PROMPT.md`](./MASTER_PROMPT.md).
 
----
+## Repository Contents
 
-## 🪨 Token Optimization (Caveman Mode)
+| File | Purpose |
+| :--- | :--- |
+| [`AI_PROJECT_CONTEXT_PROTOCOL.md`](./AI_PROJECT_CONTEXT_PROTOCOL.md) | Main project context template and operating rules. |
+| [`AI_MAIN.md`](./AI_MAIN.md) | Execution orchestrator for AI sessions and workflow gates. |
+| [`TASK_PROGRESS.yaml`](./TASK_PROGRESS.yaml) | Task tracking, sprint status, checkpoints, and velocity metrics. |
+| [`DECISION_LOG_PROTOCOL.md`](./DECISION_LOG_PROTOCOL.md) | Architecture decision record protocol for intent preservation. |
+| [`CONTEXT_OPTIMIZATION.md`](./CONTEXT_OPTIMIZATION.md) | Strategies for large codebases, context windows, and token limits. |
+| [`CAVEMAN_RULES.md`](./CAVEMAN_RULES.md) | Token-efficient communication rules for concise AI output. |
+| [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
+| [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
+| [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
+| [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
+| [`scripts/apcp-gather.py`](./scripts/apcp-gather.py) | Context packer that generates `PROMPT_READY.txt`. |
 
-Nexus-APCP integrates the **Caveman Protocol**. By using concise, fragment-based language, we reduce the verbal "noise" of AI responses.
+## How Nexus-APCP Works
 
-**Normal AI**: *"I have reviewed the authentication middleware and noticed a potential security flaw in the token validation logic. I recommend adding a null check before accessing the user property."*
+1. **Capture project truth** in `AI_PROJECT_CONTEXT_PROTOCOL.md`: architecture, modules, conventions, security boundaries, tooling, and delivery rules.
+2. **Track execution state** in `TASK_PROGRESS.yaml`: active tasks, priorities, estimates, dependencies, and quality gates.
+3. **Preserve decisions** in `DECISION_LOG_PROTOCOL.md`: accepted tradeoffs, rejected paths, and architectural intent.
+4. **Package context** with `scripts/apcp-gather.py`: combine the core protocol files into one prompt-ready bundle.
+5. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
 
-**Nexus AI (Caveman)**: *"Bug in auth middleware. Token validation lacks null check on user. Fix: add guard clause."*
+## Ideal Use Cases
 
-**Result**: 75% fewer tokens. Same technical accuracy.
+- AI-assisted software development teams using Claude Code, Cursor, ChatGPT, Gemini, Copilot, or local LLMs.
+- Solo developers who want a reusable AI memory layer across projects.
+- Agencies and freelancers who switch between many client repositories.
+- AI agent workflows that need stable instructions, delivery gates, and handoff state.
+- Open-source maintainers who want contributors and AI assistants to follow the same architecture rules.
+- Teams practicing context engineering, prompt engineering, ADRs, and token-optimized development.
 
----
+## Token Optimization With Caveman Mode
 
-## 📊 SEO & Performance
-Nexus-APCP is designed for high-visibility and efficiency. It uses standardized heading hierarchies and semantic descriptions to ensure it is easily indexable and understandable by both humans and LLMs.
+Nexus-APCP includes the Caveman Protocol: short, direct, fragment-based technical communication for lower token cost and faster AI collaboration.
 
-**Keywords**: AI-Assisted Development, Claude Code Optimization, Prompt Engineering, Token Reduction, Context Management Protocol, Architecture Decision Records, Developer Productivity.
+Normal AI style:
 
----
+> I reviewed the authentication middleware and noticed a potential security flaw in the token validation logic. I recommend adding a null check before accessing the user property.
 
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
+Caveman Mode:
 
----
+> Auth middleware bug. Token validation lacks user null guard. Fix: add guard clause before access.
 
-**Developed for the next generation of AI-Native Software Engineers.**
-*Nexus-APCP: Why use many token when few token do trick?* 🚀🪨
+Same technical meaning, fewer tokens, easier scanning.
+
+## Recommended GitHub Topics
+
+For better GitHub discovery, use these repository topics:
+
+`ai`, `ai-assisted-development`, `ai-agents`, `context-engineering`, `prompt-engineering`, `llm`, `claude-code`, `cursor-ai`, `chatgpt`, `gemini`, `github-copilot`, `developer-productivity`, `token-optimization`, `architecture-decision-records`, `adr`, `documentation`, `software-development`, `devtools`, `open-source`, `workflow-automation`
+
+See [`docs/SEO_CHECKLIST.md`](./docs/SEO_CHECKLIST.md) for the full repository SEO checklist and metadata source of truth.
+
+## FAQ
+
+### Is Nexus-APCP a prompt template or a protocol?
+
+It is a protocol kit. Prompt templates are included, but the main value is the shared project context, task state, decision history, safety rules, and repeatable AI handoff workflow.
+
+### Does it work with any AI coding assistant?
+
+Yes. Nexus-APCP is model-agnostic and works with hosted assistants, IDE agents, CLI agents, local LLMs, and multi-agent workflows.
+
+### Is filled project context safe to publish?
+
+Usually no. Filled project context can expose internal architecture, deployment topology, database internals, secrets, private prompts, or security assumptions. Publish sanitized templates, not private implementation maps.
+
+### Why use YAML for task tracking?
+
+YAML is easy for humans to read, easy for AI models to update, and structured enough to keep task status consistent across sessions.
+
+## Related Keywords
+
+AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, prompt engineering, LLM project memory, AI agent handoff, token optimization, architecture decision records, ADR protocol, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
+
+## License
+
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for details.
+
+**Nexus-APCP: stable project memory for AI-native software engineering.**

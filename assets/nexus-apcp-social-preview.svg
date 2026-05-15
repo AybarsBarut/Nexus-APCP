@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Nexus-APCP social preview</title>
+  <desc id="desc">AI Project Context Protocol for AI-assisted development, context engineering, and token-optimized coding workflows.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.56" stop-color="#164E63"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22C55E"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <path d="M90 116h1020v398H90z" fill="#020617" opacity="0.48"/>
+  <path d="M90 116h1020v398H90z" fill="none" stroke="#67E8F9" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M158 236h180m-180 52h260m-260 52h210" stroke="#38BDF8" stroke-opacity="0.44" stroke-width="10" stroke-linecap="round"/>
+  <path d="M842 216h78v78h-78zm-96 96h78v78h-78zm192 0h78v78h-78z" fill="none" stroke="url(#accent)" stroke-width="8"/>
+  <path d="M824 255h-48v96h-48m192-96h48v96h48" fill="none" stroke="#A7F3D0" stroke-opacity="0.65" stroke-width="6" stroke-linecap="round"/>
+  <text x="150" y="186" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#A7F3D0" letter-spacing="2">AI PROJECT CONTEXT PROTOCOL</text>
+  <text x="150" y="416" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="92" font-weight="800" fill="#F8FAFC">Nexus-APCP</text>
+  <text x="152" y="476" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="500" fill="#CFFAFE">Stable project memory for AI-assisted development</text>
+  <text x="152" y="528" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="500" fill="#D1FAE5">Claude Code - Cursor - ChatGPT - Gemini - Copilot - Local LLMs</text>
+</svg>

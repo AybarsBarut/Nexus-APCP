@@ -1,11 +1,11 @@
-# 🤖 AI Project Context Protocol (APCP)
-## Project Context Protocol for AI Models v1.0
+# 🤖 Nexus-APCP: AI Project Context Protocol
+## Project Context Protocol for AI coding assistants, AI agents, and LLM workflows v1.0
 
 ---
 
 ## 📌 QUICK START
 
-This file is the **single source of truth** for AI models (Claude Haiku, Sonnet, Opus, etc.) to understand your entire project and work consistently. When this file is updated:
+This file is the **single source of truth** for AI coding assistants and agents (Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, etc.) to understand your entire project and work consistently. When this file is updated:
 - ✅ The model **does not** have to learn the project from scratch
 - ✅ The token budget is used effectively
 - ✅ Changes are synchronized automatically
@@ -1009,14 +1009,14 @@ class User(Base):
 
 ## 🚀 SECTION 11: NEW MODEL TRANSITION PROTOCOL
 
-**Scenario**: You are switching from Claude Haiku 4.5 to Claude Sonnet 4.6 and reached the token limit.
+**Scenario**: You are switching to a new AI model or fresh session and reached the token limit.
 
 ### 11.1 Checklist
 
 ```
 BEFORE SWITCHING MODELS:
 
-☑️ 1. Create/update this file (AI_PROJECT_CONTEXT.md)
+☑️ 1. Create/update this file (AI_PROJECT_CONTEXT_PROTOCOL.md)
 ☑️ 2. Update TASK_PROGRESS.yaml (save last state)
 ☑️ 3. Commit to Git: "docs: update project context and task progress"
 ☑️ 4. If there are open PRs, merge branch from latest main
@@ -1024,7 +1024,7 @@ BEFORE SWITCHING MODELS:
 
 AT THE BEGINNING OF PROMPT (with New Model):
 
-☑️ 1. Put this file (AI_PROJECT_CONTEXT.md) in internal context
+☑️ 1. Put this file (AI_PROJECT_CONTEXT_PROTOCOL.md) in internal context
 ☑️ 2. Read TASK_PROGRESS.yaml
 ☑️ 3. Read last task: "Where were we?"
 ☑️ 4. Continue from where we left off
@@ -1034,9 +1034,9 @@ AT THE BEGINNING OF PROMPT (with New Model):
 
 **Option 1: Continue without summary**
 ```
-I'm switching from Claude Haiku 4.5 to Claude Sonnet 4.6 on project [PROJECT_NAME].
+I'm switching to a new AI model on project [PROJECT_NAME].
 
-[Paste entire AI_PROJECT_CONTEXT.md]
+[Paste entire AI_PROJECT_CONTEXT_PROTOCOL.md]
 
 [Paste entire TASK_PROGRESS.yaml]
 
@@ -1051,7 +1051,7 @@ Last completed task: TASK-002 (API authentication system, 60% complete)
 Current blockers: JWT secret not configured in test environment
 Next task: TASK-003 (User model and database migrations)
 
-[Paste AI_PROJECT_CONTEXT.md - SECTION 2-5 only]
+[Paste AI_PROJECT_CONTEXT_PROTOCOL.md - SECTION 2-5 only]
 [Paste TASK_PROGRESS.yaml - current sprint only]
 
 Help me implement TASK-003. What should I do first?
@@ -1139,7 +1139,7 @@ Weekly (on Friday):
 
 ### 14.2 Token Budget Management
 
-**Claude Haiku 4.5** (~50-100 req/session):
+**Lightweight/fast model**:
 ```
 - Load this file FULL initially (Token cost: ~3000-4000)
 - Read TASK_PROGRESS.yaml (Token cost: ~1000)
@@ -1147,7 +1147,7 @@ Weekly (on Friday):
 - Minify outputs of unit tests (debug)
 ```
 
-**Claude Sonnet 4.6** (~150-200 req/session):
+**Balanced coding model**:
 ```
 - Load this file FULL
 - Read TASK_PROGRESS.yaml + git history
@@ -1155,7 +1155,7 @@ Weekly (on Friday):
 - Full code reviews
 ```
 
-**Claude Opus 4.6** (Unlimited):
+**Advanced reasoning model**:
 ```
 - Everything + benchmarking
 - Full test coverage analysis

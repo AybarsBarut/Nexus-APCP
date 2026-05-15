@@ -1,6 +1,6 @@
-# 🚀 AI PROJECT CONTEXT PROTOCOL - SETUP GUIDE
+# 🚀 Nexus-APCP: AI Project Context Protocol Setup Guide
 
-A step-by-step guide to setting up APCP for your project.
+A step-by-step guide to setting up Nexus-APCP for AI-assisted development, context engineering, and token-optimized coding workflows.
 
 ---
 
@@ -40,22 +40,22 @@ Documentation:
 # In the project root:
 
 # Copy the files (download the 3 below):
-# - AI_PROJECT_CONTEXT.md
+# - AI_PROJECT_CONTEXT_PROTOCOL.md
 # - TASK_PROGRESS.yaml
 # - AI_ASSISTANT_PROMPT_TEMPLATES.md
 
-cp AI_PROJECT_CONTEXT.md /path/to/your/project/
+cp AI_PROJECT_CONTEXT_PROTOCOL.md /path/to/your/project/
 cp TASK_PROGRESS.yaml /path/to/your/project/
 cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/docs/
 
 # Add to Git
-git add AI_PROJECT_CONTEXT.md TASK_PROGRESS.yaml
+git add AI_PROJECT_CONTEXT_PROTOCOL.md TASK_PROGRESS.yaml
 git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
 
 # Commit
 git commit -m "docs: add AI Project Context Protocol (APCP) v1.0
 
-- Add AI_PROJECT_CONTEXT.md for project documentation
+- Add AI_PROJECT_CONTEXT_PROTOCOL.md for project documentation
 - Add TASK_PROGRESS.yaml for task tracking
 - Add AI_ASSISTANT_PROMPT_TEMPLATES.md for prompt templates
 - Enables AI-assisted development workflow"
@@ -88,7 +88,7 @@ git commit -m "chore: update gitignore for APCP"
 
 ### Step 2: Customize APCP (30-45 minutes)
 
-#### 2.1 Fill in AI_PROJECT_CONTEXT.md
+#### 2.1 Fill in AI_PROJECT_CONTEXT_PROTOCOL.md
 
 Open the editor and fill in the UPPER_CASE sections:
 
@@ -246,7 +246,7 @@ echo ""
 TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 
 # Update the header timestamp
-sed -i "s/Last Updated: .*/Last Updated: $TIMESTAMP/" AI_PROJECT_CONTEXT.md
+sed -i "s/Last Updated: .*/Last Updated: $TIMESTAMP/" AI_PROJECT_CONTEXT_PROTOCOL.md
 sed -i "s/# Last Updated: .*/# Last Updated: $TIMESTAMP/" TASK_PROGRESS.yaml
 
 echo "✅ Updated timestamps"
@@ -254,11 +254,11 @@ echo ""
 
 # Show git diff
 echo "Changes to APCP files:"
-git diff --stat AI_PROJECT_CONTEXT.md TASK_PROGRESS.yaml
+git diff --stat AI_PROJECT_CONTEXT_PROTOCOL.md TASK_PROGRESS.yaml
 
 echo ""
 echo "Ready to commit:"
-echo "  git add AI_PROJECT_CONTEXT.md TASK_PROGRESS.yaml"
+echo "  git add AI_PROJECT_CONTEXT_PROTOCOL.md TASK_PROGRESS.yaml"
 echo "  git commit -m 'docs: update APCP context and task progress'"
 EOF
 
@@ -275,7 +275,7 @@ Now send this prompt to the AI:
 I'm setting up AI-assisted development for my project: [PROJECT_NAME]
 
 I've created:
-1. **AI_PROJECT_CONTEXT.md** - Complete project documentation
+1. **AI_PROJECT_CONTEXT_PROTOCOL.md** - Complete project documentation
 2. **TASK_PROGRESS.yaml** - Task tracking file
 3. **AI_ASSISTANT_PROMPT_TEMPLATES.md** - Prompt templates for different scenarios
 
@@ -283,7 +283,7 @@ I'm ready to start working with you as an AI assistant.
 
 Here's my project:
 
-[PASTE FULL: AI_PROJECT_CONTEXT.md]
+[PASTE FULL: AI_PROJECT_CONTEXT_PROTOCOL.md]
 
 [PASTE FULL: TASK_PROGRESS.yaml]
 
@@ -308,7 +308,7 @@ Checklist after completing the setup:
 
 ```
 APCP Setup Verification:
-□ [ ] AI_PROJECT_CONTEXT.md filled with custom project information
+□ [ ] AI_PROJECT_CONTEXT_PROTOCOL.md filled with custom project information
 □ [ ] TASK_PROGRESS.yaml created with initial tasks
 □ [ ] AI_ASSISTANT_PROMPT_TEMPLATES.md in docs/
 □ [ ] scripts/checkpoint.sh is working (test: bash scripts/checkpoint.sh)
@@ -437,7 +437,7 @@ bash scripts/checkpoint.sh  # (instead of ./scripts/checkpoint.sh)
 
 # Start session
 # Immediately paste:
-[PASTE: AI_PROJECT_CONTEXT.md]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md]
 [PASTE: TASK_PROGRESS.yaml]
 
 # Then ask your question
@@ -460,7 +460,7 @@ git push
 # Solution: Switch to MINIMAL mode
 
 # In the first session: FULL load
-[PASTE: AI_PROJECT_CONTEXT.md]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md]
 [PASTE: TASK_PROGRESS.yaml]
 
 # Subsequent sessions: MINIMAL
@@ -507,7 +507,7 @@ If you have questions:
 
 1. **Read this file again** (usually the answer is there)
 2. **Search for the relevant scenario in AI_ASSISTANT_PROMPT_TEMPLATES.md** 
-3. **Don't ask questions in GitHub Issues** (other teams benefit)
+3. **Ask reusable questions in GitHub Issues** (other teams benefit)
 4. **Ask the team lead** (for internal decisions)
 
 ---

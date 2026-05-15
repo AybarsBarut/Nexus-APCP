@@ -1,0 +1,75 @@
+# Nexus-APCP Repository SEO Checklist
+
+This checklist keeps GitHub search, README search snippets, package metadata, and social sharing aligned around one clear product identity.
+
+## Primary Search Positioning
+
+- Product name: `Nexus-APCP`
+- Long name: `Nexus-APCP: AI Project Context Protocol`
+- Primary category: `AI Project Context Protocol`
+- Core audience: developers using AI coding assistants, IDE agents, local LLMs, and multi-agent workflows.
+- Primary value: stable project memory, context engineering, task state, decision history, safety rules, and token-optimized AI collaboration.
+
+## GitHub Repository Description
+
+Use this exact description in GitHub repository settings:
+
+```text
+AI Project Context Protocol for context engineering, AI-assisted development, prompt engineering, task tracking, ADRs, and token-optimized coding workflows.
+```
+
+## GitHub Topics
+
+Use up to 20 topics:
+
+```text
+ai
+ai-assisted-development
+ai-agents
+context-engineering
+prompt-engineering
+llm
+claude-code
+cursor-ai
+chatgpt
+gemini
+github-copilot
+developer-productivity
+token-optimization
+architecture-decision-records
+adr
+documentation
+software-development
+devtools
+open-source
+workflow-automation
+```
+
+## Social Preview
+
+Use this asset for GitHub's social preview image:
+
+```text
+assets/nexus-apcp-social-preview.svg
+```
+
+If GitHub rejects SVG upload for social preview, export it as a `1200x630` PNG and use the PNG in repository settings.
+
+## Keyword Map
+
+| Intent | Target phrases |
+| :--- | :--- |
+| AI workflow | AI-assisted development, AI coding assistant workflow, AI agent handoff |
+| Context | AI Project Context Protocol, context engineering, LLM project memory |
+| Prompting | prompt engineering, prompt templates, reusable AI prompts |
+| Productivity | developer productivity, workflow automation, token optimization |
+| Architecture | architecture decision records, ADR protocol, decision log |
+| Tool searches | Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow |
+
+## Maintenance Rules
+
+- Keep the first README heading, GitHub description, `codemeta.json`, `CITATION.cff`, and this checklist semantically aligned.
+- Mention each target phrase naturally; avoid keyword stuffing.
+- Prefer concrete repository file links over generic claims.
+- Keep security guidance visible near setup instructions.
+- Update `dateModified` in `codemeta.json` when SEO-facing metadata changes.

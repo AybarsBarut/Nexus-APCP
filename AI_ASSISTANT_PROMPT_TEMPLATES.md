@@ -1,5 +1,5 @@
-# 🤖 AI ASSISTANT STARTING PROMPTS
-## Ready-to-use prompts for different scenarios
+# 🤖 Nexus-APCP AI Assistant Prompt Templates
+## Ready-to-use prompts for AI-assisted development scenarios
 
 ---
 
@@ -11,7 +11,7 @@ Copy and send to the AI in the same session:
 I'm starting to work on a new project and want to use an AI-assisted workflow.
 
 I've prepared:
-1. AI_PROJECT_CONTEXT.md - A comprehensive protocol for you to understand the project
+1. AI_PROJECT_CONTEXT_PROTOCOL.md - A comprehensive protocol for you to understand the project
 2. TASK_PROGRESS.yaml - Task tracking and project status
 
 Please:
@@ -32,7 +32,7 @@ Let's make sure we're on the same page before diving into code.
 
 ---
 
-## 📌 SCENARIO 2: Continuing with the Same Model (Haiku to Haiku)
+## 📌 SCENARIO 2: Continuing with the Same Model
 
 If you are close to the token limit and continuing with the same model:
 
@@ -41,7 +41,7 @@ Continuing work on [PROJECT_NAME].
 
 Here are the latest project documents:
 
-[PASTE: AI_PROJECT_CONTEXT.md]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md]
 
 [PASTE: TASK_PROGRESS.yaml - Only current sprint section]
 
@@ -56,16 +56,16 @@ Let's go!
 
 ---
 
-## 📌 SCENARIO 3: Switching to a New Model (Haiku → Sonnet)
+## 📌 SCENARIO 3: Switching to a New Model
 
 If you are changing models or have reached the token limit:
 
 ```
-I'm switching from Claude Haiku 4.5 to Claude Sonnet 4.6 on [PROJECT_NAME].
+I'm switching to a new AI model on [PROJECT_NAME].
 
 This is the complete project context and status:
 
-[PASTE: AI_PROJECT_CONTEXT.md - FULL]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - FULL]
 
 [PASTE: TASK_PROGRESS.yaml - FULL]
 
@@ -91,7 +91,7 @@ I need a comprehensive code review for [PROJECT_NAME] before we merge.
 
 Here's the project context:
 
-[PASTE: AI_PROJECT_CONTEXT.md - SECTIONS 2, 3, 5 only]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - SECTIONS 2, 3, 5 only]
 
 Here's the code I want reviewed:
 
@@ -121,7 +121,7 @@ Help me update/create documentation for [PROJECT_NAME].
 
 Current project structure:
 
-[PASTE: AI_PROJECT_CONTEXT.md - SECTION 8 only]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - SECTION 8 only]
 
 I need to create/update: [docs/API.md / docs/ARCHITECTURE.md / docs/SETUP.md]
 
@@ -130,7 +130,7 @@ Here's what should be documented:
 2. [Technical details]
 3. [Code examples]
 
-Use the templates from AI_PROJECT_CONTEXT.md Section 8 and make sure it's:
+Use the templates from AI_PROJECT_CONTEXT_PROTOCOL.md Section 8 and make sure it's:
 - Clear for new developers
 - Includes code examples
 - Links to relevant internal docs
@@ -153,7 +153,7 @@ Impact: [Severity]
 Affected Component: [src/api/ | src/services/ | etc]
 
 Context:
-[PASTE: AI_PROJECT_CONTEXT.md - SECTIONS 2, 3, 5 (minimal)]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - SECTIONS 2, 3, 5 (minimal)]
 [PASTE: Relevant code snippet]
 
 Steps:
@@ -176,7 +176,7 @@ I need help with an architecture decision for [PROJECT_NAME].
 
 Current architecture:
 
-[PASTE: AI_PROJECT_CONTEXT.md - SECTIONS 2, 5]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - SECTIONS 2, 5]
 
 [PASTE: docs/ARCHITECTURE.md - if exists]
 
@@ -210,7 +210,7 @@ Relevant code:
 [PASTE: Slow code section]
 
 Context:
-[PASTE: AI_PROJECT_CONTEXT.md - Section 5 (Code Patterns)]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Section 5 (Code Patterns)]
 
 Please:
 1. Identify the root cause
@@ -244,7 +244,7 @@ Questions:
 4. Impact assessment?
 
 Context:
-[PASTE: AI_PROJECT_CONTEXT.md - Section 9.4 (Libraries)]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Section 9.4 (Libraries)]
 
 Help me make this update safely.
 ```
@@ -260,7 +260,7 @@ Starting TASK-XXX: [Task Title]
 
 Task details:
 
-[PASTE: AI_PROJECT_CONTEXT.md - Section 7 (Task Management)]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Section 7 (Task Management)]
 
 [PASTE: TASK_PROGRESS.yaml - Just the TASK-XXX section]
 
@@ -299,7 +299,7 @@ Integration point:
 [Where in the app should this fit?]
 
 Context:
-[PASTE: AI_PROJECT_CONTEXT.md - Sections 2, 3, 9.3]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Sections 2, 3, 9.3]
 [PASTE: Relevant service code if exists]
 
 Steps:
@@ -323,7 +323,7 @@ Preparing [PROJECT_NAME] for deployment to [staging/production].
 
 Checklist:
 
-[PASTE: AI_PROJECT_CONTEXT.md - Section 6 (Git Flow & Checkpoints)]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Section 6 (Git Flow & Checkpoints)]
 
 Pre-deployment tasks:
 1. All tests passing? 
@@ -363,7 +363,7 @@ Affected code:
 [PASTE: Relevant error stack trace or code]
 
 Quick context:
-[PASTE: AI_PROJECT_CONTEXT.md - SECTIONS 2, 3 only - MINIMAL]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - SECTIONS 2, 3 only - MINIMAL]
 
 PRIORITY ORDER:
 1. Identify root cause (1 min)
@@ -387,7 +387,7 @@ Sprint Status:
 
 [PASTE: TASK_PROGRESS.yaml - Full current sprint]
 
-[PASTE: AI_PROJECT_CONTEXT.md - Section 13 (Metrics)]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Section 13 (Metrics)]
 
 Please analyze:
 
@@ -478,7 +478,7 @@ Why use many token when few token do trick?
 1. **Always copy files in full**:
    Instead of:
    ```
-   [PASTE: AI_PROJECT_CONTEXT.md - SECTIONS X, Y, Z]
+   [PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - SECTIONS X, Y, Z]
    ```
    Copy the entire file and point to the specific sections.
 
@@ -555,12 +555,12 @@ What do I want to do?
 ### Token Efficiency
 - First session: FULL context (3000-4000 tokens spent, saves later)
 - Later sessions: Reference existing sections (50-100 tokens for links)
-- Calculations: "Haiku 4.5 has ~100k tokens. APCP uses 3k. 97k left for work."
+- Calculations: "If the context window is ~100k tokens and APCP uses 3k, about 97k tokens remain for work."
 
 ### Model Specific
-- **Haiku**: Use Scenario 2 (same model)
-- **Sonnet**: Use Scenario 3 (switching up)
-- **Opus**: Use Scenario 14 (retrospective/planning)
+- **Same model/session**: Use Scenario 2.
+- **New model or fresh session**: Use Scenario 3.
+- **Planning or retrospective**: Use Scenario 14.
 
 ### Continuous Work
 ```

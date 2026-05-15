@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If Nexus-APCP helps your AI-assisted development workflow, please cite the repository."
+title: "Nexus-APCP: AI Project Context Protocol"
+version: "1.0.0"
+license: MIT
+repository-code: "https://github.com/AybarsBarut/Nexus-APCP"
+url: "https://github.com/AybarsBarut/Nexus-APCP"
+authors:
+  - family-names: "Barut"
+    given-names: "Aybars"
+keywords:
+  - "AI Project Context Protocol"
+  - "AI-assisted development"
+  - "context engineering"
+  - "prompt engineering"
+  - "AI coding assistant"
+  - "LLM project memory"
+  - "token optimization"
+  - "architecture decision records"
+abstract: "Nexus-APCP is an open-source AI Project Context Protocol that gives AI coding assistants stable project memory, task state, decision history, safety rules, and token-optimized collaboration patterns."

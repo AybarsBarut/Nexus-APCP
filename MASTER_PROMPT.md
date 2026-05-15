@@ -1,7 +1,7 @@
 # 👑 MASTER PROMPT: INITIALIZING NEXUS-APCP
 
 ## 🎯 Purpose
-Copy and paste this prompt into any new AI session (Claude, Gemini, GPT-4) to initialize the high-performance development protocol.
+Copy and paste this prompt into any new AI session (Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, or other AI coding agents) to initialize the high-performance development protocol.
 
 ---
 
