@@ -1,0 +1,27 @@
+name: Documentation improvement
+description: Suggest clearer wording, missing setup steps, or better examples.
+title: "docs: "
+labels:
+  - documentation
+body:
+  - type: textarea
+    id: section
+    attributes:
+      label: Documentation section
+      description: Which file or section should change?
+      placeholder: README.md Quick Start, SETUP_GUIDE.md Step 2, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Suggested improvement
+      description: Explain what is confusing or missing.
+    validations:
+      required: true
+  - type: textarea
+    id: audience
+    attributes:
+      label: Intended audience
+      description: Who benefits from this change?
+      placeholder: New users, maintainers, AI agents, teams adopting Cursor, etc.

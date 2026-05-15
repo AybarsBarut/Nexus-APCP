@@ -49,8 +49,16 @@ tasks:
     assignee: "Codex"
     description: "Improve GitHub discoverability with SEO-focused README, metadata, social preview, contribution guidance, and keyword alignment."
 
+  - id: TASK-006
+    title: "Add Open Source Repository Maturity Layer"
+    status: COMPLETED
+    priority: HIGH
+    effort: 3
+    assignee: "Codex"
+    description: "Add original AI agent guidance, PR and issue templates, community docs, CODEOWNERS, example kits, and validation CI inspired by mature open-source repository practices."
+
 metrics:
-  tasks_completed: 4
-  total_tasks: 5
+  tasks_completed: 5
+  total_tasks: 6
   velocity: 1.0
   quality_score: 100%

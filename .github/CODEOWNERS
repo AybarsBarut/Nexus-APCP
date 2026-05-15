@@ -1,0 +1,28 @@
+# Nexus-APCP ownership map.
+# Replace @AybarsBarut with a team handle when the project gains maintainers.
+
+* @AybarsBarut
+
+# Public positioning and repository metadata
+README.md @AybarsBarut
+docs/SEO_CHECKLIST.md @AybarsBarut
+codemeta.json @AybarsBarut
+CITATION.cff @AybarsBarut
+.github/repository-metadata.yml @AybarsBarut
+
+# Protocol and prompt surface
+AI_PROJECT_CONTEXT_PROTOCOL.md @AybarsBarut
+AI_MAIN.md @AybarsBarut
+AI_ASSISTANT_PROMPT_TEMPLATES.md @AybarsBarut
+MASTER_PROMPT.md @AybarsBarut
+CAVEMAN_RULES.md @AybarsBarut
+DECISION_LOG_PROTOCOL.md @AybarsBarut
+
+# Safety-sensitive docs
+SECURITY.md @AybarsBarut
+DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md @AybarsBarut
+WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md @AybarsBarut
+
+# Automation and validation
+scripts/ @AybarsBarut
+.github/workflows/ @AybarsBarut

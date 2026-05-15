@@ -79,6 +79,8 @@ Paste the generated `PROMPT_READY.txt` into your AI assistant, or start with the
 | [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
 | [`scripts/apcp-gather.py`](./scripts/apcp-gather.py) | Context packer that generates `PROMPT_READY.txt`. |
+| [`AGENTS.md`](./AGENTS.md) | Repository instructions for AI coding assistants and automation agents. |
+| [`examples/`](./examples/README.md) | Sanitized starter kits for web apps, backend APIs, and AI/RAG systems. |
 
 ## How Nexus-APCP Works
 
@@ -118,6 +120,18 @@ For better GitHub discovery, use these repository topics:
 `ai`, `ai-assisted-development`, `ai-agents`, `context-engineering`, `prompt-engineering`, `llm`, `claude-code`, `cursor-ai`, `chatgpt`, `gemini`, `github-copilot`, `developer-productivity`, `token-optimization`, `architecture-decision-records`, `adr`, `documentation`, `software-development`, `devtools`, `open-source`, `workflow-automation`
 
 See [`docs/SEO_CHECKLIST.md`](./docs/SEO_CHECKLIST.md) for the full repository SEO checklist and metadata source of truth.
+
+## Community and Maintenance
+
+Nexus-APCP includes the repository hygiene expected from a serious open-source protocol kit:
+
+- [`CONTRIBUTING.md`](./CONTRIBUTING.md): contribution rules and public-safety checklist.
+- [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md): community standards.
+- [`SECURITY.md`](./SECURITY.md): private-context and vulnerability-reporting policy.
+- [`SUPPORT.md`](./SUPPORT.md): where to ask for help and what to keep private.
+- [`.github/pull_request_template.md`](./.github/pull_request_template.md): PR checklist for docs, protocol, security, and metadata changes.
+- [`.github/ISSUE_TEMPLATE/`](./.github/ISSUE_TEMPLATE/): structured issue forms for bugs, docs, protocol suggestions, and security-sensitive process notes.
+- [`.github/workflows/validate.yml`](./.github/workflows/validate.yml): repository validation for required files, metadata, links, SVG, and context gathering.
 
 ## FAQ
 

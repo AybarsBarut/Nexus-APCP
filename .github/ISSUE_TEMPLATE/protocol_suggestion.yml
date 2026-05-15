@@ -1,0 +1,41 @@
+name: Protocol suggestion
+description: Propose a new Nexus-APCP workflow, prompt, delivery gate, or example kit.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What AI-assisted development scenario should Nexus-APCP support better?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the protocol, template, checklist, or example you want added.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and privacy considerations
+      description: Note any private context, secrets, customer data, or security risks this workflow must avoid.
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      options:
+        - General AI-assisted development
+        - Web app
+        - Backend/API
+        - AI/RAG/LLM
+        - Mobile
+        - Game development
+        - DevOps/Infrastructure
+        - Security/Penetration testing
+        - Other
+    validations:
+      required: true

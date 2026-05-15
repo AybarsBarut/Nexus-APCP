@@ -1,0 +1,24 @@
+name: Security-sensitive issue
+description: Use this only for non-sensitive security process improvements. Do not disclose vulnerabilities publicly.
+title: "security: "
+labels:
+  - security
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If this is a vulnerability report, do not continue here. Use GitHub private vulnerability reporting if available, or request a private contact without sharing details.
+  - type: textarea
+    id: safe_summary
+    attributes:
+      label: Safe summary
+      description: Describe the documentation or process improvement without exploit details.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Public safety confirmation
+      options:
+        - label: This issue does not include secrets, exploit details, private infrastructure, customer data, or generated private context.
+          required: true

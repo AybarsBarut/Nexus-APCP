@@ -23,6 +23,14 @@ Thanks for improving Nexus-APCP. This repository is a protocol kit, so contribut
 python scripts/apcp-gather.py --caveman
 ```
 
+6. Run repository validation before opening a pull request:
+
+```bash
+python scripts/validate-repo.py
+```
+
+7. Follow the pull request title rules in [`.github/pull_request_title_conventions.md`](./.github/pull_request_title_conventions.md).
+
 ## Pull Request Checklist
 
 - [ ] The change is sanitized for public release.
@@ -30,3 +38,4 @@ python scripts/apcp-gather.py --caveman
 - [ ] The README remains understandable to a first-time visitor.
 - [ ] Token-saving guidance still preserves technical accuracy.
 - [ ] Security-sensitive guidance is not weakened.
+- [ ] `python scripts/validate-repo.py` passes.
