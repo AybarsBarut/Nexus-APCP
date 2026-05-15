@@ -1,0 +1,48 @@
+project: Nexus-APCP
+status: INITIALIZING
+version: 1.0.0
+
+active_sprint:
+  name: "Sprint 0: Orchestration Setup"
+  goal: "Establish AI execution framework and core helper scripts."
+  start_date: "2026-05-15"
+  end_date: "2026-05-16"
+
+tasks:
+  - id: TASK-001
+    title: "Create AI_MAIN.md"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Antigravity (AI)"
+    description: "Define the main execution orchestrator for AI workflow."
+
+  - id: TASK-002
+    title: "Create TASK_PROGRESS.yaml"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Antigravity (AI)"
+    description: "Initialize task tracking system."
+
+  - id: TASK-003
+    title: "Implement Checkpoint Script"
+    status: COMPLETED
+    priority: MEDIUM
+    effort: 2
+    assignee: "Antigravity (AI)"
+    description: "Create scripts/checkpoint.ps1 for pre-commit validation."
+
+  - id: TASK-004
+    title: "Verify Caveman Compliance"
+    status: TODO
+    priority: HIGH
+    effort: 1
+    assignee: "Antigravity (AI)"
+    description: "Audit existing docs for token efficiency."
+
+metrics:
+  tasks_completed: 1
+  total_tasks: 4
+  velocity: 1.0
+  quality_score: 100%
