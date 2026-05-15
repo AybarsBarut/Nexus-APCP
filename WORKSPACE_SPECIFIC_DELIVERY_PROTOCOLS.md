@@ -1125,6 +1125,7 @@ Required:
 
 - Review `git status`.
 - Review diffs for unintended changes.
+- Apply the relevant domain block from `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md` before staging generated builds, databases, customer exports, AI artifacts, or package outputs.
 - Run relevant tests.
 - Run secret scan when any config, env, build artifact, generated file, prompt, or package file is touched.
 - Ensure unrelated user changes are not reverted or staged accidentally.

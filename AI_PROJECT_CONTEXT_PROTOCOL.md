@@ -644,6 +644,7 @@ docs/
 ├── TROUBLESHOOTING.md       # Common issues and solutions
 ├── SECURITY.md              # Security policies
 ├── WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md # Workspace-specific security, AI, packaging, and scalability gates
+├── DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md # Domain-specific ignore rules and safe-push prompts
 ├── CONTRIBUTING.md          # Contributor guidelines
 ├── CHANGELOG.md             # Version history
 └── API_REFERENCE.yaml       # OpenAPI/Swagger spec

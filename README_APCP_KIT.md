@@ -62,6 +62,7 @@ This kit consists of 4 core files. You should use them all together:
 - **DECISION_LOG_PROTOCOL.md**: Architecture Decision Records (ADR) to track technical intent.
 - **CONTEXT_OPTIMIZATION.md**: Strategies for handling large-scale codebases and token limits.
 - **WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md**: Workspace-specific release gates for Unity/game engines, web apps, backend services, AI/LLM products, penetration testing, packaging, and scalability.
+- **DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md**: Domain-specific `.gitignore` templates and prompts for games, web apps, banking/fintech, AI/RAG systems, data/ML, mobile, and DevOps.
 - **scripts/apcp-gather.py**: Automation tool to pack your context for the AI.
 
 ---

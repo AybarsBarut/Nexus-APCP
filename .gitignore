@@ -1,9 +1,502 @@
 # Nexus-APCP Gitignore
+# Broad defaults for documentation kits, AI-assisted projects, generated context,
+# build artifacts, local databases, secrets, and domain-sensitive exports.
+#
+# Important:
+# - .gitignore does not remove files that are already tracked.
+# - If a sensitive file was committed, rotate the secret and remove it from Git history.
+# - Keep .env.example, sample configs, migrations, and documentation templates tracked.
+
+# -----------------------------------------------------------------------------
+# APCP / AI-generated context artifacts
+# -----------------------------------------------------------------------------
 PROMPT_READY.txt
 PROMPT_READY.tmp
-*.tmp
-.DS_Store
-.venv
-venv/
-__pycache__/
 .checkpoint
+.apcp-cache/
+.ai-cache/
+.ai-output/
+.ai-runs/
+.ai_scratch/
+.ai_team/heartbeats/
+.ai_team/session-logs/
+*.prompt.local
+*.context.local
+*.scratch.md
+
+# -----------------------------------------------------------------------------
+# Secrets, credentials, environment files
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.env.local
+*.secret
+*.secrets
+secrets/
+.secrets/
+credentials/
+.credentials/
+private/
+.private/
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.cer
+*.crt
+*.csr
+*.jks
+*.keystore
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+*.kubeconfig
+kubeconfig
+.netrc
+.npmrc
+.pypirc
+.gem/credentials
+.docker/config.json
+firebase-adminsdk*.json
+google-credentials*.json
+service-account*.json
+aws-credentials*
+gcp-credentials*
+azure-credentials*
+
+# -----------------------------------------------------------------------------
+# OS, editor, IDE, local tooling
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.swp
+*.swo
+*~
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+*.code-workspace
+.fleet/
+.history/
+.project
+.classpath
+.settings/
+
+# -----------------------------------------------------------------------------
+# Logs, reports, coverage, temporary files
+# -----------------------------------------------------------------------------
+*.log
+logs/
+log/
+*.tmp
+*.temp
+tmp/
+temp/
+.tmp/
+.temp/
+coverage/
+.coverage
+.coverage.*
+htmlcov/
+.nyc_output/
+test-results/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+junit.xml
+*.lcov
+*.prof
+*.pid
+*.seed
+*.stackdump
+*.trace
+*.dmp
+crash-dumps/
+memory-dumps/
+
+# -----------------------------------------------------------------------------
+# Dependency directories and package manager caches
+# -----------------------------------------------------------------------------
+node_modules/
+bower_components/
+jspm_packages/
+.pnp/
+.pnp.*
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnpm-store/
+.npm/
+.cache/
+.parcel-cache/
+.turbo/
+.nx/
+.rush/
+
+# -----------------------------------------------------------------------------
+# Web frontend and JavaScript/TypeScript builds
+# -----------------------------------------------------------------------------
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+.vercel/
+.netlify/
+.svelte-kit/
+.astro/
+.vite/
+.vitepress/cache/
+storybook-static/
+*.tsbuildinfo
+vite-env.d.ts
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+build/
+dist/
+site/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.tox/
+.nox/
+poetry.lock.tmp
+
+# -----------------------------------------------------------------------------
+# .NET / C# / Visual Studio
+# -----------------------------------------------------------------------------
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+TestResults/
+*.nupkg
+*.snupkg
+
+# -----------------------------------------------------------------------------
+# Java / Kotlin / JVM / Android
+# -----------------------------------------------------------------------------
+.gradle/
+gradle-app.setting
+build/
+out/
+target/
+*.class
+*.jar
+*.war
+*.ear
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.idsig
+
+# -----------------------------------------------------------------------------
+# Swift / iOS / macOS
+# -----------------------------------------------------------------------------
+DerivedData/
+.build/
+Packages/
+xcuserdata/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.ipa
+*.dSYM.zip
+*.dSYM/
+
+# -----------------------------------------------------------------------------
+# Go / Rust / C / C++
+# -----------------------------------------------------------------------------
+vendor/
+*.test
+*.out
+debug/
+release/
+target/
+Cargo.lock.tmp
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.lib
+*.a
+
+# -----------------------------------------------------------------------------
+# PHP / Ruby
+# -----------------------------------------------------------------------------
+vendor/
+composer.phar
+.phpunit.result.cache
+.bundle/
+.ruby-version.local
+.yardoc/
+Gemfile.lock.tmp
+
+# -----------------------------------------------------------------------------
+# Game engines - Unity
+# Keep Assets/, Packages/, ProjectSettings/, and .meta files tracked.
+# -----------------------------------------------------------------------------
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+sysinfo.txt
+*.apk
+*.aab
+*.unitypackage
+
+# -----------------------------------------------------------------------------
+# Game engines - Unreal Engine
+# Keep Config/, Content/, Source/, Plugins/, and .uproject tracked.
+# -----------------------------------------------------------------------------
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+*.opensdf
+*.sdf
+*.sln
+*.suo
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserstate
+*.pdb
+*.target
+*.modules
+
+# -----------------------------------------------------------------------------
+# Game engines - Godot
+# Keep project.godot, scenes, scripts, and source assets tracked.
+# -----------------------------------------------------------------------------
+.godot/
+.import/
+export_presets.cfg
+*.translation
+*.import
+
+# -----------------------------------------------------------------------------
+# Databases, dumps, backups, banking/fintech exports
+# -----------------------------------------------------------------------------
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+*.mdb
+*.accdb
+*.dump
+*.bak
+*.backup
+*.bkp
+*.dump.gz
+*.sql.gz
+*dump*.sql
+*backup*.sql
+*database-export*.sql
+/db/*.db
+/db/*.sqlite*
+/database/*.db
+/database/*.sqlite*
+/databases/*.db
+/databases/*.sqlite*
+/dumps/
+/backups/
+/exports/
+/customer-exports/
+/customer_data/
+/customer-data/
+/kyc/
+/aml/
+/statements/
+/reconciliations/
+/settlements/
+/ledger-exports/
+/payment-exports/
+/chargeback-exports/
+/card-data/
+/pci/
+
+# -----------------------------------------------------------------------------
+# Healthcare, legal, enterprise-sensitive local data
+# -----------------------------------------------------------------------------
+/phi/
+/pii/
+/patient-data/
+/medical-records/
+/legal-discovery/
+/contracts/private/
+/case-files/
+*.dcm
+
+# -----------------------------------------------------------------------------
+# Data science, ML, AI/LLM/RAG artifacts
+# -----------------------------------------------------------------------------
+/data/
+/datasets/
+/corpora/
+/private-corpus/
+/raw-data/
+/processed-data/
+/artifacts/
+/model-artifacts/
+/checkpoints/
+/weights/
+/mlruns/
+/wandb/
+/lightning_logs/
+/runs/
+/outputs/
+/vectorstore/
+/vectorstores/
+/chroma/
+/.chroma/
+/qdrant_storage/
+/weaviate-data/
+/milvus-data/
+/lancedb/
+/.lancedb/
+*.faiss
+*.hnsw
+*.ann
+*.index
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.pb
+*.tflite
+*.safetensors
+*.gguf
+*.bin
+*.npy
+*.npz
+*.parquet
+*.feather
+
+# -----------------------------------------------------------------------------
+# Containers, infrastructure, cloud, Terraform
+# -----------------------------------------------------------------------------
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl.tmp
+docker-compose.override.yml
+docker-compose.*.local.yml
+.docker/
+.kube/
+.helm/secrets/
+helm-secrets/
+*.tfplan
+plan.out
+
+# -----------------------------------------------------------------------------
+# Archives, binaries, installers, release packages
+# -----------------------------------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.gz
+*.bz2
+*.xz
+*.iso
+*.dmg
+*.msi
+*.pkg
+*.deb
+*.rpm
+*.app
+*.appx
+*.appxbundle
+
+# -----------------------------------------------------------------------------
+# Media capture and generated creative assets
+# -----------------------------------------------------------------------------
+screenshots/
+screen-recordings/
+recordings/
+captures/
+renders/
+generated-assets/
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# -----------------------------------------------------------------------------
+# Keep intentional examples and templates trackable
+# -----------------------------------------------------------------------------
+!examples/
+!samples/
+!templates/
+!docs/
+!*.example
+!*.sample
+!*.template

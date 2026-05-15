@@ -28,6 +28,7 @@ In professional software development, AI agents often lose context between sessi
 | [DECISION_LOG_PROTOCOL.md](./DECISION_LOG_PROTOCOL.md) | Records architectural intent to prevent refactor loops. |
 | [CAVEMAN_RULES.md](./CAVEMAN_RULES.md) | 🪨 Rules for ultra-efficient, token-saving communication. |
 | [WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Mandatory workspace-specific delivery gates for security, AI safety, penetration testing, packaging, and scalability. |
+| [DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Field-specific `.gitignore` templates and AI prompts for safe GitHub publishing and customer packaging. |
 | [PROMPT_TEMPLATES.md](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | 16+ Ready-to-use scenarios for every dev stage. |
 
 ---
