@@ -42,7 +42,7 @@ tasks:
     description: "Audit existing docs for token efficiency."
 
 metrics:
-  tasks_completed: 1
+  tasks_completed: 3
   total_tasks: 4
   velocity: 1.0
   quality_score: 100%
