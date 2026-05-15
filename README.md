@@ -27,6 +27,7 @@ In professional software development, AI agents often lose context between sessi
 | [TASK_PROGRESS.yaml](./TASK_PROGRESS.yaml) | Dynamic task tracking with velocity metrics. |
 | [DECISION_LOG_PROTOCOL.md](./DECISION_LOG_PROTOCOL.md) | Records architectural intent to prevent refactor loops. |
 | [CAVEMAN_RULES.md](./CAVEMAN_RULES.md) | 🪨 Rules for ultra-efficient, token-saving communication. |
+| [WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Mandatory workspace-specific delivery gates for security, AI safety, penetration testing, packaging, and scalability. |
 | [PROMPT_TEMPLATES.md](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | 16+ Ready-to-use scenarios for every dev stage. |
 
 ---

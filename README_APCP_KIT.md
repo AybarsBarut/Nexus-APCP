@@ -61,6 +61,7 @@ This kit consists of 4 core files. You should use them all together:
 ### 🌟 **ADVANCED FEATURES (Professional Pack)**
 - **DECISION_LOG_PROTOCOL.md**: Architecture Decision Records (ADR) to track technical intent.
 - **CONTEXT_OPTIMIZATION.md**: Strategies for handling large-scale codebases and token limits.
+- **WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md**: Workspace-specific release gates for Unity/game engines, web apps, backend services, AI/LLM products, penetration testing, packaging, and scalability.
 - **scripts/apcp-gather.py**: Automation tool to pack your context for the AI.
 
 ---

@@ -643,6 +643,7 @@ docs/
 ├── DEPLOYMENT.md            # Production deployment
 ├── TROUBLESHOOTING.md       # Common issues and solutions
 ├── SECURITY.md              # Security policies
+├── WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md # Workspace-specific security, AI, packaging, and scalability gates
 ├── CONTRIBUTING.md          # Contributor guidelines
 ├── CHANGELOG.md             # Version history
 └── API_REFERENCE.yaml       # OpenAPI/Swagger spec
