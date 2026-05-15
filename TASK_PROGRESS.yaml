@@ -34,12 +34,12 @@ tasks:
     description: "Create scripts/ for validation, context gathering, and pre-commit checks."
 
   - id: TASK-004
-    title: "Verify Caveman Compliance"
+    title: "Implement Advanced Caveman Compression Protocol"
     status: COMPLETED
     priority: HIGH
-    effort: 1
+    effort: 2
     assignee: "Antigravity (AI)"
-    description: "Audit existing docs for token efficiency."
+    description: "Expand Caveman rules to include advanced structural compression, technical anchoring, and emoji metadata for maximum token efficiency."
 
   - id: TASK-005
     title: "Comprehensive Repository SEO Optimization"
