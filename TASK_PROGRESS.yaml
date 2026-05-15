@@ -26,16 +26,16 @@ tasks:
     description: "Initialize task tracking system."
 
   - id: TASK-003
-    title: "Implement Checkpoint Script"
+    title: "Implement Scripts Infrastructure"
     status: COMPLETED
     priority: MEDIUM
     effort: 2
     assignee: "Antigravity (AI)"
-    description: "Create scripts/checkpoint.ps1 for pre-commit validation."
+    description: "Create scripts/ for validation, context gathering, and pre-commit checks."
 
   - id: TASK-004
     title: "Verify Caveman Compliance"
-    status: TODO
+    status: COMPLETED
     priority: HIGH
     effort: 1
     assignee: "Antigravity (AI)"
@@ -57,8 +57,24 @@ tasks:
     assignee: "Codex"
     description: "Add original AI agent guidance, PR and issue templates, community docs, CODEOWNERS, example kits, and validation CI inspired by mature open-source repository practices."
 
+  - id: TASK-007
+    title: "Synchronize AI_MAIN.md"
+    status: COMPLETED
+    priority: MEDIUM
+    effort: 1
+    assignee: "Antigravity (AI)"
+    description: "Align the main orchestrator with current repository progress and protocol updates."
+
+  - id: TASK-008
+    title: "Implement Second Brain Sync Scenario"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Antigravity (AI)"
+    description: "Create Scenario 0 in prompt templates for NotebookLM/Obsidian Knowledge Base export."
+
 metrics:
-  tasks_completed: 5
-  total_tasks: 6
+  tasks_completed: 8
+  total_tasks: 8
   velocity: 1.0
   quality_score: 100%

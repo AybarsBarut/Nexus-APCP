@@ -17,11 +17,15 @@ The public repository should remain safe to share. Real project context files, p
 | `AI_MAIN.md` | AI execution orchestrator and session checkpoint flow. |
 | `TASK_PROGRESS.yaml` | Current task state, sprint status, and repository maintenance progress. |
 | `DECISION_LOG_PROTOCOL.md` | Decision history and architecture intent protocol. |
+| `CONTEXT_OPTIMIZATION.md` | Strategies for handling large-scale codebases and context window limits. |
 | `CAVEMAN_RULES.md` | Token-efficient communication rules. |
 | `AI_ASSISTANT_PROMPT_TEMPLATES.md` | Reusable prompts for common AI-assisted development scenarios. |
 | `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md` | Domain-specific delivery gates and release expectations. |
 | `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md` | Safe publishing patterns for different project domains. |
+| `MACP_IMPLEMENTATION_GUIDE.md` | Multi-AI Coordination Protocol for parallel model workflows. |
+| `SETUP_GUIDE.md` | Step-by-step setup instructions and routine maintenance. |
 | `scripts/apcp-gather.py` | Generates an AI-ready context bundle from core protocol files. |
+| `scripts/validate-repo.py` | Repository integrity, metadata, and link validation script. |
 | `docs/SEO_CHECKLIST.md` | Repository SEO metadata and keyword source of truth. |
 
 ## Essential Commands

@@ -3,6 +3,26 @@
 
 ---
 
+## 📌 SCENARIO 0: Initializing the "Second Brain" (NotebookLM / Obsidian Sync)
+**Objective:** Transform structured APCP context into a high-density Knowledge Base optimized for RAG-based tools (NotebookLM) or linked-note systems (Obsidian). This is critical for team onboarding and multi-model synchronization.
+
+**Prompt to send to AI:**
+```text
+I want to establish a "Second Brain" Knowledge Base for this project to support team onboarding and multi-AI coordination.
+
+Using the current APCP documents (Context Protocol, Task Progress, and Decision Log), please generate a "Project Wisdom Center" export. 
+
+The output should be a structured Markdown document optimized for NotebookLM (RAG) and Obsidian Vault, covering:
+1. Strategic Roadmap: The project's "North Star" and core tech stack rationale.
+2. Architectural DNA: Logical summary of the folder structure and data flow patterns.
+3. Decision Archive: Summary of key technical decisions (ADRs) and "rejected paths" to avoid refactor loops.
+4. Onboarding Guide: Top 3 rules a new developer must know and "low-hanging fruit" tasks for immediate contribution.
+
+Format the output to be instructive and mentor-like, ensuring all technical terms and file paths are explicitly linked for better AI retrieval.
+```
+
+---
+
 ## 📌 SCENARIO 1: Starting a Project for the First Time (Recommended)
 
 Copy and send to the AI in the same session:
