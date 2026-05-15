@@ -131,7 +131,7 @@ OUT OF SCOPE:
 ├── .env.example
 ├── README.md
 ├── LICENSE
-└── AI_PROJECT_CONTEXT.md             # 👈 This file
+└── AI_PROJECT_CONTEXT.md             # 👈 Local/private filled project context by default
 ```
 
 ### 2.1 Important Directory Descriptions
@@ -285,6 +285,23 @@ If you need to show sensitive data to the AI model:
 [REDACTED_API_KEY_BEGINS_WITH: sk_live_]
 [REDACTED_DATABASE_PASSWORD]
 [REDACTED_JWT_SECRET]
+```
+
+### 4.4 Private Project Context and Architecture Exposure
+
+Filled project-context files are treated like sensitive material when they reveal how the system is built. The following must stay local/private unless a sanitized public version is explicitly approved:
+
+```yaml
+Type: Internal project structure and architecture context
+Examples:
+  - AI_PROJECT_CONTEXT.md filled for a real private project
+  - Backend route maps and service topology
+  - Database schema internals and production migration notes
+  - Infrastructure/deployment maps and internal hostnames
+  - Admin workflows, runbooks, threat models, pentest reports
+  - Private AI system prompts, tool policies, vector-store layout
+Storage: local workspace, private docs, or approved internal knowledge base
+Rule: Do not commit to public GitHub or customer packages. Create a sanitized public summary instead.
 ```
 
 ---

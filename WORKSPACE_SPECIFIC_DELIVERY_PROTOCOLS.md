@@ -89,6 +89,7 @@ Stop conditions:
 - The work requires credentials the AI does not have.
 - The user asks to attack a third-party system without authorization.
 - The AI detects secrets in files that would be committed or packaged.
+- The AI detects filled project context, backend architecture maps, database internals, deployment topology, private threat models, penetration-test reports, or security runbooks that would be pushed to a public repository or packaged for a customer without explicit approval.
 - The requested action would expose private code, private assets, user data, keys, certificates, or internal prompts.
 
 ### Gate 1: Implementation Hygiene
@@ -134,6 +135,7 @@ Required checks:
 - Secure headers, cookies, CORS, CSRF, rate limits, and session handling when web-facing.
 - Logging review to ensure secrets and personal data are not logged.
 - Public build review to ensure no private env vars, source maps, debug endpoints, admin panels, model system prompts, internal URLs, private assets, or credentials are exposed.
+- Public repository review to ensure filled project context files, backend maps, internal architecture docs, database internals, private deployment maps, threat models, penetration-test reports, and security runbooks are not pushed unless sanitized and explicitly approved.
 
 Minimum recommended tooling, adapted to stack:
 
@@ -907,6 +909,11 @@ Never commit, package, expose, or paste into AI context unless explicitly author
 - Production logs.
 - Crash dumps containing user data.
 - Proprietary model prompts.
+- Filled `AI_PROJECT_CONTEXT.md` or equivalent project-context files.
+- Backend maps, route maps, service topology maps, and internal architecture diagrams.
+- Database internals, private schema diagrams, and migration notes containing production assumptions.
+- Deployment topology maps, internal hostnames, network diagrams, and admin runbooks.
+- Private threat models, penetration-test reports, exploit notes, and security-control details.
 - Internal security reports.
 
 Required before GitHub push:
@@ -914,6 +921,7 @@ Required before GitHub push:
 - Local secret scan.
 - `git status` review.
 - `.gitignore` review.
+- Internal architecture/context exposure review using `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`.
 - Artifact content review if generated files are committed.
 - GitHub secret scanning/push protection enabled where available.
 

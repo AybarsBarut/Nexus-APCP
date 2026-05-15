@@ -39,6 +39,7 @@ Project `.gitignore` files should include patterns that all contributors should 
 - Local databases.
 - Generated test reports.
 - Generated AI context bundles.
+- Private project structure and backend architecture maps.
 - Game engine cache/build folders.
 - ML datasets and model checkpoints.
 - Infrastructure state files.
@@ -165,6 +166,34 @@ junit.xml
 *.dmp
 crash-dumps/
 memory-dumps/
+
+# Private project context and internal architecture
+AI_PROJECT_CONTEXT.md
+PROJECT_CONTEXT.md
+PROJECT_STRUCTURE.md
+PROJECT_MAP.md
+REPO_MAP.md
+CODEBASE_MAP.md
+BACKEND_MAP.md
+DATABASE_SCHEMA_INTERNAL.md
+INFRASTRUCTURE_MAP.md
+DEPLOYMENT_MAP.md
+THREAT_MODEL_INTERNAL.md
+SECURITY_ARCHITECTURE.md
+ARCHITECTURE_INTERNAL.md
+ARCHITECTURE_PRIVATE.md
+*_INTERNAL.md
+*_PRIVATE.md
+*_LOCAL.md
+docs/internal/
+docs/private/
+docs/local/
+docs/architecture-internal/
+docs/backend-map/
+docs/security-internal/
+internal-docs/
+private-docs/
+local-context/
 ```
 
 Universal rule:
@@ -175,6 +204,24 @@ Universal rule:
 - Ignore generated reports unless intentionally published.
 - Keep lockfiles tracked for deployable apps.
 - Ignore dependency directories.
+- Keep only sanitized public architecture docs tracked; real backend maps, internal architecture, threat models, deployment maps, and project-specific AI context files stay local/private.
+
+### 2.1 Private Architecture and Project Context Rule
+
+Treat filled project context files like secrets when they reveal how the system is built. Backend topology, route maps, service names, database internals, private infrastructure, internal admin flows, security controls, deployment topology, private prompts, tool policies, vector-store layout, threat models, penetration-test reports, and runbooks should not be pushed to a public repository or included in a customer package by default.
+
+If public documentation is needed, create a sanitized public version that removes internal hostnames, admin routes, service topology, database details, security controls, credentials, private prompts, and exploit-relevant implementation details.
+
+AI prompt:
+
+```text
+You are auditing a repository for private architecture and project-context exposure.
+Find files that explain internal project structure, backend topology, route maps, database schema internals, infrastructure layout, deployment topology, threat models, penetration-test reports, private runbooks, AI system prompts, tool policies, vector-store layout, or filled APCP project context.
+Update `.gitignore` so internal project context and architecture maps stay local/private.
+Keep only sanitized protocol templates and public documentation tracked.
+Report already tracked internal files and propose `git rm --cached` remediation.
+State whether the repository is safe for public GitHub.
+```
 
 ---
 
@@ -198,6 +245,11 @@ PROMPT_READY.tmp
 *.context.local
 *.scratch.md
 
+# Filled APCP project context is private by default
+AI_PROJECT_CONTEXT.md
+PROJECT_CONTEXT.md
+local-context/
+
 # Keep shared templates and state if intentionally part of protocol
 !.ai_team/templates/
 !.ai_team/handshakes/
@@ -210,6 +262,7 @@ Rules:
 
 - Do not commit raw AI logs containing secrets, private prompts, customer data, local file paths, or credentials.
 - Do not commit temporary prompt bundles generated from private repositories.
+- Do not commit filled `AI_PROJECT_CONTEXT.md` files for real projects when they expose backend structure, database layout, infrastructure, internal services, route maps, private prompts, or security assumptions.
 - Do commit sanitized protocol templates.
 - Do commit decision logs if they contain no secrets or customer data.
 - Do not paste local secret files into AI context.
@@ -686,6 +739,7 @@ Must stay tracked:
 Rules:
 
 - Never commit production databases.
+- Never commit backend topology maps, internal ledger architecture, private reconciliation workflows, fraud-rule internals, or payment-provider integration maps to a public repository.
 - Never commit customer exports.
 - Never commit cardholder data.
 - Never commit KYC/AML documents.
@@ -970,6 +1024,7 @@ Must stay tracked:
 Rules:
 
 - Never commit state files.
+- Never commit internal infrastructure maps, private network diagrams, admin runbooks, deployment topology maps, or disaster-recovery details to public repositories.
 - Never commit `.tfvars` with real values.
 - Never commit kubeconfig.
 - Never commit cloud credentials.
@@ -1145,6 +1200,7 @@ Checklist:
 - `git diff --cached --name-only`
 - `git check-ignore -v path/to/suspicious/file` for any file that should be ignored.
 - Confirm no `.env`, local database, dump, build, package, credential, customer export, private dataset, vector store, or model checkpoint is staged.
+- Confirm no filled project context, backend map, internal architecture, private threat model, deployment topology, database internals, penetration-test report, or security runbook is staged for a public repository.
 - Confirm `.env.example` is staged/tracked when config changed.
 - Confirm migrations are tracked when schema changed.
 - Confirm lockfiles are tracked when dependencies changed.
@@ -1159,7 +1215,7 @@ Perform a pre-push gitignore audit.
 1. Read `.gitignore`.
 2. Read `git status --short`.
 3. Inspect staged and unstaged file names.
-4. Identify any secrets, environment files, local DBs, dumps, generated builds, customer exports, AI vector stores, model checkpoints, logs, crash dumps, or domain-sensitive data that should not be committed.
+4. Identify any secrets, environment files, local DBs, dumps, generated builds, customer exports, AI vector stores, model checkpoints, logs, crash dumps, private project context, backend maps, internal architecture docs, private threat models, deployment topology maps, or domain-sensitive data that should not be committed.
 5. Identify any important source/config files that are accidentally ignored.
 6. Provide exact remediation commands, but do not run destructive commands without approval.
 7. State whether the repository is safe to push.
@@ -1198,11 +1254,13 @@ Then generate a `.gitignore` with:
 - Build/package artifact rules
 - Secret/env rules
 - AI-generated artifact rules if relevant
+- Internal architecture/project-context rules
 - Explicit keep-tracked notes for files that must not be ignored
 
 Finally, list:
 - Files that must stay tracked
 - Files that must never be committed
+- Internal architecture/context files that must stay local
 - Commands to untrack already committed sensitive files
 - Secret rotation warnings
 - Pre-push verification steps
@@ -1221,12 +1279,13 @@ Tasks:
 2. Identify generated folders and build artifacts.
 3. Identify local secrets, env files, credentials, certificates, and cloud config.
 4. Identify domain-sensitive data that must never be pushed.
-5. Identify project-critical files that must remain tracked.
-6. Compare current `.gitignore` against the needed rules.
-7. Propose a patch that adds missing protections without hiding important source files.
-8. Check whether sensitive files are already tracked.
-9. Provide remediation steps for already tracked files.
-10. Provide a final "safe to push" or "not safe to push" verdict.
+5. Identify internal project context, backend maps, architecture maps, database internals, deployment maps, private threat models, and security runbooks that must stay local/private.
+6. Identify project-critical files that must remain tracked.
+7. Compare current `.gitignore` against the needed rules.
+8. Propose a patch that adds missing protections without hiding important source files.
+9. Check whether sensitive or internal files are already tracked.
+10. Provide remediation steps for already tracked files.
+11. Provide a final "safe to push" or "not safe to push" verdict.
 ```
 
 ---
@@ -1252,6 +1311,7 @@ Ensure the package excludes:
 - game engine cache folders
 - raw datasets
 - internal docs not meant for customer delivery
+- filled project context files and backend architecture maps
 - debug builds unless explicitly intended
 
 Ensure the package includes:
@@ -1278,6 +1338,7 @@ Gitignore and public exposure:
 - Files intentionally ignored:
 - Files intentionally kept tracked:
 - Already-tracked sensitive files found:
+- Internal architecture/context exposure found:
 - Remediation performed:
 - Secret rotation required:
 - Secret scan status:
@@ -1307,6 +1368,7 @@ Before suggesting "push to GitHub", "package this", "send to the customer", or "
 - Does it block generated builds?
 - Does it block local databases?
 - Does it block customer data?
+- Does it block internal project context, backend maps, architecture maps, deployment maps, and private threat models?
 - Does it block secrets and private keys?
 - Does it block AI private context and vector stores?
 - Does it avoid hiding files that must be tracked?

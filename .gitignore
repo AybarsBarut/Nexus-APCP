@@ -24,6 +24,36 @@ PROMPT_READY.tmp
 *.context.local
 *.scratch.md
 
+# Private project context and internal architecture maps
+# Sanitized protocol templates may be public; filled project-specific maps stay local.
+AI_PROJECT_CONTEXT.md
+PROJECT_CONTEXT.md
+PROJECT_STRUCTURE.md
+PROJECT_MAP.md
+REPO_MAP.md
+CODEBASE_MAP.md
+BACKEND_MAP.md
+FRONTEND_MAP_INTERNAL.md
+DATABASE_SCHEMA_INTERNAL.md
+INFRASTRUCTURE_MAP.md
+DEPLOYMENT_MAP.md
+THREAT_MODEL_INTERNAL.md
+SECURITY_ARCHITECTURE.md
+ARCHITECTURE_INTERNAL.md
+ARCHITECTURE_PRIVATE.md
+*_INTERNAL.md
+*_PRIVATE.md
+*_LOCAL.md
+docs/internal/
+docs/private/
+docs/local/
+docs/architecture-internal/
+docs/backend-map/
+docs/security-internal/
+internal-docs/
+private-docs/
+local-context/
+
 # -----------------------------------------------------------------------------
 # Secrets, credentials, environment files
 # -----------------------------------------------------------------------------

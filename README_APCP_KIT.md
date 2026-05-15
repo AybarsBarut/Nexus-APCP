@@ -98,6 +98,8 @@ nano TASK_PROGRESS.yaml
 # Add your first 5-10 tasks (sprint planning)
 ```
 
+Security rule: the filled `AI_PROJECT_CONTEXT.md` for a real project is private by default. It can expose backend structure, internal architecture, database internals, deployment topology, admin flows, private prompts, and security assumptions. Keep it local or in an approved private knowledge base unless you create a sanitized public version.
+
 ### Step 3: Create Helper Scripts (5 min)
 
 ```bash
@@ -115,9 +117,11 @@ git commit -m "chore: add APCP helper scripts"
 ### Step 4: Commit to Git (2 min)
 
 ```bash
-git add AI_PROJECT_CONTEXT.md TASK_PROGRESS.yaml
+# Commit sanitized templates/docs only. Keep filled AI_PROJECT_CONTEXT.md local/private by default.
+git add .gitignore
 git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
 git add docs/SETUP_GUIDE.md
+git add docs/AI_PROJECT_CONTEXT_TEMPLATE.md  # optional sanitized template, not the filled private context
 git commit -m "docs: initialize APCP system for AI-assisted development"
 git push
 ```
@@ -340,9 +344,9 @@ Depending on your environment:
 
 ```
 On GitHub:
-  AI_PROJECT_CONTEXT.md
-    ├─ Raw: github.com/user/repo/raw/main/AI_PROJECT_CONTEXT.md
-    └─ Add to README.md as a Permalink
+  AI_PROJECT_CONTEXT_TEMPLATE.md
+    ├─ Raw: github.com/user/repo/raw/main/docs/AI_PROJECT_CONTEXT_TEMPLATE.md
+    └─ Sanitized template only; never publish filled private context by default
 
   TASK_PROGRESS.yaml
     ├─ Raw: github.com/user/repo/raw/main/TASK_PROGRESS.yaml

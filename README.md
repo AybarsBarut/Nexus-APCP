@@ -6,6 +6,8 @@
 
 **Nexus-APCP** is a high-performance protocol designed to synchronize human intent with AI intelligence. It provides a standardized framework for developers to maintain project context across multiple AI sessions, models, and agents while drastically reducing token costs using the **Caveman Compression** philosophy.
 
+> Security note: protocol templates may be public, but filled project-context files, backend maps, internal architecture diagrams, deployment maps, database internals, private threat models, and security runbooks should stay local/private unless sanitized and explicitly approved.
+
 ---
 
 ## 🎯 Why Nexus-APCP?
