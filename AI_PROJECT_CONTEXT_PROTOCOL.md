@@ -241,11 +241,11 @@ The following will **NEVER** be written in this file or in code reviews:
 ```yaml
 Type: API Keys / Tokens
 Examples:
-  - JWT Secret: "your-secret-key-here"
-  - Database Password: "prod_password_123"
-  - AWS Access Key: "AKIAIOSFODNN7EXAMPLE"
-  - OpenAI API Key: "sk-..."
-  - Stripe Secret Key: "sk_live_..."
+  - JWT Secret: "<REDACTED_JWT_SECRET>"
+  - Database Password: "<REDACTED_DATABASE_PASSWORD>"
+  - AWS Access Key: "<REDACTED_AWS_ACCESS_KEY_ID>"
+  - OpenAI API Key: "<REDACTED_OPENAI_API_KEY>"
+  - Stripe Secret Key: "<REDACTED_STRIPE_SECRET_KEY>"
 Storage: .env file or Secrets Manager
 Rule: ⚠️ Will never be committed to the repo
 ```
@@ -303,6 +303,18 @@ Examples:
 Storage: local workspace, private docs, or approved internal knowledge base
 Rule: Do not commit to public GitHub or customer packages. Create a sanitized public summary instead.
 ```
+
+### 4.5 Website Backend Public/Private Boundary
+
+For website projects, apply `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md` before adding backend, API, auth, storage, or serverless logic.
+
+Default rules:
+
+- Static-first for portfolios, landing pages, brochure sites, and public content.
+- No SQL database for portfolio sites unless the user requests real dynamic records, private submissions, CMS-style editing, or stored analytics.
+- Browser-exposed values are public by design; private API keys, service role keys, database URLs, payment secrets, mail keys, webhook signing secrets, and AI provider keys stay server-side.
+- Use serverless/edge/backend proxies only when they enforce validation, authorization, secret protection, rate limits, caching, quotas, or webhook verification.
+- End website backend work with functional tests, build review, secret scan, dependency scan, public bundle review, authorized penetration testing, fixes, and retest before release-ready delivery.
 
 ---
 
@@ -661,6 +673,7 @@ docs/
 ├── TROUBLESHOOTING.md       # Common issues and solutions
 ├── SECURITY.md              # Security policies
 ├── WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md # Workspace-specific security, AI, packaging, and scalability gates
+├── WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md # Website backend security, API secrecy, static-first, and pentest gates
 ├── DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md # Domain-specific ignore rules and safe-push prompts
 ├── CONTRIBUTING.md          # Contributor guidelines
 ├── CHANGELOG.md             # Version history

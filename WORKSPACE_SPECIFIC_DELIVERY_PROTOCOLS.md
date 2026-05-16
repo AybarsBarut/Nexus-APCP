@@ -429,6 +429,8 @@ Before GitHub push, build packaging, or customer handoff:
 
 Use this protocol for websites, dashboards, SaaS frontends, landing pages with forms, admin panels, browser tools, static sites, and browser-delivered applications.
 
+When a website touches backend logic, APIs, forms, secrets, data storage, auth, serverless functions, edge workers, or deployment security, also apply [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md). For portfolio, brochure, landing, and static content sites, the default architecture is static-first with no SQL database unless a real dynamic data requirement exists.
+
 ### 4.1 Web Stack Intake
 
 The AI must identify:
@@ -514,6 +516,7 @@ Recommended tools:
 
 Required checks:
 
+- Backend necessity review: confirm whether the site needs a backend or database at all; portfolio and static marketing sites must not receive SQL/auth/server infrastructure by default.
 - Authentication: secure session creation, refresh, logout, password reset, MFA when applicable.
 - Authorization: route-level and object-level checks on the server, not only UI hiding.
 - CSRF protection for cookie-authenticated state-changing requests.
@@ -533,6 +536,7 @@ Required checks:
 
 Required checks:
 
+- Static-first architecture review: remove unnecessary backend, database, auth, and runtime dependencies before optimizing around them.
 - Bundle size budgets.
 - Image/video optimization.
 - CDN caching strategy.
@@ -574,10 +578,13 @@ Before GitHub push, deployment, or customer delivery:
 
 Use this protocol for APIs, workers, services, databases, queues, cron jobs, webhooks, SaaS backends, and internal platforms.
 
+For website-specific backend decisions, API secret visibility, static-first architecture, and end-of-work web penetration testing, also apply [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md).
+
 ### 5.1 Backend Intake
 
 The AI must identify:
 
+- Whether the backend is actually required for the website request.
 - Language/runtime and framework.
 - API style: REST, GraphQL, gRPC, WebSocket, event-driven.
 - Database type and migration tool.
@@ -610,6 +617,7 @@ Rules:
 
 Required checks:
 
+- Database necessity: confirm the feature cannot be served safely by static content, managed forms, serverless functions, KV/object storage, or a managed CMS before adding SQL/NoSQL.
 - Schema migration and rollback path.
 - Indexes for new query patterns.
 - Transaction boundaries.
@@ -1355,6 +1363,10 @@ Use these as baseline references when tailoring project-specific gates:
 
 - OWASP Application Security Verification Standard (ASVS): https://owasp.org/www-project-application-security-verification-standard/
 - OWASP Web Security Testing Guide (WSTG): https://owasp.org/www-project-web-security-testing-guide/
+- MDN Web Docs, Security on the web: https://developer.mozilla.org/en-US/docs/Web/Security
+- Cloudflare Security rules documentation: https://developers.cloudflare.com/security/rules/
+- HKUST Secure Web Application Development Guideline: https://itso.hkust.edu.hk/sites/default/files/site-images/cyber-security/Secure%20Web%20Application%20Development%20Guideline.pdf
+- Web Developer Security Checklist: https://github.com/virajkulkarni14/WebDeveloperSecurityChecklist
 - OWASP Top 10 for Large Language Model Applications: https://owasp.org/www-project-top-10-for-large-language-model-applications/
 - OWASP LLM01:2025 Prompt Injection: https://genai.owasp.org/llmrisk/llm01-prompt-injection/
 - NIST Secure Software Development Framework (SSDF), SP 800-218: https://csrc.nist.gov/pubs/sp/800/218/final

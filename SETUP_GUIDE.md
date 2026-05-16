@@ -64,6 +64,7 @@ Install these core files when available:
 - CAVEMAN_RULES.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+- WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
 - scripts/apcp-gather.py
 
@@ -84,6 +85,7 @@ python scripts/apcp-gather.py --caveman
 # - CONTEXT_OPTIMIZATION.md
 # - CAVEMAN_RULES.md
 # - AI_ASSISTANT_PROMPT_TEMPLATES.md
+# - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 
 cp AI_PROJECT_CONTEXT_PROTOCOL.md /path/to/your/project/
 cp AI_MAIN.md /path/to/your/project/
@@ -91,6 +93,7 @@ cp TASK_PROGRESS.yaml /path/to/your/project/
 cp DECISION_LOG_PROTOCOL.md /path/to/your/project/
 cp CONTEXT_OPTIMIZATION.md /path/to/your/project/
 cp CAVEMAN_RULES.md /path/to/your/project/
+cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /path/to/your/project/
 cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/docs/
 mkdir -p /path/to/your/project/scripts
 cp scripts/apcp-gather.py /path/to/your/project/scripts/
@@ -98,6 +101,7 @@ cp scripts/apcp-gather.py /path/to/your/project/scripts/
 # Add to Git
 git add AI_PROJECT_CONTEXT_PROTOCOL.md AI_MAIN.md TASK_PROGRESS.yaml
 git add DECISION_LOG_PROTOCOL.md CONTEXT_OPTIMIZATION.md CAVEMAN_RULES.md
+git add WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
 git add scripts/apcp-gather.py
 
@@ -108,6 +112,7 @@ git commit -m "docs: add AI Project Context Protocol (APCP) v1.0
 - Add AI_MAIN.md for AI session orchestration
 - Add TASK_PROGRESS.yaml for task tracking
 - Add decision log, context optimization, and Caveman rules
+- Add website backend security and optimization protocol
 - Add AI_ASSISTANT_PROMPT_TEMPLATES.md for prompt templates
 - Add apcp-gather.py for context packaging
 - Enables AI-assisted development workflow"

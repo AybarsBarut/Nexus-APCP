@@ -24,6 +24,7 @@ REQUIRED_FILES = [
     "CITATION.cff",
     "codemeta.json",
     "AI_PROJECT_CONTEXT_PROTOCOL.md",
+    "WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md",
     "TASK_PROGRESS.yaml",
     "docs/SEO_CHECKLIST.md",
     ".github/CODEOWNERS",

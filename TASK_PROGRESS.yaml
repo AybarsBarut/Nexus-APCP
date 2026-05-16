@@ -113,8 +113,16 @@ tasks:
     assignee: "Codex"
     description: "Tell AI agents not to run git status, add, commit, push, or other Git commands during setup unless the user explicitly asks or approves after an explanation."
 
+  - id: TASK-014
+    title: "Add Website Backend Security and Optimization Protocol"
+    status: COMPLETED
+    priority: HIGH
+    effort: 2
+    assignee: "Codex"
+    description: "Create static-first website backend rules for API secrecy, database necessity, optimization, flexible feature growth, and authorized penetration-test closure."
+
 metrics:
-  tasks_completed: 13
-  total_tasks: 13
+  tasks_completed: 14
+  total_tasks: 14
   velocity: 1.0
   quality_score: 100%

@@ -23,6 +23,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 - **Task continuity**: `TASK_PROGRESS.yaml` tracks active work, sprint goals, checkpoints, and quality gates.
 - **Model portability**: move between Claude, Cursor, ChatGPT, Gemini, Copilot, and local agents without rebuilding context.
 - **Phase-gated delivery**: waterfall-style stack combination protocols help teams define requirements, contracts, tests, and release evidence before implementation drifts.
+- **Website backend security**: static-first backend rules help teams avoid unnecessary SQL/auth/API surface for portfolio, landing, and brochure sites while still supporting secure growth into dynamic features.
 - **Safer publishing**: domain-specific `.gitignore` guidance helps prevent secrets, internal maps, customer data, and generated context from leaking.
 
 ## Core Features
@@ -36,6 +37,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | Prompt Templates | Provides ready-to-use prompts for implementation, review, debugging, refactoring, and handoff. |
 | Delivery Protocols | Adds release gates for web apps, backend services, AI/LLM products, games, mobile apps, DevOps, and security work. |
 | Waterfall Stack Protocol | Defines phase-gated documentation, design, implementation, verification, worked examples, and official-source research fallback for mixed stacks such as web + database, web + Python, and Python + Unity. |
+| Website Backend Security Protocol | Defines static-first website backend rules, API secret handling, database necessity checks, optimization gates, and authorized penetration-test closure. |
 | GitHub Safety Rules | Includes broad `.gitignore` patterns for AI artifacts, secrets, generated files, domain data, and private docs. |
 
 ## Quick Start
@@ -58,6 +60,7 @@ cp CONTEXT_OPTIMIZATION.md /your/project/
 cp CAVEMAN_RULES.md /your/project/
 mkdir -p /your/project/docs
 cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/docs/
+cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /your/project/
 mkdir -p /your/project/scripts
 cp scripts/apcp-gather.py /your/project/scripts/
 ```
@@ -100,6 +103,7 @@ Install these core files when available:
 - CAVEMAN_RULES.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+- WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
 - scripts/apcp-gather.py
 
@@ -119,6 +123,7 @@ python scripts/apcp-gather.py --caveman
 | [`CAVEMAN_RULES.md`](./CAVEMAN_RULES.md) | Token-efficient communication rules for concise AI output. |
 | [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
 | [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
+| [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md) | Static-first website backend security, API secret handling, database necessity, optimization, and penetration-test closure protocol. |
 | [`WATERFALL_DEVELOPMENT_PROTOCOL.md`](./WATERFALL_DEVELOPMENT_PROTOCOL.md) | Phase-gated waterfall protocol with worked examples and web research rules for stack combinations such as web + database, web + Python, Python + Unity, backend APIs, Unity services, and AI/RAG workflows. |
 | [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
@@ -133,7 +138,7 @@ python scripts/apcp-gather.py --caveman
 2. **Track execution state** in `TASK_PROGRESS.yaml`: active tasks, priorities, estimates, dependencies, and quality gates.
 3. **Preserve decisions** in `DECISION_LOG_PROTOCOL.md`: accepted tradeoffs, rejected paths, and architectural intent.
 4. **Package context** with `scripts/apcp-gather.py`: combine the core protocol files into one prompt-ready bundle.
-5. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md` and `WATERFALL_DEVELOPMENT_PROTOCOL.md` when the work needs release gates, stack contracts, or phase-by-phase verification.
+5. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, and `WATERFALL_DEVELOPMENT_PROTOCOL.md` when the work needs release gates, backend/API safety, stack contracts, or phase-by-phase verification.
 6. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
 
 ## Ideal Use Cases
@@ -199,7 +204,7 @@ YAML is easy for humans to read, easy for AI models to update, and structured en
 
 ## Related Keywords
 
-AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, prompt engineering, LLM project memory, AI agent handoff, token optimization, architecture decision records, ADR protocol, waterfall development protocol, phase-gated delivery, stack combination documentation, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
+AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, prompt engineering, LLM project memory, AI agent handoff, token optimization, architecture decision records, ADR protocol, website backend security protocol, secure web development, backend optimization, waterfall development protocol, phase-gated delivery, stack combination documentation, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
 
 ## License
 

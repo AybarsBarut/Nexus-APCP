@@ -39,6 +39,7 @@ Please adopt the following operational identity:
   - `CAVEMAN_RULES.md`
   - `AI_ASSISTANT_PROMPT_TEMPLATES.md`
   - `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`
+  - `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`
   - `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`
   - `scripts/apcp-gather.py`
 - Analyze the current repository structure.
