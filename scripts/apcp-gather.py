@@ -14,6 +14,7 @@ def gather_context(caveman_mode=False):
     # Files to gather
     core_files = [
         "AI_PROJECT_CONTEXT_PROTOCOL.md",
+        "AI_MAIN.md",
         "TASK_PROGRESS.yaml",
         "DECISION_LOG_PROTOCOL.md",
         "CONTEXT_OPTIMIZATION.md",

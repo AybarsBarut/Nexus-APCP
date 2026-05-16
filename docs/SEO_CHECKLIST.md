@@ -64,6 +64,7 @@ If GitHub rejects SVG upload for social preview, export it as a `1200x630` PNG a
 | Prompting | prompt engineering, prompt templates, reusable AI prompts |
 | Productivity | developer productivity, workflow automation, token optimization |
 | Architecture | architecture decision records, ADR protocol, decision log |
+| Delivery process | waterfall development protocol, phase-gated delivery, stack combination documentation |
 | Tool searches | Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow |
 
 ## Maintenance Rules

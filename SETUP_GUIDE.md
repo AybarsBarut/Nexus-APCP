@@ -34,30 +34,82 @@ Documentation:
 
 ### Step 1: Add Files to GitHub (5 minutes)
 
+#### 1.0 AI-Agent Install Prompt
+
+When installing Nexus-APCP from Codex, Claude, Cursor, ChatGPT, Gemini, or another AI agent, start the agent in your target project root and paste:
+
+```markdown
+Set up Nexus-APCP in this repository.
+
+Do not rely on search-index snippets or memory. Use exact source files from:
+https://github.com/AybarsBarut/Nexus-APCP
+
+Source priority:
+1. If network access is available, fetch files from:
+   https://raw.githubusercontent.com/AybarsBarut/Nexus-APCP/master/
+2. If raw GitHub access is unavailable, ask me for a local clone/path or pasted files.
+3. If neither source is available, create only clearly marked placeholders and list what must be synced later.
+
+Git command rule:
+- Do not run `git status`, `git add`, `git commit`, `git push`, or other Git commands during setup unless I explicitly ask.
+- Inspect files and folders directly first.
+- If Git state is truly needed, explain why and ask before running the command.
+
+Install these core files when available:
+- AI_PROJECT_CONTEXT_PROTOCOL.md
+- AI_MAIN.md
+- TASK_PROGRESS.yaml
+- DECISION_LOG_PROTOCOL.md
+- CONTEXT_OPTIMIZATION.md
+- CAVEMAN_RULES.md
+- AI_ASSISTANT_PROMPT_TEMPLATES.md
+- WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+- DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+- scripts/apcp-gather.py
+
+Then inspect this project, customize placeholders, preserve secrets/private context, and run:
+python scripts/apcp-gather.py --caveman
+```
+
 #### 1.1 Copy Files to the Repo
 
 ```bash
 # In the project root:
 
-# Copy the files (download the 3 below):
+# Copy the minimum files:
 # - AI_PROJECT_CONTEXT_PROTOCOL.md
+# - AI_MAIN.md
 # - TASK_PROGRESS.yaml
+# - DECISION_LOG_PROTOCOL.md
+# - CONTEXT_OPTIMIZATION.md
+# - CAVEMAN_RULES.md
 # - AI_ASSISTANT_PROMPT_TEMPLATES.md
 
 cp AI_PROJECT_CONTEXT_PROTOCOL.md /path/to/your/project/
+cp AI_MAIN.md /path/to/your/project/
 cp TASK_PROGRESS.yaml /path/to/your/project/
+cp DECISION_LOG_PROTOCOL.md /path/to/your/project/
+cp CONTEXT_OPTIMIZATION.md /path/to/your/project/
+cp CAVEMAN_RULES.md /path/to/your/project/
 cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/docs/
+mkdir -p /path/to/your/project/scripts
+cp scripts/apcp-gather.py /path/to/your/project/scripts/
 
 # Add to Git
-git add AI_PROJECT_CONTEXT_PROTOCOL.md TASK_PROGRESS.yaml
+git add AI_PROJECT_CONTEXT_PROTOCOL.md AI_MAIN.md TASK_PROGRESS.yaml
+git add DECISION_LOG_PROTOCOL.md CONTEXT_OPTIMIZATION.md CAVEMAN_RULES.md
 git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
+git add scripts/apcp-gather.py
 
 # Commit
 git commit -m "docs: add AI Project Context Protocol (APCP) v1.0
 
 - Add AI_PROJECT_CONTEXT_PROTOCOL.md for project documentation
+- Add AI_MAIN.md for AI session orchestration
 - Add TASK_PROGRESS.yaml for task tracking
+- Add decision log, context optimization, and Caveman rules
 - Add AI_ASSISTANT_PROMPT_TEMPLATES.md for prompt templates
+- Add apcp-gather.py for context packaging
 - Enables AI-assisted development workflow"
 
 git push origin main
@@ -276,8 +328,12 @@ I'm setting up AI-assisted development for my project: [PROJECT_NAME]
 
 I've created:
 1. **AI_PROJECT_CONTEXT_PROTOCOL.md** - Complete project documentation
-2. **TASK_PROGRESS.yaml** - Task tracking file
-3. **AI_ASSISTANT_PROMPT_TEMPLATES.md** - Prompt templates for different scenarios
+2. **AI_MAIN.md** - AI session orchestration flow
+3. **TASK_PROGRESS.yaml** - Task tracking file
+4. **DECISION_LOG_PROTOCOL.md** - Decision history protocol
+5. **CONTEXT_OPTIMIZATION.md** and **CAVEMAN_RULES.md** - Token and context rules
+6. **AI_ASSISTANT_PROMPT_TEMPLATES.md** - Prompt templates for different scenarios
+7. **scripts/apcp-gather.py** - Context packaging helper
 
 I'm ready to start working with you as an AI assistant.
 
@@ -309,11 +365,14 @@ Checklist after completing the setup:
 ```
 APCP Setup Verification:
 □ [ ] AI_PROJECT_CONTEXT_PROTOCOL.md filled with custom project information
+□ [ ] AI_MAIN.md installed for AI session orchestration
 □ [ ] TASK_PROGRESS.yaml created with initial tasks
+□ [ ] DECISION_LOG_PROTOCOL.md, CONTEXT_OPTIMIZATION.md, and CAVEMAN_RULES.md installed
 □ [ ] AI_ASSISTANT_PROMPT_TEMPLATES.md in docs/
+□ [ ] scripts/apcp-gather.py is working (test: python scripts/apcp-gather.py --caveman)
 □ [ ] scripts/checkpoint.sh is working (test: bash scripts/checkpoint.sh)
 □ [ ] scripts/update-apcp.sh is working
-□ [ ] 3 files committed to Git
+□ [ ] APCP files committed to Git
 □ [ ] Is there a reference to APCP in README.md? (good if there is)
 □ [ ] Team members know what APCP is
 □ [ ] First AI session conducted and successful

@@ -81,8 +81,40 @@ tasks:
     assignee: "Antigravity (AI)"
     description: "Create VISUAL_CONTEXT_MERMAID.md and integrate it into the repository core docs."
 
+  - id: TASK-010
+    title: "Add Waterfall Stack Combination Protocol"
+    status: COMPLETED
+    priority: HIGH
+    effort: 2
+    assignee: "Codex"
+    description: "Create WATERFALL_DEVELOPMENT_PROTOCOL.md and surface phase-gated stack documentation for web/database, web/Python, Python/Unity, API, Unity backend, AI/RAG, and data dashboard workflows."
+
+  - id: TASK-011
+    title: "Expand Waterfall Protocol Examples and Research Fallback"
+    status: COMPLETED
+    priority: HIGH
+    effort: 2
+    assignee: "Codex"
+    description: "Add external documentation research rules, source reliability hierarchy, search query patterns, and expanded worked examples for common stack combinations."
+
+  - id: TASK-012
+    title: "Add Index-Independent Agent Bootstrap Instructions"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Codex"
+    description: "Clarify that AI agents should fetch exact Nexus-APCP source files from raw GitHub or request a local clone instead of inferring templates from search-index snippets."
+
+  - id: TASK-013
+    title: "Limit Git Commands During Agent Bootstrap"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Codex"
+    description: "Tell AI agents not to run git status, add, commit, push, or other Git commands during setup unless the user explicitly asks or approves after an explanation."
+
 metrics:
-  tasks_completed: 9
-  total_tasks: 9
+  tasks_completed: 13
+  total_tasks: 13
   velocity: 1.0
   quality_score: 100%

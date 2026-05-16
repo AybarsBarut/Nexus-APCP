@@ -22,6 +22,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 - **Decision memory**: architecture decision records explain why choices were made and reduce refactor loops.
 - **Task continuity**: `TASK_PROGRESS.yaml` tracks active work, sprint goals, checkpoints, and quality gates.
 - **Model portability**: move between Claude, Cursor, ChatGPT, Gemini, Copilot, and local agents without rebuilding context.
+- **Phase-gated delivery**: waterfall-style stack combination protocols help teams define requirements, contracts, tests, and release evidence before implementation drifts.
 - **Safer publishing**: domain-specific `.gitignore` guidance helps prevent secrets, internal maps, customer data, and generated context from leaking.
 
 ## Core Features
@@ -34,6 +35,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | Task Progress YAML | Gives humans and agents a shared source of truth for status, priorities, and checkpoints. |
 | Prompt Templates | Provides ready-to-use prompts for implementation, review, debugging, refactoring, and handoff. |
 | Delivery Protocols | Adds release gates for web apps, backend services, AI/LLM products, games, mobile apps, DevOps, and security work. |
+| Waterfall Stack Protocol | Defines phase-gated documentation, design, implementation, verification, worked examples, and official-source research fallback for mixed stacks such as web + database, web + Python, and Python + Unity. |
 | GitHub Safety Rules | Includes broad `.gitignore` patterns for AI artifacts, secrets, generated files, domain data, and private docs. |
 
 ## Quick Start
@@ -49,9 +51,13 @@ Copy the protocol into your project:
 
 ```bash
 cp AI_PROJECT_CONTEXT_PROTOCOL.md /your/project/
+cp AI_MAIN.md /your/project/
 cp TASK_PROGRESS.yaml /your/project/
 cp DECISION_LOG_PROTOCOL.md /your/project/
+cp CONTEXT_OPTIMIZATION.md /your/project/
 cp CAVEMAN_RULES.md /your/project/
+mkdir -p /your/project/docs
+cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/docs/
 mkdir -p /your/project/scripts
 cp scripts/apcp-gather.py /your/project/scripts/
 ```
@@ -63,6 +69,43 @@ python scripts/apcp-gather.py --caveman
 ```
 
 Paste the generated `PROMPT_READY.txt` into your AI assistant, or start with the ready-made prompt in [`MASTER_PROMPT.md`](./MASTER_PROMPT.md).
+
+### Agent Bootstrap Without Search Indexing
+
+If you ask Codex, Claude, Cursor, ChatGPT, Gemini, or another AI agent to install Nexus-APCP in a different project, paste this from that project's root:
+
+```markdown
+Set up Nexus-APCP in this repository.
+
+Do not rely on search-index snippets or memory. Use exact source files from:
+https://github.com/AybarsBarut/Nexus-APCP
+
+Source priority:
+1. If network access is available, fetch files from:
+   https://raw.githubusercontent.com/AybarsBarut/Nexus-APCP/master/
+2. If raw GitHub access is unavailable, ask me for a local clone/path or pasted files.
+3. If neither source is available, create only clearly marked placeholders and list what must be synced later.
+
+Git command rule:
+- Do not run `git status`, `git add`, `git commit`, `git push`, or other Git commands during setup unless I explicitly ask.
+- Inspect files and folders directly first.
+- If Git state is truly needed, explain why and ask before running the command.
+
+Install these core files when available:
+- AI_PROJECT_CONTEXT_PROTOCOL.md
+- AI_MAIN.md
+- TASK_PROGRESS.yaml
+- DECISION_LOG_PROTOCOL.md
+- CONTEXT_OPTIMIZATION.md
+- CAVEMAN_RULES.md
+- AI_ASSISTANT_PROMPT_TEMPLATES.md
+- WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+- DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+- scripts/apcp-gather.py
+
+Then inspect this project, customize placeholders, preserve secrets/private context, and run:
+python scripts/apcp-gather.py --caveman
+```
 
 ## Repository Contents
 
@@ -76,6 +119,7 @@ Paste the generated `PROMPT_READY.txt` into your AI assistant, or start with the
 | [`CAVEMAN_RULES.md`](./CAVEMAN_RULES.md) | Token-efficient communication rules for concise AI output. |
 | [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
 | [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
+| [`WATERFALL_DEVELOPMENT_PROTOCOL.md`](./WATERFALL_DEVELOPMENT_PROTOCOL.md) | Phase-gated waterfall protocol with worked examples and web research rules for stack combinations such as web + database, web + Python, Python + Unity, backend APIs, Unity services, and AI/RAG workflows. |
 | [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
 | [`scripts/apcp-gather.py`](./scripts/apcp-gather.py) | Context packer that generates `PROMPT_READY.txt`. |
@@ -89,7 +133,8 @@ Paste the generated `PROMPT_READY.txt` into your AI assistant, or start with the
 2. **Track execution state** in `TASK_PROGRESS.yaml`: active tasks, priorities, estimates, dependencies, and quality gates.
 3. **Preserve decisions** in `DECISION_LOG_PROTOCOL.md`: accepted tradeoffs, rejected paths, and architectural intent.
 4. **Package context** with `scripts/apcp-gather.py`: combine the core protocol files into one prompt-ready bundle.
-5. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
+5. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md` and `WATERFALL_DEVELOPMENT_PROTOCOL.md` when the work needs release gates, stack contracts, or phase-by-phase verification.
+6. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
 
 ## Ideal Use Cases
 
@@ -154,7 +199,7 @@ YAML is easy for humans to read, easy for AI models to update, and structured en
 
 ## Related Keywords
 
-AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, prompt engineering, LLM project memory, AI agent handoff, token optimization, architecture decision records, ADR protocol, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
+AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, prompt engineering, LLM project memory, AI agent handoff, token optimization, architecture decision records, ADR protocol, waterfall development protocol, phase-gated delivery, stack combination documentation, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
 
 ## License
 
