@@ -121,8 +121,16 @@ tasks:
     assignee: "Codex"
     description: "Create static-first website backend rules for API secrecy, database necessity, optimization, flexible feature growth, and authorized penetration-test closure."
 
+  - id: TASK-015
+    title: "Add Universal Application Security Protection Protocol"
+    status: COMPLETED
+    priority: HIGH
+    effort: 2
+    assignee: "Codex"
+    description: "Create a defensive, public-safe security checklist for database safety, authorization, secrets, dependencies, infrastructure, AI/RAG workflows, and incident response."
+
 metrics:
-  tasks_completed: 14
-  total_tasks: 14
+  tasks_completed: 15
+  total_tasks: 15
   velocity: 1.0
   quality_score: 100%
