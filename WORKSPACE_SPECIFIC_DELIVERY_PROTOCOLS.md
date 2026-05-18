@@ -30,9 +30,7 @@ Every AI-assisted work session starts by classifying the workspace. A project ma
 
 ### 1.1 Workspace Classification
 
-The AI must identify and write down the active workspace type before making meaningful changes:
-
-| Workspace | Examples | Mandatory protocol sections |
+The AI must identify and write down the active workspace type before making meaningful changes: | Workspace | Examples | Mandatory protocol sections |
 | --- | --- | --- |
 | Game engine | Unity, Unreal, Godot, custom engine | Section 3, Section 8, Section 10 |
 | Web frontend | React, Next.js, Vue, Svelte, static site | Section 4, Section 7, Section 8, Section 10 |
@@ -41,9 +39,7 @@ The AI must identify and write down the active workspace type before making mean
 | AI/LLM/RAG/agent | Chatbot, copilot, model router, agent, vector search | Section 6, Section 7, Section 8, Section 9, Section 10 |
 | Mobile/desktop | Android, iOS, Flutter, React Native, Electron, Tauri | Section 11, Section 7, Section 8, Section 10 |
 | Data/ML | ETL, analytics, training pipeline, dashboards | Section 12, Section 7, Section 8, Section 10 |
-| Infrastructure/DevOps | CI/CD, Docker, Kubernetes, Terraform, cloud | Section 13, Section 7, Section 8, Section 10 |
-
-### 1.2 Required Initial Snapshot
+| Infrastructure/DevOps | CI/CD, Docker, Kubernetes, Terraform, cloud | Section 13, Section 7, Section 8, Section 10 | ### 1.2 Required Initial Snapshot
 
 Before implementing, the AI must gather enough project context to avoid blind edits:
 
@@ -58,16 +54,12 @@ Before implementing, the AI must gather enough project context to avoid blind ed
 
 ### 1.3 Definition of Done Levels
 
-The AI must label completion with one of these levels:
-
-| Level | Meaning | Allowed handoff |
+The AI must label completion with one of these levels: | Level | Meaning | Allowed handoff |
 | --- | --- | --- |
 | Local-only | Runs on developer machine; not hardened | Demo to owner only |
 | QA-ready | Functional tests pass; known risks listed | Internal QA/staging |
 | Release-candidate | Functional, security, AI, and scale gates pass for agreed scope | Customer acceptance testing |
-| Production-ready | Release-candidate plus deployment, observability, rollback, privacy, compliance, and incident playbooks complete | Production or public release |
-
-An AI must not call something production-ready merely because the feature works.
+| Production-ready | Release-candidate plus deployment, observability, rollback, privacy, compliance, and incident playbooks complete | Production or public release | An AI must not call something production-ready merely because the feature works.
 
 ---
 
@@ -933,16 +925,12 @@ Required before GitHub push:
 - Artifact content review if generated files are committed.
 - GitHub secret scanning/push protection enabled where available.
 
-### 7.3 Vulnerability Severity Handling
-
-| Severity | Definition | Required action |
+### 7.3 Vulnerability Severity Handling | Severity | Definition | Required action |
 | --- | --- | --- |
 | Critical | Remote compromise, auth bypass, tenant breach, secret leak, payment compromise, destructive action | Block release. Fix and retest. |
 | High | Likely exploit with serious data/security impact | Block production/customer release. Fix or documented executive waiver only. |
 | Medium | Exploitable under constraints or limited impact | Fix before release when feasible; otherwise documented owner acceptance and backlog date. |
-| Low | Defense-in-depth, hardening, minor leakage | Track and fix in normal hardening cycle. |
-
-### 7.4 Penetration Test Evidence Template
+| Low | Defense-in-depth, hardening, minor leakage | Track and fix in normal hardening cycle. | ### 7.4 Penetration Test Evidence Template
 
 ```text
 Penetration Test Summary
@@ -1042,9 +1030,7 @@ Operations:
 - Runbooks.
 - Rollback strategy.
 
-### 8.3 Load Test Types
-
-| Test | Purpose | Required for |
+### 8.3 Load Test Types | Test | Purpose | Required for |
 | --- | --- | --- |
 | Baseline | Normal expected usage | Every release candidate |
 | Load | Target expected peak | Public/customer release |
@@ -1052,9 +1038,7 @@ Operations:
 | Spike | Sudden traffic burst | Marketing launches, games, AI apps, public forms |
 | Soak | Long-running leaks/queue buildup | Services, games, workers, AI systems |
 | Failover | Dependency or instance failure | Production-ready systems |
-| Cost | Estimate spend under peak/abuse | AI, serverless, paid APIs, cloud-heavy systems |
-
-### 8.4 Scalability Report Template
+| Cost | Estimate spend under peak/abuse | AI, serverless, paid APIs, cloud-heavy systems | ### 8.4 Scalability Report Template
 
 ```text
 Scalability Report

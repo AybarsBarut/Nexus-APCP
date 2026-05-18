@@ -7,7 +7,7 @@
   "issueTracker": "https://github.com/AybarsBarut/Nexus-APCP/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "1.0.0",
-  "dateModified": "2026-05-16",
+  "dateModified": "2026-05-18",
   "programmingLanguage": [
     "Markdown",
     "YAML",
@@ -32,6 +32,9 @@
     "waterfall development protocol",
     "phase-gated delivery",
     "stack combination documentation",
+    "auto-update protocol",
+    "GitHub version checker",
+    "SemVer update system",
     "Claude Code",
     "Cursor AI",
     "ChatGPT",

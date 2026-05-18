@@ -47,22 +47,22 @@ Compare the following and recommend one with justification:
 
 | Algorithm | Type | Designed To Be Slow | Salt | Work Factor | Use Case |
 |---|---|---|---|---|---|
-| **Argon2id** | Memory-hard | ✅ Yes | ✅ Auto | Iterations + Memory + Parallelism | ✅ Best choice for new systems |
-| **bcrypt** | CPU-hard | ✅ Yes | ✅ Auto | Cost factor (2^n) | ✅ Strong default; widely supported |
-| **PBKDF2-HMAC-SHA256** | CPU-iterative | ✅ Yes | ✅ Required | Iteration count | ✅ FIPS-compliant environments |
-| **PBKDF2-HMAC-SHA512** | CPU-iterative | ✅ Yes | ✅ Required | Iteration count | ✅ Higher entropy variant |
-| **scrypt** | Memory-hard | ✅ Yes | ✅ Required | N, r, p params | ⚠️ Good but complex to tune |
-| **phpass MD5** | Fast (iterative) | ❌ No | ✅ | Factor | ⛔ Legacy only — migrate away |
-| **phpass SHA-512** | Fast (iterative) | ❌ No | ✅ | Factor | ⛔ Legacy only — migrate away |
-| **Salted MD5** | Fast | ❌ No | ✅ Required | Iteration count | ⛔ Migration only — do not use |
-| **Salted SHA-256** | Fast | ❌ No | ✅ Required | Iteration count | ⛔ Migration only — do not use |
-| **Salted HMAC-SHA256** | Fast | ❌ No | ✅ Required | None | ⛔ Migration only — do not use |
+| **Argon2id** | Memory-hard | Yes | Auto | Iterations + Memory + Parallelism | Best choice for new systems |
+| **bcrypt** | CPU-hard | Yes | Auto | Cost factor (2^n) | Strong default; widely supported |
+| **PBKDF2-HMAC-SHA256** | CPU-iterative | Yes | Required | Iteration count | FIPS-compliant environments |
+| **PBKDF2-HMAC-SHA512** | CPU-iterative | Yes | Required | Iteration count | Higher entropy variant |
+| **scrypt** | Memory-hard | Yes | Required | N, r, p params | Good but complex to tune |
+| **phpass MD5** | Fast (iterative) | No | | Factor | Legacy only — migrate away |
+| **phpass SHA-512** | Fast (iterative) | No | | Factor | Legacy only — migrate away |
+| **Salted MD5** | Fast | No | Required | Iteration count | Migration only — do not use |
+| **Salted SHA-256** | Fast | No | Required | Iteration count | Migration only — do not use |
+| **Salted HMAC-SHA256** | Fast | No | Required | None | Migration only — do not use |
 
 ---
 
 ## 4. Recommended Work Factors (2025 Baseline)
 
-> ⚠️ These are minimums. Set as high as your login latency budget allows (target: 200–500ms per hash).
+> These are minimums. Set as high as your login latency budget allows (target: 200–500ms per hash).
 
 | Algorithm | Minimum | Recommended | Notes |
 |---|---|---|---|

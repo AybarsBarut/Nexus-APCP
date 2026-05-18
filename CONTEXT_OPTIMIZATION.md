@@ -1,9 +1,9 @@
-# 📉 Nexus-APCP Context Window Optimization Strategy
+# Nexus-APCP Context Window Optimization Strategy
 
-## 🎯 The Problem
+## The Problem
 As a software project grows, the codebase and documentation eventually exceed the context window (token limit) of AI coding assistants, AI agents, and LLMs. This results in the AI "forgetting" critical rules or making inconsistent decisions.
 
-## 🧩 Modular Context Strategy
+## Modular Context Strategy
 
 ### Level 1: Standard (Bootstrap Mode)
 **Usage**: When starting a new session or a new project.
@@ -24,10 +24,10 @@ As a software project grows, the codebase and documentation eventually exceed th
 - **Current File**: The content of the file being fixed.
 - **Token Impact**: ~1,000 tokens.
 
-## 📦 Context Archiving
+## Context Archiving
 When `TASK_PROGRESS.yaml` becomes too large:
 1. Move completed tasks from the previous month to `docs/archive/TASKS_2024_Q1.yaml`.
 2. Keep only the "Sprint Summary" and "Current Sprint" in the active file.
 
-## 🤖 AI Instructions
+## AI Instructions
 If you detect that the context is getting too large (e.g., truncated responses or confusion), suggest switching to **Level 2** or **Level 3** context.

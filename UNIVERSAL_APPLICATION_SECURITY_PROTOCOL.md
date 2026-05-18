@@ -32,9 +32,7 @@ Security is not one library or one firewall. It is a layered system:
 
 ---
 
-## 2. Project Type Matrix
-
-| Project type | Main risks | Minimum protection baseline |
+## 2. Project Type Matrix | Project type | Main risks | Minimum protection baseline |
 | --- | --- | --- |
 | Static site / portfolio | Exposed secrets, unsafe forms, third-party scripts, supply-chain drift | No secrets in frontend, strict form provider/serverless relay, dependency pinning, security headers, minimal analytics |
 | Marketing / landing page | Lead form abuse, spam, script injection, tracking/privacy issues | Server-side form validation, rate limits, CAPTCHA only when needed, consent-aware analytics, CSP |
@@ -49,9 +47,7 @@ Security is not one library or one firewall. It is a layered system:
 | Data dashboard | Overbroad data access, unsafe exports, formula/file injection, privacy leaks | Row-level controls, export sanitization, aggregation rules, data minimization |
 | Internal admin tool | Excessive privileges, weak review, sensitive logs, lateral movement | MFA/SSO, IP/device controls where possible, least privilege roles, mandatory audit logging |
 | Plugin/extension | Overbroad permissions, unsafe content scripts, token leakage | Minimal permissions, isolated storage, explicit host allowlists, reviewable release package |
-| Serverless/cloud job | Overprivileged IAM, public buckets, secret sprawl, event replay | Least-privilege IAM, private-by-default resources, secret manager, event validation |
-
----
+| Serverless/cloud job | Overprivileged IAM, public buckets, secret sprawl, event replay | Least-privilege IAM, private-by-default resources, secret manager, event validation | ---
 
 ## 3. Universal Security Lifecycle
 

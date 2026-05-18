@@ -24,6 +24,8 @@ REQUIRED_FILES = [
     "CITATION.cff",
     "codemeta.json",
     "AI_PROJECT_CONTEXT_PROTOCOL.md",
+    "EMOJI_POLICY.md",
+    "UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md",
     "WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md",
     "TASK_PROGRESS.yaml",
     "docs/SEO_CHECKLIST.md",
@@ -47,6 +49,31 @@ YAML_LIKE_FILES = [
 ]
 
 LINK_RE = re.compile(r"!?\[[^\]]*]\(([^)]+)\)")
+EMOJI_RE = re.compile(
+    "["
+    "\U0001F000-\U0001FAFF"
+    "\U00002600-\U000027BF"
+    "\U0000FE0E-\U0000FE0F"
+    "\U0000200D"
+    "\U000020E3"
+    "]"
+)
+EMOJI_SCAN_EXTENSIONS = {
+    ".cff",
+    ".css",
+    ".html",
+    ".js",
+    ".json",
+    ".md",
+    ".ps1",
+    ".py",
+    ".svg",
+    ".ts",
+    ".tsx",
+    ".txt",
+    ".yaml",
+    ".yml",
+}
 
 
 def fail(message):
@@ -116,6 +143,23 @@ def check_markdown_links():
     return errors
 
 
+def check_no_emoji():
+    errors = []
+    skipped_dirs = {".git", "__pycache__"}
+    for path in ROOT.rglob("*"):
+        if path.is_dir():
+            continue
+        if any(part in skipped_dirs for part in path.parts):
+            continue
+        if path.suffix.lower() not in EMOJI_SCAN_EXTENSIONS:
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if EMOJI_RE.search(line):
+                errors.append(f"Emoji found: {path.relative_to(ROOT)}:{line_number}")
+    return errors
+
+
 def check_context_gatherer():
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
@@ -142,6 +186,7 @@ def main():
         ("SVG social preview", check_svg),
         ("YAML-like files", check_yaml_like_files),
         ("Markdown links", check_markdown_links),
+        ("emoji policy", check_no_emoji),
         ("context gatherer", check_context_gatherer),
     ]
 

@@ -19,6 +19,7 @@ The public repository should remain safe to share. Real project context files, p
 | `DECISION_LOG_PROTOCOL.md` | Decision history and architecture intent protocol. |
 | `CONTEXT_OPTIMIZATION.md` | Strategies for handling large-scale codebases and context window limits. |
 | `CAVEMAN_RULES.md` | Token-efficient communication rules. |
+| `EMOJI_POLICY.md` | Repository-wide and AI-wide emoji usage ban with a narrow user-approved temporary button icon exception. |
 | `AI_ASSISTANT_PROMPT_TEMPLATES.md` | Reusable prompts for common AI-assisted development scenarios. |
 | `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md` | Domain-specific delivery gates and release expectations. |
 | `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md` | Safe publishing patterns for different project domains. |
@@ -49,6 +50,7 @@ powershell -ExecutionPolicy Bypass -File scripts/checkpoint.ps1
 - Preserve the public/private boundary. Public templates are welcome; filled private project context is not.
 - Prefer durable wording over model-version-specific wording.
 - Keep repository-facing terminology consistent: `Nexus-APCP`, `AI Project Context Protocol`, `context engineering`, `AI-assisted development`, and `token optimization`.
+- Follow `EMOJI_POLICY.md`: do not add emoji to README files, Markdown, code, comments, scripts, metadata, examples, generated output, commits, PR text, or AI responses. For a missing button icon, ask the user before using a temporary emoji placeholder.
 - Update `TASK_PROGRESS.yaml` when completing a visible repository maintenance task.
 - Update `docs/SEO_CHECKLIST.md`, `codemeta.json`, or `.github/repository-metadata.yml` when changing search-facing positioning.
 - Use concise comments only when they explain non-obvious validation, safety, or release behavior.

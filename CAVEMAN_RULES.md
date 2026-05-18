@@ -1,12 +1,12 @@
-# 🪨 CAVEMAN PROTOCOL: Advanced Token Compression
+# CAVEMAN PROTOCOL: Advanced Token Compression
 
-## 🎯 Core Philosophy
+## Core Philosophy
 **"Maximum Signal. Minimum Noise."**
 Nexus-APCP uses Caveman Mode to bypass LLM verbosity, reduce API latency, and slash token costs by up to 80% without sacrificing technical precision.
 
 ---
 
-## 📜 Standard Operating Procedures (SOP)
+## Standard Operating Procedures (SOP)
 
 ### 1. Grammatical Stripping (The "Caveman" Voice)
 - **Eliminate Articles**: Drop "a", "an", "the".
@@ -22,13 +22,14 @@ Nexus-APCP uses Caveman Mode to bypass LLM verbosity, reduce API latency, and sl
 ### 3. Technical Anchoring
 - **Acronyms**: Use standard industry shorthand (e.g., MVP, PR, CI/CD, DRY, KISS, O(n), ACID).
 - **Direct Referencing**: Use `File.ext` or `ClassName::Method` instead of "The user class has a method named...".
-- **Emoji Metadata**: Use icons to replace status words:
-  - ✅ = Success / Fixed
-  - ❌ = Bug / Error
-  - ⚠️ = Warning / Tech Debt
-  - 🚀 = Feature / Deploy
-  - 🔍 = Review / Debug
-  - 📦 = Module / Dependency
+- **Status Labels**: Use plain ASCII status labels instead of emoji:
+  - `DONE` = Success / Fixed
+  - `FAIL` = Bug / Error
+  - `WARN` = Warning / Tech Debt
+  - `FEATURE` = Feature / Deploy
+  - `REVIEW` = Review / Debug
+  - `MODULE` = Module / Dependency
+- **Emoji Ban**: Follow `EMOJI_POLICY.md`. Caveman Mode must never use emoji as metadata.
 
 ### 4. Code vs. Prose
 - **Code is Sacred**: NEVER compress code blocks. Keep variable names, logic, and spacing intact.
@@ -36,18 +37,18 @@ Nexus-APCP uses Caveman Mode to bypass LLM verbosity, reduce API latency, and sl
 
 ---
 
-## 🎭 Before & After
+## Before & After
 
 | Signal Type | Normal AI Style (Verbose) | Caveman Mode (Premium) |
 | :--- | :--- | :--- |
-| **Bug Fix** | "I have fixed the issue where the user authentication was failing because the token was not being passed correctly in the header." | ✅ Fixed Auth. Missing token header. |
-| **Architecture** | "I recommend that we switch to a microservices architecture to improve the scalability of the product service." | 🚀 Suggest Microservices. Scale Product service. |
-| **Review** | "This looks like a great implementation, but you might want to consider using a more efficient sorting algorithm here." | ⚠️ Good. Use O(log n) sort. |
-| **Status** | "I am currently working on the database migration scripts and I should be finished with them by the end of the day." | 🔍 DB Migration. ETA: EOD. |
+| **Bug Fix** | "I have fixed the issue where the user authentication was failing because the token was not being passed correctly in the header." | DONE Auth fixed. Missing token header. |
+| **Architecture** | "I recommend that we switch to a microservices architecture to improve the scalability of the product service." | FEATURE Suggest microservices. Scale Product service. |
+| **Review** | "This looks like a great implementation, but you might want to consider using a more efficient sorting algorithm here." | WARN Good. Use O(log n) sort. |
+| **Status** | "I am currently working on the database migration scripts and I should be finished with them by the end of the day." | REVIEW DB migration. ETA: EOD. |
 
 ---
 
-## 🤖 Instructions for AI Agents
+## Instructions for AI Agents
 
 When `PROTOCOL: CAVEMAN` is active:
 1. **Analyze Input**: Extract only technical requirements.
@@ -58,4 +59,4 @@ When `PROTOCOL: CAVEMAN` is active:
 **Constraint**: If the USER asks for a detailed explanation, temporarily suspend Caveman for that specific response, then revert.
 
 ---
-*Nexus-APCP: Big Brain. Small Mouth. Fast Build.* 🪨🚀
+*Nexus-APCP: Big Brain. Small Mouth. Fast Build.* 

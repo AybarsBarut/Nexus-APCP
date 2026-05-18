@@ -24,6 +24,8 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 - **Model portability**: move between Claude, Cursor, ChatGPT, Gemini, Copilot, and local agents without rebuilding context.
 - **Phase-gated delivery**: waterfall-style stack combination protocols help teams define requirements, contracts, tests, and release evidence before implementation drifts.
 - **Website backend security**: static-first backend rules help teams avoid unnecessary SQL/auth/API surface for portfolio, landing, and brochure sites while still supporting secure growth into dynamic features.
+- **User-requested update systems**: update-system fit checks help agents recommend a GitHub SemVer + zip-sync updater only when the project and user request make it appropriate.
+- **Emoji-free output**: `EMOJI_POLICY.md` bans emoji in repository files and AI-generated output, with a user-approved temporary exception only for missing button icons.
 - **Safer publishing**: domain-specific `.gitignore` guidance helps prevent secrets, internal maps, customer data, and generated context from leaking.
 
 ## Core Features
@@ -38,6 +40,8 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | Delivery Protocols | Adds release gates for web apps, backend services, AI/LLM products, games, mobile apps, DevOps, and security work. |
 | Waterfall Stack Protocol | Defines phase-gated documentation, design, implementation, verification, worked examples, and official-source research fallback for mixed stacks such as web + database, web + Python, and Python + Unity. |
 | Website Backend Security Protocol | Defines static-first website backend rules, API secret handling, database necessity checks, optimization gates, and authorized penetration-test closure. |
+| Update System Recommendation Protocol | Guides AI agents to suggest a lightweight GitHub SemVer + zip-sync updater only when the user requests updates and the project profile fits. |
+| Emoji Policy | Bans emoji in repository content and AI output except user-approved temporary button icon placeholders. |
 | GitHub Safety Rules | Includes broad `.gitignore` patterns for AI artifacts, secrets, generated files, domain data, and private docs. |
 
 ## Quick Start
@@ -58,6 +62,8 @@ cp TASK_PROGRESS.yaml /your/project/
 cp DECISION_LOG_PROTOCOL.md /your/project/
 cp CONTEXT_OPTIMIZATION.md /your/project/
 cp CAVEMAN_RULES.md /your/project/
+cp EMOJI_POLICY.md /your/project/
+cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /your/project/
 mkdir -p /your/project/docs
 cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/docs/
 cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /your/project/
@@ -101,10 +107,12 @@ Install these core files when available:
 - DECISION_LOG_PROTOCOL.md
 - CONTEXT_OPTIMIZATION.md
 - CAVEMAN_RULES.md
+- EMOJI_POLICY.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
 - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+- UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
 - scripts/apcp-gather.py
 
 Then inspect this project, customize placeholders, preserve secrets/private context, and run:
@@ -121,9 +129,11 @@ python scripts/apcp-gather.py --caveman
 | [`DECISION_LOG_PROTOCOL.md`](./DECISION_LOG_PROTOCOL.md) | Architecture decision record protocol for intent preservation. |
 | [`CONTEXT_OPTIMIZATION.md`](./CONTEXT_OPTIMIZATION.md) | Strategies for large codebases, context windows, and token limits. |
 | [`CAVEMAN_RULES.md`](./CAVEMAN_RULES.md) | Token-efficient communication rules for concise AI output. |
+| [`EMOJI_POLICY.md`](./EMOJI_POLICY.md) | Repository-wide and AI-wide ban on emoji usage, with a narrow user-approved temporary button icon exception. |
 | [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
 | [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
 | [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md) | Static-first website backend security, API secret handling, database necessity, optimization, and penetration-test closure protocol. |
+| [`UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`](./UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md) | Fit-check protocol for recommending a lightweight update/version sync system only when user intent and project profile match. |
 | [`WATERFALL_DEVELOPMENT_PROTOCOL.md`](./WATERFALL_DEVELOPMENT_PROTOCOL.md) | Phase-gated waterfall protocol with worked examples and web research rules for stack combinations such as web + database, web + Python, Python + Unity, backend APIs, Unity services, and AI/RAG workflows. |
 | [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
@@ -138,8 +148,9 @@ python scripts/apcp-gather.py --caveman
 2. **Track execution state** in `TASK_PROGRESS.yaml`: active tasks, priorities, estimates, dependencies, and quality gates.
 3. **Preserve decisions** in `DECISION_LOG_PROTOCOL.md`: accepted tradeoffs, rejected paths, and architectural intent.
 4. **Package context** with `scripts/apcp-gather.py`: combine the core protocol files into one prompt-ready bundle.
-5. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, and `WATERFALL_DEVELOPMENT_PROTOCOL.md` when the work needs release gates, backend/API safety, stack contracts, or phase-by-phase verification.
-6. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
+5. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, and `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md` when the work needs release gates, backend/API safety, stack contracts, update-system fit checks, or phase-by-phase verification.
+6. **Enforce output hygiene** with `EMOJI_POLICY.md`: keep docs, code, generated bundles, and AI responses emoji-free.
+7. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
 
 ## Ideal Use Cases
 

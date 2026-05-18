@@ -297,9 +297,7 @@ Common failure:
 
 Purpose: Turn architecture into implementation-ready specifications.
 
-Required artifacts by area:
-
-| Area | Detailed design artifact |
+Required artifacts by area: | Area | Detailed design artifact |
 | --- | --- |
 | Web UI | Route map, component map, state model, validation rules, accessibility notes |
 | API | Endpoint contract, payload schemas, status codes, auth rules, error format |
@@ -307,9 +305,7 @@ Required artifacts by area:
 | Python | Module map, dependency boundaries, type/schema model, CLI or service contract |
 | Unity | Scene/prefab map, ScriptableObject plan, event flow, asset pipeline, build targets |
 | AI/RAG | Prompt contract, retrieval schema, eval set, refusal rules, safety cases |
-| Data pipeline | Source schema, transform rules, quality checks, backfill plan, lineage |
-
-Exit criteria:
+| Data pipeline | Source schema, transform rules, quality checks, backfill plan, lineage | Exit criteria:
 
 - A developer or AI assistant can implement without inventing architecture.
 - Edge cases are listed.
@@ -663,9 +659,7 @@ Ready for:
 
 ## 5. Stack Combination Matrix
 
-Use this matrix during Phase 0 to select the correct detailed protocol.
-
-| Stack combination | Main risk | Must-have artifacts | Highest-priority tests |
+Use this matrix during Phase 0 to select the correct detailed protocol. | Stack combination | Main risk | Must-have artifacts | Highest-priority tests |
 | --- | --- | --- | --- |
 | Web + database | Schema drift, unsafe queries, slow lists, broken migrations | Requirements matrix, ERD, migration plan, query/index plan, rollback plan | Migration test, CRUD integration test, pagination test, authz test |
 | Web + Python | Contract mismatch, CORS/auth errors, environment drift | API contract, payload schema, env contract, error format, deployment note | API contract test, frontend integration smoke, auth test |
@@ -674,9 +668,7 @@ Use this matrix during Phase 0 to select the correct detailed protocol.
 | Backend API + database | Transaction bugs, invalid constraints, N+1 queries | API contract, data model, migration plan, transaction design | Repository/service tests, load query test, migration rollback test |
 | Unity + backend service | Client trust, latency, version mismatch | Network contract, server authority rules, retry/offline strategy, build target note | Network integration test, abuse-case test, version compatibility test |
 | Web + AI/RAG | Hallucination, prompt injection, retrieval leakage | Prompt contract, retrieval schema, eval set, safety rules, citation contract | Eval suite, injection tests, citation verification, tenant isolation test |
-| Data pipeline + web dashboard | Incorrect metrics, stale data, privacy exposure | Source schema, transform spec, lineage, freshness SLA, dashboard permissions | Data quality test, backfill test, permission test, freshness test |
-
----
+| Data pipeline + web dashboard | Incorrect metrics, stale data, privacy exposure | Source schema, transform spec, lineage, freshness SLA, dashboard permissions | Data quality test, backfill test, permission test, freshness test | ---
 
 ## 6. Web + Database Waterfall Protocol
 
@@ -1461,9 +1453,7 @@ The AI assistant must not:
 
 ### 15.3 Multi-Agent Use
 
-When multiple AI agents are available, assign roles by phase:
-
-| Role | Best phase | Responsibility |
+When multiple AI agents are available, assign roles by phase: | Role | Best phase | Responsibility |
 | --- | --- | --- |
 | Requirements analyst | Phase 1 | Turn request into testable requirements |
 | Architect | Phase 3 | Define components, data flow, contracts |
@@ -1471,17 +1461,13 @@ When multiple AI agents are available, assign roles by phase:
 | Reviewer | Phase 7 | Check correctness and maintainability |
 | Security reviewer | Phase 7 | Check secrets, auth, data exposure, unsafe execution |
 | Scalability reviewer | Phase 7 | Check performance, growth, bottlenecks |
-| Release coordinator | Phase 8 | Prepare handoff and release report |
-
-Do not let the implementer self-approve high-risk security, data, payment, AI-agent, or production deployment work.
+| Release coordinator | Phase 8 | Prepare handoff and release report | Do not let the implementer self-approve high-risk security, data, payment, AI-agent, or production deployment work.
 
 ---
 
 ## 16. Documentation Source Map
 
-Use this as the specific documentation source list for common combinations.
-
-| Combination | Primary docs to create or update | Secondary docs |
+Use this as the specific documentation source list for common combinations. | Combination | Primary docs to create or update | Secondary docs |
 | --- | --- | --- |
 | Web + database | Requirements matrix, database design note, migration plan, API/server action contract, test matrix | Decision log, release report, user/admin guide |
 | Web + Python | API contract, route table, Python module map, env contract, frontend API client notes | Deployment guide, error catalog, test matrix |
@@ -1490,9 +1476,7 @@ Use this as the specific documentation source list for common combinations.
 | Backend API + database | Domain model, transaction design, migration plan, authorization matrix, query/index plan | Load test report, rollback plan |
 | Unity + backend service | Network contract, server authority policy, client version policy, retry/offline strategy | Abuse-case checklist, build target notes |
 | Web + AI/RAG | Prompt contract, retrieval schema, eval set, tool permission matrix, safety cases | Model decision note, cost report, citation policy |
-| Data pipeline + web dashboard | Metric definitions, source schema, transform spec, lineage map, freshness SLA | Backfill plan, dashboard permission map |
-
----
+| Data pipeline + web dashboard | Metric definitions, source schema, transform spec, lineage map, freshness SLA | Backfill plan, dashboard permission map | ---
 
 ## 17. Phase Gate Checklist
 
@@ -1546,9 +1530,7 @@ Use this as the specific documentation source list for common combinations.
 
 ---
 
-## 18. Common Failure Modes and Corrections
-
-| Failure mode | Why it happens | Correction |
+## 18. Common Failure Modes and Corrections | Failure mode | Why it happens | Correction |
 | --- | --- | --- |
 | UI built before data model | Requirements felt obvious | Create entity model and API contract first |
 | Database migration breaks old data | No migration rehearsal | Test migration from previous schema and define rollback |
@@ -1559,9 +1541,7 @@ Use this as the specific documentation source list for common combinations.
 | Performance fails at launch | Scale not specified | Define p95 latency, list size, user count, and load profile in requirements |
 | Manual QA cannot be trusted | No evidence | Record exact scenario, input, environment, and result |
 | Agents overwrite each other | No ownership map | Assign files/modules by phase and keep changes scoped |
-| Scope expands silently | No change control | Use change requests for approved baseline changes |
-
----
+| Scope expands silently | No change control | Use change requests for approved baseline changes | ---
 
 ## 19. Done Criteria by Combination
 
@@ -1657,9 +1637,7 @@ Follow this order before using external web results:
 
 Do not use random blog posts, AI-generated snippets, forum answers, or outdated tutorials as primary authority when official docs exist.
 
-### 20.2 Source Reliability Hierarchy
-
-| Rank | Source type | Use for | Notes |
+### 20.2 Source Reliability Hierarchy | Rank | Source type | Use for | Notes |
 | --- | --- | --- | --- |
 | 1 | Official framework, language, engine, provider, or database docs | API behavior, configuration, migration, lifecycle, compatibility | Prefer versioned docs matching the project |
 | 2 | Official standards and security bodies | Security, privacy, accessibility, protocol behavior | Examples: OWASP, NIST, W3C, MDN, IETF |
@@ -1668,9 +1646,7 @@ Do not use random blog posts, AI-generated snippets, forum answers, or outdated 
 | 5 | Maintainer issue tracker discussions | Edge cases, bugs, undocumented behavior | Treat as evidence, not final truth |
 | 6 | Vendor knowledge base or cloud docs | Hosting/runtime/platform limits | Check region and product tier |
 | 7 | Reputable technical articles | Implementation ideas | Secondary only; verify against official docs |
-| 8 | Q&A/forum snippets | Error diagnosis | Never primary for architecture or security |
-
-### 20.3 Required Research Record
+| 8 | Q&A/forum snippets | Error diagnosis | Never primary for architecture or security | ### 20.3 Required Research Record
 
 When external research influences the design or implementation, record the finding in the relevant artifact:
 
@@ -1733,9 +1709,7 @@ make app scalable
 
 Bad patterns are too broad. They produce copy-paste examples instead of requirements, constraints, and contracts.
 
-### 20.5 Search by Stack Combination
-
-| Combination | First search target | Query examples |
+### 20.5 Search by Stack Combination | Combination | First search target | Query examples |
 | --- | --- | --- |
 | Web + database | Framework ORM docs, database docs | `site:prisma.io docs transactions`, `site:postgresql.org create index concurrently`, `site:docs.djangoproject.com queryset select_related prefetch_related` |
 | Web + Python | Python framework docs, browser docs, auth provider docs | `site:fastapi.tiangolo.com dependencies security`, `site:flask.palletsprojects.com blueprints error handling`, `site:developer.mozilla.org CORS credentials` |
@@ -1744,9 +1718,7 @@ Bad patterns are too broad. They produce copy-paste examples instead of requirem
 | Backend API + database | ORM docs, database docs, migration tool docs | `site:alembic.sqlalchemy.org autogenerate migrations`, `site:typeorm.io migrations transactions`, `site:postgresql.org transaction isolation` |
 | Unity + backend service | Unity networking docs, backend framework docs, platform docs | `site:docs.unity3d.com UnityWebRequest timeout`, `site:docs.unity3d.com PlayerPrefs security`, `site:owasp.org API security authorization` |
 | Web + AI/RAG | Provider docs, vector database docs, OWASP LLM docs | `site:platform.openai.com structured outputs`, `site:owasp.org LLM prompt injection`, `site:docs.pinecone.io metadata filtering` |
-| Data pipeline + web dashboard | Data tool docs, warehouse docs, dashboard framework docs | `site:docs.getdbt.com incremental models`, `site:cloud.google.com bigquery partitioned tables`, `site:docs.streamlit.io caching` |
-
-### 20.6 Version Matching Rules
+| Data pipeline + web dashboard | Data tool docs, warehouse docs, dashboard framework docs | `site:docs.getdbt.com incremental models`, `site:cloud.google.com bigquery partitioned tables`, `site:docs.streamlit.io caching` | ### 20.6 Version Matching Rules
 
 Before trusting a web source, check:
 
@@ -1798,9 +1770,7 @@ Stop and ask the owner or record a blocker when:
 
 ### 20.9 Applying Research to Waterfall Artifacts
 
-Research must change an artifact, not only a chat answer.
-
-| Finding type | Artifact to update |
+Research must change an artifact, not only a chat answer. | Finding type | Artifact to update |
 | --- | --- |
 | API behavior | Interface contract |
 | Migration behavior | Database design note and migration plan |
@@ -1809,9 +1779,7 @@ Research must change an artifact, not only a chat answer.
 | Security requirement | Requirements matrix and security strategy |
 | Performance limit | Non-functional requirement and scale plan |
 | Provider/model behavior | AI behavior contract and eval plan |
-| Dependency limitation | Feasibility note and decision log |
-
-### 20.10 External Documentation Safety
+| Dependency limitation | Feasibility note and decision log | ### 20.10 External Documentation Safety
 
 When researching externally:
 

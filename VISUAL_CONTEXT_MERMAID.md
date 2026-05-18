@@ -1,16 +1,16 @@
-# 📊 Visual Context Protocol: Mermaid Flowcharts
+# Visual Context Protocol: Mermaid Flowcharts
 
-## 🎯 Purpose
+## Purpose
 Provide developers and AI agents with a standardized way to visualize project architecture, workflows, and state transitions using [Mermaid.js](https://mermaid-js.github.io/mermaid/). Visual diagrams reduce cognitive load and help AI assistants understand complex relationships faster.
 
-## ⚙️ Why use Mermaid?
+## Why use Mermaid?
 - **Text-Based**: Diagrams are stored as code (Markdown), making them version-controllable and token-efficient.
 - **AI-Friendly**: LLMs are excellent at generating and parsing Mermaid syntax.
 - **IDE Support**: Most modern IDEs (Cursor, VS Code, Obsidian) and GitHub/GitLab render Mermaid natively.
 
 ---
 
-## 🏗️ Core Diagram Types
+## Core Diagram Types
 
 ### 1. Architecture Map (High-Level)
 Use flowcharts to map directory structures, service boundaries, and data flow.
@@ -53,7 +53,7 @@ stateDiagram-v2
 
 ---
 
-## 🤖 Instructions for AI Agents
+## Instructions for AI Agents
 
 When an AI agent is asked to "visualize" or "explain the architecture," it should:
 1. **Identify Entities**: Determine the key components, files, or services.
@@ -66,11 +66,11 @@ When an AI agent is asked to "visualize" or "explain the architecture," it shoul
 
 ---
 
-## 🛠️ Integration with Nexus-APCP
+## Integration with Nexus-APCP
 
 - **Location**: Store complex diagrams in `docs/diagrams/` or embed them directly in `AI_PROJECT_CONTEXT_PROTOCOL.md`.
 - **Decision Logs**: Use Mermaid in `DECISION_LOG_PROTOCOL.md` to show "Before" vs "After" architecture during major refactors.
 - **Task Progress**: Use state diagrams to visualize long-running multi-stage tasks.
 
 ---
-*Nexus-APCP: Visualizing logic for faster engineering.* 📈🚀
+*Nexus-APCP: Visualizing logic for faster engineering.* 

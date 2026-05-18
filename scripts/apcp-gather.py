@@ -18,15 +18,17 @@ def gather_context(caveman_mode=False):
         "TASK_PROGRESS.yaml",
         "DECISION_LOG_PROTOCOL.md",
         "CONTEXT_OPTIMIZATION.md",
-        "CAVEMAN_RULES.md"
+        "CAVEMAN_RULES.md",
+        "EMOJI_POLICY.md",
+        "UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md"
     ]
     
     output_file = "PROMPT_READY.txt"
     timestamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     
-    print(f"🔍 Gathering project context at {timestamp}...")
+    print(f"Gathering project context at {timestamp}...")
     if caveman_mode:
-        print("🪨 CAVEMAN MODE ENABLED")
+        print("CAVEMAN MODE ENABLED")
     
     try:
         with open(output_file, "w", encoding="utf-8") as out:
@@ -39,13 +41,13 @@ def gather_context(caveman_mode=False):
             
             for f in core_files:
                 if os.path.exists(f):
-                    print(f"✅ Adding: {f}")
+                    print(f"Adding: {f}")
                     out.write(f"=== START OF FILE: {f} ===\n")
                     with open(f, "r", encoding="utf-8") as content:
                         out.write(content.read())
                     out.write(f"\n=== END OF FILE: {f} ===\n\n")
                 else:
-                    print(f"⚠️  Skipped (Not Found): {f}")
+                    print(f"Skipped (Not Found): {f}")
             
             out.write("\n--- INSTRUCTIONS ---\n")
             if caveman_mode:
@@ -54,11 +56,11 @@ def gather_context(caveman_mode=False):
             else:
                 out.write("Please read the context above and confirm you understand the current task and architecture.\n")
             
-        print(f"\n🚀 Success! Context gathered in: {output_file}")
-        print("👉 Copy the contents of this file and paste it into your AI session.")
+        print(f"\nSuccess! Context gathered in: {output_file}")
+        print("Copy the contents of this file and paste it into your AI session.")
         
     except Exception as e:
-        print(f"❌ Error: {str(e)}")
+        print(f"Error: {str(e)}")
 
 if __name__ == "__main__":
     is_caveman = "--caveman" in sys.argv

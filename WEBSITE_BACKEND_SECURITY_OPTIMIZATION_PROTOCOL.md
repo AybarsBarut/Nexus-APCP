@@ -24,9 +24,7 @@ This protocol keeps that decision flexible. If the user later asks for comments,
 
 ## 1. Website Backend Classification
 
-Before building or changing a website backend, classify the requested website type.
-
-| Website type | Default backend | Default database | Notes |
+Before building or changing a website backend, classify the requested website type. | Website type | Default backend | Default database | Notes |
 | --- | --- | --- | --- |
 | Portfolio/resume | None or static hosting | None | Use static pages, CDN, optimized media, optional serverless contact form. SQL is not justified unless the user asks for dynamic content management, private submissions, or analytics storage. |
 | Landing page/marketing | None or static hosting | None | Forms should use a trusted form service, serverless relay, or CRM integration with rate limits and spam controls. |
@@ -37,9 +35,7 @@ Before building or changing a website backend, classify the requested website ty
 | SaaS/dashboard | Backend required | Required | Requires auth, authorization, tenancy boundaries, audit logs, backup/restore, and scale planning. |
 | Community/UGC | Backend required | Required | Requires moderation, abuse controls, rate limits, upload safety, and privacy rules. |
 | AI-backed website | Backend usually required | Optional | Model/provider keys stay server-side. Add quotas, cost controls, prompt injection defenses, and logging without sensitive content. |
-| Internal/admin portal | Backend required | Required or existing | Require least-privilege access, MFA, network restrictions where possible, and audit trails. |
-
-If the classification is uncertain, choose the simpler option and document which user request would justify adding backend or storage.
+| Internal/admin portal | Backend required | Required or existing | Require least-privilege access, MFA, network restrictions where possible, and audit trails. | If the classification is uncertain, choose the simpler option and document which user request would justify adding backend or storage.
 
 ---
 
@@ -144,17 +140,13 @@ Rules:
 
 ### 4.1 Visibility Classes
 
-Classify every key, token, endpoint, and variable before use.
-
-| Class | Examples | Browser exposure | Rules |
+Classify every key, token, endpoint, and variable before use. | Class | Examples | Browser exposure | Rules |
 | --- | --- | --- | --- |
 | Public identifier | Analytics measurement ID, map public key, publishable payment key | Allowed if intended | Restrict by domain/origin, quota, and provider settings. Treat as public, not secret. |
 | Public API endpoint | `/api/contact`, `/api/products`, public CMS feed | Allowed | Enforce rate limits, input validation, caching, and safe errors. Do not leak internals. |
 | Server-only secret | Database URL, service role key, OAuth client secret, payment secret, webhook signing secret, SMTP password, AI provider key | Never | Store in server env/secret manager. Never put in client bundles, static JSON, source maps, logs, or docs. |
 | User secret | Session cookie, access token, password reset token, magic link | Never in JS-readable storage unless explicitly designed | Prefer HttpOnly Secure SameSite cookies for browser sessions. Keep tokens short-lived and revocable. |
-| Internal endpoint | Admin API, metrics, health details, staging services | Never public without protection | Require auth, network restriction, or deployment-level protection. |
-
-Rules:
+| Internal endpoint | Admin API, metrics, health details, staging services | Never public without protection | Require auth, network restriction, or deployment-level protection. | Rules:
 
 - Any value exposed to frontend JavaScript is public by design.
 - Frontend env prefixes such as `NEXT_PUBLIC_`, `VITE_`, `PUBLIC_`, and similar must contain only intentionally public values.
@@ -284,9 +276,7 @@ Required when using paid APIs or serverless:
 
 ## 7. Flexible User Request Handling
 
-When a user asks for a website feature, map it to the smallest secure backend shape.
-
-| User request | Preferred response |
+When a user asks for a website feature, map it to the smallest secure backend shape. | User request | Preferred response |
 | --- | --- |
 | "Make me a portfolio" | Static site, no SQL, no auth, optimized images, optional protected contact form endpoint. |
 | "Add contact form" | Serverless form handler or trusted provider; no frontend email/API secret; rate limit and spam controls. |
@@ -296,9 +286,7 @@ When a user asks for a website feature, map it to the smallest secure backend sh
 | "Add payments" | Use provider checkout or backend payment routes; verify webhooks and use idempotency. |
 | "Add AI chatbot" | Use server-side AI proxy with quotas, content rules, prompt-injection controls, and no provider key in browser. |
 | "Add admin stats" | Keep private analytics behind auth; avoid exposing raw logs or user data. |
-| "Make it faster" | Measure first; optimize static output, caching, images, bundle size, APIs, and database queries in that order. |
-
-If the user asks for a shortcut that would expose secrets, weaken auth, disable validation, or bypass testing, propose the nearest safe implementation and record the tradeoff.
+| "Make it faster" | Measure first; optimize static output, caching, images, bundle size, APIs, and database queries in that order. | If the user asks for a shortcut that would expose secrets, weaken auth, disable validation, or bypass testing, propose the nearest safe implementation and record the tradeoff.
 
 ---
 

@@ -6,8 +6,7 @@ labels:
 body:
   - type: markdown
     attributes:
-      value: |
-        Thanks for helping improve Nexus-APCP. Do not include secrets, private project context, generated private prompt bundles, or exploit details.
+      value: | Thanks for helping improve Nexus-APCP. Do not include secrets, private project context, generated private prompt bundles, or exploit details.
   - type: textarea
     id: problem
     attributes:
@@ -21,8 +20,7 @@ body:
     attributes:
       label: Steps to reproduce
       description: List the exact command, file, or section involved.
-      placeholder: |
-        1. Open ...
+      placeholder: | 1. Open ...
         2. Run ...
         3. See ...
   - type: textarea

@@ -1,14 +1,14 @@
-# 📦 Nexus-APCP: AI Project Context Protocol Kit v1.0
+# Nexus-APCP: AI Project Context Protocol Kit v1.0
 
 **A complete context engineering system for AI-assisted development, AI coding assistants, and token-optimized LLM workflows.**
 
 ---
 
-## 📂 KIT CONTENTS (4 Files)
+## KIT CONTENTS (4 Files)
 
 This kit consists of 4 core files. You should use them all together:
 
-### 1️⃣ **AI_PROJECT_CONTEXT_PROTOCOL.md** (Main Documentation)
+### 1 **AI_PROJECT_CONTEXT_PROTOCOL.md** (Main Documentation)
 - **Size**: ~20 KB
 - **Purpose**: To fully define the project
 - **Usage**: Load at the beginning of each AI session
@@ -23,7 +23,7 @@ This kit consists of 4 core files. You should use them all together:
   - Documentation and resources
   - Best practices
 
-### 2️⃣ **TASK_PROGRESS.yaml** (Task Tracking)
+### 2 **TASK_PROGRESS.yaml** (Task Tracking)
 - **Size**: ~5-10 KB
 - **Purpose**: To track tasks
 - **Usage**: Update at the start/end of each task
@@ -35,7 +35,7 @@ This kit consists of 4 core files. You should use them all together:
   - Velocity metrics
   - Retrospective notes
 
-### 3️⃣ **AI_ASSISTANT_PROMPT_TEMPLATES.md** (Quick Start)
+### 3 **AI_ASSISTANT_PROMPT_TEMPLATES.md** (Quick Start)
 - **Size**: ~15 KB
 - **Purpose**: Ready-to-use prompts for 15 different scenarios
 - **Usage**: Select, copy, and paste the scenario that fits your situation
@@ -46,7 +46,7 @@ This kit consists of 4 core files. You should use them all together:
   - Token efficiency tips
   - Model-specific guidance
 
-### 4️⃣ **SETUP_GUIDE.md** (Setup and Routine)
+### 4 **SETUP_GUIDE.md** (Setup and Routine)
 - **Size**: ~12 KB
 - **Purpose**: To set up and run APCP
 - **Usage**: Initial setup + weekly routine
@@ -58,7 +58,7 @@ This kit consists of 4 core files. You should use them all together:
   - Troubleshooting
   - Best practices
 
-### 🌟 **ADVANCED FEATURES (Professional Pack)**
+### **ADVANCED FEATURES (Professional Pack)**
 - **DECISION_LOG_PROTOCOL.md**: Architecture Decision Records (ADR) to track technical intent.
 - **CONTEXT_OPTIMIZATION.md**: Strategies for handling large-scale codebases and token limits.
 - **WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md**: Workspace-specific release gates for Unity/game engines, web apps, backend services, AI/LLM products, penetration testing, packaging, and scalability.
@@ -67,7 +67,7 @@ This kit consists of 4 core files. You should use them all together:
 
 ---
 
-## 🚀 QUICK START (5 STEPS)
+## QUICK START (5 STEPS)
 
 ### Step 1: Copy Files to the Project (1 min)
 
@@ -149,58 +149,58 @@ Let's begin!
 
 ---
 
-## 📋 FILE ROLES (Who needs what and when?)
+## FILE ROLES (Who needs what and when?)
 
 | File | Project Setup | Daily Work | Code Review | Model Switch | Sprint End |
 |-------|---|---|---|---|---|
-| **AI_PROJECT_CONTEXT_PROTOCOL.md** | ✅ Customize | ✅ Reference | ✅ Check | ✅ **Load** | ⚫ Update |
-| **TASK_PROGRESS.yaml** | ✅ Create | ✅ Update | ✅ Check | ⚫ Reload | ✅ **Review** |
-| **AI_ASSISTANT_PROMPT_TEMPLATES.md** | ⚫ - | ✅ Select scenario | ⚫ - | ✅ Reference | ⚫ - |
-| **SETUP_GUIDE.md** | ✅ **Follow** | ⚫ - | ⚫ - | ⚫ - | ⚫ Routine check |
+| **AI_PROJECT_CONTEXT_PROTOCOL.md** | Customize | Reference | Check | **Load** | Update |
+| **TASK_PROGRESS.yaml** | Create | Update | Check | Reload | **Review** |
+| **AI_ASSISTANT_PROMPT_TEMPLATES.md** | - | Select scenario | - | Reference | - |
+| **SETUP_GUIDE.md** | **Follow** | - | - | - | Routine check |
 
-Legend: ✅ = High priority, ⚫ = Optional, **Bold** = Very important
+Legend: direct action = high priority, `-` = optional, **Bold** = very important
 
 ---
 
-## 🎯 BENEFITS OF APCP
+## BENEFITS OF APCP
 
 ### Short-term Benefits (1 week)
-- ✅ AI provides accurate answers instead of learning the project from scratch
-- ✅ Tokens are used more efficiently
-- ✅ Code reviews become faster
-- ✅ The team knows all the rules
+- AI provides accurate answers instead of learning the project from scratch
+- Tokens are used more efficiently
+- Code reviews become faster
+- The team knows all the rules
 
 ### Mid-term Benefits (1 month)
-- ✅ Tasks are completed within estimated times
-- ✅ Model switches are seamless
-- ✅ Bugs are fixed faster
-- ✅ Newcomers get up-to-speed in 2 hours
+- Tasks are completed within estimated times
+- Model switches are seamless
+- Bugs are fixed faster
+- Newcomers get up-to-speed in 2 hours
 
 ### Long-term Benefits (3+ months)
-- ✅ Velocity is stable and predictable
-- ✅ Technical debt decreases
-- ✅ Documentation stays up-to-date
-- ✅ No knowledge silos (the entire system is in APCP)
-- ✅ Management always knows the project status
+- Velocity is stable and predictable
+- Technical debt decreases
+- Documentation stays up-to-date
+- No knowledge silos (the entire system is in APCP)
+- Management always knows the project status
 
 ---
 
-## 🔄 WEEKLY ROUTINE (10 min/day)
+## WEEKLY ROUTINE (10 min/day)
 
 ```
-📅 Monday (30 min)
+ Monday (30 min)
   ├─ Ask AI: "What's this week's plan?"
   ├─ Review TASK_PROGRESS.yaml
   └─ Plan the week's tasks
 
-📅 Tuesday-Friday (10 min/day)
+ Tuesday-Friday (10 min/day)
   ├─ Start the day: AI "What's next?"
   ├─ Work and test
   ├─ bash scripts/checkpoint.sh
   ├─ Commit (Section 6.2 format)
   └─ Update TASK_PROGRESS
 
-📅 Friday End (30 min)
+ Friday End (30 min)
   ├─ Review the week's achievements
   ├─ bash scripts/update-apcp.sh
   ├─ Finalize TASK_PROGRESS
@@ -209,7 +209,7 @@ Legend: ✅ = High priority, ⚫ = Optional, **Bold** = Very important
 
 ---
 
-## 📊 METRICS (To track)
+## METRICS (To track)
 
 Check weekly/monthly:
 
@@ -237,31 +237,31 @@ Team:
 
 ---
 
-## ⚠️ APCP RULES (CRITICAL)
+## APCP RULES (CRITICAL)
 
-### 🔐 NEVER DO
-
-```
-❌ Write secret keys where [REDACTED] should be
-❌ Forget to update APCP
-❌ Leave task progress empty
-❌ Ignore design patterns
-❌ Commit without logging breaking changes
-```
-
-### ✅ ALWAYS DO
+### NEVER DO
 
 ```
-✅ Update TASK_PROGRESS at the end of every task
-✅ Run checkpoint.sh before committing
-✅ Run update-apcp.sh once a week
-✅ Load the full APCP during a model switch
-✅ Ask questions when there is uncertainty (don't guess)
+ Write secret keys where [REDACTED] should be
+ Forget to update APCP
+ Leave task progress empty
+ Ignore design patterns
+ Commit without logging breaking changes
+```
+
+### ALWAYS DO
+
+```
+ Update TASK_PROGRESS at the end of every task
+ Run checkpoint.sh before committing
+ Run update-apcp.sh once a week
+ Load the full APCP during a model switch
+ Ask questions when there is uncertainty (don't guess)
 ```
 
 ---
 
-## 🆘 STARTING FROM SCRATCH (Existing Project)
+## STARTING FROM SCRATCH (Existing Project)
 
 If you already have a project:
 
@@ -279,7 +279,7 @@ Total: 1.5 hours setup, then works smoothly
 
 ---
 
-## 🚀 ANATOMY OF APCP
+## ANATOMY OF APCP
 
 ```
 An AI session works like this:
@@ -312,7 +312,7 @@ RESULT: Token efficiency and consistency!
 
 ---
 
-## 📈 GROWTH PATH
+## GROWTH PATH
 
 As you use APCP:
 
@@ -338,7 +338,7 @@ Month 3+: Mature (AI-assisted dev best practice)
 
 ---
 
-## 🔗 FILE LINKS
+## FILE LINKS
 
 Depending on your environment:
 
@@ -361,7 +361,7 @@ Local Clone:
 
 ---
 
-## 💬 FAQ
+## FAQ
 
 **Q: When should the files be updated?**
 A: AI_PROJECT_CONTEXT_PROTOCOL.md: Monthly or major changes. TASK_PROGRESS.yaml: Daily. Others: Rarely.
@@ -383,7 +383,7 @@ A: Setup takes 1-2 hours. But ROI: 4-5 hours gain per session through cleaner mo
 
 ---
 
-## 🎓 ADVANCED TOPICS
+## ADVANCED TOPICS
 
 Next level:
 
@@ -398,7 +398,7 @@ Next level:
 
 ---
 
-## 📞 SUPPORT AND COMMUNITY
+## SUPPORT AND COMMUNITY
 
 - **Questions?** Create an issue on GitHub (others will benefit)
 - **New scenario?** Add to AI_ASSISTANT_PROMPT_TEMPLATES.md
@@ -407,36 +407,36 @@ Next level:
 
 ---
 
-## 📄 LICENSE AND USAGE
+## LICENSE AND USAGE
 
 **APCP Kit is completely open and free.**
 
-- Use for your own project ✅
-- Share with the team ✅
-- Write on a blog ✅ (a link would be nice)
-- Sell or redistribute with the MIT license notice ✅
-- Remove copyright ❌
+- Use for your own project 
+- Share with the team 
+- Write on a blog  (a link would be nice)
+- Sell or redistribute with the MIT license notice 
+- Remove copyright 
 
 ---
 
-## 🎉 ARE YOU READY?
+## ARE YOU READY?
 
 ```
 To start AI-assisted development with APCP:
 
-1. Download the 4 files ✅
-2. Follow SETUP_GUIDE.md ✅
-3. Start the first task ✅
-4. Maintain the routine ✅
+1. Download the 4 files 
+2. Follow SETUP_GUIDE.md 
+3. Start the first task 
+4. Maintain the routine 
 
 Result: Faster, consistent, reliable development!
 
-Ready to build? 🚀
+Ready to build? 
 ```
 
 ---
 
-## 📝 VERSION HISTORY
+## VERSION HISTORY
 
 | Version | Date | Changes |
 |---------|------|---------|
@@ -444,7 +444,7 @@ Ready to build? 🚀
 
 ---
 
-## 🌟 KEY NOTES
+## KEY NOTES
 
 ```
 "APCP is like the project talking to the AI.
@@ -460,4 +460,4 @@ Even if the model is switched, the project is remembered."
 **Maintained By**: AI Development Community  
 **Questions?** Create an issue or ask your AI assistant
 
-**Happy coding with AI! 🤖✨**
+**Happy coding with AI! **

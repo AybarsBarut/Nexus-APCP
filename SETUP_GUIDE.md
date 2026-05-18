@@ -1,10 +1,10 @@
-# 🚀 Nexus-APCP: AI Project Context Protocol Setup Guide
+# Nexus-APCP: AI Project Context Protocol Setup Guide
 
 A step-by-step guide to setting up Nexus-APCP for AI-assisted development, context engineering, and token-optimized coding workflows.
 
 ---
 
-## 🎯 SETUP STEPS
+## SETUP STEPS
 
 ### Step 0: Prepare Information (15 minutes)
 
@@ -66,6 +66,7 @@ Install these core files when available:
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
 - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+- UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
 - scripts/apcp-gather.py
 
 Then inspect this project, customize placeholders, preserve secrets/private context, and run:
@@ -86,6 +87,7 @@ python scripts/apcp-gather.py --caveman
 # - CAVEMAN_RULES.md
 # - AI_ASSISTANT_PROMPT_TEMPLATES.md
 # - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
+# - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
 
 cp AI_PROJECT_CONTEXT_PROTOCOL.md /path/to/your/project/
 cp AI_MAIN.md /path/to/your/project/
@@ -94,6 +96,7 @@ cp DECISION_LOG_PROTOCOL.md /path/to/your/project/
 cp CONTEXT_OPTIMIZATION.md /path/to/your/project/
 cp CAVEMAN_RULES.md /path/to/your/project/
 cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /path/to/your/project/
+cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /path/to/your/project/
 cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/docs/
 mkdir -p /path/to/your/project/scripts
 cp scripts/apcp-gather.py /path/to/your/project/scripts/
@@ -102,6 +105,7 @@ cp scripts/apcp-gather.py /path/to/your/project/scripts/
 git add AI_PROJECT_CONTEXT_PROTOCOL.md AI_MAIN.md TASK_PROGRESS.yaml
 git add DECISION_LOG_PROTOCOL.md CONTEXT_OPTIMIZATION.md CAVEMAN_RULES.md
 git add WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
+git add UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
 git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
 git add scripts/apcp-gather.py
 
@@ -113,6 +117,7 @@ git commit -m "docs: add AI Project Context Protocol (APCP) v1.0
 - Add TASK_PROGRESS.yaml for task tracking
 - Add decision log, context optimization, and Caveman rules
 - Add website backend security and optimization protocol
+- Add update-system recommendation protocol
 - Add AI_ASSISTANT_PROMPT_TEMPLATES.md for prompt templates
 - Add apcp-gather.py for context packaging
 - Enables AI-assisted development workflow"
@@ -157,8 +162,8 @@ Main Language: [Python/JavaScript/TypeScript] ← Select
 
 # SECTION 2 - File Hierarchy
 [PROJECT_NAME]/
-├── 📁 src/
-│   ├── 📁 core/
+├──  src/
+│   ├──  core/
 │   │   ├── auth.py
 │   │   ├── database.py
 │   │   ├── config.py
@@ -189,26 +194,26 @@ Project:
 Tasks:
   - id: "TASK-001"
     title: "Create project structure"
-    status: "⚪ NOT_STARTED"
-    priority: "🔴 CRITICAL"
+    status: " NOT_STARTED"
+    priority: " CRITICAL"
     due_date: "2024-01-17"
     effort_estimate: "4h"
     subtasks:
-      - "⚪ Create folder structure"
-      - "⚪ Set up Docker"
-      - "⚪ Build CI/CD pipeline"
+      - " Create folder structure"
+      - " Set up Docker"
+      - " Build CI/CD pipeline"
     
   - id: "TASK-002"
     title: "Authentication system"
-    status: "⚪ NOT_STARTED"
-    priority: "🔴 CRITICAL"
+    status: " NOT_STARTED"
+    priority: " CRITICAL"
     due_date: "2024-01-22"
     effort_estimate: "12h"
     dependencies: ["TASK-001"]
     subtasks:
-      - "⚪ Determine JWT strategy"
-      - "⚪ Write auth service"
-      - "⚪ Write tests"
+      - " Determine JWT strategy"
+      - " Write auth service"
+      - " Write tests"
 EOF
 ```
 
@@ -227,31 +232,31 @@ cat > scripts/checkpoint.sh << 'EOF'
 #!/bin/bash
 set -e
 
-echo "🔍 Pre-commit checklist..."
+echo " Pre-commit checklist..."
 echo ""
 
 # 1. Tests
 echo "1. Running tests..."
 if ! pytest src/tests/ -v --tb=short 2>/dev/null; then
-    echo "❌ Tests failed!"
+    echo " Tests failed!"
     exit 1
 fi
-echo "✅ Tests passed"
+echo " Tests passed"
 echo ""
 
 # 2. Code format
 echo "2. Checking code format..."
 if ! black --check src/ 2>/dev/null; then
-    echo "⚠️  Code formatting issues found. Running: black src/"
+    echo "  Code formatting issues found. Running: black src/"
     black src/
 fi
-echo "✅ Code formatted"
+echo " Code formatted"
 echo ""
 
 # 3. Linting
 echo "3. Linting..."
 if ! flake8 src/ --max-line-length=100 2>/dev/null; then
-    echo "⚠️  Linting issues found (non-blocking)"
+    echo "  Linting issues found (non-blocking)"
 fi
 echo ""
 
@@ -259,7 +264,7 @@ echo ""
 echo "4. Type checking..."
 if command -v mypy &> /dev/null; then
     if ! mypy src/ 2>/dev/null; then
-        echo "⚠️  Type hints issues (non-blocking)"
+        echo "  Type hints issues (non-blocking)"
     fi
 fi
 echo ""
@@ -268,7 +273,7 @@ echo ""
 echo "5. Security scan..."
 if command -v bandit &> /dev/null; then
     if ! bandit -r src/ -ll 2>/dev/null; then
-        echo "⚠️  Security warnings (check them!)"
+        echo "  Security warnings (check them!)"
     fi
 fi
 echo ""
@@ -278,7 +283,7 @@ echo "6. Git status:"
 git status --short
 echo ""
 
-echo "✅ All checks completed!"
+echo " All checks completed!"
 echo ""
 echo "Ready to commit. Do:"
 echo "  git add ."
@@ -296,7 +301,7 @@ A script to help update the APCP:
 cat > scripts/update-apcp.sh << 'EOF'
 #!/bin/bash
 
-echo "📝 Updating APCP files..."
+echo " Updating APCP files..."
 echo ""
 
 # Get current timestamp
@@ -306,7 +311,7 @@ TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 sed -i "s/Last Updated: .*/Last Updated: $TIMESTAMP/" AI_PROJECT_CONTEXT_PROTOCOL.md
 sed -i "s/# Last Updated: .*/# Last Updated: $TIMESTAMP/" TASK_PROGRESS.yaml
 
-echo "✅ Updated timestamps"
+echo " Updated timestamps"
 echo ""
 
 # Show git diff
@@ -363,7 +368,7 @@ Let's go!
 
 ---
 
-## 📋 POST-SETUP CHECKLIST
+## POST-SETUP CHECKLIST
 
 Checklist after completing the setup:
 
@@ -385,7 +390,7 @@ APCP Setup Verification:
 
 ---
 
-## 🔄 WEEKLY ROUTINE
+## WEEKLY ROUTINE
 
 Life in the project becomes like this:
 
@@ -419,7 +424,7 @@ bash scripts/checkpoint.sh
 
 ```bash
 # At the end of the week:
-# 1. Mark completed tasks with ✅
+# 1. Mark completed tasks with 
 # 2. Merge open PRs
 # 3. Finalize TASK_PROGRESS.yaml
 
@@ -432,58 +437,58 @@ git push
 
 ---
 
-## ⚠️ STRICT RULES (FOR APCP SUCCESS)
+## STRICT RULES (FOR APCP SUCCESS)
 
-### 🔐 NEVER Do
-
-```
-❌ Hard-code AI Keys/Secrets in APCP
-❌ Commit Production URLs to test
-❌ Store user passwords in APCP
-❌ Leave documentation obsolete (update it!)
-❌ Ignore TASK_PROGRESS (keep it active!)
-```
-
-### ✅ ALWAYS Do
+### NEVER Do
 
 ```
-✅ Run checkpoint.sh before every commit
-✅ Update TASK_PROGRESS at the end of every task
-✅ Update Section 9 every time an external service is added
-✅ Update docs at every major code change
-✅ Run update-apcp.sh once a week
-✅ Reference APCP sections during code review
+ Hard-code AI Keys/Secrets in APCP
+ Commit Production URLs to test
+ Store user passwords in APCP
+ Leave documentation obsolete (update it!)
+ Ignore TASK_PROGRESS (keep it active!)
+```
+
+### ALWAYS Do
+
+```
+ Run checkpoint.sh before every commit
+ Update TASK_PROGRESS at the end of every task
+ Update Section 9 every time an external service is added
+ Update docs at every major code change
+ Run update-apcp.sh once a week
+ Reference APCP sections during code review
 ```
 
 ---
 
-## 🎓 BENEFITS OF APCP (Why so detailed?)
+## BENEFITS OF APCP (Why so detailed?)
 
 It benefits not only the AI but also the team:
 
 ```
 From the developer's perspective:
-✅ New team members get up-to-speed in 30 minutes
-✅ Code reviews accelerate (patterns are defined)
-✅ Inconsistency decreases
-✅ Even the person doing maintenance knows previous decisions
+ New team members get up-to-speed in 30 minutes
+ Code reviews accelerate (patterns are defined)
+ Inconsistency decreases
+ Even the person doing maintenance knows previous decisions
 
 From management's perspective:
-✅ Task tracking is automatic (TASK_PROGRESS.yaml)
-✅ Velocity can be measured (estimates vs actual)
-✅ Bottlenecks are visible
-✅ Project status is always up-to-date
+ Task tracking is automatic (TASK_PROGRESS.yaml)
+ Velocity can be measured (estimates vs actual)
+ Bottlenecks are visible
+ Project status is always up-to-date
 
 From the AI's perspective:
-✅ Uses tokens efficiently (does not reload context)
-✅ Model switches are smooth
-✅ Works consistently (patterns are specified)
-✅ Understands user intent better
+ Uses tokens efficiently (does not reload context)
+ Model switches are smooth
+ Works consistently (patterns are specified)
+ Understands user intent better
 ```
 
 ---
 
-## 🚨 TROUBLESHOOTING
+## TROUBLESHOOTING
 
 ### Problem: "checkpoint.sh: command not found"
 
@@ -536,7 +541,7 @@ Continue..."
 
 ---
 
-## 📚 NEXT STEPS
+## NEXT STEPS
 
 After completing the setup:
 
@@ -548,24 +553,24 @@ After completing the setup:
 
 ---
 
-## 🎯 MEASURE OF SUCCESS
+## MEASURE OF SUCCESS
 
 When APCP is successful:
 
 ```
-✅ AI models remain consistent across sessions
-✅ Model switches are problem-free
-✅ Tasks are finished within estimated times (Velocity stable)
-✅ Code reviews accelerate
-✅ New team members onboard quickly
-✅ Production bugs decrease
-✅ Team morale rises ("Everything is planned!")
-✅ Documentation stays up-to-date
+ AI models remain consistent across sessions
+ Model switches are problem-free
+ Tasks are finished within estimated times (Velocity stable)
+ Code reviews accelerate
+ New team members onboard quickly
+ Production bugs decrease
+ Team morale rises ("Everything is planned!")
+ Documentation stays up-to-date
 ```
 
 ---
 
-## 📞 SUPPORT AND QUESTIONS
+## SUPPORT AND QUESTIONS
 
 If you have questions:
 
@@ -576,7 +581,7 @@ If you have questions:
 
 ---
 
-## ✨ SUCCESS STORIES
+## SUCCESS STORIES
 
 From teams using APCP:
 
@@ -588,6 +593,6 @@ From teams using APCP:
 
 ---
 
-**🚀 Ready to launch your AI-assisted development?**
+** Ready to launch your AI-assisted development?**
 
-**Let's go! 🎯**
+**Let's go! **

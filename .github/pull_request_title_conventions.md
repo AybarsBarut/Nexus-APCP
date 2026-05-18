@@ -17,9 +17,7 @@ fix(script): Handle Unicode output on Windows
 chore(metadata): Refresh repository SEO topics
 ```
 
-## Types
-
-| Type | Use for |
+## Types | Type | Use for |
 | :--- | :--- |
 | `feat` | New protocol capabilities, example kits, or user-facing assets. |
 | `fix` | Corrections to broken links, scripts, incorrect guidance, or unsafe defaults. |
@@ -27,9 +25,7 @@ chore(metadata): Refresh repository SEO topics
 | `prompt` | Prompt templates, AI instructions, or agent guidance. |
 | `security` | Safe-publishing guidance, private-context handling, or vulnerability-reporting process. |
 | `ci` | GitHub Actions or repository validation automation. |
-| `chore` | Metadata, maintenance, cleanup, or non-user-facing updates. |
-
-## Scopes
+| `chore` | Metadata, maintenance, cleanup, or non-user-facing updates. | ## Scopes
 
 Common scopes include `readme`, `protocol`, `prompts`, `security`, `seo`, `examples`, `scripts`, `github`, and `agents`.
 

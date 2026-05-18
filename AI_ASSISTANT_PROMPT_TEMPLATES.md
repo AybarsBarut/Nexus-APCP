@@ -1,9 +1,9 @@
-# 🤖 Nexus-APCP AI Assistant Prompt Templates
+# Nexus-APCP AI Assistant Prompt Templates
 ## Ready-to-use prompts for AI-assisted development scenarios
 
 ---
 
-## 📌 SCENARIO 0: Initializing the "Second Brain" (NotebookLM / Obsidian Sync)
+## SCENARIO 0: Initializing the "Second Brain" (NotebookLM / Obsidian Sync)
 **Objective:** Transform structured APCP context into a high-density Knowledge Base optimized for RAG-based tools (NotebookLM) or linked-note systems (Obsidian). This is critical for team onboarding and multi-model synchronization.
 
 **Prompt to send to AI:**
@@ -23,7 +23,7 @@ Format the output to be instructive and mentor-like, ensuring all technical term
 
 ---
 
-## 📌 SCENARIO 1: Starting a Project for the First Time (Recommended)
+## SCENARIO 1: Starting a Project for the First Time (Recommended)
 
 Copy and send to the AI in the same session:
 
@@ -52,7 +52,7 @@ Let's make sure we're on the same page before diving into code.
 
 ---
 
-## 📌 SCENARIO 2: Continuing with the Same Model
+## SCENARIO 2: Continuing with the Same Model
 
 If you are close to the token limit and continuing with the same model:
 
@@ -76,7 +76,7 @@ Let's go!
 
 ---
 
-## 📌 SCENARIO 3: Switching to a New Model
+## SCENARIO 3: Switching to a New Model
 
 If you are changing models or have reached the token limit:
 
@@ -102,7 +102,7 @@ We'll continue exactly where we left off.
 
 ---
 
-## 📌 SCENARIO 4: Code Review Session
+## SCENARIO 4: Code Review Session
 
 To review existing code:
 
@@ -124,15 +124,15 @@ Please review against:
 4. Section 15 (Code Review Checklist)
 
 Give me:
-- ✅ What looks good
-- ⚠️ Issues/concerns
-- 🔧 Suggested improvements
-- 📝 Before you approve, I'll:
+- What looks good
+- Issues/concerns
+- Suggested improvements
+- Before you approve, I'll:
 ```
 
 ---
 
-## 📌 SCENARIO 5: Editing Documentation
+## SCENARIO 5: Editing Documentation
 
 When documentation needs updating:
 
@@ -161,7 +161,7 @@ Draft the documentation for me.
 
 ---
 
-## 📌 SCENARIO 6: Bug Fix / Hotfix
+## SCENARIO 6: Bug Fix / Hotfix
 
 When an urgent bug fix is needed:
 
@@ -187,7 +187,7 @@ Let's move fast but safe.
 
 ---
 
-## 📌 SCENARIO 7: Architecture Decision
+## SCENARIO 7: Architecture Decision
 
 When an architectural decision or refactoring is needed:
 
@@ -214,7 +214,7 @@ Let's think this through before we code.
 
 ---
 
-## 📌 SCENARIO 8: Performance Optimization
+## SCENARIO 8: Performance Optimization
 
 When performance improvement is needed:
 
@@ -244,7 +244,7 @@ Let's make it faster.
 
 ---
 
-## 📌 SCENARIO 9: Dependency/Library Update
+## SCENARIO 9: Dependency/Library Update
 
 When updating a library or adding a new dependency:
 
@@ -271,7 +271,7 @@ Help me make this update safely.
 
 ---
 
-## 📌 SCENARIO 10: Task Not Started Yet
+## SCENARIO 10: Task Not Started Yet
 
 Time to start a new task:
 
@@ -301,7 +301,7 @@ Let's build this feature!
 
 ---
 
-## 🔗 SCENARIO 11: External Service Integration
+## SCENARIO 11: External Service Integration
 
 Integrating an external service/API:
 
@@ -334,7 +334,7 @@ Let's integrate this safely.
 
 ---
 
-## 🚀 SCENARIO 12: Deployment Preparation
+## SCENARIO 12: Deployment Preparation
 
 Before production deployment:
 
@@ -365,12 +365,12 @@ Ready to deploy?
 
 ---
 
-## 🆘 SCENARIO 13: Emergency / Urgent Issue
+## SCENARIO 13: Emergency / Urgent Issue
 
 Solving an emergency:
 
 ```
-🚨 EMERGENCY FIX NEEDED 🚨
+ EMERGENCY FIX NEEDED 
 
 Issue: [Description]
 Severity: [Critical / High / Medium]
@@ -396,7 +396,7 @@ Let's fix this NOW.
 
 ---
 
-## 📊 SCENARIO 14: Retrospective & Planning
+## SCENARIO 14: Retrospective & Planning
 
 Retrospective and planning at the end of a sprint:
 
@@ -429,7 +429,7 @@ Ready for next sprint planning.
 
 ---
 
-## 🔄 SCENARIO 15: Token/Session Ending
+## SCENARIO 15: Token/Session Ending
 
 If you are approaching the end of the session:
 
@@ -454,7 +454,7 @@ Please:
    
 
 2. Update TASK_PROGRESS.yaml:
-   - Mark completed tasks as ✅
+   - Mark completed tasks as 
    - Update in-progress percentages
    - Note blockers for next session
 
@@ -470,7 +470,7 @@ Save everything and ready to switch models.
 
 ---
 
-## 📌 SCENARIO 16: Caveman Mode (Token Saver) 🪨
+## SCENARIO 16: Caveman Mode (Token Saver) 
 
 Use this to reduce output token usage by 65%+:
 
@@ -491,9 +491,40 @@ Why use many token when few token do trick?
 
 ---
 
-## 📝 BEST PRACTICES WHEN USING THESE PROMPTS
+## SCENARIO 17: User-Requested Update System
 
-### ✅ DOS
+Use this only when the user asks for an updater, version checker, auto-update flow, GitHub sync, or launcher that updates before app start.
+
+```
+I want an update system for [PROJECT_NAME].
+
+User request:
+[Describe the requested update behavior]
+
+Project profile:
+- Runtime target: [Windows desktop / portable app / web app / SaaS / mobile / other]
+- Distribution source: [public GitHub / private repo / package manager / app store / other]
+- Current launch flow: [start.bat / start.ps1 / app.exe / npm script / other]
+- Versioning: [SemVer / tags / releases / none]
+- Local-only files to protect: [.env, user data, settings, generated files, private context]
+
+Context:
+[PASTE: UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Sections 4, 6, 13 only]
+
+Please:
+1. Decide whether the Archura SyncGuard style pattern fits.
+2. If it fits, propose the safest implementation plan and required files.
+3. If values are missing, inspect the repository first and propose defaults.
+4. If it does not fit, recommend the correct release/update strategy instead.
+5. Preserve private files, local settings, backups, logs, and generated prompt bundles.
+```
+
+---
+
+## BEST PRACTICES WHEN USING THESE PROMPTS
+
+### DOS
 
 1. **Always copy files in full**:
    Instead of:
@@ -508,13 +539,13 @@ Why use many token when few token do trick?
 
 3. **Be specific** (avoid vague requests):
    ```
-   ❌ Bad: "Help me with the API"
-   ✅ Good: "Help me implement GET /users/{id} endpoint with proper error handling"
+    Bad: "Help me with the API"
+    Good: "Help me implement GET /users/{id} endpoint with proper error handling"
    ```
 
 4. **Always update TASK_PROGRESS**:
    At the end of the session:
-   - Mark completed tasks with ✅
+   - Mark completed tasks with 
    - Update in-progress (%)
    - Add actual effort
    - Note blockers
@@ -525,7 +556,7 @@ Why use many token when few token do trick?
    ```
    Right before committing.
 
-### ❌ DON'TS
+### DON'TS
 
 1. **Don't write manually instead of copy/pasting**:
    - You might write file paths incorrectly
@@ -547,7 +578,7 @@ Why use many token when few token do trick?
 
 ---
 
-## 🎯 PROMPT SELECTION FLOWCHART
+## PROMPT SELECTION FLOWCHART
 
 ```
 What do I want to do?
@@ -560,6 +591,7 @@ What do I want to do?
 ├─ Performance optimization (SCENARIO 8)
 ├─ External service integration (SCENARIO 11)
 ├─ Deployment (SCENARIO 12)
+├─ Update system / version sync (SCENARIO 17)
 ├─ Emergency (SCENARIO 13)
 ├─ Sprint planning (SCENARIO 14)
 ├─ Model switching (SCENARIO 3)
@@ -570,7 +602,7 @@ What do I want to do?
 
 ---
 
-## 💡 EXTRA TIPS
+## EXTRA TIPS
 
 ### Token Efficiency
 - First session: FULL context (3000-4000 tokens spent, saves later)

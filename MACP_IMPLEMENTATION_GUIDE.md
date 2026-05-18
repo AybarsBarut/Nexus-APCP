@@ -1,14 +1,14 @@
-# 🚀 MACP IMPLEMENTATION GUIDE
+# MACP IMPLEMENTATION GUIDE
 ## Multi-AI Coordination Protocol - Practical Setup
 
 ---
 
-## 📋 QUICK REFERENCE
+## QUICK REFERENCE
 
 ```
 MACP = Multiple AI models working in parallel on the same project
 APCP = Project context for a single AI
-Together = Super powerful 🚀
+Together = Super powerful 
 
 This guide: Assumes you have already set up APCP
 Task: Add MACP and perform multi-AI setup
@@ -18,7 +18,7 @@ Result: Synchronized operation of 2-5 AI models
 
 ---
 
-## 🎯 STEP 1: Add MACP Files to the Repo (5 minutes)
+## STEP 1: Add MACP Files to the Repo (5 minutes)
 
 ### 1.1 Copy MACP.md
 
@@ -169,7 +169,7 @@ git commit -m "chore: initialize MACP directory structure and templates"
 
 ---
 
-## 🔌 STEP 2: Create Helper Scripts (10 minutes)
+## STEP 2: Create Helper Scripts (10 minutes)
 
 ### 2.1 Heartbeat Script
 
@@ -199,7 +199,7 @@ cat >> "$HEARTBEAT_FILE" << HEARTBEAT_END
 $(date -u +%Y-%m-%dT%H:%M:%SZ) | $AI_MODEL | $SESSION_ID | $TASK | $PROGRESS% | Tokens: $TOKEN_USED/$TOKEN_TOTAL
 HEARTBEAT_END
 
-echo "✅ Heartbeat recorded for $AI_MODEL"
+echo " Heartbeat recorded for $AI_MODEL"
 echo "   Task: $TASK ($PROGRESS%)"
 echo "   File: $HEARTBEAT_FILE"
 EOF
@@ -265,7 +265,7 @@ if not session_found and "$STATUS" == "ACTIVE":
 with open(state_file, 'w') as f:
     json.dump(state, f, indent=2)
 
-print(f"✅ State updated for {AI_MODEL}")
+print(f" State updated for {AI_MODEL}")
 PYTHON_END
 EOF
 
@@ -278,16 +278,16 @@ chmod +x scripts/macp-state-update.sh
 cat > scripts/macp-sync-check.sh << 'EOF'
 #!/bin/bash
 
-echo "🔄 MACP Synchronization Check"
+echo " MACP Synchronization Check"
 echo ""
 
 # Check AI_TEAM_STATE.json exists
 if [ ! -f ".ai_team/AI_TEAM_STATE.json" ]; then
-    echo "❌ AI_TEAM_STATE.json not found"
+    echo " AI_TEAM_STATE.json not found"
     exit 1
 fi
 
-echo "✅ AI_TEAM_STATE.json exists"
+echo " AI_TEAM_STATE.json exists"
 echo ""
 
 # Check for active sessions
@@ -303,7 +303,7 @@ print(f"Active Sessions: {len(active)}")
 print("")
 
 for session in active:
-    print(f"  🔵 {session['ai_model']}")
+    print(f"   {session['ai_model']}")
     print(f"     Task: {session.get('current_task', 'Unknown')}")
     print(f"     Status: {session.get('status', 'Unknown')}")
     print(f"     Last Heartbeat: {session.get('last_heartbeat', 'Never')}")
@@ -315,24 +315,24 @@ for session in active:
         diff = (now - last_hb).total_seconds() / 60
         
         if diff > 10:
-            print(f"     ⚠️  No heartbeat for {int(diff)} minutes!")
+            print(f"       No heartbeat for {int(diff)} minutes!")
         else:
-            print(f"     ✅ Heartbeat recent ({int(diff)} min ago)")
+            print(f"      Heartbeat recent ({int(diff)} min ago)")
     print("")
 
 # Check for conflicts
 conflicts = state['ai_team_state']['conflicts']['active']
 if conflicts:
-    print(f"⚠️  Active Conflicts: {len(conflicts)}")
+    print(f"  Active Conflicts: {len(conflicts)}")
     for conflict in conflicts:
         print(f"   - {conflict.get('id', 'Unknown')}: {conflict.get('issue', 'Unknown issue')}")
 else:
-    print("✅ No active conflicts")
+    print(" No active conflicts")
 
 PYTHON_END
 
 echo ""
-echo "✅ Sync check complete"
+echo " Sync check complete"
 EOF
 
 chmod +x scripts/macp-sync-check.sh
@@ -346,13 +346,13 @@ cat > scripts/macp-init.sh << 'EOF'
 
 set -e
 
-echo "🔧 Initializing MACP..."
+echo " Initializing MACP..."
 echo ""
 
 # Create directories
 echo "Creating directories..."
 mkdir -p .ai_team/{handshakes,handoffs,conflicts,heartbeats,session-logs,integration-points,metrics}
-echo "✅ Directories created"
+echo " Directories created"
 echo ""
 
 # Create README
@@ -390,7 +390,7 @@ bash ../scripts/macp-state-update.sh "AI Model" "ACTIVE" "TASK-XXX" "75"
 
 See: ../MACP.md
 README_END
-echo "✅ README created"
+echo " README created"
 echo ""
 
 # Initialize AI_TEAM_STATE.json
@@ -427,17 +427,17 @@ cat > .ai_team/AI_TEAM_STATE.json << 'STATE_END'
   }
 }
 STATE_END
-echo "✅ AI_TEAM_STATE.json initialized"
+echo " AI_TEAM_STATE.json initialized"
 echo ""
 
 # Git commit
 echo "Committing to git..."
 git add .ai_team/ scripts/macp-*.sh
 git commit -m "chore: initialize MACP infrastructure"
-echo "✅ Committed to git"
+echo " Committed to git"
 echo ""
 
-echo "🎉 MACP initialization complete!"
+echo " MACP initialization complete!"
 echo ""
 echo "Next steps:"
 echo "1. Update PROJECT_NAME in AI_TEAM_STATE.json"
@@ -450,7 +450,7 @@ chmod +x scripts/macp-init.sh
 
 ---
 
-## 🎬 STEP 3: First Setup (Initial Setup) (10 minutes)
+## STEP 3: First Setup (Initial Setup) (10 minutes)
 
 ### 3.1 Initialize MACP
 
@@ -459,10 +459,10 @@ chmod +x scripts/macp-init.sh
 bash scripts/macp-init.sh
 
 # Output should show:
-# ✅ Directories created
-# ✅ README created
-# ✅ AI_TEAM_STATE.json initialized
-# ✅ Committed to git
+# Directories created
+# README created
+# AI_TEAM_STATE.json initialized
+# Committed to git
 ```
 
 ### 3.2 Customize AI_TEAM_STATE.json
@@ -483,7 +483,7 @@ git commit -m "docs: customize MACP project name"
 
 ---
 
-## 👥 STEP 4: Define AI Roles (5 minutes)
+## STEP 4: Define AI Roles (5 minutes)
 
 Create `MACP_ROLES.yaml` in the project root:
 
@@ -546,7 +546,7 @@ git commit -m "docs: define AI roles for MACP"
 
 ---
 
-## 🤝 STEP 5: First Handshake (Start of Session) (10 minutes)
+## STEP 5: First Handshake (Start of Session) (10 minutes)
 
 What the Frontend AI should do at the start of its session:
 
@@ -631,7 +631,7 @@ state['ai_team_state']['last_updated'] = datetime.utcnow().isoformat() + "Z"
 with open('.ai_team/AI_TEAM_STATE.json', 'w') as f:
     json.dump(state, f, indent=2)
 
-print("✅ State updated")
+print(" State updated")
 PYTHON_END
 
 python3 scripts/update-state.py
@@ -642,7 +642,7 @@ git push
 
 ---
 
-## 🔄 STEP 6: Periodic Operations (Every 30 minutes)
+## STEP 6: Periodic Operations (Every 30 minutes)
 
 ### 6.1 Send Heartbeat
 
@@ -651,9 +651,9 @@ git push
 bash scripts/macp-heartbeat.sh "Lightweight Claude model" "frontend-2024-01-15-001" "TASK-001" "60" 35000 100000
 
 # Output:
-# ✅ Heartbeat recorded for Lightweight Claude model
-#    Task: TASK-001 (60%)
-#    File: .ai_team/heartbeats/lightweight_claude_model_20240115.log
+# Heartbeat recorded for Lightweight Claude model
+# Task: TASK-001 (60%)
+# File: .ai_team/heartbeats/lightweight_claude_model_20240115.log
 ```
 
 ### 6.2 State Check
@@ -663,20 +663,20 @@ bash scripts/macp-heartbeat.sh "Lightweight Claude model" "frontend-2024-01-15-0
 bash scripts/macp-sync-check.sh
 
 # Output:
-# 🔄 MACP Synchronization Check
-# ✅ AI_TEAM_STATE.json exists
+# MACP Synchronization Check
+# AI_TEAM_STATE.json exists
 # Active Sessions: 1
-# 🔵 Lightweight Claude model
-#    Task: TASK-001
-#    Status: ACTIVE
-#    ✅ Heartbeat recent (2 min ago)
-# ✅ No active conflicts
-# ✅ Sync check complete
+# Lightweight Claude model
+# Task: TASK-001
+# Status: ACTIVE
+# Heartbeat recent (2 min ago)
+# No active conflicts
+# Sync check complete
 ```
 
 ---
 
-## 📤 STEP 7: Session Handoff (End of Session) (10 minutes)
+## STEP 7: Session Handoff (End of Session) (10 minutes)
 
 When the Frontend AI ends its session:
 
@@ -706,7 +706,7 @@ cat > .ai_team/handoffs/frontend-2024-01-15-001-handoff.json << 'EOF'
         {
           "task_id": "TASK-001",
           "title": "Component Library",
-          "status": "✅ COMPLETED",
+          "status": " COMPLETED",
           "pr_created": true,
           "pr_number": 42,
           "notes": "All components follow design system. Ready for testing."
@@ -725,7 +725,7 @@ cat > .ai_team/handoffs/frontend-2024-01-15-001-handoff.json << 'EOF'
         {
           "task_id": "TASK-005",
           "title": "Routing Setup",
-          "status": "🟡 IN_PROGRESS",
+          "status": " IN_PROGRESS",
           "progress": "40%",
           "notes": "Blocked by Backend API routes (TASK-010)"
         }
@@ -782,7 +782,7 @@ if session:
 with open('.ai_team/AI_TEAM_STATE.json', 'w') as f:
     json.dump(state, f, indent=2)
 
-print("✅ Session marked as complete")
+print(" Session marked as complete")
 END
 
 git add .ai_team/AI_TEAM_STATE.json
@@ -792,7 +792,7 @@ git push
 
 ---
 
-## ⚡ STEP 8: Quick Commands Reference
+## STEP 8: Quick Commands Reference
 
 ```bash
 # Send heartbeat (every 30 minutes)
@@ -819,7 +819,7 @@ bash scripts/macp-state-update.sh "AI Model" "ACTIVE" "TASK-XXX" "75" 45000
 
 ---
 
-## 🎓 BEST PRACTICES
+## BEST PRACTICES
 
 ### Before Each AI Session
 
@@ -861,7 +861,7 @@ Cleanup:
 
 ---
 
-## 📞 TROUBLESHOOTING
+## TROUBLESHOOTING
 
 ### Problem: JSON Syntax Error in State File
 
@@ -900,7 +900,7 @@ ls -la .ai_team/handshakes/
 
 ---
 
-## 🚀 FULL WORKFLOW EXAMPLE
+## FULL WORKFLOW EXAMPLE
 
 ```bash
 # MORNING: Frontend Claude starts
@@ -948,7 +948,7 @@ cat .ai_team/handoffs/frontend-2024-01-15-001-handoff.json
 
 ---
 
-## ✅ VALIDATION CHECKLIST
+## VALIDATION CHECKLIST
 
 Before deploying MACP, verify:
 
@@ -966,7 +966,7 @@ Before deploying MACP, verify:
 
 ---
 
-## 📚 DOCUMENTATION
+## DOCUMENTATION
 
 For detailed info, see:
 
@@ -978,18 +978,18 @@ For detailed info, see:
 
 ---
 
-## 🎉 YOU'RE READY!
+## YOU'RE READY!
 
 MACP is now set up. Your team can:
 
-✅ Work in parallel (Frontend + Backend + Database + Testing)
-✅ Coordinate automatically (handshakes + state sync)
-✅ Handle conflicts gracefully (structured resolution)
-✅ Transition smoothly (detailed handoffs)
-✅ Monitor progress (heartbeats + metrics)
-✅ Scale to 3-5 AI models efficiently
+ Work in parallel (Frontend + Backend + Database + Testing)
+ Coordinate automatically (handshakes + state sync)
+ Handle conflicts gracefully (structured resolution)
+ Transition smoothly (detailed handoffs)
+ Monitor progress (heartbeats + metrics)
+ Scale to 3-5 AI models efficiently
 
-**Let's build together! 🚀**
+**Let's build together! **
 
 ---
 

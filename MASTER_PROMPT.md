@@ -1,11 +1,11 @@
-# 👑 MASTER PROMPT: INITIALIZING NEXUS-APCP
+# MASTER PROMPT: INITIALIZING NEXUS-APCP
 
-## 🎯 Purpose
+## Purpose
 Copy and paste this prompt into any new AI session (Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, or other AI coding agents) to initialize the high-performance development protocol.
 
 ---
 
-### 📥 THE PROMPT
+### THE PROMPT
 
 ```markdown
 I am initializing a high-performance development workflow using the **Nexus-APCP Protocol** (https://github.com/AybarsBarut/Nexus-APCP).
@@ -47,12 +47,12 @@ Please adopt the following operational identity:
 - Run `python scripts/apcp-gather.py --caveman` after files are in place.
 - Summarize the next 3 immediate tasks.
 
-Let's build with precision. Logic first. Tokens last. 🪨🚀
+Let's build with precision. Logic first. Tokens last. 
 ```
 
 ---
 
-## 🛠️ HOW TO USE
+## HOW TO USE
 1. **Clone the Kit**: `git clone https://github.com/AybarsBarut/Nexus-APCP.git`
 2. **Inject into Project**: Copy the core protocol files listed in the prompt above plus `scripts/apcp-gather.py` to your project.
 3. **Trigger AI**: Paste the Master Prompt above into your AI chat.

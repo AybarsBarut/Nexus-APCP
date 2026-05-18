@@ -1,19 +1,19 @@
-# 🤖 Nexus-APCP: AI Project Context Protocol
+# Nexus-APCP: AI Project Context Protocol
 ## Project Context Protocol for AI coding assistants, AI agents, and LLM workflows v1.0
 
 ---
 
-## 📌 QUICK START
+## QUICK START
 
 This file is the **single source of truth** for AI coding assistants and agents (Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, etc.) to understand your entire project and work consistently. When this file is updated:
-- ✅ The model **does not** have to learn the project from scratch
-- ✅ The token budget is used effectively
-- ✅ Changes are synchronized automatically
-- ✅ The AI takes on the role of project manager
+- The model **does not** have to learn the project from scratch
+- The token budget is used effectively
+- Changes are synchronized automatically
+- The AI takes on the role of project manager
 
 ---
 
-## 🏗️ SECTION 1: GENERAL PROJECT INFORMATION
+## SECTION 1: GENERAL PROJECT INFORMATION
 
 ### 1.1 Project Identity
 ```yaml
@@ -47,47 +47,47 @@ OUT OF SCOPE:
 
 ---
 
-## 📂 SECTION 2: PROJECT FILE HIERARCHY
+## SECTION 2: PROJECT FILE HIERARCHY
 
 ```
 [PROJECT_NAME]/
 │
-├── 📁 src/                           # Source code
-│   ├── 📁 core/                      # Core functionality
+├──  src/                           # Source code
+│   ├──  core/                      # Core functionality
 │   │   ├── auth.py                   # Authentication
 │   │   ├── database.py               # Database connections
 │   │   ├── config.py                 # Configuration management
 │   │   └── utils.py                  # Common helper functions
 │   │
-│   ├── 📁 api/                       # API endpoints
+│   ├──  api/                       # API endpoints
 │   │   ├── routes.py                 # Flask/FastAPI routes
 │   │   ├── middleware.py             # Middlewares
 │   │   ├── validators.py             # Input validation
 │   │   └── responses.py              # Standardized response formats
 │   │
-│   ├── 📁 models/                    # Data models (ORM, schemas)
+│   ├──  models/                    # Data models (ORM, schemas)
 │   │   ├── user.py                   # User model
 │   │   ├── product.py                # Product model
 │   │   └── schemas.py                # Pydantic/Marshmallow schemas
 │   │
-│   ├── 📁 services/                  # Business logic
+│   ├──  services/                  # Business logic
 │   │   ├── user_service.py           # User operations
 │   │   ├── payment_service.py        # Payment operations
 │   │   └── notification_service.py   # Notification operations
 │   │
-│   ├── 📁 tasks/                     # Background tasks (Celery, etc)
+│   ├──  tasks/                     # Background tasks (Celery, etc)
 │   │   ├── email_tasks.py
 │   │   ├── export_tasks.py
 │   │   └── cleanup_tasks.py
 │   │
-│   ├── 📁 tests/                     # Test files
+│   ├──  tests/                     # Test files
 │   │   ├── unit/
 │   │   ├── integration/
 │   │   └── fixtures.py
 │   │
 │   └── main.py / app.py              # Application entry point
 │
-├── 📁 infrastructure/                # DevOps and configuration
+├──  infrastructure/                # DevOps and configuration
 │   ├── docker/
 │   │   ├── Dockerfile
 │   │   ├── docker-compose.yml
@@ -105,7 +105,7 @@ OUT OF SCOPE:
 │       ├── backup.sh
 │       └── migrate.sh
 │
-├── 📁 docs/                          # Documentation
+├──  docs/                          # Documentation
 │   ├── ARCHITECTURE.md               # Architecture document
 │   ├── API.md                        # API documentation
 │   ├── SETUP.md                      # Setup guide
@@ -113,13 +113,13 @@ OUT OF SCOPE:
 │   ├── TROUBLESHOOTING.md            # Troubleshooting
 │   └── CHANGELOG.md                  # Change log
 │
-├── 📁 config/                        # Configuration files
+├──  config/                        # Configuration files
 │   ├── development.env
 │   ├── staging.env
 │   ├── production.env
 │   └── logging.yaml
 │
-├── 📁 .github/                       # GitHub configuration
+├──  .github/                       # GitHub configuration
 │   ├── workflows/
 │   │   ├── ci.yml
 │   │   ├── cd.yml
@@ -131,7 +131,7 @@ OUT OF SCOPE:
 ├── .env.example
 ├── README.md
 ├── LICENSE
-└── AI_PROJECT_CONTEXT.md             # 👈 Local/private filled project context by default
+└── AI_PROJECT_CONTEXT.md             #  Local/private filled project context by default
 ```
 
 ### 2.1 Important Directory Descriptions
@@ -146,7 +146,7 @@ OUT OF SCOPE:
 
 ---
 
-## 🔌 SECTION 3: COMMON FUNCTIONS AND IMPORT STRUCTURE
+## SECTION 3: COMMON FUNCTIONS AND IMPORT STRUCTURE
 
 ### 3.1 Core Module (src/core/)
 
@@ -159,7 +159,7 @@ from src.core.auth import (
     require_auth            # Decorator: route protection
 )
 ```
-📍 **Usage Areas**: API routes, middleware, services
+ **Usage Areas**: API routes, middleware, services
 
 **database.py** - Database operations
 ```python
@@ -170,7 +170,7 @@ from src.core.database import (
     close_db                # Close connection
 )
 ```
-📍 **Usage Areas**: Services, models
+ **Usage Areas**: Services, models
 
 **config.py** - Configuration management
 ```python
@@ -180,7 +180,7 @@ from src.core.config import (
     SETTINGS                # Global settings object
 )
 ```
-📍 **Usage Areas**: Entry file, services
+ **Usage Areas**: Entry file, services
 
 **utils.py** - Helper functions
 ```python
@@ -193,7 +193,7 @@ from src.core.utils import (
     log_event               # Event logging
 )
 ```
-📍 **Usage Areas**: Everywhere
+ **Usage Areas**: Everywhere
 
 ### 3.2 Services Layer (src/services/)
 
@@ -211,7 +211,7 @@ user = user_service.create_user(email="user@example.com", password="...")
 
 ### 3.3 Import Rules (CRITICAL!)
 
-✅ **DOS**:
+ **DOS**:
 ```python
 # Use absolute imports
 from src.core.auth import authenticate_user
@@ -221,7 +221,7 @@ from src.services.user_service import UserService
 from .utils import helper_function
 ```
 
-❌ **DON'TS**:
+ **DON'TS**:
 ```python
 # Creating circular imports
 from src import something  # Don't!
@@ -232,7 +232,7 @@ from src.api.routes.users.handlers.v1 import func  # Simplify!
 
 ---
 
-## 🔐 SECTION 4: SECURITY AND SENSITIVE DATA RULES
+## SECTION 4: SECURITY AND SENSITIVE DATA RULES
 
 ### 4.1 WHAT MUST BE PROTECTED
 
@@ -247,7 +247,7 @@ Examples:
   - OpenAI API Key: "<REDACTED_OPENAI_API_KEY>"
   - Stripe Secret Key: "<REDACTED_STRIPE_SECRET_KEY>"
 Storage: .env file or Secrets Manager
-Rule: ⚠️ Will never be committed to the repo
+Rule: Will never be committed to the repo
 ```
 
 ### 4.2 .env File Template (.env.example)
@@ -318,7 +318,7 @@ Default rules:
 
 ---
 
-## 📝 SECTION 5: CODE STRUCTURE AND DESIGN PATTERNS
+## SECTION 5: CODE STRUCTURE AND DESIGN PATTERNS
 
 ### 5.1 Classic Layered Architecture
 
@@ -410,7 +410,7 @@ def get_profile():
 
 ---
 
-## 🔄 SECTION 6: GIT FLOW AND CHECKPOINT SYSTEM
+## SECTION 6: GIT FLOW AND CHECKPOINT SYSTEM
 
 ### 6.1 Branch Strategy (Git Flow)
 
@@ -494,18 +494,18 @@ git status
 
 set -e  # Stop on error
 
-echo "🔍 Running tests..."
+echo " Running tests..."
 pytest src/tests/ -v --tb=short
 
-echo "📝 Formatting code..."
+echo " Formatting code..."
 black src/ --check
 flake8 src/ --max-line-length=100
 
-echo "🔒 Running security checks..."
+echo " Running security checks..."
 bandit -r src/ -ll
 safety check
 
-echo "✅ All checks passed! Safe to commit."
+echo " All checks passed! Safe to commit."
 echo "Next: git add . && git commit -m 'type(scope): message'"
 ```
 
@@ -516,7 +516,7 @@ bash scripts/checkpoint.sh
 
 ---
 
-## 📋 SECTION 7: TASK PROGRESS TRACKER
+## SECTION 7: TASK PROGRESS TRACKER
 
 ### 7.1 Tasks.yaml File Structure
 
@@ -535,8 +535,8 @@ Tasks:
   - id: TASK-001
     title: "Create project structure"
     description: "Core directory structure, git config, Docker setup"
-    status: ✅ COMPLETED
-    priority: 🔴 CRITICAL
+    status: COMPLETED
+    priority: CRITICAL
     assigned_to: AI Assistant
     start_date: 2024-01-01
     due_date: 2024-01-03
@@ -544,10 +544,10 @@ Tasks:
     effort_estimate: 4h
     actual_effort: 3.5h
     subtasks:
-      - "✅ Create src/ and infrastructure/ directories"
-      - "✅ Configure .gitignore and .env.example"
-      - "✅ Add requirements.txt / package.json"
-      - "✅ Complete Docker setup"
+      - " Create src/ and infrastructure/ directories"
+      - " Configure .gitignore and .env.example"
+      - " Add requirements.txt / package.json"
+      - " Complete Docker setup"
     notes: |
       - All core modules ready
       - Testing framework set up (pytest)
@@ -557,8 +557,8 @@ Tasks:
   - id: TASK-002
     title: "Develop API authentication system"
     description: "JWT-based auth, role-based access control"
-    status: 🟡 IN_PROGRESS (60%)
-    priority: 🔴 CRITICAL
+    status: IN_PROGRESS (60%)
+    priority: CRITICAL
     assigned_to: AI Assistant
     start_date: 2024-01-04
     due_date: 2024-01-08
@@ -566,11 +566,11 @@ Tasks:
     effort_estimate: 12h
     actual_effort: 7.2h (to date)
     subtasks:
-      - "✅ Develop Auth service"
-      - "✅ Implement JWT token logic"
-      - "🟡 Integrate middleware (in progress)"
-      - "⚪ Write unit tests"
-      - "⚪ Write integration tests"
+      - " Develop Auth service"
+      - " Implement JWT token logic"
+      - " Integrate middleware (in progress)"
+      - " Write unit tests"
+      - " Write integration tests"
     notes: |
       - Service layer completed
       - Issues with middleware testing
@@ -580,8 +580,8 @@ Tasks:
   - id: TASK-003
     title: "User model and database migrations"
     description: "User table, relationships, indexes"
-    status: ⚪ NOT_STARTED
-    priority: 🟡 HIGH
+    status: NOT_STARTED
+    priority: HIGH
     assigned_to: AI Assistant
     start_date: 2024-01-09
     due_date: 2024-01-12
@@ -589,9 +589,9 @@ Tasks:
     effort_estimate: 8h
     actual_effort: 0h
     subtasks:
-      - "⚪ Write user model (with Alembic)"
-      - "⚪ Apply database migrations"
-      - "⚪ Add constraints and indexes"
+      - " Write user model (with Alembic)"
+      - " Apply database migrations"
+      - " Add constraints and indexes"
     notes: "Should start after TASK-002 is completed"
     blockers: "Auth service not yet completed"
     dependencies: ["TASK-002"]
@@ -612,20 +612,20 @@ Sprint_Summary:
 ### 7.2 Task Status Legend
 
 ```
-✅ COMPLETED   - Fully finished, tested, merged
-🟡 IN_PROGRESS - Active work ongoing (% progress)
-⚪ NOT_STARTED - Not yet started (blockers/dependencies noted if any)
-🔴 BLOCKED     - Waiting for another task to complete
-🟠 REVIEW      - PR opened, waiting for code review
+ COMPLETED   - Fully finished, tested, merged
+ IN_PROGRESS - Active work ongoing (% progress)
+ NOT_STARTED - Not yet started (blockers/dependencies noted if any)
+ BLOCKED     - Waiting for another task to complete
+ REVIEW      - PR opened, waiting for code review
 ```
 
 ### 7.3 Priority Levels
 
 ```
-🔴 CRITICAL   - System might not work, blocker, required immediately
-🟡 HIGH       - Important, should be in the sprint
-🟢 MEDIUM     - Standard, will be done as time permits
-🔵 LOW        - Nice-to-have, can wait in the backlog
+ CRITICAL   - System might not work, blocker, required immediately
+ HIGH       - Important, should be in the sprint
+ MEDIUM     - Standard, will be done as time permits
+ LOW        - Nice-to-have, can wait in the backlog
 ```
 
 ### 7.4 AI Assistant's Task Management
@@ -633,22 +633,22 @@ Sprint_Summary:
 Before starting each task:
 
 ```
-✅ Before starting TASK-002:
+Before starting TASK-002:
 1. Read TASK_PROGRESS.yaml
 2. Identify blockers if any
 3. Check dependencies
 4. Read and understand subtasks
 5. Note start_date
-6. Set status to 🟡 IN_PROGRESS
+6. Set status to IN_PROGRESS
 
 As each subtask is completed:
-- Mark with ✅ next to the subtask
+- Mark completed subtasks with `DONE`
 - Update percentage (TASK-002: 60% → 75%)
 - Update actual_effort
 - Add what was done to notes
 
 When task is completed:
-- Set status to ✅ COMPLETED
+- Set status to COMPLETED
 - Add completion_date
 - Finalize actual_effort
 - Write a short summary
@@ -656,7 +656,7 @@ When task is completed:
 
 ---
 
-## 📚 SECTION 8: DOCUMENTATION AND RESOURCES
+## SECTION 8: DOCUMENTATION AND RESOURCES
 
 ### 8.1 Mandatory Documentation Files
 
@@ -675,6 +675,7 @@ docs/
 ├── WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md # Workspace-specific security, AI, packaging, and scalability gates
 ├── WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md # Website backend security, API secrecy, static-first, and pentest gates
 ├── DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md # Domain-specific ignore rules and safe-push prompts
+├── UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md # User-requested updater fit checks and safe implementation prompt
 ├── CONTRIBUTING.md          # Contributor guidelines
 ├── CHANGELOG.md             # Version history
 └── API_REFERENCE.yaml       # OpenAPI/Swagger spec
@@ -885,7 +886,7 @@ Errors:
 
 ---
 
-## 🔗 SECTION 9: EXTERNAL RESOURCES AND REFERENCES
+## SECTION 9: EXTERNAL RESOURCES AND REFERENCES
 
 ### 9.1 Documentation Links
 
@@ -942,7 +943,7 @@ Relevant docs link should be next to each library
 
 ---
 
-## 🎯 SECTION 10: SPECIAL RULES AND CONVENTIONS
+## SECTION 10: SPECIAL RULES AND CONVENTIONS
 
 ### 10.1 Error Handling
 
@@ -1020,7 +1021,7 @@ class User(Base):
 
 ---
 
-## 🚀 SECTION 11: NEW MODEL TRANSITION PROTOCOL
+## SECTION 11: NEW MODEL TRANSITION PROTOCOL
 
 **Scenario**: You are switching to a new AI model or fresh session and reached the token limit.
 
@@ -1029,18 +1030,18 @@ class User(Base):
 ```
 BEFORE SWITCHING MODELS:
 
-☑️ 1. Create/update this file (AI_PROJECT_CONTEXT_PROTOCOL.md)
-☑️ 2. Update TASK_PROGRESS.yaml (save last state)
-☑️ 3. Commit to Git: "docs: update project context and task progress"
-☑️ 4. If there are open PRs, merge branch from latest main
-☑️ 5. Clean local branches: git branch -D feature/...
+ 1. Create/update this file (AI_PROJECT_CONTEXT_PROTOCOL.md)
+ 2. Update TASK_PROGRESS.yaml (save last state)
+ 3. Commit to Git: "docs: update project context and task progress"
+ 4. If there are open PRs, merge branch from latest main
+ 5. Clean local branches: git branch -D feature/...
 
 AT THE BEGINNING OF PROMPT (with New Model):
 
-☑️ 1. Put this file (AI_PROJECT_CONTEXT_PROTOCOL.md) in internal context
-☑️ 2. Read TASK_PROGRESS.yaml
-☑️ 3. Read last task: "Where were we?"
-☑️ 4. Continue from where we left off
+ 1. Put this file (AI_PROJECT_CONTEXT_PROTOCOL.md) in internal context
+ 2. Read TASK_PROGRESS.yaml
+ 3. Read last task: "Where were we?"
+ 4. Continue from where we left off
 ```
 
 ### 11.2 New Model Prompt Starters
@@ -1072,7 +1073,7 @@ Help me implement TASK-003. What should I do first?
 
 ---
 
-## 📊 SECTION 12: METRICS AND MONITORING
+## SECTION 12: METRICS AND MONITORING
 
 ### 12.1 Development Metrics
 
@@ -1103,7 +1104,7 @@ Production_Metrics:
 
 ---
 
-## 🔄 SECTION 13: FILE UPDATE PROCEDURE
+## SECTION 13: FILE UPDATE PROCEDURE
 
 How and when will this file (APCP) be updated?
 
@@ -1112,12 +1113,12 @@ How and when will this file (APCP) be updated?
 The model should update automatically in the following situations:
 
 ```
-✅ New file added → Update docs/ section
-✅ New external service integrated → Update Section 9.3
-✅ Folder structure changed → Update Section 2
-✅ New import convention → Update Section 3
-✅ Security policy changed → Update Section 4
-✅ Task completed → Update Section 7
+ New file added → Update docs/ section
+ New external service integrated → Update Section 9.3
+ Folder structure changed → Update Section 2
+ New import convention → Update Section 3
+ Security policy changed → Update Section 4
+ Task completed → Update Section 7
 ```
 
 ### 13.2 Manual Update (by User)
@@ -1128,21 +1129,32 @@ Weekly (on Friday):
 3. Update new/changed sections
 4. Commit to Git
 
+### 13.3 User-Requested Update System Recommendation
+
+When the user asks for an updater, version checker, GitHub sync, or launcher that updates before app start, read `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md` before proposing implementation.
+
+Default rule:
+- Do not add an update system automatically for every project.
+- Recommend the lightweight GitHub SemVer + zip-sync pattern only when the user asks for update behavior and the project profile fits.
+- If the project is SaaS, API-only backend, mobile app store, browser extension store, package-manager distributed software, or requires signed installers or staged rollout, recommend the appropriate release strategy instead.
+- Always protect `.env`, local user data, settings files, backups, logs, generated prompt bundles, and filled private context files.
+
 ---
 
-## 💡 SECTION 14: BEST PRACTICES AND TIPS
+## SECTION 14: BEST PRACTICES AND TIPS
 
 ### 14.1 Tips for AI Assistant
 
 ```
-✅ DOS:
+ DOS:
 - Read TASK_PROGRESS before starting each task
 - Read internal docs first if there are unknown parts
 - Follow patterns in Section 5 when writing code
+- Use `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md` before suggesting an updater
 - Use commit format in Section 6.2 when making breaking changes
 - Ask user when there is uncertainty (don't guess!)
 
-❌ DON'TS:
+ DON'TS:
 - Don't commit sensitive data to the repo (Section 4)
 - Don't ignore design patterns
 - Don't establish arbitrary imports (Section 3.3)
@@ -1181,21 +1193,21 @@ The model should check this for every PR:
 
 ```yaml
 Code Review Checklist:
-  - ✅ Does the code follow patterns in Section 5?
-  - ✅ Are naming conventions correct?
-  - ✅ Are imports optimal (no circular dependency)?
-  - ✅ Were tests written? (80%+ coverage)
-  - ✅ Is there error handling?
-  - ✅ Is logging appropriate?
-  - ✅ Is documentation updated?
-  - ✅ Are breaking changes documented?
-  - ✅ Security checks passed? (bandit, safety)
-  - ✅ Is there a performance regression?
+  - Does the code follow patterns in Section 5?
+  - Are naming conventions correct?
+  - Are imports optimal (no circular dependency)?
+  - Were tests written? (80%+ coverage)
+  - Is there error handling?
+  - Is logging appropriate?
+  - Is documentation updated?
+  - Are breaking changes documented?
+  - Security checks passed? (bandit, safety)
+  - Is there a performance regression?
 ```
 
 ---
 
-## 📞 SECTION 15: EMERGENCY CONTACTS & ESCALATION
+## SECTION 15: EMERGENCY CONTACTS & ESCALATION
 
 When needed:
 
@@ -1216,28 +1228,28 @@ Support Channels:
 
 ---
 
-## 📝 APPENDIX A: EXAMPLE SCENARIO
+## APPENDIX A: EXAMPLE SCENARIO
 
 ### Scenario: New Feature Development (User Profile Update)
 
 ```
-1️⃣ AI ASSISTANT START
+1 AI ASSISTANT START
    - Read this file (APCP)
    - Read TASK_PROGRESS.yaml
    - Request requirements from user
 
-2️⃣ CREATE TASK
+2 CREATE TASK
    - Create TASK-004: "Implement user profile update API"
-   - Add to TASK_PROGRESS.yaml (status: ⚪ NOT_STARTED)
+   - Add to TASK_PROGRESS.yaml (status: NOT_STARTED)
    - Determine subtasks
    - Set due date
 
-3️⃣ CREATE GIT BRANCH
+3 CREATE GIT BRANCH
    bash
    git checkout -b feature/user-profile-update
    
 
-4️⃣ WRITING CODE (Follow Section 5 patterns)
+4 WRITING CODE (Follow Section 5 patterns)
    a. Write Service:
       - Add update_profile() method to src/services/user_service.py
       - Write input validation
@@ -1253,11 +1265,11 @@ Support Channels:
       - Write test in src/tests/unit/test_user_service.py
       - Write test in src/tests/integration/test_user_api.py
 
-5️⃣ TAKING CHECKPOINT (Section 6.4)
+5 TAKING CHECKPOINT (Section 6.4)
    bash
    bash scripts/checkpoint.sh
    
-6️⃣ MAKING COMMIT (Section 6.2 format)
+6 MAKING COMMIT (Section 6.2 format)
    bash
    git add src/
    git commit -m "feat(user): add profile update endpoint
@@ -1270,34 +1282,34 @@ Support Channels:
    Closes #42"
    
 
-7️⃣ UPDATE TASK_PROGRESS
-   - TASK-004 status: ✅ COMPLETED
+7 UPDATE TASK_PROGRESS
+   - TASK-004 status: COMPLETED
    - set completion_date
    - update actual_effort
    - add PR link
 
-8️⃣ UPDATE DOCUMENTATION
+8 UPDATE DOCUMENTATION
    - Add new endpoint to docs/API.md
    - Update docs/CHANGELOG.md
    - Update README (add to feature list)
 
-9️⃣ OPEN PR
+9 OPEN PR
    - Title: "feat: User profile update API"
    - Description: Copy commit message
    - Write Close #42
    - Reference related PRs
 
-🔟 AFTER REVIEW
+ AFTER REVIEW
    - Apply feedback
    - Local: git rebase main && git push -f
-   - Approved? ✅
+   - Approved? 
    - Merge to main
    - Final update to TASK_PROGRESS
 ```
 
 ---
 
-## 📈 APPENDIX B: VELOCITY TRACKING TEMPLATE
+## APPENDIX B: VELOCITY TRACKING TEMPLATE
 
 ```yaml
 # VELOCITY_HISTORY.yaml
@@ -1331,7 +1343,7 @@ Trend_Analysis:
 
 ---
 
-## 🎓 APPENDIX C: QUICK REFERENCE CARD (Token-Light)
+## APPENDIX C: QUICK REFERENCE CARD (Token-Light)
 
 For quick reference while keeping content minimal:
 
@@ -1339,44 +1351,44 @@ For quick reference while keeping content minimal:
 ┌─────────────────────────────────────────────────────┐
 │ AI PROJECT CONTEXT - QUICK REFERENCE (v1.0)         │
 ├─────────────────────────────────────────────────────┤
-│ 📁 FOLDER STRUCTURE                                  │
+│  FOLDER STRUCTURE                                  │
 │ src/core/        → auth, config, database, utils    │
 │ src/services/    → business logic                    │
 │ src/models/      → data models                       │
 │ src/api/         → routes, middleware                │
 │ docs/            → documentation                     │
 │                                                      │
-│ 🔐 NEVER COMMIT                                      │
+│  NEVER COMMIT                                      │
 │ - API Keys (.env → .env.example)                     │
 │ - Passwords, secrets                                 │
 │ - Private tokens                                     │
 │                                                      │
-│ 📝 BEFORE COMMITTING                                 │
+│  BEFORE COMMITTING                                 │
 │ $ bash scripts/checkpoint.sh                         │
-│   ✓ Tests pass                                       │
-│   ✓ Code formatted (black, flake8)                   │
-│   ✓ Security scan (bandit, safety)                   │
-│   ✓ Type check (mypy)                                │
+│    Tests pass                                       │
+│    Code formatted (black, flake8)                   │
+│    Security scan (bandit, safety)                   │
+│    Type check (mypy)                                │
 │                                                      │
-│ 📋 TASK MANAGEMENT                                   │
+│  TASK MANAGEMENT                                   │
 │ 1. Read TASK_PROGRESS.yaml                           │
 │ 2. Check blockers/dependencies                       │
-│ 3. Mark status: ⚪→🟡→✅                              │
+│ 3. Mark status: →→                              │
 │ 4. Update actual_effort                              │
 │                                                      │
-│ 🔗 KEY IMPORTS                                       │
+│  KEY IMPORTS                                       │
 │ from src.core.auth import authenticate_user         │
 │ from src.core.config import get_config              │
 │ from src.core.database import get_db                │
 │ from src.services.* import *Service                 │
 │                                                      │
-│ 📚 KEY DOCS                                          │
+│  KEY DOCS                                          │
 │ - docs/ARCHITECTURE.md (System design)               │
 │ - docs/API.md (Endpoints)                            │
 │ - docs/DATABASE.md (Schema)                          │
 │ - docs/SETUP.md (Development env)                    │
 │                                                      │
-│ 💾 GIT WORKFLOW                                      │
+│  GIT WORKFLOW                                      │
 │ git checkout -b feature/name                         │
 │ ... make changes ...                                 │
 │ bash scripts/checkpoint.sh                           │
@@ -1384,17 +1396,17 @@ For quick reference while keeping content minimal:
 │ git push origin feature/name                         │
 │ Create PR → Review → Merge                           │
 │                                                      │
-│ 🔄 MODEL SWITCHING                                   │
+│  MODEL SWITCHING                                   │
 │ New Model: Paste full APCP + TASK_PROGRESS.yaml      │
 │ Then: "Where were we? Continue from TASK-X"          │
 │                                                      │
-│ ❓ UNCERTAIN? ASK USER FIRST                         │
+│  UNCERTAIN? ASK USER FIRST                         │
 └─────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 📅 VERSION HISTORY
+## VERSION HISTORY
 
 | Version | Date | Changes | Updated By |
 |---------|------|---------|-----------|
@@ -1402,31 +1414,31 @@ For quick reference while keeping content minimal:
 
 ---
 
-## 🎯 FINAL NOTES
+## FINAL NOTES
 
 **This file is:**
-- 📖 A reference book (that you will read from beginning to end)
-- 🗂️ A system design document (overview of architecture)
-- 📋 A checklist (before starting tasks)
-- 🚀 An onboarding guide (when switching to a new model)
-- 💾 A context manager (token efficiency)
+- A reference book (that you will read from beginning to end)
+- A system design document (overview of architecture)
+- A checklist (before starting tasks)
+- An onboarding guide (when switching to a new model)
+- A context manager (token efficiency)
 
 **When to use it:**
-- ✅ Before starting each task
-- ✅ When switching to a new model
-- ✅ When making architecture decisions
-- ✅ When performing code reviews
-- ✅ When there is uncertainty
+- Before starting each task
+- When switching to a new model
+- When making architecture decisions
+- When performing code reviews
+- When there is uncertainty
 
 **Must be updated regularly:**
-- 🔄 At the end of each sprint
-- 🔄 Upon significant changes
-- 🔄 When adding external services
-- 🔄 When establishing new conventions
+- At the end of each sprint
+- Upon significant changes
+- When adding external services
+- When establishing new conventions
 
 ---
 
-**Created with ❤️ for AI-Assisted Development**
+**Created for AI-Assisted Development**
 
 ---
 

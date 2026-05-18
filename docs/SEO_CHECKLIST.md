@@ -66,6 +66,7 @@ If GitHub rejects SVG upload for social preview, export it as a `1200x630` PNG a
 | Architecture | architecture decision records, ADR protocol, decision log |
 | Web security | website backend security protocol, secure web development, backend optimization, API secret handling |
 | Delivery process | waterfall development protocol, phase-gated delivery, stack combination documentation |
+| Update systems | auto-update protocol, GitHub version checker, SemVer update system, zip sync updater |
 | Tool searches | Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow |
 
 ## Maintenance Rules
