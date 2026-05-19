@@ -185,8 +185,16 @@ tasks:
     assignee: "Codex"
     description: "Adapt public MIT-licensed agent-skill workflow patterns into a Nexus-APCP protocol for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, prototyping, and skill creation."
 
+  - id: TASK-023
+    title: "Add Debloat Application Guide"
+    status: COMPLETED
+    priority: MEDIUM
+    effort: 1
+    assignee: "Codex"
+    description: "Create an English, emoji-free, public-safe guide for lean application defaults, consent-based tracking, dependency minimalism, optional feature loading, and bloat detection."
+
 metrics:
-  tasks_completed: 22
-  total_tasks: 22
+  tasks_completed: 23
+  total_tasks: 23
   velocity: 1.0
   quality_score: 100%

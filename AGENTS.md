@@ -23,6 +23,7 @@ The public repository should remain safe to share. Real project context files, p
 | `VISUAL_CONTEXT_MERMAID.md` | Mermaid README flowchart and visual context protocol. |
 | `AI_AGENT_SKILLS_PROTOCOL.md` | Skill-based AI agent workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping. |
 | `FILE_STRUCTURE_REFACTOR_PROTOCOL.md` | Safe iterative file and folder restructuring protocol for existing projects. |
+| `DEBLOAT_APPLICATION_GUIDE.md` | Lean application guidance for reducing ads, hidden tracking, heavy dependencies, optional feature load, and resource usage. |
 | `AI_ASSISTANT_PROMPT_TEMPLATES.md` | Reusable prompts for common AI-assisted development scenarios. |
 | `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md` | Domain-specific delivery gates and release expectations. |
 | `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md` | Safe publishing patterns for different project domains. |
