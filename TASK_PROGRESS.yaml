@@ -201,8 +201,16 @@ tasks:
     assignee: "Codex"
     description: "Create an English, emoji-free, public-safe protocol for AI coding tool adapter compatibility, model/tool drift, verification paths, and prompt-source hygiene without copying upstream prompt text."
 
+  - id: TASK-025
+    title: "Add Downstream APCP Public Exclusion Rule"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Codex"
+    description: "Clarify that downstream product repositories should keep installed Nexus-APCP operating files local or in approved private/cloud context by default, using local Git excludes when public GitHub should not show AI workflow files."
+
 metrics:
-  tasks_completed: 24
-  total_tasks: 24
+  tasks_completed: 25
+  total_tasks: 25
   velocity: 1.0
   quality_score: 100%

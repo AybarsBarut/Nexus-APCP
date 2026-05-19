@@ -32,7 +32,7 @@ Documentation:
 
 ---
 
-### Step 1: Add Files to GitHub (5 minutes)
+### Step 1: Install Local Agent Context (5 minutes)
 
 #### 1.0 AI-Agent Install Prompt
 
@@ -54,6 +54,11 @@ Git command rule:
 - Do not run `git status`, `git add`, `git commit`, `git push`, or other Git commands during setup unless I explicitly ask.
 - Inspect files and folders directly first.
 - If Git state is truly needed, explain why and ask before running the command.
+
+Public repository rule:
+- Install Nexus-APCP files for local or approved private/cloud agent context by default.
+- Before any GitHub push, keep installed APCP files, generated context bundles, private task state, and internal maps out of the public repository unless I explicitly approve sanitized public templates.
+- Prefer `.git/info/exclude` or a private global excludes file when the public GitHub repo should not reveal local AI workflow files.
 
 Install these core files when available:
 - AI_PROJECT_CONTEXT_PROTOCOL.md
@@ -116,57 +121,58 @@ cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/docs/
 mkdir -p /path/to/your/project/scripts
 cp scripts/apcp-gather.py /path/to/your/project/scripts/
 
-# Add to Git
-git add AI_PROJECT_CONTEXT_PROTOCOL.md AI_MAIN.md TASK_PROGRESS.yaml
-git add DECISION_LOG_PROTOCOL.md CONTEXT_OPTIMIZATION.md CAVEMAN_RULES.md
-git add EMOJI_POLICY.md VISUAL_CONTEXT_MERMAID.md AI_AGENT_SKILLS_PROTOCOL.md
-git add AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
-git add FILE_STRUCTURE_REFACTOR_PROTOCOL.md
-git add WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
-git add UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
-git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
-git add scripts/apcp-gather.py
-
-# Commit
-git commit -m "docs: add AI Project Context Protocol (APCP) v1.0
-
-- Add AI_PROJECT_CONTEXT_PROTOCOL.md for project documentation
-- Add AI_MAIN.md for AI session orchestration
-- Add TASK_PROGRESS.yaml for task tracking
-- Add decision log, context optimization, and Caveman rules
-- Add emoji policy and Mermaid visual context protocol
-- Add AI agent skills protocol for reusable diagnosis, TDD, triage, PRD, handoff, architecture, and prototype workflows
-- Add AI tool adapter compatibility protocol for safe multi-tool support and prompt-source hygiene
-- Add file structure refactor protocol for existing projects
-- Add website backend security and optimization protocol
-- Add update-system recommendation protocol
-- Add AI_ASSISTANT_PROMPT_TEMPLATES.md for prompt templates
-- Add apcp-gather.py for context packaging
-- Enables AI-assisted development workflow"
-
-git push origin main
+# Do not add these installed APCP operating files to Git by default.
+# Keep them local, or sync them through an approved private/cloud knowledge base.
 ```
 
-#### 1.2 Add to .gitignore
+#### 1.2 Keep APCP Out of Public GitHub by Default
+
+If the public GitHub repository should not show local AI workflow files, use a local Git exclude instead of committing a `.gitignore` rule. `.git/info/exclude` stays inside the local clone and is not pushed.
 
 ```bash
-# Add to .gitignore file:
-cat >> .gitignore << 'EOF'
+# Add to the target project's local Git exclude file:
+cat >> .git/info/exclude << 'EOF'
 
-# APCP - Sensitive data (if needed)
-.env
-.env.local
-config/*.secret
-secrets/
+# Nexus-APCP local agent operating files
+AI_PROJECT_CONTEXT_PROTOCOL.md
+AI_MAIN.md
+TASK_PROGRESS.yaml
+DECISION_LOG_PROTOCOL.md
+CONTEXT_OPTIMIZATION.md
+CAVEMAN_RULES.md
+EMOJI_POLICY.md
+VISUAL_CONTEXT_MERMAID.md
+AI_AGENT_SKILLS_PROTOCOL.md
+AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
+FILE_STRUCTURE_REFACTOR_PROTOCOL.md
+WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
+DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
+DEBLOAT_APPLICATION_GUIDE.md
+DISCOVER_ALGORITHM_DESIGN_GUIDE.md
+FRONTEND_APPLICATION_DESIGN_PROTOCOL.md
+MACP_IMPLEMENTATION_GUIDE.md
+UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md
+WATERFALL_DEVELOPMENT_PROTOCOL.md
+README_APCP_KIT.md
+MASTER_PROMPT.md
+AI_ASSISTANT_PROMPT_TEMPLATES.md
+docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
+scripts/apcp-gather.py
 
-# Temporary APCP files
-*.apcp.tmp
+# Nexus-APCP generated context and local state
+PROMPT_READY.txt
+PROMPT_READY.tmp
 .checkpoint
+.apcp-cache/
+*.apcp.tmp
+*.prompt.local
+*.context.local
 EOF
-
-git add .gitignore
-git commit -m "chore: update gitignore for APCP"
 ```
+
+Use a committed `.gitignore` block only when the team accepts that the public repository will show the ignore rule. If any APCP file is already tracked, adding an exclude rule is not enough; remove it from Git tracking with `git rm --cached <path>` after confirming the file should remain local.
 
 ---
 
@@ -310,6 +316,8 @@ echo ""
 echo "Ready to commit. Do:"
 echo "  git add ."
 echo "  git commit -m 'type(scope): message'"
+echo ""
+echo "Before pushing, confirm local APCP operating files are excluded or intentionally sanitized."
 EOF
 
 chmod +x scripts/checkpoint.sh
@@ -341,9 +349,8 @@ echo "Changes to APCP files:"
 git diff --stat AI_PROJECT_CONTEXT_PROTOCOL.md TASK_PROGRESS.yaml
 
 echo ""
-echo "Ready to commit:"
-echo "  git add AI_PROJECT_CONTEXT_PROTOCOL.md TASK_PROGRESS.yaml"
-echo "  git commit -m 'docs: update APCP context and task progress'"
+echo "Local APCP context updated."
+echo "Do not commit these operating files unless the user explicitly approves sanitized public templates."
 EOF
 
 chmod +x scripts/update-apcp.sh
@@ -407,8 +414,8 @@ APCP Setup Verification:
 □ [ ] scripts/apcp-gather.py is working (test: python scripts/apcp-gather.py --caveman)
 □ [ ] scripts/checkpoint.sh is working (test: bash scripts/checkpoint.sh)
 □ [ ] scripts/update-apcp.sh is working
-□ [ ] APCP files committed to Git
-□ [ ] Is there a reference to APCP in README.md? (good if there is)
+□ [ ] Installed APCP files are excluded locally or explicitly approved as sanitized public templates
+□ [ ] If public repository visibility matters, no APCP operating-file references were added to README.md or committed .gitignore
 □ [ ] Team members know what APCP is
 □ [ ] First AI session conducted and successful
 ```

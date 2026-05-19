@@ -11,7 +11,7 @@
 
 Use Nexus-APCP with **Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, and multi-agent development workflows** to reduce context loss, repeated explanations, inconsistent code suggestions, and prompt bloat. It also gives teams a safe way to document AI tool and adapter differences without copying vendor system prompts into public repos.
 
-> Security note: protocol templates may be public, but filled project-context files, backend maps, internal architecture diagrams, deployment maps, database internals, private threat models, and security runbooks should stay local/private unless sanitized and explicitly approved.
+> Security note: protocol templates may be public in this Nexus-APCP source repository, but downstream product repositories should keep installed Nexus-APCP operating files local or in an approved private/cloud knowledge base by default. Filled project-context files, backend maps, internal architecture diagrams, deployment maps, database internals, private threat models, and security runbooks should stay local/private unless sanitized and explicitly approved.
 
 ## What Nexus-APCP Solves
 
@@ -31,7 +31,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 - **Website backend security**: static-first backend rules help teams avoid unnecessary SQL/auth/API surface for portfolio, landing, and brochure sites while still supporting secure growth into dynamic features.
 - **User-requested update systems**: update-system fit checks help agents recommend a GitHub SemVer + zip-sync updater only when the project and user request make it appropriate.
 - **Emoji-free output**: `EMOJI_POLICY.md` bans emoji in repository files and AI-generated output, with a user-approved temporary exception only for missing button icons.
-- **Safer publishing**: domain-specific `.gitignore` guidance helps prevent secrets, internal maps, customer data, and generated context from leaking.
+- **Safer publishing**: domain-specific ignore and local-exclude guidance helps prevent secrets, internal maps, customer data, generated context, and downstream APCP operating files from leaking.
 
 ## Core Features
 
@@ -52,7 +52,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | Update System Recommendation Protocol | Guides AI agents to suggest a lightweight GitHub SemVer + zip-sync updater only when the user requests updates and the project profile fits. |
 | Debloat Application Guide | Guides ad-free, consent-aware, dependency-light application design with optional features and measurable performance checks. |
 | Emoji Policy | Bans emoji in repository content and AI output except user-approved temporary button icon placeholders. |
-| GitHub Safety Rules | Includes broad `.gitignore` patterns for AI artifacts, secrets, generated files, domain data, and private docs. |
+| GitHub Safety Rules | Includes broad ignore and local-exclude patterns for AI artifacts, protocol operating files, secrets, generated files, domain data, and private docs. |
 
 ## Quick Start
 
@@ -86,6 +86,8 @@ mkdir -p /your/project/scripts
 cp scripts/apcp-gather.py /your/project/scripts/
 ```
 
+For a downstream product repository, treat these copied files as local agent operating context by default. AI agents can read them from local paths, private cloud docs, or generated context bundles, but the public GitHub repository does not need to expose the AI workflow files unless you intentionally publish sanitized templates. If the public repo should not show these files, put the APCP paths in `.git/info/exclude` or a private global excludes file before any push; use a committed `.gitignore` block only when the public ignore rule itself is acceptable.
+
 Generate an AI-ready context package:
 
 ```bash
@@ -114,6 +116,11 @@ Git command rule:
 - Do not run `git status`, `git add`, `git commit`, `git push`, or other Git commands during setup unless I explicitly ask.
 - Inspect files and folders directly first.
 - If Git state is truly needed, explain why and ask before running the command.
+
+Public repository rule:
+- Install Nexus-APCP files for local or approved private/cloud agent context by default.
+- Before any GitHub push, keep installed APCP files, generated context bundles, private task state, and internal maps out of the public repository unless I explicitly approve sanitized public templates.
+- Prefer `.git/info/exclude` or a private global excludes file when the public GitHub repo should not reveal local AI workflow files.
 
 Install these core files when available:
 - AI_PROJECT_CONTEXT_PROTOCOL.md
@@ -238,7 +245,7 @@ Yes. Nexus-APCP is model-agnostic and works with hosted assistants, IDE agents, 
 
 ### Is filled project context safe to publish?
 
-Usually no. Filled project context can expose internal architecture, deployment topology, database internals, secrets, private prompts, or security assumptions. Publish sanitized templates, not private implementation maps.
+Usually no. Filled project context can expose internal architecture, deployment topology, database internals, secrets, private prompts, security assumptions, and local AI workflow details. In downstream product repositories, keep installed APCP operating files local or in approved private/cloud knowledge bases by default. Publish sanitized templates, not private implementation maps.
 
 ### Why use YAML for task tracking?
 

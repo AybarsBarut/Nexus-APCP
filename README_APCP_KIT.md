@@ -6,7 +6,7 @@
 
 ## KIT CONTENTS (4 Files)
 
-This kit consists of 4 core files. You should use them all together:
+This kit consists of 4 core files. You should use them all together as agent operating context. In downstream product repositories, keep installed Nexus-APCP files local or in an approved private/cloud knowledge base by default unless you intentionally publish sanitized templates.
 
 ### 1 **AI_PROJECT_CONTEXT_PROTOCOL.md** (Main Documentation)
 - **Size**: ~20 KB
@@ -104,6 +104,8 @@ nano TASK_PROGRESS.yaml
 
 Security rule: the filled `AI_PROJECT_CONTEXT_PROTOCOL.md` for a real project is private by default. It can expose backend structure, internal architecture, database internals, deployment topology, admin flows, private prompts, and security assumptions. Keep it local or in an approved private knowledge base unless you create a sanitized public version.
 
+Public repository rule: AI agents may read APCP files from local paths, private cloud docs, or generated context bundles, but public GitHub does not need to show the local AI workflow files. Use `.git/info/exclude` or a private global excludes file when those filenames should not appear in the public repository.
+
 ### Step 3: Create Helper Scripts (5 min)
 
 ```bash
@@ -114,20 +116,16 @@ Security rule: the filled `AI_PROJECT_CONTEXT_PROTOCOL.md` for a real project is
 # - scripts/apcp-gather.py (context automation)
 
 chmod +x scripts/*.sh
-git add scripts/
-git commit -m "chore: add APCP helper scripts"
 ```
 
-### Step 4: Commit to Git (2 min)
+### Step 4: Public Git Decision (2 min)
 
 ```bash
-# Commit sanitized templates/docs only. Keep filled AI_PROJECT_CONTEXT_PROTOCOL.md local/private by default.
-git add .gitignore
-git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
-git add docs/SETUP_GUIDE.md
-git add docs/AI_PROJECT_CONTEXT_TEMPLATE.md  # optional sanitized template, not the filled private context
-git commit -m "docs: initialize APCP system for AI-assisted development"
-git push
+# Default for downstream product repos:
+# keep installed APCP operating files local/private and do not push them to public GitHub.
+
+# If public sanitized templates are intentionally approved, commit only those sanitized templates.
+# Do not commit filled project context, generated prompt bundles, private task state, or local AI logs.
 ```
 
 ### Step 5: First AI Session (10 min)

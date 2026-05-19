@@ -1,10 +1,11 @@
 # Security Policy
 
-Nexus-APCP is a public protocol kit, but real project context can be sensitive. Treat filled context files and generated AI context packages as private by default.
+Nexus-APCP is a public protocol kit, but real project context can be sensitive. Treat filled context files, generated AI context packages, and downstream installed APCP operating files as private by default unless sanitized publication is explicitly approved.
 
 ## Do Not Publish
 
 - Filled `AI_PROJECT_CONTEXT.md` files from real projects.
+- Installed Nexus-APCP operating files copied into downstream public product repositories, unless they are intentionally approved sanitized templates.
 - Backend maps, deployment maps, database internals, architecture-private docs, threat models, and security runbooks.
 - API keys, tokens, credentials, certificates, service-account files, `.env` files, and local config.
 - Customer data, logs, production exports, model weights, private prompts, or vector databases.

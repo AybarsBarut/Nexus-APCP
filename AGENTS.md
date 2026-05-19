@@ -70,6 +70,7 @@ This is a public repository. When working on security-related docs or fixes:
 - Use neutral functional wording, such as `improve input validation`, instead of naming the vulnerability class.
 - Keep vulnerability details in private reporting channels.
 - Never commit `PROMPT_READY.txt` generated from a private project.
+- When documenting downstream product-repo setup, keep installed APCP operating files local/private by default and prefer local Git excludes over committed `.gitignore` rules if public GitHub should not reveal AI workflow filenames.
 - Do not weaken `.gitignore`, security guidance, or private-context warnings without a clear replacement.
 
 ## Documentation Style

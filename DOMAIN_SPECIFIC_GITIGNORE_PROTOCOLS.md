@@ -210,6 +210,8 @@ Universal rule:
 
 Treat filled project context files like secrets when they reveal how the system is built. Backend topology, route maps, service names, database internals, private infrastructure, internal admin flows, security controls, deployment topology, private prompts, tool policies, vector-store layout, threat models, penetration-test reports, and runbooks should not be pushed to a public repository or included in a customer package by default.
 
+For downstream product repositories that should not reveal local AI workflow files on GitHub, use local Git excludes instead of committed ignore rules. `.git/info/exclude` and private global excludes files let AI agents read APCP files locally while keeping the public repository free of the protocol filenames and generated context artifacts.
+
 If public documentation is needed, create a sanitized public version that removes internal hostnames, admin routes, service topology, database details, security controls, credentials, private prompts, and exploit-relevant implementation details.
 
 AI prompt:
@@ -227,7 +229,7 @@ State whether the repository is safe for public GitHub.
 
 ## 3. AI-Assisted Project and APCP Gitignore Block
 
-Use for APCP/MACP projects, AI coding sessions, prompt packs, context gatherers, and multi-agent workflows.
+Use for APCP/MACP projects, AI coding sessions, prompt packs, context gatherers, and multi-agent workflows. Apply this block to `.git/info/exclude` when public GitHub should not show the local AI workflow filenames. Apply it to committed `.gitignore` only when the repository intentionally makes those ignore rules public.
 
 ```gitignore
 # APCP / MACP / AI-generated context
@@ -244,6 +246,34 @@ PROMPT_READY.tmp
 *.prompt.local
 *.context.local
 *.scratch.md
+
+# Installed Nexus-APCP operating files in downstream product repos
+AI_PROJECT_CONTEXT_PROTOCOL.md
+AI_MAIN.md
+TASK_PROGRESS.yaml
+DECISION_LOG_PROTOCOL.md
+CONTEXT_OPTIMIZATION.md
+CAVEMAN_RULES.md
+EMOJI_POLICY.md
+VISUAL_CONTEXT_MERMAID.md
+AI_AGENT_SKILLS_PROTOCOL.md
+AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
+FILE_STRUCTURE_REFACTOR_PROTOCOL.md
+WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
+DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
+DEBLOAT_APPLICATION_GUIDE.md
+DISCOVER_ALGORITHM_DESIGN_GUIDE.md
+FRONTEND_APPLICATION_DESIGN_PROTOCOL.md
+MACP_IMPLEMENTATION_GUIDE.md
+UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md
+WATERFALL_DEVELOPMENT_PROTOCOL.md
+README_APCP_KIT.md
+MASTER_PROMPT.md
+AI_ASSISTANT_PROMPT_TEMPLATES.md
+docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
+scripts/apcp-gather.py
 
 # Filled APCP project context is private by default
 AI_PROJECT_CONTEXT.md
@@ -262,8 +292,9 @@ Rules:
 
 - Do not commit raw AI logs containing secrets, private prompts, customer data, local file paths, or credentials.
 - Do not commit temporary prompt bundles generated from private repositories.
+- Do not commit installed Nexus-APCP operating files to downstream public product repositories by default; keep them local or in an approved private/cloud knowledge base for AI agents.
 - Do not commit filled `AI_PROJECT_CONTEXT.md` files for real projects when they expose backend structure, database layout, infrastructure, internal services, route maps, private prompts, or security assumptions.
-- Do commit sanitized protocol templates.
+- Do commit sanitized protocol templates only when the repository intentionally publishes its AI workflow templates.
 - Do commit decision logs if they contain no secrets or customer data.
 - Do not paste local secret files into AI context.
 
@@ -272,7 +303,9 @@ AI prompt:
 ```text
 You are preparing an APCP/MACP repository for safe GitHub use.
 Review the project for AI-generated context artifacts, local prompt bundles, heartbeats, temporary scratch files, and private session logs.
-Create or update `.gitignore` so generated AI artifacts are ignored, but protocol templates, sanitized handoffs, sanitized state files, and documentation remain trackable.
+If public GitHub should not reveal local AI workflow files, add installed APCP operating files and generated AI artifacts to `.git/info/exclude` or a private global excludes file instead of committed `.gitignore`.
+Use committed `.gitignore` only when the public ignore rule itself is acceptable.
+Keep protocol templates, sanitized handoffs, sanitized state files, and documentation trackable only when the repository intentionally publishes them.
 Also list any file currently tracked that should be removed from Git with `git rm --cached`.
 ```
 
@@ -1201,6 +1234,8 @@ Checklist:
 - `git check-ignore -v path/to/suspicious/file` for any file that should be ignored.
 - Confirm no `.env`, local database, dump, build, package, credential, customer export, private dataset, vector store, or model checkpoint is staged.
 - Confirm no filled project context, backend map, internal architecture, private threat model, deployment topology, database internals, penetration-test report, or security runbook is staged for a public repository.
+- Confirm no downstream installed APCP operating file or generated context bundle is staged unless sanitized publication was explicitly approved.
+- If public GitHub should not reveal AI workflow filenames, confirm APCP rules live in `.git/info/exclude` or a private global excludes file instead of committed `.gitignore`.
 - Confirm `.env.example` is staged/tracked when config changed.
 - Confirm migrations are tracked when schema changed.
 - Confirm lockfiles are tracked when dependencies changed.
@@ -1212,13 +1247,14 @@ AI prompt:
 
 ```text
 Perform a pre-push gitignore audit.
-1. Read `.gitignore`.
+1. Read `.gitignore` and, when relevant, `.git/info/exclude`.
 2. Read `git status --short`.
 3. Inspect staged and unstaged file names.
-4. Identify any secrets, environment files, local DBs, dumps, generated builds, customer exports, AI vector stores, model checkpoints, logs, crash dumps, private project context, backend maps, internal architecture docs, private threat models, deployment topology maps, or domain-sensitive data that should not be committed.
+4. Identify any secrets, environment files, local DBs, dumps, generated builds, customer exports, AI vector stores, model checkpoints, logs, crash dumps, downstream installed APCP operating files, generated context bundles, private project context, backend maps, internal architecture docs, private threat models, deployment topology maps, or domain-sensitive data that should not be committed.
 5. Identify any important source/config files that are accidentally ignored.
-6. Provide exact remediation commands, but do not run destructive commands without approval.
-7. State whether the repository is safe to push.
+6. If public GitHub should not reveal AI workflow filenames, prefer local exclude remediation over committed `.gitignore` changes.
+7. Provide exact remediation commands, but do not run destructive commands without approval.
+8. State whether the repository is safe to push.
 ```
 
 ---
@@ -1334,6 +1370,7 @@ Every delivery report should include a `.gitignore` section:
 Gitignore and public exposure:
 - Workspace/domain:
 - .gitignore updated: yes/no
+- Local exclude used for APCP/AI workflow files: yes/no
 - Domain-specific blocks applied:
 - Files intentionally ignored:
 - Files intentionally kept tracked:
@@ -1371,6 +1408,7 @@ Before suggesting "push to GitHub", "package this", "send to the customer", or "
 - Does it block internal project context, backend maps, architecture maps, deployment maps, and private threat models?
 - Does it block secrets and private keys?
 - Does it block AI private context and vector stores?
+- If public GitHub should not reveal AI workflow files, are installed APCP files handled through local/private excludes instead of committed public ignore rules?
 - Does it avoid hiding files that must be tracked?
 - Were already tracked sensitive files checked?
 - Was a secret scan run?

@@ -295,13 +295,15 @@ Filled project-context files are treated like sensitive material when they revea
 Type: Internal project structure and architecture context
 Examples:
   - AI_PROJECT_CONTEXT.md filled for a real private project
+  - Installed Nexus-APCP operating files copied into a downstream product repository
+  - AI_MAIN.md, TASK_PROGRESS.yaml, DECISION_LOG_PROTOCOL.md, and local protocol files when they expose the AI workflow or private delivery state
   - Backend route maps and service topology
   - Database schema internals and production migration notes
   - Infrastructure/deployment maps and internal hostnames
   - Admin workflows, runbooks, threat models, pentest reports
   - Private AI system prompts, tool policies, vector-store layout
 Storage: local workspace, private docs, or approved internal knowledge base
-Rule: Do not commit to public GitHub or customer packages. Create a sanitized public summary instead.
+Rule: Do not commit to public GitHub or customer packages by default. AI agents may read these files locally, from private/cloud knowledge bases, or from generated context bundles. Create a sanitized public summary or template only when explicitly approved.
 ```
 
 ### 4.5 Website Backend Public/Private Boundary

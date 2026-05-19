@@ -10,6 +10,9 @@
 # -----------------------------------------------------------------------------
 # APCP / AI-generated context artifacts
 # -----------------------------------------------------------------------------
+# This Nexus-APCP source repo intentionally tracks sanitized protocol templates.
+# Downstream product repos can keep installed APCP operating files out of public
+# GitHub with .git/info/exclude or a private global excludes file.
 PROMPT_READY.txt
 PROMPT_READY.tmp
 .checkpoint

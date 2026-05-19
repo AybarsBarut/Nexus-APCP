@@ -20,6 +20,7 @@ Nexus-APCP is an open-source protocol kit. The fastest way to get useful help is
 
 - Secrets, tokens, credentials, `.env` values, or service-account files.
 - Filled private project context.
+- Downstream installed APCP operating files or local AI workflow state from a private product repository.
 - Customer data, logs, exports, or internal architecture maps.
 - Generated `PROMPT_READY.txt` from private repositories.
 - Exploit details or vulnerability reproduction steps.
