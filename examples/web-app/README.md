@@ -24,6 +24,22 @@ Deployment: [HOSTING_PROVIDER]
 - Test strategy for unit, integration, and browser tests.
 - Accessibility and responsive design requirements.
 
+## README Project Flow Example
+
+Add a Mermaid flowchart like this to the target project's root `README.md` so humans and AI assistants can understand the application path before opening deeper docs.
+
+```mermaid
+flowchart TD
+    User[User] --> Routes[Public and Authenticated Routes]
+    Routes --> UI[Screen Components]
+    UI --> State[Client State and Forms]
+    State --> API[Backend API or Service Layer]
+    API --> Data[(Data Store or External Source)]
+    UI --> Build[Build and Deployment]
+```
+
+Keep this diagram public-safe. Do not include private admin routes, production hostnames, internal service names, analytics keys, or security-sensitive control details.
+
 ## Initial Task Examples
 
 ```yaml

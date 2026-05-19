@@ -24,6 +24,23 @@ Deployment: [CONTAINER_OR_PLATFORM]
 - Observability: logs, metrics, traces, and alerting.
 - Test strategy for unit, integration, contract, and migration tests.
 
+## README Project Flow Example
+
+Add a Mermaid flowchart like this to the target project's root `README.md` so contributors can scan the service boundary, request path, and persistence layer quickly.
+
+```mermaid
+flowchart LR
+    Client[Client or Integration] --> API[API Routes]
+    API --> Auth[Authentication and Authorization]
+    Auth --> Services[Service Layer]
+    Services --> Jobs[Workers or Queues]
+    Services --> Database[(Database)]
+    Services --> External[External Services]
+    Services --> Observability[Logs, Metrics, and Errors]
+```
+
+Keep this diagram public-safe. Do not include internal hostnames, real connection strings, private queue names, customer identifiers, or security-sensitive operational details.
+
 ## Initial Task Examples
 
 ```yaml

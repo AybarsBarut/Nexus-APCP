@@ -24,6 +24,23 @@ Deployment: [HOSTING_OR_RUNTIME]
 - Observability: traces, prompt/version logs, feedback, and cost tracking.
 - Fallback behavior when retrieval, tools, or model calls fail.
 
+## README Project Flow Example
+
+Add a Mermaid flowchart like this to the target project's root `README.md` so reviewers can understand the model path, retrieval path, and evaluation loop before reading private implementation notes.
+
+```mermaid
+flowchart TD
+    User[User Request] --> App[Application or Agent Runtime]
+    App --> Policy[Prompt and Tool Policy]
+    Policy --> Retrieval[Retrieval Layer]
+    Retrieval --> Sources[(Sanitized Knowledge Sources)]
+    Policy --> Model[Model Provider or Local Model]
+    Model --> Response[Response and Tool Results]
+    Response --> Evaluation[Evaluation and Feedback]
+```
+
+Keep this diagram public-safe. Do not include private prompts, proprietary datasets, raw user conversations, vector database exports, provider secrets, or sensitive tool-permission details.
+
 ## Initial Task Examples
 
 ```yaml
