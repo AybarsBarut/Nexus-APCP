@@ -9,7 +9,7 @@
 
 **Nexus-APCP** is an open-source **AI Project Context Protocol** for developers who work with AI coding assistants, AI agents, and large language models. It gives every AI session the same project memory, architecture rules, task state, decision history, and token-efficient operating style.
 
-Use Nexus-APCP with **Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, and multi-agent development workflows** to reduce context loss, repeated explanations, inconsistent code suggestions, and prompt bloat.
+Use Nexus-APCP with **Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, and multi-agent development workflows** to reduce context loss, repeated explanations, inconsistent code suggestions, and prompt bloat. It also gives teams a safe way to document AI tool and adapter differences without copying vendor system prompts into public repos.
 
 > Security note: protocol templates may be public, but filled project-context files, backend maps, internal architecture diagrams, deployment maps, database internals, private threat models, and security runbooks should stay local/private unless sanitized and explicitly approved.
 
@@ -23,6 +23,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 - **Task continuity**: `TASK_PROGRESS.yaml` tracks active work, sprint goals, checkpoints, and quality gates.
 - **Model portability**: move between Claude, Cursor, ChatGPT, Gemini, Copilot, and local agents without rebuilding context.
 - **Skill-based agent workflows**: `AI_AGENT_SKILLS_PROTOCOL.md` turns repeated AI workflows into named, reusable operating patterns.
+- **AI tool adapter compatibility**: `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` documents tool modes, capabilities, verification paths, and prompt hygiene without vendoring leaked or proprietary prompts.
 - **Phase-gated delivery**: waterfall-style stack combination protocols help teams define requirements, contracts, tests, and release evidence before implementation drifts.
 - **Lean application design**: debloat guidance helps teams avoid ads, hidden tracking, unnecessary dependencies, and non-essential modules by default.
 - **README flowcharts**: Mermaid project flowcharts make repository entry points, architecture boundaries, and AI onboarding paths easier to scan.
@@ -42,6 +43,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | Task Progress YAML | Gives humans and agents a shared source of truth for status, priorities, and checkpoints. |
 | Prompt Templates | Provides ready-to-use prompts for implementation, review, debugging, refactoring, and handoff. |
 | AI Agent Skills Protocol | Defines reusable skill workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping. |
+| AI Tool Adapter Compatibility Protocol | Defines safe adapter compatibility checks for AI coding assistants, model/tool drift, mode differences, verification paths, and prompt-source hygiene. |
 | README Mermaid Flowcharts | Adds high-level Mermaid flowchart guidance so project READMEs explain application flow, architecture boundaries, and onboarding paths visually. |
 | File Structure Refactor Protocol | Guides safe folder reorganization for existing projects with iterative moves, compatibility wrappers, reference updates, and verification gates. |
 | Delivery Protocols | Adds release gates for web apps, backend services, AI/LLM products, games, mobile apps, DevOps, and security work. |
@@ -73,6 +75,7 @@ cp CAVEMAN_RULES.md /your/project/
 cp EMOJI_POLICY.md /your/project/
 cp VISUAL_CONTEXT_MERMAID.md /your/project/
 cp AI_AGENT_SKILLS_PROTOCOL.md /your/project/
+cp AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md /your/project/
 cp FILE_STRUCTURE_REFACTOR_PROTOCOL.md /your/project/
 cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /your/project/
 cp DEBLOAT_APPLICATION_GUIDE.md /your/project/
@@ -122,6 +125,7 @@ Install these core files when available:
 - EMOJI_POLICY.md
 - VISUAL_CONTEXT_MERMAID.md
 - AI_AGENT_SKILLS_PROTOCOL.md
+- AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
 - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
@@ -148,6 +152,7 @@ python scripts/apcp-gather.py --caveman
 | [`EMOJI_POLICY.md`](./EMOJI_POLICY.md) | Repository-wide and AI-wide ban on emoji usage, with a narrow user-approved temporary button icon exception. |
 | [`VISUAL_CONTEXT_MERMAID.md`](./VISUAL_CONTEXT_MERMAID.md) | README Mermaid flowchart and visual context protocol for architecture, workflow, and state diagrams. |
 | [`AI_AGENT_SKILLS_PROTOCOL.md`](./AI_AGENT_SKILLS_PROTOCOL.md) | Skill-based AI agent workflows adapted from public engineering-skill patterns for diagnosis, TDD, triage, PRDs, handoff, architecture review, and prototyping. |
+| [`AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`](./AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md) | Safe compatibility protocol for AI tool modes, adapter files, model/tool drift, verification paths, and prompt-source hygiene. |
 | [`FILE_STRUCTURE_REFACTOR_PROTOCOL.md`](./FILE_STRUCTURE_REFACTOR_PROTOCOL.md) | Safe file and folder reorganization protocol for existing projects, including iterative migration and verification gates. |
 | [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
 | [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
@@ -168,11 +173,12 @@ python scripts/apcp-gather.py --caveman
 3. **Preserve decisions** in `DECISION_LOG_PROTOCOL.md`: accepted tradeoffs, rejected paths, and architectural intent.
 4. **Package context** with `scripts/apcp-gather.py`: combine the core protocol files into one prompt-ready bundle.
 5. **Select reusable agent skills** with `AI_AGENT_SKILLS_PROTOCOL.md`: use named workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototypes.
-6. **Add README visual context** with `VISUAL_CONTEXT_MERMAID.md`: include a safe, high-level Mermaid flowchart in project READMEs for faster human and AI orientation.
-7. **Refactor existing file layouts safely** with `FILE_STRUCTURE_REFACTOR_PROTOCOL.md`: move files iteratively, update references, and prove old code still runs from the new structure.
-8. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`, and `DEBLOAT_APPLICATION_GUIDE.md` when the work needs release gates, backend/API safety, stack contracts, update-system fit checks, lean app defaults, or phase-by-phase verification.
-9. **Enforce output hygiene** with `EMOJI_POLICY.md`: keep docs, code, generated bundles, and AI responses emoji-free.
-10. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
+6. **Document AI tool compatibility** with `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`: track assistant modes, tool access, adapter files, verification paths, and safe prompt-source boundaries.
+7. **Add README visual context** with `VISUAL_CONTEXT_MERMAID.md`: include a safe, high-level Mermaid flowchart in project READMEs for faster human and AI orientation.
+8. **Refactor existing file layouts safely** with `FILE_STRUCTURE_REFACTOR_PROTOCOL.md`: move files iteratively, update references, and prove old code still runs from the new structure.
+9. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`, and `DEBLOAT_APPLICATION_GUIDE.md` when the work needs release gates, backend/API safety, stack contracts, update-system fit checks, lean app defaults, or phase-by-phase verification.
+10. **Enforce output hygiene** with `EMOJI_POLICY.md`: keep docs, code, generated bundles, and AI responses emoji-free.
+11. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
 
 ## Ideal Use Cases
 
@@ -182,6 +188,7 @@ python scripts/apcp-gather.py --caveman
 - AI agent workflows that need stable instructions, delivery gates, and handoff state.
 - Open-source maintainers who want contributors and AI assistants to follow the same architecture rules.
 - Teams that want repeatable AI agent skills for debugging, TDD, issue triage, PRD generation, and prototypes.
+- Teams comparing or supporting multiple AI coding tools without copying private or leaked prompt text.
 - Teams that want lean, privacy-respecting, dependency-conscious application defaults.
 - Teams practicing context engineering, prompt engineering, ADRs, and token-optimized development.
 
@@ -239,7 +246,7 @@ YAML is easy for humans to read, easy for AI models to update, and structured en
 
 ## Related Keywords
 
-AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, AI agent skills, skill-based agent workflows, prompt engineering, LLM project memory, AI agent handoff, token optimization, Mermaid flowchart, README architecture diagram, file structure refactor, repository reorganization protocol, architecture decision records, ADR protocol, website backend security protocol, secure web development, backend optimization, waterfall development protocol, phase-gated delivery, stack combination documentation, application debloat guide, lean application design, privacy-first analytics, dependency minimalism, ad-free applications, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
+AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, AI agent skills, skill-based agent workflows, AI tool adapter compatibility, AI coding tool compatibility, model tool drift, prompt-source hygiene, prompt engineering, LLM project memory, AI agent handoff, token optimization, Mermaid flowchart, README architecture diagram, file structure refactor, repository reorganization protocol, architecture decision records, ADR protocol, website backend security protocol, secure web development, backend optimization, waterfall development protocol, phase-gated delivery, stack combination documentation, application debloat guide, lean application design, privacy-first analytics, dependency minimalism, ad-free applications, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
 
 ## License
 

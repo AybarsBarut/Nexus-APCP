@@ -193,8 +193,16 @@ tasks:
     assignee: "Codex"
     description: "Create an English, emoji-free, public-safe guide for lean application defaults, consent-based tracking, dependency minimalism, optional feature loading, and bloat detection."
 
+  - id: TASK-024
+    title: "Add AI Tool Adapter Compatibility Protocol"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Codex"
+    description: "Create an English, emoji-free, public-safe protocol for AI coding tool adapter compatibility, model/tool drift, verification paths, and prompt-source hygiene without copying upstream prompt text."
+
 metrics:
-  tasks_completed: 23
-  total_tasks: 23
+  tasks_completed: 24
+  total_tasks: 24
   velocity: 1.0
   quality_score: 100%

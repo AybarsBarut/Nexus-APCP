@@ -678,6 +678,7 @@ docs/
 ├── UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md # User-requested updater fit checks and safe implementation prompt
 ├── VISUAL_CONTEXT_MERMAID.md # Mermaid README flowchart and visual context protocol
 ├── AI_AGENT_SKILLS_PROTOCOL.md # Reusable AI agent skill workflows for diagnosis, TDD, triage, PRDs, handoff, architecture review, and prototypes
+├── AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md # Safe AI tool adapter compatibility and prompt-source hygiene
 ├── FILE_STRUCTURE_REFACTOR_PROTOCOL.md # Safe iterative file and folder restructuring protocol
 ├── CONTRIBUTING.md          # Contributor guidelines
 ├── CHANGELOG.md             # Version history
@@ -1183,6 +1184,17 @@ Default rule:
 - Record durable terms and decisions in the project glossary, decision log, or ADRs.
 - Keep copied third-party skill text or scripts license-compliant and attributed.
 
+### 13.6 AI Tool Adapter Compatibility
+
+When the user asks to support, compare, or update behavior for Claude Code, Cursor, ChatGPT, Gemini, Copilot, local LLMs, IDE agents, CLI agents, or other AI coding tools, read `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` before changing adapter files or prompt guidance.
+
+Default rule:
+- Keep adapter files short and point back to canonical Nexus-APCP files.
+- Document observable tool modes, available tools, context loading, verification paths, and drift risks.
+- Prefer official docs for current tool behavior.
+- Do not copy vendor system prompts, prompt dumps, proprietary tool schemas, prompt-extraction instructions, private model routing notes, or generated prompt bundles.
+- Update `TASK_PROGRESS.yaml` when a visible adapter compatibility task is completed.
+
 ---
 
 ## SECTION 14: BEST PRACTICES AND TIPS
@@ -1195,6 +1207,7 @@ Default rule:
 - Read internal docs first if there are unknown parts
 - Follow patterns in Section 5 when writing code
 - Use `AI_AGENT_SKILLS_PROTOCOL.md` before invoking reusable skill workflows
+- Use `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` before changing AI tool adapter files or prompt-source guidance
 - Use `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md` before suggesting an updater
 - Use `FILE_STRUCTURE_REFACTOR_PROTOCOL.md` before reorganizing existing project files
 - Use commit format in Section 6.2 when making breaking changes

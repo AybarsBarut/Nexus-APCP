@@ -13,7 +13,7 @@ Main function for AI workflow. Sequential logic. Strict execution. No fluff.
 
 ## EXECUTION_FLOW (main)
 
-1. [x] **LOAD_CONTEXT**: Read core protocol (APCP, Decision Log, Caveman, Context Optimization, Mermaid, Agent Skills).
+1. [x] **LOAD_CONTEXT**: Read core protocol (APCP, Decision Log, Caveman, Context Optimization, Mermaid, Agent Skills, Tool Adapter Compatibility).
 2. [x] **TASK_ANALYSIS**: Create AI_MAIN.md framework.
 3. [x] **MODEL_DISPATCH**: Roles assigned (Flash for setup).
 4. [x] **IMPLEMENTATION**: Created AI_MAIN, TASK_PROGRESS, scripts/ (checkpoint.ps1, validate-repo.py, apcp-gather.py).
@@ -23,10 +23,11 @@ Main function for AI workflow. Sequential logic. Strict execution. No fluff.
 8. [x] **README_VISUAL_CONTEXT**: Add README Mermaid flowchart guidance for adopted projects.
 9. [x] **FILE_STRUCTURE_REFACTOR**: Add existing-project file reorganization protocol.
 10. [x] **AGENT_SKILLS**: Add reusable skill workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping.
-11. [x] **QUALITY_GATE**: Verify against user intent.
-12. [x] **CHECKPOINT_SAVE**: Update Task Progress & Decision Log.
-13. [x] **DELIVERY**: Final code pushed to origin master.
-14. [ ] **MAINTENANCE**: Periodic sync of AI_MAIN with latest protocol changes.
+11. [x] **AI_TOOL_ADAPTER_COMPATIBILITY**: Add safe compatibility protocol for AI coding tool modes, adapter files, model/tool drift, and prompt-source hygiene.
+12. [x] **QUALITY_GATE**: Verify against user intent.
+13. [x] **CHECKPOINT_SAVE**: Update Task Progress & Decision Log.
+14. [x] **DELIVERY**: Final code pushed to origin master.
+15. [ ] **MAINTENANCE**: Periodic sync of AI_MAIN with latest protocol changes.
 
 ---
 
@@ -56,6 +57,7 @@ Main function for AI workflow. Sequential logic. Strict execution. No fluff.
 - [x] Task 19: Add README Mermaid flowchart guidance.
 - [x] Task 20: Add file structure refactor protocol.
 - [x] Task 22: Add AI agent skills protocol.
+- [x] Task 24: Add AI tool adapter compatibility protocol.
 
 ---
 

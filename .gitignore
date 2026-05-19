@@ -24,6 +24,15 @@ PROMPT_READY.tmp
 *.context.local
 *.scratch.md
 
+# Unreviewed prompt archives and vendor/model dumps
+prompt-archives/
+system-prompt-archives/
+model-dumps/
+tool-schema-dumps/
+*_PROMPT_DUMP.*
+*_SYSTEM_PROMPT_DUMP.*
+*_TOOL_SCHEMA_DUMP.*
+
 # Private project context and internal architecture maps
 # Sanitized protocol templates may be public; filled project-specific maps stay local.
 AI_PROJECT_CONTEXT.md

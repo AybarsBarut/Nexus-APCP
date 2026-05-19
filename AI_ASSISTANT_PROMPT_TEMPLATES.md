@@ -584,6 +584,35 @@ Please:
 
 ---
 
+## SCENARIO 20: AI Tool Adapter Compatibility Review
+
+Use this when adding, comparing, or updating support notes for AI coding tools such as Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, IDE agents, CLI agents, or multi-agent systems.
+
+```
+I want to review AI tool adapter compatibility for [PROJECT_NAME].
+
+Target tool or adapter:
+[Claude Code / Cursor / ChatGPT / Gemini / GitHub Copilot / local LLM / IDE agent / CLI agent / other]
+
+Goal:
+[Add adapter file / update startup behavior / compare tools / fix repeated model behavior drift / prepare model switch]
+
+Context:
+[PASTE: AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md]
+[PASTE: AGENTS.md or the active adapter file]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Sections 4, 8, 13, and 14 only]
+[PASTE: TASK_PROGRESS.yaml - current sprint only]
+
+Please:
+1. Identify the tool's observable mode, tool access, context loading path, verification path, and drift risks.
+2. Recommend the smallest safe adapter-file change.
+3. Do not copy vendor system prompts, unofficial prompt dumps, proprietary tool schemas, bypass text, or private prompt bundles.
+4. Prefer official documentation for current behavior when a claim depends on live product details.
+5. Update TASK_PROGRESS.yaml if this completes a visible repository task.
+```
+
+---
+
 ## BEST PRACTICES WHEN USING THESE PROMPTS
 
 ### DOS
@@ -656,6 +685,7 @@ What do I want to do?
 ├─ Update system / version sync (SCENARIO 17)
 ├─ Existing project file structure refactor (SCENARIO 18)
 ├─ Reusable agent skill workflow (SCENARIO 19)
+├─ AI tool adapter compatibility review (SCENARIO 20)
 ├─ Emergency (SCENARIO 13)
 ├─ Sprint planning (SCENARIO 14)
 ├─ Model switching (SCENARIO 3)

@@ -37,11 +37,11 @@ This kit consists of 4 core files. You should use them all together:
 
 ### 3 **AI_ASSISTANT_PROMPT_TEMPLATES.md** (Quick Start)
 - **Size**: ~15 KB
-- **Purpose**: Ready-to-use prompts for 15 different scenarios
+- **Purpose**: Ready-to-use prompts for 20 different scenarios
 - **Usage**: Select, copy, and paste the scenario that fits your situation
 - **Refresh Frequency**: Rarely (when needed)
 - **Contents**:
-  - Scenarios 1-15: Prompts for different tasks
+  - Scenarios 1-20: Prompts for different tasks
   - Best practices
   - Token efficiency tips
   - Model-specific guidance
@@ -63,6 +63,7 @@ This kit consists of 4 core files. You should use them all together:
 - **CONTEXT_OPTIMIZATION.md**: Strategies for handling large-scale codebases and token limits.
 - **VISUAL_CONTEXT_MERMAID.md**: Mermaid flowchart protocol for README, architecture, workflow, and state visualization.
 - **AI_AGENT_SKILLS_PROTOCOL.md**: Reusable skill-based AI workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping.
+- **AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md**: Safe compatibility checks for AI coding tool modes, adapter files, model/tool drift, verification paths, and prompt-source hygiene.
 - **FILE_STRUCTURE_REFACTOR_PROTOCOL.md**: Safe iterative file and folder restructuring protocol for existing projects.
 - **WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md**: Workspace-specific release gates for Unity/game engines, web apps, backend services, AI/LLM products, penetration testing, packaging, and scalability.
 - **DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md**: Domain-specific `.gitignore` templates and prompts for games, web apps, banking/fintech, AI/RAG systems, data/ML, mobile, and DevOps.
@@ -160,6 +161,7 @@ Let's begin!
 | **TASK_PROGRESS.yaml** | Create | Update | Check | Reload | **Review** |
 | **AI_ASSISTANT_PROMPT_TEMPLATES.md** | - | Select scenario | - | Reference | - |
 | **AI_AGENT_SKILLS_PROTOCOL.md** | Optional | Use for repeated agent workflows | Reference | Reference | Update if workflow changes |
+| **AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md** | Optional | Use when tool behavior differs | Reference | Reference | Update when adapter behavior changes |
 | **SETUP_GUIDE.md** | **Follow** | - | - | - | Routine check |
 
 Legend: direct action = high priority, `-` = optional, **Bold** = very important

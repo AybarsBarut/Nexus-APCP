@@ -22,6 +22,7 @@ The public repository should remain safe to share. Real project context files, p
 | `EMOJI_POLICY.md` | Repository-wide and AI-wide emoji usage ban with a narrow user-approved temporary button icon exception. |
 | `VISUAL_CONTEXT_MERMAID.md` | Mermaid README flowchart and visual context protocol. |
 | `AI_AGENT_SKILLS_PROTOCOL.md` | Skill-based AI agent workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping. |
+| `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` | Safe adapter compatibility protocol for AI tool modes, capabilities, verification paths, and prompt-source hygiene. |
 | `FILE_STRUCTURE_REFACTOR_PROTOCOL.md` | Safe iterative file and folder restructuring protocol for existing projects. |
 | `DEBLOAT_APPLICATION_GUIDE.md` | Lean application guidance for reducing ads, hidden tracking, heavy dependencies, optional feature load, and resource usage. |
 | `AI_ASSISTANT_PROMPT_TEMPLATES.md` | Reusable prompts for common AI-assisted development scenarios. |
@@ -55,6 +56,7 @@ powershell -ExecutionPolicy Bypass -File scripts/checkpoint.ps1
 - Prefer durable wording over model-version-specific wording.
 - Keep repository-facing terminology consistent: `Nexus-APCP`, `AI Project Context Protocol`, `context engineering`, `AI-assisted development`, and `token optimization`.
 - When adding or changing reusable agent workflows, keep them aligned with `AI_AGENT_SKILLS_PROTOCOL.md`.
+- When adding or changing AI tool adapter guidance, keep it aligned with `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` and do not copy vendor system prompts, prompt dumps, or proprietary tool schemas.
 - Follow `EMOJI_POLICY.md`: do not add emoji to README files, Markdown, code, comments, scripts, metadata, examples, generated output, commits, PR text, or AI responses. For a missing button icon, ask the user before using a temporary emoji placeholder.
 - Update `TASK_PROGRESS.yaml` when completing a visible repository maintenance task.
 - Update `docs/SEO_CHECKLIST.md`, `codemeta.json`, or `.github/repository-metadata.yml` when changing search-facing positioning.

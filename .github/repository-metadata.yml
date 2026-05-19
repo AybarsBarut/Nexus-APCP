@@ -2,7 +2,7 @@
 # Apply these values in GitHub repository settings or with the GitHub CLI.
 
 name: Nexus-APCP
-description: "AI Project Context Protocol for context engineering, AI-assisted development, AI agent skills, task tracking, ADRs, and token-optimized coding workflows."
+description: "AI Project Context Protocol for context engineering, AI-assisted development, AI tool compatibility, AI agent skills, task tracking, ADRs, and token-optimized coding workflows."
 homepage: "https://github.com/AybarsBarut/Nexus-APCP"
 social_preview: "assets/nexus-apcp-social-preview.svg"
 topics:
