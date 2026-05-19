@@ -13,17 +13,20 @@ Main function for AI workflow. Sequential logic. Strict execution. No fluff.
 
 ## EXECUTION_FLOW (main)
 
-1. [x] **LOAD_CONTEXT**: Read core protocol (APCP, Decision Log, Caveman, Context Optimization, Mermaid).
+1. [x] **LOAD_CONTEXT**: Read core protocol (APCP, Decision Log, Caveman, Context Optimization, Mermaid, Agent Skills).
 2. [x] **TASK_ANALYSIS**: Create AI_MAIN.md framework.
 3. [x] **MODEL_DISPATCH**: Roles assigned (Flash for setup).
 4. [x] **IMPLEMENTATION**: Created AI_MAIN, TASK_PROGRESS, scripts/ (checkpoint.ps1, validate-repo.py, apcp-gather.py).
 5. [x] **MATURITY_LAYER**: SEO optimization and OSS hygiene (README, templates, CI).
 6. [x] **KNOWLEDGE_BASE**: Initialize Second Brain (Scenario 0) for RAG/Onboarding.
 7. [x] **UPDATE_RECOMMENDATION**: Add user-requested update-system fit protocol.
-8. [x] **QUALITY_GATE**: Verify against user intent.
-9. [x] **CHECKPOINT_SAVE**: Update Task Progress & Decision Log.
-10. [x] **DELIVERY**: Final code pushed to origin master.
-11. [ ] **MAINTENANCE**: Periodic sync of AI_MAIN with latest protocol changes.
+8. [x] **README_VISUAL_CONTEXT**: Add README Mermaid flowchart guidance for adopted projects.
+9. [x] **FILE_STRUCTURE_REFACTOR**: Add existing-project file reorganization protocol.
+10. [x] **AGENT_SKILLS**: Add reusable skill workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping.
+11. [x] **QUALITY_GATE**: Verify against user intent.
+12. [x] **CHECKPOINT_SAVE**: Update Task Progress & Decision Log.
+13. [x] **DELIVERY**: Final code pushed to origin master.
+14. [ ] **MAINTENANCE**: Periodic sync of AI_MAIN with latest protocol changes.
 
 ---
 
@@ -50,6 +53,9 @@ Main function for AI workflow. Sequential logic. Strict execution. No fluff.
 - [x] Task 8: Implement Second Brain Sync Scenario (Scenario 0).
 - [x] Task 9: Implement Mermaid Visual Context Flowchart Protocol.
 - [x] Task 17: Add update-system recommendation protocol.
+- [x] Task 19: Add README Mermaid flowchart guidance.
+- [x] Task 20: Add file structure refactor protocol.
+- [x] Task 22: Add AI agent skills protocol.
 
 ---
 

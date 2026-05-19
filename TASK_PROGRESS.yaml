@@ -145,8 +145,48 @@ tasks:
     assignee: "Codex"
     description: "Add a fit-check protocol and prompt scenario for recommending a lightweight GitHub SemVer and zip-sync update system only when the user asks for it and the project profile fits."
 
+  - id: TASK-018
+    title: "Add Discover Algorithm Design Guide"
+    status: COMPLETED
+    priority: MEDIUM
+    effort: 1
+    assignee: "Codex"
+    description: "Create an English, emoji-free, public-safe guide that translates the public xAI X algorithm pattern into discovery feed design guidance for website and application designers."
+
+  - id: TASK-019
+    title: "Add README Mermaid Flowchart Guidance"
+    status: COMPLETED
+    priority: MEDIUM
+    effort: 1
+    assignee: "Codex"
+    description: "Extend the Mermaid visual context protocol with root README flowchart guidance, copy instructions, context gathering support, and example project diagrams."
+
+  - id: TASK-020
+    title: "Add File Structure Refactor Protocol"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Codex"
+    description: "Create an English, emoji-free protocol for safely reorganizing existing project files through iterative moves, compatibility handling, reference updates, and verification gates."
+
+  - id: TASK-021
+    title: "Add Frontend Application Design Protocol"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Codex"
+    description: "Create an English, emoji-free, public-safe protocol that synthesizes frontend learning roadmaps, browser fundamentals, project-based UI development, and AI design prompt patterns into practical frontend design guidance."
+
+  - id: TASK-022
+    title: "Add AI Agent Skills Protocol"
+    status: COMPLETED
+    priority: HIGH
+    effort: 1
+    assignee: "Codex"
+    description: "Adapt public MIT-licensed agent-skill workflow patterns into a Nexus-APCP protocol for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, prototyping, and skill creation."
+
 metrics:
-  tasks_completed: 17
-  total_tasks: 17
+  tasks_completed: 22
+  total_tasks: 22
   velocity: 1.0
   quality_score: 100%

@@ -62,6 +62,10 @@ Install these core files when available:
 - DECISION_LOG_PROTOCOL.md
 - CONTEXT_OPTIMIZATION.md
 - CAVEMAN_RULES.md
+- EMOJI_POLICY.md
+- VISUAL_CONTEXT_MERMAID.md
+- AI_AGENT_SKILLS_PROTOCOL.md
+- FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
 - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
@@ -85,6 +89,10 @@ python scripts/apcp-gather.py --caveman
 # - DECISION_LOG_PROTOCOL.md
 # - CONTEXT_OPTIMIZATION.md
 # - CAVEMAN_RULES.md
+# - EMOJI_POLICY.md
+# - VISUAL_CONTEXT_MERMAID.md
+# - AI_AGENT_SKILLS_PROTOCOL.md
+# - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 # - AI_ASSISTANT_PROMPT_TEMPLATES.md
 # - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 # - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
@@ -95,6 +103,10 @@ cp TASK_PROGRESS.yaml /path/to/your/project/
 cp DECISION_LOG_PROTOCOL.md /path/to/your/project/
 cp CONTEXT_OPTIMIZATION.md /path/to/your/project/
 cp CAVEMAN_RULES.md /path/to/your/project/
+cp EMOJI_POLICY.md /path/to/your/project/
+cp VISUAL_CONTEXT_MERMAID.md /path/to/your/project/
+cp AI_AGENT_SKILLS_PROTOCOL.md /path/to/your/project/
+cp FILE_STRUCTURE_REFACTOR_PROTOCOL.md /path/to/your/project/
 cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /path/to/your/project/
 cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /path/to/your/project/
 cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/docs/
@@ -104,6 +116,8 @@ cp scripts/apcp-gather.py /path/to/your/project/scripts/
 # Add to Git
 git add AI_PROJECT_CONTEXT_PROTOCOL.md AI_MAIN.md TASK_PROGRESS.yaml
 git add DECISION_LOG_PROTOCOL.md CONTEXT_OPTIMIZATION.md CAVEMAN_RULES.md
+git add EMOJI_POLICY.md VISUAL_CONTEXT_MERMAID.md AI_AGENT_SKILLS_PROTOCOL.md
+git add FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 git add WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 git add UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
 git add docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
@@ -116,6 +130,9 @@ git commit -m "docs: add AI Project Context Protocol (APCP) v1.0
 - Add AI_MAIN.md for AI session orchestration
 - Add TASK_PROGRESS.yaml for task tracking
 - Add decision log, context optimization, and Caveman rules
+- Add emoji policy and Mermaid visual context protocol
+- Add AI agent skills protocol for reusable diagnosis, TDD, triage, PRD, handoff, architecture, and prototype workflows
+- Add file structure refactor protocol for existing projects
 - Add website backend security and optimization protocol
 - Add update-system recommendation protocol
 - Add AI_ASSISTANT_PROMPT_TEMPLATES.md for prompt templates
@@ -343,7 +360,8 @@ I've created:
 4. **DECISION_LOG_PROTOCOL.md** - Decision history protocol
 5. **CONTEXT_OPTIMIZATION.md** and **CAVEMAN_RULES.md** - Token and context rules
 6. **AI_ASSISTANT_PROMPT_TEMPLATES.md** - Prompt templates for different scenarios
-7. **scripts/apcp-gather.py** - Context packaging helper
+7. **AI_AGENT_SKILLS_PROTOCOL.md** - Reusable skill workflows for repeated agent tasks
+8. **scripts/apcp-gather.py** - Context packaging helper
 
 I'm ready to start working with you as an AI assistant.
 

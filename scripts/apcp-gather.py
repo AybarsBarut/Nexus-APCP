@@ -20,6 +20,9 @@ def gather_context(caveman_mode=False):
         "CONTEXT_OPTIMIZATION.md",
         "CAVEMAN_RULES.md",
         "EMOJI_POLICY.md",
+        "VISUAL_CONTEXT_MERMAID.md",
+        "AI_AGENT_SKILLS_PROTOCOL.md",
+        "FILE_STRUCTURE_REFACTOR_PROTOCOL.md",
         "UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md"
     ]
     

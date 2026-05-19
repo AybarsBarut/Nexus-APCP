@@ -522,6 +522,68 @@ Please:
 
 ---
 
+## SCENARIO 18: Existing Project File Structure Refactor
+
+Use this when Nexus-APCP is added to an existing project and the repository needs a safer, clearer file layout without breaking previously written code.
+
+```
+I want to reorganize the file structure for [PROJECT_NAME].
+
+Goal:
+[Describe the target organization or readability problem]
+
+Current concern:
+- Existing code must keep running after files move.
+- Imports, scripts, tests, builds, assets, and docs must be updated.
+- Migration should happen iteratively, not as one risky bulk move.
+
+Context:
+[PASTE: FILE_STRUCTURE_REFACTOR_PROTOCOL.md]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - Sections 2, 3, 7, 8, 13 only]
+[PASTE: TASK_PROGRESS.yaml - current sprint only]
+
+Please:
+1. Inspect the current structure, entry points, scripts, tests, imports, and config before moving files.
+2. Propose the target structure and the first migration iteration.
+3. Move only one coherent file group at a time.
+4. Update imports, path aliases, scripts, tests, docs, and Mermaid diagrams affected by each move.
+5. Preserve old entry points with temporary wrappers or re-exports when needed.
+6. Run relevant verification after each iteration and stop if verification fails.
+7. Update TASK_PROGRESS.yaml when the visible migration task is complete.
+```
+
+---
+
+## SCENARIO 19: Reusable AI Agent Skill Workflow
+
+Use this when a repeated AI workflow needs a named process instead of ad hoc prompting: diagnosis, TDD, triage, PRD creation, issue breakdown, handoff, architecture improvement, prototyping, or skill creation.
+
+```
+I want to use a reusable AI agent skill workflow for [PROJECT_NAME].
+
+Requested skill:
+[diagnose / tdd / triage / to-prd / to-issues / handoff / improve-codebase-architecture / prototype / grill-with-docs / write-a-skill / other]
+
+Goal:
+[Describe what we need to accomplish]
+
+Context:
+[PASTE: AI_AGENT_SKILLS_PROTOCOL.md]
+[PASTE: AI_PROJECT_CONTEXT_PROTOCOL.md - relevant sections]
+[PASTE: TASK_PROGRESS.yaml - current sprint only]
+[PASTE: DECISION_LOG_PROTOCOL.md or docs/adr/ summaries if relevant]
+
+Please:
+1. Confirm which skill workflow applies and why.
+2. Identify hard dependencies before acting, especially issue tracker, label, and domain-doc configuration.
+3. Use project vocabulary and existing decisions.
+4. Follow the skill's sequence without skipping verification gates.
+5. Produce the expected skill output: repro loop, failing test, PRD, issue brief, handoff, prototype verdict, or architecture candidate list.
+6. Update TASK_PROGRESS.yaml if this completes a visible repository task.
+```
+
+---
+
 ## BEST PRACTICES WHEN USING THESE PROMPTS
 
 ### DOS
@@ -592,6 +654,8 @@ What do I want to do?
 ├─ External service integration (SCENARIO 11)
 ├─ Deployment (SCENARIO 12)
 ├─ Update system / version sync (SCENARIO 17)
+├─ Existing project file structure refactor (SCENARIO 18)
+├─ Reusable agent skill workflow (SCENARIO 19)
 ├─ Emergency (SCENARIO 13)
 ├─ Sprint planning (SCENARIO 14)
 ├─ Model switching (SCENARIO 3)

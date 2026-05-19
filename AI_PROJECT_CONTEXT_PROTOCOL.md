@@ -676,6 +676,9 @@ docs/
 ├── WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md # Website backend security, API secrecy, static-first, and pentest gates
 ├── DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md # Domain-specific ignore rules and safe-push prompts
 ├── UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md # User-requested updater fit checks and safe implementation prompt
+├── VISUAL_CONTEXT_MERMAID.md # Mermaid README flowchart and visual context protocol
+├── AI_AGENT_SKILLS_PROTOCOL.md # Reusable AI agent skill workflows for diagnosis, TDD, triage, PRDs, handoff, architecture review, and prototypes
+├── FILE_STRUCTURE_REFACTOR_PROTOCOL.md # Safe iterative file and folder restructuring protocol
 ├── CONTRIBUTING.md          # Contributor guidelines
 ├── CHANGELOG.md             # Version history
 └── API_REFERENCE.yaml       # OpenAPI/Swagger spec
@@ -683,10 +686,24 @@ docs/
 
 ### 8.2 README.md Structure (Minimum)
 
-```markdown
+````markdown
 # [Project Name]
 
 [1-2 sentence description]
+
+## Project Flow
+
+This flowchart shows the public, high-level path through the project. Keep it simple enough for a first-time reader and safe enough for a public repository.
+
+```mermaid
+flowchart TD
+    User[User or Client] --> Entry[UI, CLI, or API Entry Point]
+    Entry --> App[Application Layer]
+    App --> Domain[Core Domain Logic]
+    Domain --> Data[(Data Store)]
+    Domain --> Integrations[External Services]
+    App --> Delivery[Build and Deployment]
+```
 
 ## Quick Start
 
@@ -707,7 +724,7 @@ python -m flask run
 
 ## Architecture
 
-[Brief high-level overview + reference to architecture.md]
+[Brief high-level overview + reference to docs/ARCHITECTURE.md and VISUAL_CONTEXT_MERMAID.md]
 
 ## API Documentation
 
@@ -747,17 +764,21 @@ Please read docs/CONTRIBUTING.md.
 - Email: [support email]
 - Issues: [GitHub Issues URL]
 - Docs: [docs URL]
-```
+````
 
 ### 8.3 ARCHITECTURE.md Template
 
-```markdown
+````markdown
 # Architecture
 
 ## High-Level Overview
 
-```
-[ASCII diagram or flowchart]
+```mermaid
+flowchart TD
+    Entry[Entry Point] --> App[Application Layer]
+    App --> Services[Service Layer]
+    Services --> Data[(Data Layer)]
+    Services --> External[External Integrations]
 ```
 
 ## Components
@@ -809,7 +830,7 @@ Please read docs/CONTRIBUTING.md.
 ## Scalability Considerations
 
 [Performance optimizations, bottlenecks]
-```
+````
 
 ### 8.4 API.md Template
 
@@ -1139,6 +1160,29 @@ Default rule:
 - If the project is SaaS, API-only backend, mobile app store, browser extension store, package-manager distributed software, or requires signed installers or staged rollout, recommend the appropriate release strategy instead.
 - Always protect `.env`, local user data, settings files, backups, logs, generated prompt bundles, and filled private context files.
 
+### 13.4 Existing Project File Structure Refactor
+
+When Nexus-APCP is added to an existing project and the user asks to reorganize files, folders, modules, imports, scripts, tests, or documentation structure, read `FILE_STRUCTURE_REFACTOR_PROTOCOL.md` before moving files.
+
+Default rule:
+- Do not treat file movement as complete until imports, entry points, tests, builds, scripts, assets, and documentation references are updated.
+- Migrate in small iterations with verification after each iteration.
+- Preserve existing behavior unless the user explicitly approves a breaking migration.
+- Use temporary compatibility wrappers, re-exports, or aliases when old paths are still used.
+- Stop moving new files if verification fails, then repair the current iteration before continuing.
+- Update this protocol, README flowcharts, architecture docs, and `TASK_PROGRESS.yaml` when the visible structure changes.
+
+### 13.5 AI Agent Skill Workflows
+
+When the user asks for a named skill, slash-command-like workflow, repeated agent behavior, diagnosis, TDD, issue triage, PRD generation, architecture deepening, prototyping, handoff, or skill creation, read `AI_AGENT_SKILLS_PROTOCOL.md` before choosing the workflow.
+
+Default rule:
+- Treat skills as operating protocols, not private project context.
+- Configure issue tracker, triage labels, and domain docs before publishing issues or PRDs.
+- Prefer behavior contracts over file-path instructions in issues and agent briefs.
+- Record durable terms and decisions in the project glossary, decision log, or ADRs.
+- Keep copied third-party skill text or scripts license-compliant and attributed.
+
 ---
 
 ## SECTION 14: BEST PRACTICES AND TIPS
@@ -1150,7 +1194,9 @@ Default rule:
 - Read TASK_PROGRESS before starting each task
 - Read internal docs first if there are unknown parts
 - Follow patterns in Section 5 when writing code
+- Use `AI_AGENT_SKILLS_PROTOCOL.md` before invoking reusable skill workflows
 - Use `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md` before suggesting an updater
+- Use `FILE_STRUCTURE_REFACTOR_PROTOCOL.md` before reorganizing existing project files
 - Use commit format in Section 6.2 when making breaking changes
 - Ask user when there is uncertainty (don't guess!)
 
