@@ -24,5 +24,30 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install validation dependencies
+        run: python -m pip install --upgrade pip PyYAML
+
+      - name: Check Python syntax
+        run: python -m py_compile scripts/apcp_core_files.py scripts/apcp-gather.py scripts/validate-repo.py
+
+      - name: Check PowerShell syntax
+        shell: pwsh
+        run: |
+          $hadError = $false
+          foreach ($file in Get-ChildItem -Path scripts -Filter *.ps1) {
+            $tokens = $null
+            $parseErrors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($file.FullName, [ref]$tokens, [ref]$parseErrors) | Out-Null
+            if ($parseErrors.Count -gt 0) {
+              $hadError = $true
+              Write-Output "PowerShell syntax error in $($file.FullName)"
+              $parseErrors | ForEach-Object { Write-Output $_.Message }
+            }
+          }
+          if ($hadError) { exit 1 }
+
       - name: Run repository validation
         run: python scripts/validate-repo.py
+
+      - name: Ensure generated bundle was cleaned
+        run: test ! -e PROMPT_READY.txt

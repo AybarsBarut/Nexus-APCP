@@ -15,7 +15,7 @@ This checklist keeps GitHub search, README search snippets, package metadata, an
 Use this exact description in GitHub repository settings:
 
 ```text
-AI Project Context Protocol for context engineering, AI-assisted development, AI tool compatibility, AI agent skills, task tracking, ADRs, and token-optimized coding workflows.
+AI Project Context Protocol for context engineering, AI-assisted development, local code intelligence, AI tool compatibility, AI agent skills, ADRs, and token-optimized coding workflows.
 ```
 
 ## GitHub Topics
@@ -64,7 +64,8 @@ If GitHub rejects SVG upload for social preview, export it as a `1200x630` PNG a
 | Prompting | prompt engineering, prompt templates, reusable AI prompts |
 | Agent skills | AI agent skills, skill-based agent workflows, reusable AI workflows |
 | Tool compatibility | AI tool adapter compatibility, AI coding tool compatibility, model tool drift, prompt-source hygiene |
-| Productivity | developer productivity, workflow automation, token optimization |
+| Code intelligence | local code graph, semantic code search, code intelligence, impact analysis, CodeGraph integration |
+| Productivity | developer productivity, agent workflow, token optimization |
 | Architecture | architecture decision records, ADR protocol, decision log, Mermaid flowchart, README architecture diagram, file structure refactor, repository reorganization protocol |
 | Web security | website backend security protocol, secure web development, backend optimization, API secret handling |
 | Delivery process | waterfall development protocol, phase-gated delivery, stack combination documentation |
@@ -79,3 +80,4 @@ If GitHub rejects SVG upload for social preview, export it as a `1200x630` PNG a
 - Prefer concrete repository file links over generic claims.
 - Keep security guidance visible near setup instructions.
 - Update `dateModified` in `codemeta.json` when SEO-facing metadata changes.
+- Do not use `cli-tool`, `python`, or similar packaging-oriented GitHub topics until Nexus-APCP ships a real packaged CLI with entry points, tests, tags, and release artifacts.

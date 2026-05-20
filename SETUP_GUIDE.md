@@ -71,15 +71,20 @@ Install these core files when available:
 - VISUAL_CONTEXT_MERMAID.md
 - AI_AGENT_SKILLS_PROTOCOL.md
 - AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
+- CODEGRAPH_INTEGRATION_PROTOCOL.md
 - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
-- MACP_IMPLEMENTATION_GUIDE.md
-- WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+- MACP_IMPLEMENTATION_GUIDE.md
+- WATERFALL_DEVELOPMENT_PROTOCOL.md
 - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
 - DEBLOAT_APPLICATION_GUIDE.md
+- WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
+- scripts/apcp_core_files.py
 - scripts/apcp-gather.py
+- scripts/install-local-excludes.sh
+- scripts/install-local-excludes.ps1
 
 Then inspect this project, customize placeholders, preserve secrets/private context, and run:
 python scripts/apcp-gather.py --caveman
@@ -101,14 +106,20 @@ python scripts/apcp-gather.py --caveman
 # - VISUAL_CONTEXT_MERMAID.md
 # - AI_AGENT_SKILLS_PROTOCOL.md
 # - AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
+# - CODEGRAPH_INTEGRATION_PROTOCOL.md
 # - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 # - AI_ASSISTANT_PROMPT_TEMPLATES.md
 # - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
 # - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
 # - MACP_IMPLEMENTATION_GUIDE.md
-# - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
+# - WATERFALL_DEVELOPMENT_PROTOCOL.md
 # - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
 # - DEBLOAT_APPLICATION_GUIDE.md
+# - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
+# - scripts/apcp_core_files.py
+# - scripts/apcp-gather.py
+# - scripts/install-local-excludes.sh
+# - scripts/install-local-excludes.ps1
 
 cp AI_PROJECT_CONTEXT_PROTOCOL.md /path/to/your/project/
 cp AI_MAIN.md /path/to/your/project/
@@ -120,69 +131,60 @@ cp EMOJI_POLICY.md /path/to/your/project/
 cp VISUAL_CONTEXT_MERMAID.md /path/to/your/project/
 cp AI_AGENT_SKILLS_PROTOCOL.md /path/to/your/project/
 cp AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md /path/to/your/project/
+cp CODEGRAPH_INTEGRATION_PROTOCOL.md /path/to/your/project/
 cp FILE_STRUCTURE_REFACTOR_PROTOCOL.md /path/to/your/project/
+cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/
 cp WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md /path/to/your/project/
 cp DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md /path/to/your/project/
 cp MACP_IMPLEMENTATION_GUIDE.md /path/to/your/project/
-cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /path/to/your/project/
+cp WATERFALL_DEVELOPMENT_PROTOCOL.md /path/to/your/project/
 cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /path/to/your/project/
 cp DEBLOAT_APPLICATION_GUIDE.md /path/to/your/project/
-cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/
+cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /path/to/your/project/
 mkdir -p /path/to/your/project/scripts
+cp scripts/apcp_core_files.py /path/to/your/project/scripts/
 cp scripts/apcp-gather.py /path/to/your/project/scripts/
+cp scripts/install-local-excludes.sh /path/to/your/project/scripts/
+cp scripts/install-local-excludes.ps1 /path/to/your/project/scripts/
 
 # Do not add these installed APCP operating files to Git by default.
 # Keep them local, or sync them through an approved private/cloud knowledge base.
 ```
+
+The canonical install and gather file list lives in `scripts/apcp_core_files.py`. The repository validator checks this guide, the README, the gather bundle, and the validator against that same source.
 
 #### 1.2 Keep APCP Out of Public GitHub by Default
 
 If the public GitHub repository should not show local AI workflow files, use a local Git exclude instead of committing a `.gitignore` rule. `.git/info/exclude` stays inside the local clone and is not pushed.
 
 ```bash
-# Add to the target project's local Git exclude file:
-cat >> .git/info/exclude << 'EOF'
+# macOS, Linux, Git Bash, or WSL:
+bash scripts/install-local-excludes.sh
 
-# Nexus-APCP local agent operating files
-AI_PROJECT_CONTEXT_PROTOCOL.md
-AI_MAIN.md
-TASK_PROGRESS.yaml
-DECISION_LOG_PROTOCOL.md
-CONTEXT_OPTIMIZATION.md
-CAVEMAN_RULES.md
-EMOJI_POLICY.md
-VISUAL_CONTEXT_MERMAID.md
-AI_AGENT_SKILLS_PROTOCOL.md
-AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
-FILE_STRUCTURE_REFACTOR_PROTOCOL.md
-WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
-WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
-DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
-UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
-DEBLOAT_APPLICATION_GUIDE.md
-DISCOVER_ALGORITHM_DESIGN_GUIDE.md
-FRONTEND_APPLICATION_DESIGN_PROTOCOL.md
-MACP_IMPLEMENTATION_GUIDE.md
-UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md
-WATERFALL_DEVELOPMENT_PROTOCOL.md
-README_APCP_KIT.md
-MASTER_PROMPT.md
-AI_ASSISTANT_PROMPT_TEMPLATES.md
-docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
-scripts/apcp-gather.py
-
-# Nexus-APCP generated context and local state
-PROMPT_READY.txt
-PROMPT_READY.tmp
-.checkpoint
-.apcp-cache/
-*.apcp.tmp
-*.prompt.local
-*.context.local
-EOF
+# Windows PowerShell:
+powershell -ExecutionPolicy Bypass -File scripts/install-local-excludes.ps1
 ```
 
+The helper scripts add the local-only APCP paths, generated bundle names, `.env`-style local files, `.apcp-cache/`, and `.codegraph/` entries to the current clone's exclude file. For teams, repeat this step during onboarding or use an approved private global excludes file or private template repository.
+
 Use a committed `.gitignore` block only when the team accepts that the public repository will show the ignore rule. If any APCP file is already tracked, adding an exclude rule is not enough; remove it from Git tracking with `git rm --cached <path>` after confirming the file should remain local.
+
+#### 1.3 Git Behavior by Phase
+
+During AI-agent setup, agents should install files, inspect the project, and stop before any Git operation unless the user explicitly asks. That rule covers `git status`, `git add`, `git commit`, and `git push`.
+
+During a human-maintained private or internal repo routine, Git commands can be used after review. Prefer path-specific staging such as `git add TASK_PROGRESS.yaml` or `git add AI_PROJECT_CONTEXT_PROTOCOL.md TASK_PROGRESS.yaml`. Do not use `git add .` for APCP maintenance unless the entire working tree has been reviewed and generated/private files are excluded.
+
+#### 1.4 Optional Local Code Graph Setup
+
+For large codebases, install CodeGraph only after confirming the project's Node.js and tool-install policy. CodeGraph builds a local semantic index that can help AI agents answer architecture, symbol, caller, callee, route, and impact questions with fewer broad scans.
+
+```bash
+npx @colbymchenry/codegraph
+codegraph init -i
+```
+
+Before public pushes, confirm `.codegraph/` and any generated graph database files remain untracked. Use `CODEGRAPH_INTEGRATION_PROTOCOL.md` for agent usage rules and staleness checks.
 
 ---
 
@@ -324,7 +326,7 @@ echo ""
 echo " All checks completed!"
 echo ""
 echo "Ready to commit. Do:"
-echo "  git add ."
+echo "  git add <reviewed-file-1> <reviewed-file-2>"
 echo "  git commit -m 'type(scope): message'"
 echo ""
 echo "Before pushing, confirm local APCP operating files are excluded or intentionally sanitized."
@@ -421,10 +423,14 @@ APCP Setup Verification:
 □ [ ] DECISION_LOG_PROTOCOL.md, CONTEXT_OPTIMIZATION.md, and CAVEMAN_RULES.md installed
 □ [ ] AI_ASSISTANT_PROMPT_TEMPLATES.md installed at the project root
 □ [ ] AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md installed if the project supports multiple AI coding tools
+□ [ ] CODEGRAPH_INTEGRATION_PROTOCOL.md installed if the project uses local code graph discovery
+□ [ ] scripts/apcp_core_files.py is installed next to scripts/apcp-gather.py
 □ [ ] scripts/apcp-gather.py is working (test: python scripts/apcp-gather.py --caveman)
+□ [ ] scripts/install-local-excludes.sh or scripts/install-local-excludes.ps1 has been run when public repository visibility matters
 □ [ ] scripts/checkpoint.sh is working (test: bash scripts/checkpoint.sh)
 □ [ ] scripts/update-apcp.sh is working
 □ [ ] Installed APCP files are excluded locally or explicitly approved as sanitized public templates
+□ [ ] If CodeGraph is used, `.codegraph/` and generated graph databases are untracked
 □ [ ] If public repository visibility matters, no APCP operating-file references were added to README.md or committed .gitignore
 □ [ ] Team members know what APCP is
 □ [ ] First AI session conducted and successful
@@ -432,9 +438,9 @@ APCP Setup Verification:
 
 ---
 
-## WEEKLY ROUTINE
+## HUMAN-MAINTAINED PRIVATE OR INTERNAL REPO ROUTINE
 
-Life in the project becomes like this:
+Use this routine after setup, in a private/internal repo or after a human has reviewed what is safe for a public repository. The setup-phase AI-agent rule still applies unless the user explicitly asks the agent to run Git commands.
 
 ### **Monday - Sprint Planning**
 
@@ -466,7 +472,7 @@ bash scripts/checkpoint.sh
 
 ```bash
 # At the end of the week:
-# 1. Mark completed tasks with 
+# 1. Mark completed tasks in TASK_PROGRESS.yaml
 # 2. Merge open PRs
 # 3. Finalize TASK_PROGRESS.yaml
 
@@ -623,18 +629,17 @@ If you have questions:
 
 ---
 
-## SUCCESS STORIES
+## EXAMPLE OUTCOMES
 
-From teams using APCP:
+Typical intended outcomes when a team keeps the protocol current:
 
-- "When switching models, we didn't have to reload the context!"
-- "Our velocity estimate was 96% accurate (we used to always guess wrong)"
-- "Bug fixes come out faster because we know the architecture exactly"
-- "Newcomers get up-to-speed in 2 hours"
-- "Code reviews accelerated by 50%"
+- Model switches require less context rebuilding.
+- Bug-fix sessions start with clearer architecture and decision history.
+- New contributors can inspect project rules and task state before asking for help.
+- Code reviews have a shared reference for conventions, safety gates, and delivery expectations.
 
 ---
 
-** Ready to launch your AI-assisted development?**
+**Ready to launch your AI-assisted development?**
 
-**Let's go! **
+Use the setup checklist, generate the context bundle, and start with the first task.

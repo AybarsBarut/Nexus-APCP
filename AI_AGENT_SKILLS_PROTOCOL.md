@@ -58,6 +58,7 @@ Use this registry as a model-agnostic equivalent of slash commands. Agents can i
 | Skill | Use when | Output |
 | :--- | :--- | :--- |
 | `diagnose` | User reports a bug, failure, broken behavior, or performance regression. | Reproduction loop, ranked hypotheses, targeted instrumentation, fix, regression proof, cleanup notes. |
+| `codegraph-explore` | User asks how code is connected, where a symbol lives, who calls what, which routes hit a handler, or what a change impacts. | Targeted local graph query plan, source verification list, and confidence notes. |
 | `grill-with-docs` | User wants to stress-test a code or architecture plan against project language and decisions. | One-question-at-a-time interview, updated glossary, optional ADR. |
 | `triage` | User wants to classify, clarify, route, or prepare issues. | Issue state recommendation, reporter questions, ready-for-agent brief, or out-of-scope record. |
 | `improve-codebase-architecture` | User wants refactoring opportunities, better testability, or less tangled architecture. | Numbered deepening candidates with files, problem, solution, benefits, and test impact. |
@@ -190,6 +191,8 @@ Use this for bugs and performance regressions.
 Feedback loops can be tests, HTTP scripts, CLI fixtures, browser automation, captured trace replay, throwaway harnesses, fuzz loops, bisection, differential comparison, or a structured human-in-the-loop script.
 
 For nondeterministic bugs, raise the reproduction rate with loops, stress, seeds, timing controls, or parallel runs until the bug can be reasoned about.
+
+When `CODEGRAPH_INTEGRATION_PROTOCOL.md` is installed and a local `.codegraph/` index exists, use graph discovery to find the affected symbols, callers, callees, and route bindings before broad file scans. Verify graph findings against source and tests before applying the fix.
 
 ## TDD Protocol
 

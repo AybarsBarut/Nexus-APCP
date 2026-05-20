@@ -19,6 +19,11 @@ PROMPT_READY*.txt
 PROMPT_READY*.tmp
 .checkpoint
 .apcp-cache/
+.codegraph/
+codegraph.db
+codegraph.sqlite
+*.codegraph.db
+*.codegraph.sqlite
 .ai-cache/
 .ai-output/
 .ai-runs/
@@ -27,6 +32,7 @@ PROMPT_READY*.tmp
 .ai_team/session-logs/
 *.prompt.local
 *.context.local
+*.local
 *.scratch.md
 
 # Unreviewed prompt archives and vendor/model dumps

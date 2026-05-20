@@ -15,6 +15,7 @@ As a software project grows, the codebase and documentation eventually exceed th
 - **Rules**: `AI_PROJECT_CONTEXT_PROTOCOL.md` (Sections 1-6 only: Identity, Hierarchy, Imports, Security, Patterns, Git).
 - **Module Context**: Only the specific documentation for the current module (e.g., `docs/USER_SERVICE.md`).
 - **History**: The last 3 entries from the `docs/ADR/` (Decision Logs).
+- **Optional Code Graph**: If `CODEGRAPH_INTEGRATION_PROTOCOL.md` is installed and a local `.codegraph/` index exists, use targeted symbol, caller, callee, route, or impact queries before broad file scans.
 - **Token Impact**: ~2,000 tokens.
 
 ### Level 3: Minimal (Fix/Maintenance Mode)
@@ -22,6 +23,7 @@ As a software project grows, the codebase and documentation eventually exceed th
 - **Identity**: `AI_PROJECT_CONTEXT_PROTOCOL.md` (Section 1 and 2 only).
 - **Task**: Only the specific `TASK-XXX` block from `TASK_PROGRESS.yaml`.
 - **Current File**: The content of the file being fixed.
+- **Optional Code Graph**: Use graph lookup only for the affected symbol or call chain, then inspect the exact file before editing.
 - **Token Impact**: ~1,000 tokens.
 
 ## Context Archiving
@@ -31,3 +33,5 @@ When `TASK_PROGRESS.yaml` becomes too large:
 
 ## AI Instructions
 If you detect that the context is getting too large (e.g., truncated responses or confusion), suggest switching to **Level 2** or **Level 3** context.
+
+When a local CodeGraph-compatible index is available, prefer graph discovery for navigation and impact questions, but treat source files and tests as the final authority.

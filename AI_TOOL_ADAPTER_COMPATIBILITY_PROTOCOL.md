@@ -38,6 +38,7 @@ For each AI tool used by the project, record behavior at the level a maintainer 
 | Primary mode | How the tool usually starts work. | Planning-first, chat-first, edit-first, review-first, or issue-first. |
 | Execution tools | What the assistant can operate. | Shell, file edit, browser, tests, package manager, issue tracker, or MCP connector. |
 | Context loading | How it should read Nexus-APCP. | Start with `AGENTS.md`, then selected protocol files, then task state. |
+| Local code graph | Whether CodeGraph-compatible tools or `.codegraph/` indexes are available. | Prefer graph lookup for symbol discovery, caller/callee tracing, route mapping, and impact checks. |
 | Verification path | How it proves work. | Run tests, render docs, open browser, validate links, or inspect generated files. |
 | Output style | What response format works best. | Short status updates, findings-first review, patch summary, or handoff note. |
 | Git behavior | What the tool may do. | Inspect diffs freely; stage, commit, push, or branch only when requested. |
@@ -56,6 +57,7 @@ Good adapter files:
 - Avoid hardcoding model versions unless the behavior truly depends on that version.
 - Keep public/private boundaries visible.
 - Tell the tool which local validation commands matter.
+- Point to `CODEGRAPH_INTEGRATION_PROTOCOL.md` when the project uses local code graph discovery.
 
 Do not add:
 
@@ -64,6 +66,7 @@ Do not add:
 - Prompt injection bypass text, jailbreak patterns, or prompt-extraction recipes.
 - Private model routing notes, customer prompts, hidden chain-of-thought requests, or internal evaluation data.
 - Secrets, local credentials, private MCP endpoints, customer data, or generated prompt bundles.
+- Generated CodeGraph configs, `.codegraph/` indexes, local database paths, or private MCP allowlists.
 
 ## Tool Mode Matrix
 
@@ -78,6 +81,7 @@ Use this matrix when deciding whether a project needs a specific adapter note.
 | Review mode | Whether the tool prioritizes findings. | Use findings-first code-review output with file and line references. |
 | Prototype mode | Whether throwaway experiments are allowed. | Mark prototypes as disposable and capture the answer before cleanup. |
 | Multi-agent mode | Whether parallel workers can act safely. | Split ownership by files or modules and prevent overlapping edits. |
+| Local graph mode | Whether the assistant can query a local code knowledge graph. | Use graph lookup for navigation, then verify source and tests before editing. |
 
 ## Safe Prompt Archive Review
 

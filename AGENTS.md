@@ -23,6 +23,7 @@ The public repository should remain safe to share. Real project context files, p
 | `VISUAL_CONTEXT_MERMAID.md` | Mermaid README flowchart and visual context protocol. |
 | `AI_AGENT_SKILLS_PROTOCOL.md` | Skill-based AI agent workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping. |
 | `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` | Safe adapter compatibility protocol for AI tool modes, capabilities, verification paths, and prompt-source hygiene. |
+| `CODEGRAPH_INTEGRATION_PROTOCOL.md` | Optional local CodeGraph-compatible code knowledge graph workflow and generated-index hygiene. |
 | `FILE_STRUCTURE_REFACTOR_PROTOCOL.md` | Safe iterative file and folder restructuring protocol for existing projects. |
 | `DEBLOAT_APPLICATION_GUIDE.md` | Lean application guidance for reducing ads, hidden tracking, heavy dependencies, optional feature load, and resource usage. |
 | `AI_ASSISTANT_PROMPT_TEMPLATES.md` | Reusable prompts for common AI-assisted development scenarios. |
@@ -30,8 +31,11 @@ The public repository should remain safe to share. Real project context files, p
 | `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md` | Safe publishing patterns for different project domains. |
 | `MACP_IMPLEMENTATION_GUIDE.md` | Multi-AI Coordination Protocol for parallel model workflows. |
 | `SETUP_GUIDE.md` | Step-by-step setup instructions and routine maintenance. |
+| `CHANGELOG.md` | Release history and SemVer notes for public protocol-kit versions. |
+| `scripts/apcp_core_files.py` | Canonical core and install file lists used by scripts and validation. |
 | `scripts/apcp-gather.py` | Generates an AI-ready context bundle from core protocol files. |
 | `scripts/validate-repo.py` | Repository integrity, metadata, and link validation script. |
+| `scripts/install-local-excludes.sh` / `scripts/install-local-excludes.ps1` | Local Git exclude installers for downstream repositories. |
 | `docs/SEO_CHECKLIST.md` | Repository SEO metadata and keyword source of truth. |
 
 ## Essential Commands
@@ -40,6 +44,7 @@ Run these from the repository root.
 
 ```bash
 python scripts/apcp-gather.py --caveman
+python -m py_compile scripts/apcp_core_files.py scripts/apcp-gather.py scripts/validate-repo.py
 python scripts/validate-repo.py
 ```
 
@@ -57,6 +62,7 @@ powershell -ExecutionPolicy Bypass -File scripts/checkpoint.ps1
 - Keep repository-facing terminology consistent: `Nexus-APCP`, `AI Project Context Protocol`, `context engineering`, `AI-assisted development`, and `token optimization`.
 - When adding or changing reusable agent workflows, keep them aligned with `AI_AGENT_SKILLS_PROTOCOL.md`.
 - When adding or changing AI tool adapter guidance, keep it aligned with `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` and do not copy vendor system prompts, prompt dumps, or proprietary tool schemas.
+- When adding or changing local code graph guidance, keep it aligned with `CODEGRAPH_INTEGRATION_PROTOCOL.md` and do not commit `.codegraph/` indexes, generated graph databases, private MCP configs, or local absolute paths.
 - Follow `EMOJI_POLICY.md`: do not add emoji to README files, Markdown, code, comments, scripts, metadata, examples, generated output, commits, PR text, or AI responses. For a missing button icon, ask the user before using a temporary emoji placeholder.
 - Update `TASK_PROGRESS.yaml` when completing a visible repository maintenance task.
 - Update `docs/SEO_CHECKLIST.md`, `codemeta.json`, or `.github/repository-metadata.yml` when changing search-facing positioning.
@@ -70,6 +76,7 @@ This is a public repository. When working on security-related docs or fixes:
 - Use neutral functional wording, such as `improve input validation`, instead of naming the vulnerability class.
 - Keep vulnerability details in private reporting channels.
 - Never commit `PROMPT_READY.txt` generated from a private project.
+- Never commit `.codegraph/`, CodeGraph SQLite databases, exported graph reports, or generated local MCP configuration from a private project.
 - When documenting downstream product-repo setup, keep installed APCP operating files local/private by default and prefer local Git excludes over committed `.gitignore` rules if public GitHub should not reveal AI workflow filenames.
 - Do not weaken `.gitignore`, security guidance, or private-context warnings without a clear replacement.
 

@@ -25,6 +25,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 - **Skill-based agent workflows**: `AI_AGENT_SKILLS_PROTOCOL.md` turns repeated AI workflows into named, reusable operating patterns.
 - **Multi-AI coordination**: `MACP_IMPLEMENTATION_GUIDE.md` defines handoff, heartbeat, state, and conflict-control patterns for parallel model workflows.
 - **AI tool adapter compatibility**: `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` documents tool modes, capabilities, verification paths, and prompt hygiene without vendoring leaked or proprietary prompts.
+- **Local code graph support**: `CODEGRAPH_INTEGRATION_PROTOCOL.md` adds optional CodeGraph-compatible rules for local semantic code discovery, call tracing, impact analysis, and generated index hygiene.
 - **Phase-gated delivery**: waterfall-style stack combination protocols help teams define requirements, contracts, tests, and release evidence before implementation drifts.
 - **Lean application design**: debloat guidance helps teams avoid ads, hidden tracking, unnecessary dependencies, and non-essential modules by default.
 - **README flowcharts**: Mermaid project flowcharts make repository entry points, architecture boundaries, and AI onboarding paths easier to scan.
@@ -46,6 +47,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | AI Agent Skills Protocol | Defines reusable skill workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping. |
 | Multi-AI Coordination Protocol | Defines MACP handoff, heartbeat, shared-state, and conflict-control patterns for parallel AI model workflows. |
 | AI Tool Adapter Compatibility Protocol | Defines safe adapter compatibility checks for AI coding assistants, model/tool drift, mode differences, verification paths, and prompt-source hygiene. |
+| CodeGraph Integration Protocol | Defines local code knowledge graph setup, agent usage, staleness checks, and `.codegraph/` publishing hygiene. |
 | README Mermaid Flowcharts | Adds high-level Mermaid flowchart guidance so project READMEs explain application flow, architecture boundaries, and onboarding paths visually. |
 | File Structure Refactor Protocol | Guides safe folder reorganization for existing projects with iterative moves, compatibility wrappers, reference updates, and verification gates. |
 | Delivery Protocols | Adds release gates for web apps, backend services, AI/LLM products, games, mobile apps, DevOps, and security work. |
@@ -78,19 +80,26 @@ cp EMOJI_POLICY.md /your/project/
 cp VISUAL_CONTEXT_MERMAID.md /your/project/
 cp AI_AGENT_SKILLS_PROTOCOL.md /your/project/
 cp AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md /your/project/
+cp CODEGRAPH_INTEGRATION_PROTOCOL.md /your/project/
 cp FILE_STRUCTURE_REFACTOR_PROTOCOL.md /your/project/
+cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/
 cp WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md /your/project/
 cp DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md /your/project/
 cp MACP_IMPLEMENTATION_GUIDE.md /your/project/
+cp WATERFALL_DEVELOPMENT_PROTOCOL.md /your/project/
 cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /your/project/
 cp DEBLOAT_APPLICATION_GUIDE.md /your/project/
-cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/
 cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /your/project/
 mkdir -p /your/project/scripts
+cp scripts/apcp_core_files.py /your/project/scripts/
 cp scripts/apcp-gather.py /your/project/scripts/
+cp scripts/install-local-excludes.sh /your/project/scripts/
+cp scripts/install-local-excludes.ps1 /your/project/scripts/
 ```
 
-For a downstream product repository, treat these copied files as local agent operating context by default. AI agents can read them from local paths, private cloud docs, or generated context bundles, but the public GitHub repository does not need to expose the AI workflow files unless you intentionally publish sanitized templates. If the public repo should not show these files, put the APCP paths in `.git/info/exclude` or a private global excludes file before any push; use a committed `.gitignore` block only when the public ignore rule itself is acceptable.
+The canonical install and gather file list lives in [`scripts/apcp_core_files.py`](./scripts/apcp_core_files.py). Repository validation fails if the README, setup guide, gather bundle, or validator drift from that list.
+
+For a downstream product repository, treat these copied files as local agent operating context by default. AI agents can read them from local paths, private cloud docs, or generated context bundles, but the public GitHub repository does not need to expose the AI workflow files unless you intentionally publish sanitized templates. If the public repo should not show these files, run `bash scripts/install-local-excludes.sh` or `powershell -ExecutionPolicy Bypass -File scripts/install-local-excludes.ps1` before any push; use a committed `.gitignore` block only when the public ignore rule itself is acceptable.
 
 Generate an AI-ready context package:
 
@@ -137,15 +146,20 @@ Install these core files when available:
 - VISUAL_CONTEXT_MERMAID.md
 - AI_AGENT_SKILLS_PROTOCOL.md
 - AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
+- CODEGRAPH_INTEGRATION_PROTOCOL.md
 - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
-- MACP_IMPLEMENTATION_GUIDE.md
-- WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+- MACP_IMPLEMENTATION_GUIDE.md
+- WATERFALL_DEVELOPMENT_PROTOCOL.md
 - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
 - DEBLOAT_APPLICATION_GUIDE.md
+- WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
+- scripts/apcp_core_files.py
 - scripts/apcp-gather.py
+- scripts/install-local-excludes.sh
+- scripts/install-local-excludes.ps1
 
 Then inspect this project, customize placeholders, preserve secrets/private context, and run:
 python scripts/apcp-gather.py --caveman
@@ -165,6 +179,7 @@ python scripts/apcp-gather.py --caveman
 | [`VISUAL_CONTEXT_MERMAID.md`](./VISUAL_CONTEXT_MERMAID.md) | README Mermaid flowchart and visual context protocol for architecture, workflow, and state diagrams. |
 | [`AI_AGENT_SKILLS_PROTOCOL.md`](./AI_AGENT_SKILLS_PROTOCOL.md) | Skill-based AI agent workflows adapted from public engineering-skill patterns for diagnosis, TDD, triage, PRDs, handoff, architecture review, and prototyping. |
 | [`AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`](./AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md) | Safe compatibility protocol for AI tool modes, adapter files, model/tool drift, verification paths, and prompt-source hygiene. |
+| [`CODEGRAPH_INTEGRATION_PROTOCOL.md`](./CODEGRAPH_INTEGRATION_PROTOCOL.md) | Optional CodeGraph-compatible local code knowledge graph workflow for semantic search, call tracing, impact analysis, and safe generated-index handling. |
 | [`FILE_STRUCTURE_REFACTOR_PROTOCOL.md`](./FILE_STRUCTURE_REFACTOR_PROTOCOL.md) | Safe file and folder reorganization protocol for existing projects, including iterative migration and verification gates. |
 | [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
 | [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
@@ -175,7 +190,10 @@ python scripts/apcp-gather.py --caveman
 | [`WATERFALL_DEVELOPMENT_PROTOCOL.md`](./WATERFALL_DEVELOPMENT_PROTOCOL.md) | Phase-gated waterfall protocol with worked examples and web research rules for stack combinations such as web + database, web + Python, Python + Unity, backend APIs, Unity services, and AI/RAG workflows. |
 | [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
+| [`CHANGELOG.md`](./CHANGELOG.md) | Release history and SemVer notes for public protocol-kit versions. |
+| [`scripts/apcp_core_files.py`](./scripts/apcp_core_files.py) | Canonical file list shared by gather, validation, and documentation consistency checks. |
 | [`scripts/apcp-gather.py`](./scripts/apcp-gather.py) | Context packer that generates `PROMPT_READY.txt`. |
+| [`scripts/install-local-excludes.sh`](./scripts/install-local-excludes.sh) and [`scripts/install-local-excludes.ps1`](./scripts/install-local-excludes.ps1) | Local Git exclude installers for downstream repositories that should keep APCP operating files private. |
 | [`AGENTS.md`](./AGENTS.md) | Repository instructions for AI coding assistants and automation agents. |
 | [`examples/`](./examples/README.md) | Sanitized starter kits for web apps, backend APIs, and AI/RAG systems. |
 
@@ -188,11 +206,12 @@ python scripts/apcp-gather.py --caveman
 5. **Select reusable agent skills** with `AI_AGENT_SKILLS_PROTOCOL.md`: use named workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototypes.
 6. **Coordinate parallel models** with `MACP_IMPLEMENTATION_GUIDE.md`: use shared state, handoffs, heartbeats, and conflict rules when more than one AI agent is working.
 7. **Document AI tool compatibility** with `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`: track assistant modes, tool access, adapter files, verification paths, and safe prompt-source boundaries.
-8. **Add README visual context** with `VISUAL_CONTEXT_MERMAID.md`: include a safe, high-level Mermaid flowchart in project READMEs for faster human and AI orientation.
-9. **Refactor existing file layouts safely** with `FILE_STRUCTURE_REFACTOR_PROTOCOL.md`: move files iteratively, update references, and prove old code still runs from the new structure.
-10. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`, and `DEBLOAT_APPLICATION_GUIDE.md` when the work needs release gates, backend/API safety, stack contracts, update-system fit checks, lean app defaults, or phase-by-phase verification.
-11. **Enforce output hygiene** with `EMOJI_POLICY.md`: keep docs, code, generated bundles, and AI responses emoji-free.
-12. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
+8. **Use local code intelligence** with `CODEGRAPH_INTEGRATION_PROTOCOL.md`: when a `.codegraph/` index exists, prefer targeted graph discovery before broad file scans, then verify against source and tests.
+9. **Add README visual context** with `VISUAL_CONTEXT_MERMAID.md`: include a safe, high-level Mermaid flowchart in project READMEs for faster human and AI orientation.
+10. **Refactor existing file layouts safely** with `FILE_STRUCTURE_REFACTOR_PROTOCOL.md`: move files iteratively, update references, and prove old code still runs from the new structure.
+11. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`, and `DEBLOAT_APPLICATION_GUIDE.md` when the work needs release gates, backend/API safety, stack contracts, update-system fit checks, lean app defaults, or phase-by-phase verification.
+12. **Enforce output hygiene** with `EMOJI_POLICY.md`: keep docs, code, generated bundles, and AI responses emoji-free.
+13. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
 
 ## Ideal Use Cases
 
@@ -222,6 +241,12 @@ Same technical meaning, fewer tokens, easier scanning.
 
 Activate it by running `python scripts/apcp-gather.py --caveman`, adding `PROTOCOL: CAVEMAN` to the active session, or asking the assistant to use Caveman Mode. Ask for normal detail or set `CAVEMAN_MODE: false` to suspend it.
 
+## Versioning And Releases
+
+See [`CHANGELOG.md`](./CHANGELOG.md) for release history. Nexus-APCP uses SemVer for public protocol-kit releases; `codemeta.json` and `CITATION.cff` version values should match a reviewed Git tag and GitHub release once that release is published.
+
+This repository is a protocol and documentation kit with helper scripts. It is not packaged as an installable CLI unless a future release adds a `pyproject.toml`, entry points, tests, and release artifacts for commands such as `nexus-apcp gather`.
+
 ## Recommended GitHub Topics
 
 For better GitHub discovery, use these repository topics:
@@ -240,13 +265,17 @@ Nexus-APCP includes the repository hygiene expected from a serious open-source p
 - [`SUPPORT.md`](./SUPPORT.md): where to ask for help and what to keep private.
 - [`.github/pull_request_template.md`](./.github/pull_request_template.md): PR checklist for docs, protocol, security, and metadata changes.
 - [`.github/ISSUE_TEMPLATE/`](./.github/ISSUE_TEMPLATE/): structured issue forms for bugs, docs, protocol suggestions, and security-sensitive process notes.
-- [`.github/workflows/validate.yml`](./.github/workflows/validate.yml): repository validation for required files, copy-safe template state, generated context hygiene, metadata, links, SVG, and context gathering.
+- [`.github/workflows/validate.yml`](./.github/workflows/validate.yml): repository validation for required files, Python syntax, PowerShell syntax, YAML parsing, generated context cleanup, metadata, links, SVG, simple leak-pattern scanning, emoji policy, and context gathering.
 
 ## FAQ
 
 ### Is Nexus-APCP a prompt template or a protocol?
 
 It is a protocol kit. Prompt templates are included, but the main value is the shared project context, task state, decision history, safety rules, and repeatable AI handoff workflow.
+
+### Is Nexus-APCP a CLI?
+
+No. Nexus-APCP is currently a protocol and documentation kit with small helper scripts for gathering and validation. Treat CLI packaging as a future release decision, not a current install surface.
 
 ### Does it work with any AI coding assistant?
 
@@ -262,7 +291,7 @@ YAML is easy for humans to read, easy for AI models to update, and structured en
 
 ## Related Keywords
 
-AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, AI agent skills, skill-based agent workflows, AI tool adapter compatibility, AI coding tool compatibility, model tool drift, prompt-source hygiene, prompt engineering, LLM project memory, AI agent handoff, token optimization, Mermaid flowchart, README architecture diagram, file structure refactor, repository reorganization protocol, architecture decision records, ADR protocol, website backend security protocol, secure web development, backend optimization, waterfall development protocol, phase-gated delivery, stack combination documentation, application debloat guide, lean application design, privacy-first analytics, dependency minimalism, ad-free applications, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
+AI project context protocol, context engineering, AI-assisted development, AI coding assistant workflow, AI agent skills, skill-based agent workflows, AI tool adapter compatibility, AI coding tool compatibility, local code graph, semantic code search, code intelligence, impact analysis, model tool drift, prompt-source hygiene, prompt engineering, LLM project memory, AI agent handoff, token optimization, Mermaid flowchart, README architecture diagram, file structure refactor, repository reorganization protocol, architecture decision records, ADR protocol, website backend security protocol, secure web development, backend optimization, waterfall development protocol, phase-gated delivery, stack combination documentation, application debloat guide, lean application design, privacy-first analytics, dependency minimalism, ad-free applications, Claude Code workflow, Cursor AI workflow, ChatGPT coding workflow, Gemini coding workflow, GitHub Copilot workflow, developer productivity toolkit.
 
 ## License
 

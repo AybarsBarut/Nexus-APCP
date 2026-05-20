@@ -1,47 +1,52 @@
 # TASK_PROGRESS.yaml
-# Copy-safe starter template.
-# Replace placeholders after installing Nexus-APCP in a project.
-# Do not preserve Nexus-APCP source-repository maintenance history here.
+# Public repository maintenance state for Nexus-APCP.
+# Keep entries sanitized: no private project context, secrets, customer data, or generated prompt bundles.
 
 project:
-  name: "[PROJECT_NAME]"
-  status: "INITIALIZING"
-  version: "0.1.0"
-  repository_visibility: "[public|private|internal]"
-  last_updated: "[YYYY-MM-DD HH:MM:SS UTC]"
+  name: "Nexus-APCP"
+  status: "MAINTENANCE"
+  version: "1.0.0"
+  repository_visibility: "public"
+  last_updated: "2026-05-20 09:10:00 UTC"
 
 active_sprint:
-  name: "Sprint 1: [SPRINT_NAME]"
-  goal: "[SPRINT_GOAL]"
-  start_date: "[YYYY-MM-DD]"
-  end_date: "[YYYY-MM-DD]"
+  name: "Repository hardening"
+  goal: "Align core file lists, validation, CI, security reporting, safe setup guidance, and local code graph support."
+  start_date: "2026-05-20"
+  end_date: "2026-05-20"
 
 tasks:
-  - id: "TASK-001"
-    title: "[FIRST_TASK_TITLE]"
-    status: "NOT_STARTED"
-    priority: "HIGH"
-    effort: "[ESTIMATE]"
-    assignee: "[OWNER_OR_AI_AGENT]"
-    description: "[TASK_DESCRIPTION]"
+  - id: "TASK-REPO-001"
+    title: "Align gather, validation, CI, setup safety, and CodeGraph guidance"
+    status: "COMPLETED"
+    priority: "CRITICAL"
+    effort: "1d"
+    assignee: "AI coding assistant"
+    description: "Close priority repository reliability gaps and add local code graph guidance while preserving the public/private boundary."
     acceptance_criteria:
-      - "[VERIFIABLE_OUTCOME]"
+      - "Core APCP file list is centralized and used by gather and validation logic."
+      - "Gather bundle includes every canonical core file."
+      - "CI covers Python syntax, PowerShell syntax, YAML parsing, validation, and generated artifact cleanup."
+      - "Checkpoint and setup guidance avoid broad unsafe staging by default."
+      - "Security reporting and release/version guidance are clearer for public users."
+      - "CodeGraph-compatible local code knowledge graph guidance is documented and generated index artifacts are excluded."
     dependencies: []
-    notes: []
+    notes:
+      - "Keep generated context bundles untracked and cleaned after validation tests."
 
 checkpoints:
-  context_loaded: false
-  plan_approved: false
-  implementation_verified: false
+  context_loaded: true
+  plan_approved: true
+  implementation_verified: true
   user_acceptance: false
 
 metrics:
-  tasks_completed: 0
+  tasks_completed: 1
   total_tasks: 1
-  velocity: 0.0
-  quality_score: null
+  velocity: 1.0
+  quality_score: 1.0
 
 handoff:
-  last_session_summary: "[WHAT_CHANGED_LAST]"
-  next_action: "[NEXT_ACTION]"
+  last_session_summary: "Repository hardening and CodeGraph integration guidance completed; validation passed locally."
+  next_action: "Review the patch, then push the requested branch."
   blockers: []

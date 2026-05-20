@@ -6,7 +6,8 @@ labels:
 body:
   - type: markdown
     attributes:
-      value: | If this is a vulnerability report, do not continue here. Use GitHub private vulnerability reporting if available, or request a private contact without sharing details.
+      value: |
+        If this is a vulnerability report, do not continue here. Use GitHub private vulnerability reporting for this repository without sharing details in a public issue.
   - type: textarea
     id: safe_summary
     attributes:
