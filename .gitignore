@@ -15,6 +15,8 @@
 # GitHub with .git/info/exclude or a private global excludes file.
 PROMPT_READY.txt
 PROMPT_READY.tmp
+PROMPT_READY*.txt
+PROMPT_READY*.tmp
 .checkpoint
 .apcp-cache/
 .ai-cache/

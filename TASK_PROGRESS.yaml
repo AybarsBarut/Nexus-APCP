@@ -1,216 +1,47 @@
-project: Nexus-APCP
-status: INITIALIZING
-version: 1.0.0
+# TASK_PROGRESS.yaml
+# Copy-safe starter template.
+# Replace placeholders after installing Nexus-APCP in a project.
+# Do not preserve Nexus-APCP source-repository maintenance history here.
+
+project:
+  name: "[PROJECT_NAME]"
+  status: "INITIALIZING"
+  version: "0.1.0"
+  repository_visibility: "[public|private|internal]"
+  last_updated: "[YYYY-MM-DD HH:MM:SS UTC]"
 
 active_sprint:
-  name: "Sprint 0: Orchestration Setup"
-  goal: "Establish AI execution framework, core helper scripts, and repository discoverability."
-  start_date: "2026-05-15"
-  end_date: "2026-05-16"
+  name: "Sprint 1: [SPRINT_NAME]"
+  goal: "[SPRINT_GOAL]"
+  start_date: "[YYYY-MM-DD]"
+  end_date: "[YYYY-MM-DD]"
 
 tasks:
-  - id: TASK-001
-    title: "Create AI_MAIN.md"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Antigravity (AI)"
-    description: "Define the main execution orchestrator for AI workflow."
+  - id: "TASK-001"
+    title: "[FIRST_TASK_TITLE]"
+    status: "NOT_STARTED"
+    priority: "HIGH"
+    effort: "[ESTIMATE]"
+    assignee: "[OWNER_OR_AI_AGENT]"
+    description: "[TASK_DESCRIPTION]"
+    acceptance_criteria:
+      - "[VERIFIABLE_OUTCOME]"
+    dependencies: []
+    notes: []
 
-  - id: TASK-002
-    title: "Create TASK_PROGRESS.yaml"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Antigravity (AI)"
-    description: "Initialize task tracking system."
-
-  - id: TASK-003
-    title: "Implement Scripts Infrastructure"
-    status: COMPLETED
-    priority: MEDIUM
-    effort: 2
-    assignee: "Antigravity (AI)"
-    description: "Create scripts/ for validation, context gathering, and pre-commit checks."
-
-  - id: TASK-004
-    title: "Implement Advanced Caveman Compression Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 2
-    assignee: "Antigravity (AI)"
-    description: "Expand Caveman rules to include advanced structural compression, technical anchoring, and text-based status labels for maximum token efficiency."
-
-  - id: TASK-005
-    title: "Comprehensive Repository SEO Optimization"
-    status: COMPLETED
-    priority: HIGH
-    effort: 3
-    assignee: "Codex"
-    description: "Improve GitHub discoverability with SEO-focused README, metadata, social preview, contribution guidance, and keyword alignment."
-
-  - id: TASK-006
-    title: "Add Open Source Repository Maturity Layer"
-    status: COMPLETED
-    priority: HIGH
-    effort: 3
-    assignee: "Codex"
-    description: "Add original AI agent guidance, PR and issue templates, community docs, CODEOWNERS, example kits, and validation CI inspired by mature open-source repository practices."
-
-  - id: TASK-007
-    title: "Synchronize AI_MAIN.md"
-    status: COMPLETED
-    priority: MEDIUM
-    effort: 1
-    assignee: "Antigravity (AI)"
-    description: "Align the main orchestrator with current repository progress and protocol updates."
-
-  - id: TASK-008
-    title: "Implement Second Brain Sync Scenario"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Antigravity (AI)"
-    description: "Create Scenario 0 in prompt templates for NotebookLM/Obsidian Knowledge Base export."
-
-  - id: TASK-009
-    title: "Implement Mermaid Visual Context Flowchart Protocol"
-    status: COMPLETED
-    priority: MEDIUM
-    effort: 1
-    assignee: "Antigravity (AI)"
-    description: "Create VISUAL_CONTEXT_MERMAID.md and integrate it into the repository core docs."
-
-  - id: TASK-010
-    title: "Add Waterfall Stack Combination Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 2
-    assignee: "Codex"
-    description: "Create WATERFALL_DEVELOPMENT_PROTOCOL.md and surface phase-gated stack documentation for web/database, web/Python, Python/Unity, API, Unity backend, AI/RAG, and data dashboard workflows."
-
-  - id: TASK-011
-    title: "Expand Waterfall Protocol Examples and Research Fallback"
-    status: COMPLETED
-    priority: HIGH
-    effort: 2
-    assignee: "Codex"
-    description: "Add external documentation research rules, source reliability hierarchy, search query patterns, and expanded worked examples for common stack combinations."
-
-  - id: TASK-012
-    title: "Add Index-Independent Agent Bootstrap Instructions"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Clarify that AI agents should fetch exact Nexus-APCP source files from raw GitHub or request a local clone instead of inferring templates from search-index snippets."
-
-  - id: TASK-013
-    title: "Limit Git Commands During Agent Bootstrap"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Tell AI agents not to run git status, add, commit, push, or other Git commands during setup unless the user explicitly asks or approves after an explanation."
-
-  - id: TASK-014
-    title: "Add Website Backend Security and Optimization Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 2
-    assignee: "Codex"
-    description: "Create static-first website backend rules for API secrecy, database necessity, optimization, flexible feature growth, and authorized penetration-test closure."
-
-  - id: TASK-015
-    title: "Add Universal Application Security Protection Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 2
-    assignee: "Codex"
-    description: "Create a defensive, public-safe security checklist for database safety, authorization, secrets, dependencies, infrastructure, AI/RAG workflows, and incident response."
-
-  - id: TASK-016
-    title: "Add Repository Emoji Usage Policy"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Create EMOJI_POLICY.md, integrate it into AI context gathering and repository validation, and remove emoji from repository-facing files."
-
-  - id: TASK-017
-    title: "Add User-Requested Update System Recommendation Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Add a fit-check protocol and prompt scenario for recommending a lightweight GitHub SemVer and zip-sync update system only when the user asks for it and the project profile fits."
-
-  - id: TASK-018
-    title: "Add Discover Algorithm Design Guide"
-    status: COMPLETED
-    priority: MEDIUM
-    effort: 1
-    assignee: "Codex"
-    description: "Create an English, emoji-free, public-safe guide that translates the public xAI X algorithm pattern into discovery feed design guidance for website and application designers."
-
-  - id: TASK-019
-    title: "Add README Mermaid Flowchart Guidance"
-    status: COMPLETED
-    priority: MEDIUM
-    effort: 1
-    assignee: "Codex"
-    description: "Extend the Mermaid visual context protocol with root README flowchart guidance, copy instructions, context gathering support, and example project diagrams."
-
-  - id: TASK-020
-    title: "Add File Structure Refactor Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Create an English, emoji-free protocol for safely reorganizing existing project files through iterative moves, compatibility handling, reference updates, and verification gates."
-
-  - id: TASK-021
-    title: "Add Frontend Application Design Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Create an English, emoji-free, public-safe protocol that synthesizes frontend learning roadmaps, browser fundamentals, project-based UI development, and AI design prompt patterns into practical frontend design guidance."
-
-  - id: TASK-022
-    title: "Add AI Agent Skills Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Adapt public MIT-licensed agent-skill workflow patterns into a Nexus-APCP protocol for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, prototyping, and skill creation."
-
-  - id: TASK-023
-    title: "Add Debloat Application Guide"
-    status: COMPLETED
-    priority: MEDIUM
-    effort: 1
-    assignee: "Codex"
-    description: "Create an English, emoji-free, public-safe guide for lean application defaults, consent-based tracking, dependency minimalism, optional feature loading, and bloat detection."
-
-  - id: TASK-024
-    title: "Add AI Tool Adapter Compatibility Protocol"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Create an English, emoji-free, public-safe protocol for AI coding tool adapter compatibility, model/tool drift, verification paths, and prompt-source hygiene without copying upstream prompt text."
-
-  - id: TASK-025
-    title: "Add Downstream APCP Public Exclusion Rule"
-    status: COMPLETED
-    priority: HIGH
-    effort: 1
-    assignee: "Codex"
-    description: "Clarify that downstream product repositories should keep installed Nexus-APCP operating files local or in approved private/cloud context by default, using local Git excludes when public GitHub should not show AI workflow files."
+checkpoints:
+  context_loaded: false
+  plan_approved: false
+  implementation_verified: false
+  user_acceptance: false
 
 metrics:
-  tasks_completed: 25
-  total_tasks: 25
-  velocity: 1.0
-  quality_score: 100%
+  tasks_completed: 0
+  total_tasks: 1
+  velocity: 0.0
+  quality_score: null
+
+handoff:
+  last_session_summary: "[WHAT_CHANGED_LAST]"
+  next_action: "[NEXT_ACTION]"
+  blockers: []

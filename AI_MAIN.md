@@ -3,74 +3,70 @@
 ## Purpose
 Main function for AI workflow. Sequential logic. Strict execution. No fluff.
 
-## SYSTEM_INIT
-- **Protocol**: CAVEMAN (Min tokens, max depth)
-- **Quality**: PREMIUM (Zero-fake, 100% req coverage)
-- **Safety**: DRY, SOLID, SECURE
-- **Checkpoints**: Mandatory validation at each gate.
+This file is a copy-safe starter template. After copying Nexus-APCP into a project, keep all checklist items unchecked until the current project verifies them. Do not carry Nexus-APCP source-repository completion history into downstream projects.
 
 ---
 
-## EXECUTION_FLOW (main)
+## SYSTEM_INIT
+- **Protocol**: CAVEMAN optional. Activate only when requested or when `PROMPT_READY.txt` says `Mode: CAVEMAN`.
+- **Quality**: production-ready, verified, no simulated work.
+- **Safety**: DRY, SOLID, secure, public/private boundary respected.
+- **Checkpoints**: mandatory validation at each gate.
 
-1. [x] **LOAD_CONTEXT**: Read core protocol (APCP, Decision Log, Caveman, Context Optimization, Mermaid, Agent Skills, Tool Adapter Compatibility).
-2. [x] **TASK_ANALYSIS**: Create AI_MAIN.md framework.
-3. [x] **MODEL_DISPATCH**: Roles assigned (Flash for setup).
-4. [x] **IMPLEMENTATION**: Created AI_MAIN, TASK_PROGRESS, scripts/ (checkpoint.ps1, validate-repo.py, apcp-gather.py).
-5. [x] **MATURITY_LAYER**: SEO optimization and OSS hygiene (README, templates, CI).
-6. [x] **KNOWLEDGE_BASE**: Initialize Second Brain (Scenario 0) for RAG/Onboarding.
-7. [x] **UPDATE_RECOMMENDATION**: Add user-requested update-system fit protocol.
-8. [x] **README_VISUAL_CONTEXT**: Add README Mermaid flowchart guidance for adopted projects.
-9. [x] **FILE_STRUCTURE_REFACTOR**: Add existing-project file reorganization protocol.
-10. [x] **AGENT_SKILLS**: Add reusable skill workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping.
-11. [x] **AI_TOOL_ADAPTER_COMPATIBILITY**: Add safe compatibility protocol for AI coding tool modes, adapter files, model/tool drift, and prompt-source hygiene.
-12. [x] **QUALITY_GATE**: Verify against user intent.
-13. [x] **CHECKPOINT_SAVE**: Update Task Progress & Decision Log.
-14. [x] **DELIVERY**: Final code pushed to origin master.
-15. [ ] **MAINTENANCE**: Periodic sync of AI_MAIN with latest protocol changes.
+---
+
+## EXECUTION_FLOW
+
+1. [ ] **LOAD_CONTEXT**: Read `AI_PROJECT_CONTEXT_PROTOCOL.md`, `TASK_PROGRESS.yaml`, `DECISION_LOG_PROTOCOL.md`, and task-relevant protocol files.
+2. [ ] **TASK_ANALYSIS**: Identify user goal, current state, constraints, risks, and expected deliverables.
+3. [ ] **MODEL_DISPATCH**: Choose the best available model, tool mode, or agent role for the task.
+4. [ ] **IMPLEMENTATION_PLAN**: Define the smallest safe change path and verification evidence.
+5. [ ] **IMPLEMENTATION**: Make scoped changes without exposing private context or secrets.
+6. [ ] **QUALITY_GATE**: Run required tests, validation scripts, link checks, builds, or manual verification.
+7. [ ] **CHECKPOINT_SAVE**: Update `TASK_PROGRESS.yaml` and decision notes only with current project state.
+8. [ ] **DELIVERY**: Summarize completed work, verification results, residual risks, and next action.
 
 ---
 
 ## MODEL_DISTRIBUTION
+
 | Task Type | Recommended Model | Responsibility |
 | :--- | :--- | :--- |
-| **Logic/Architecture** | Pro / Ultra | Deep reasoning, complex refactors. |
-| **Boilerplate/Style** | Flash | UI components, CSS, basic logic. |
-| **Testing/Security** | Ultra | Bug hunting, edge cases, sec audits. |
+| **Logic/Architecture** | strongest reasoning model available | deep reasoning, complex refactors, architecture review |
+| **Boilerplate/Style** | fast implementation model | repetitive edits, formatting, straightforward docs |
+| **Testing/Security** | strongest review model available | bug hunting, edge cases, security and privacy checks |
+| **Coordination** | agent manager or current assistant | handoff, state sync, multi-agent conflict control |
 
 ---
 
 ## ACTIVE_TASK_LIST
-> [!IMPORTANT]
-> Mark [x] only when task 100% verified.
 
-- [x] Task 1: Create `AI_MAIN.md` execution plan.
-- [x] Task 2: Create `TASK_PROGRESS.yaml` tracking.
-- [x] Task 3: Implement `scripts/` infrastructure (checkpoint, validation, gathering).
-- [x] Task 5: Comprehensive Repository SEO Optimization.
-- [x] Task 6: Add Open Source Repository Maturity Layer.
-- [x] Task 4: Implement Advanced Caveman Compression Protocol.
-- [x] Task 7: Synchronize `AI_MAIN.md` with current repository state.
-- [x] Task 8: Implement Second Brain Sync Scenario (Scenario 0).
-- [x] Task 9: Implement Mermaid Visual Context Flowchart Protocol.
-- [x] Task 17: Add update-system recommendation protocol.
-- [x] Task 19: Add README Mermaid flowchart guidance.
-- [x] Task 20: Add file structure refactor protocol.
-- [x] Task 22: Add AI agent skills protocol.
-- [x] Task 24: Add AI tool adapter compatibility protocol.
+> [!IMPORTANT]
+> Mark `[x]` only when the current project has verified the task. Replace placeholder tasks before the first real session.
+
+- [ ] TASK-001: [FIRST_TASK_TITLE]
+- [ ] TASK-002: [SECOND_TASK_TITLE]
+- [ ] TASK-003: [THIRD_TASK_TITLE]
 
 ---
 
 ## CHECKPOINTS
-- [x] **CP1**: Context Sync (AI knows everything).
-- [x] **CP2**: Design Approval (Logic/UI plan ready).
-- [x] **CP3**: Code Quality (Linted, tested).
-- [x] **CP4**: User Satisfaction (Premium delivery).
+
+- [ ] **CP1_CONTEXT_SYNC**: Required project context loaded.
+- [ ] **CP2_PLAN_READY**: Implementation path and risks understood.
+- [ ] **CP3_VERIFICATION**: Tests, validation, or manual checks passed.
+- [ ] **CP4_STATE_UPDATE**: `TASK_PROGRESS.yaml` reflects only current project state.
+- [ ] **CP5_DELIVERY**: User-facing summary prepared.
 
 ---
 
-## PREMIUM_OATH
-"AI shall not simulate work. AI shall produce functional, production-ready assets. Failure results in subscription termination. Success is the only option."
+## OPERATING_RULES
+
+- Preserve the public/private boundary from `AI_PROJECT_CONTEXT_PROTOCOL.md` and `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`.
+- Keep generated prompt bundles such as `PROMPT_READY.txt` out of public commits.
+- Prefer current project evidence over copied template state.
+- If context is stale or contradictory, stop and reconcile before implementation.
 
 ---
-*Nexus-APCP: Logic first. Tokens last.* 
+
+*Nexus-APCP: logic first, tokens last.*

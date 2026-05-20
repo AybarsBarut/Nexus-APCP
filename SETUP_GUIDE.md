@@ -74,9 +74,11 @@ Install these core files when available:
 - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+- MACP_IMPLEMENTATION_GUIDE.md
 - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
 - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
+- DEBLOAT_APPLICATION_GUIDE.md
 - scripts/apcp-gather.py
 
 Then inspect this project, customize placeholders, preserve secrets/private context, and run:
@@ -101,8 +103,12 @@ python scripts/apcp-gather.py --caveman
 # - AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
 # - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 # - AI_ASSISTANT_PROMPT_TEMPLATES.md
+# - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+# - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
+# - MACP_IMPLEMENTATION_GUIDE.md
 # - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 # - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
+# - DEBLOAT_APPLICATION_GUIDE.md
 
 cp AI_PROJECT_CONTEXT_PROTOCOL.md /path/to/your/project/
 cp AI_MAIN.md /path/to/your/project/
@@ -115,9 +121,13 @@ cp VISUAL_CONTEXT_MERMAID.md /path/to/your/project/
 cp AI_AGENT_SKILLS_PROTOCOL.md /path/to/your/project/
 cp AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md /path/to/your/project/
 cp FILE_STRUCTURE_REFACTOR_PROTOCOL.md /path/to/your/project/
+cp WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md /path/to/your/project/
+cp DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md /path/to/your/project/
+cp MACP_IMPLEMENTATION_GUIDE.md /path/to/your/project/
 cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /path/to/your/project/
 cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /path/to/your/project/
-cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/docs/
+cp DEBLOAT_APPLICATION_GUIDE.md /path/to/your/project/
+cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/
 mkdir -p /path/to/your/project/scripts
 cp scripts/apcp-gather.py /path/to/your/project/scripts/
 
@@ -409,7 +419,7 @@ APCP Setup Verification:
 □ [ ] AI_MAIN.md installed for AI session orchestration
 □ [ ] TASK_PROGRESS.yaml created with initial tasks
 □ [ ] DECISION_LOG_PROTOCOL.md, CONTEXT_OPTIMIZATION.md, and CAVEMAN_RULES.md installed
-□ [ ] AI_ASSISTANT_PROMPT_TEMPLATES.md in docs/
+□ [ ] AI_ASSISTANT_PROMPT_TEMPLATES.md installed at the project root
 □ [ ] AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md installed if the project supports multiple AI coding tools
 □ [ ] scripts/apcp-gather.py is working (test: python scripts/apcp-gather.py --caveman)
 □ [ ] scripts/checkpoint.sh is working (test: bash scripts/checkpoint.sh)

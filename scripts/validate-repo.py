@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
     "README.md",
+    ".gitignore",
     "AGENTS.md",
     "CLAUDE.md",
     "GEMINI.md",
@@ -23,17 +24,28 @@ REQUIRED_FILES = [
     "SUPPORT.md",
     "CITATION.cff",
     "codemeta.json",
+    "AI_MAIN.md",
     "AI_PROJECT_CONTEXT_PROTOCOL.md",
+    "DECISION_LOG_PROTOCOL.md",
+    "CONTEXT_OPTIMIZATION.md",
+    "CAVEMAN_RULES.md",
     "EMOJI_POLICY.md",
     "VISUAL_CONTEXT_MERMAID.md",
     "AI_AGENT_SKILLS_PROTOCOL.md",
     "AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md",
     "FILE_STRUCTURE_REFACTOR_PROTOCOL.md",
+    "AI_ASSISTANT_PROMPT_TEMPLATES.md",
+    "WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md",
+    "DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md",
+    "MACP_IMPLEMENTATION_GUIDE.md",
     "UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md",
     "DEBLOAT_APPLICATION_GUIDE.md",
     "WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md",
     "TASK_PROGRESS.yaml",
+    "MASTER_PROMPT.md",
     "docs/SEO_CHECKLIST.md",
+    "scripts/apcp-gather.py",
+    "scripts/validate-repo.py",
     ".github/CODEOWNERS",
     ".github/pull_request_template.md",
     ".github/pull_request_title_conventions.md",
@@ -79,6 +91,23 @@ EMOJI_SCAN_EXTENSIONS = {
     ".yaml",
     ".yml",
 }
+
+REQUIRED_GITIGNORE_PATTERNS = [
+    "PROMPT_READY.txt",
+    "PROMPT_READY.tmp",
+]
+
+GENERATED_CONTEXT_PATHS = [
+    "PROMPT_READY.txt",
+    "PROMPT_READY.tmp",
+    "PROMPT_READY*.txt",
+    "PROMPT_READY*.tmp",
+]
+
+GATHER_REQUIRED_MARKERS = [
+    "AI_ASSISTANT_PROMPT_TEMPLATES.md",
+    "WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md",
+]
 
 
 def fail(message):
@@ -148,6 +177,65 @@ def check_markdown_links():
     return errors
 
 
+def check_template_state():
+    errors = []
+
+    ai_main = (ROOT / "AI_MAIN.md").read_text(encoding="utf-8")
+    if re.search(r"(?m)^\s*(?:[-*]|\d+\.)\s+\[[xX]\]", ai_main):
+        errors.append("AI_MAIN.md must not ship with completed checklist items")
+
+    task_progress = (ROOT / "TASK_PROGRESS.yaml").read_text(encoding="utf-8")
+    forbidden_fragments = [
+        "status: COMPLETED",
+        'status: "COMPLETED"',
+        "Antigravity",
+        "tasks_completed: 25",
+        "total_tasks: 25",
+    ]
+    for fragment in forbidden_fragments:
+        if fragment in task_progress:
+            errors.append(f"TASK_PROGRESS.yaml carries source-repository state: {fragment}")
+
+    if 'name: "[PROJECT_NAME]"' not in task_progress:
+        errors.append("TASK_PROGRESS.yaml should remain a placeholder starter template")
+
+    return errors
+
+
+def check_generated_context_hygiene():
+    errors = []
+    gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8")
+    gitignore_lines = {
+        line.strip()
+        for line in gitignore.splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    }
+
+    for pattern in REQUIRED_GITIGNORE_PATTERNS:
+        if pattern not in gitignore_lines:
+            errors.append(f".gitignore must ignore generated context artifact: {pattern}")
+
+    if (ROOT / ".git").exists():
+        result = subprocess.run(
+            ["git", "ls-files", "--", *GENERATED_CONTEXT_PATHS],
+            cwd=ROOT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=30,
+        )
+        if result.returncode != 0:
+            errors.append(f"Unable to inspect tracked generated context files:\n{result.stdout}")
+        else:
+            tracked = [line.strip() for line in result.stdout.splitlines() if line.strip()]
+            if tracked:
+                errors.append("Generated context artifacts must not be tracked: " + ", ".join(tracked))
+
+    return errors
+
+
 def check_no_emoji():
     errors = []
     skipped_dirs = {".git", "__pycache__"}
@@ -168,20 +256,38 @@ def check_no_emoji():
 def check_context_gatherer():
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
-    result = subprocess.run(
-        [sys.executable, "scripts/apcp-gather.py", "--caveman"],
-        cwd=ROOT,
-        env=env,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        timeout=30,
-    )
-    if result.returncode != 0:
-        return [f"Context gatherer failed:\n{result.stdout}"]
-    return []
+    runs = [
+        ("repository root", ROOT, [sys.executable, "scripts/apcp-gather.py", "--caveman"]),
+        ("scripts directory", ROOT / "scripts", [sys.executable, "apcp-gather.py", "--caveman"]),
+    ]
+
+    errors = []
+    for label, cwd, command in runs:
+        result = subprocess.run(
+            command,
+            cwd=cwd,
+            env=env,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=30,
+        )
+        if result.returncode != 0:
+            errors.append(f"Context gatherer failed from {label}:\n{result.stdout}")
+            continue
+        if "Skipped (Not Found)" in result.stdout:
+            errors.append(f"Context gatherer skipped files from {label}:\n{result.stdout}")
+
+    bundle = ROOT / "PROMPT_READY.txt"
+    if bundle.exists():
+        bundle_text = bundle.read_text(encoding="utf-8", errors="replace")
+        for marker in GATHER_REQUIRED_MARKERS:
+            if f"=== START OF FILE: {marker} ===" not in bundle_text:
+                errors.append(f"Context gatherer output missing required file: {marker}")
+
+    return errors
 
 
 def main():
@@ -190,6 +296,8 @@ def main():
         ("JSON metadata", check_json),
         ("SVG social preview", check_svg),
         ("YAML-like files", check_yaml_like_files),
+        ("template state", check_template_state),
+        ("generated context hygiene", check_generated_context_hygiene),
         ("Markdown links", check_markdown_links),
         ("emoji policy", check_no_emoji),
         ("context gatherer", check_context_gatherer),

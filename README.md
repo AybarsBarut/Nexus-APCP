@@ -23,6 +23,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 - **Task continuity**: `TASK_PROGRESS.yaml` tracks active work, sprint goals, checkpoints, and quality gates.
 - **Model portability**: move between Claude, Cursor, ChatGPT, Gemini, Copilot, and local agents without rebuilding context.
 - **Skill-based agent workflows**: `AI_AGENT_SKILLS_PROTOCOL.md` turns repeated AI workflows into named, reusable operating patterns.
+- **Multi-AI coordination**: `MACP_IMPLEMENTATION_GUIDE.md` defines handoff, heartbeat, state, and conflict-control patterns for parallel model workflows.
 - **AI tool adapter compatibility**: `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` documents tool modes, capabilities, verification paths, and prompt hygiene without vendoring leaked or proprietary prompts.
 - **Phase-gated delivery**: waterfall-style stack combination protocols help teams define requirements, contracts, tests, and release evidence before implementation drifts.
 - **Lean application design**: debloat guidance helps teams avoid ads, hidden tracking, unnecessary dependencies, and non-essential modules by default.
@@ -43,6 +44,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | Task Progress YAML | Gives humans and agents a shared source of truth for status, priorities, and checkpoints. |
 | Prompt Templates | Provides ready-to-use prompts for implementation, review, debugging, refactoring, and handoff. |
 | AI Agent Skills Protocol | Defines reusable skill workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototyping. |
+| Multi-AI Coordination Protocol | Defines MACP handoff, heartbeat, shared-state, and conflict-control patterns for parallel AI model workflows. |
 | AI Tool Adapter Compatibility Protocol | Defines safe adapter compatibility checks for AI coding assistants, model/tool drift, mode differences, verification paths, and prompt-source hygiene. |
 | README Mermaid Flowcharts | Adds high-level Mermaid flowchart guidance so project READMEs explain application flow, architecture boundaries, and onboarding paths visually. |
 | File Structure Refactor Protocol | Guides safe folder reorganization for existing projects with iterative moves, compatibility wrappers, reference updates, and verification gates. |
@@ -77,10 +79,12 @@ cp VISUAL_CONTEXT_MERMAID.md /your/project/
 cp AI_AGENT_SKILLS_PROTOCOL.md /your/project/
 cp AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md /your/project/
 cp FILE_STRUCTURE_REFACTOR_PROTOCOL.md /your/project/
+cp WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md /your/project/
+cp DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md /your/project/
+cp MACP_IMPLEMENTATION_GUIDE.md /your/project/
 cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /your/project/
 cp DEBLOAT_APPLICATION_GUIDE.md /your/project/
-mkdir -p /your/project/docs
-cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/docs/
+cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/
 cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /your/project/
 mkdir -p /your/project/scripts
 cp scripts/apcp-gather.py /your/project/scripts/
@@ -136,6 +140,7 @@ Install these core files when available:
 - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
 - AI_ASSISTANT_PROMPT_TEMPLATES.md
 - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
+- MACP_IMPLEMENTATION_GUIDE.md
 - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
 - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
 - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
@@ -163,6 +168,7 @@ python scripts/apcp-gather.py --caveman
 | [`FILE_STRUCTURE_REFACTOR_PROTOCOL.md`](./FILE_STRUCTURE_REFACTOR_PROTOCOL.md) | Safe file and folder reorganization protocol for existing projects, including iterative migration and verification gates. |
 | [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
 | [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
+| [`MACP_IMPLEMENTATION_GUIDE.md`](./MACP_IMPLEMENTATION_GUIDE.md) | Multi-AI Coordination Protocol for parallel model workflows, handoffs, heartbeats, shared state, and conflict control. |
 | [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md) | Static-first website backend security, API secret handling, database necessity, optimization, and penetration-test closure protocol. |
 | [`UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`](./UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md) | Fit-check protocol for recommending a lightweight update/version sync system only when user intent and project profile match. |
 | [`DEBLOAT_APPLICATION_GUIDE.md`](./DEBLOAT_APPLICATION_GUIDE.md) | Lean application guide for reducing ads, hidden tracking, heavy dependencies, optional feature load, and resource usage. |
@@ -180,12 +186,13 @@ python scripts/apcp-gather.py --caveman
 3. **Preserve decisions** in `DECISION_LOG_PROTOCOL.md`: accepted tradeoffs, rejected paths, and architectural intent.
 4. **Package context** with `scripts/apcp-gather.py`: combine the core protocol files into one prompt-ready bundle.
 5. **Select reusable agent skills** with `AI_AGENT_SKILLS_PROTOCOL.md`: use named workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototypes.
-6. **Document AI tool compatibility** with `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`: track assistant modes, tool access, adapter files, verification paths, and safe prompt-source boundaries.
-7. **Add README visual context** with `VISUAL_CONTEXT_MERMAID.md`: include a safe, high-level Mermaid flowchart in project READMEs for faster human and AI orientation.
-8. **Refactor existing file layouts safely** with `FILE_STRUCTURE_REFACTOR_PROTOCOL.md`: move files iteratively, update references, and prove old code still runs from the new structure.
-9. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`, and `DEBLOAT_APPLICATION_GUIDE.md` when the work needs release gates, backend/API safety, stack contracts, update-system fit checks, lean app defaults, or phase-by-phase verification.
-10. **Enforce output hygiene** with `EMOJI_POLICY.md`: keep docs, code, generated bundles, and AI responses emoji-free.
-11. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
+6. **Coordinate parallel models** with `MACP_IMPLEMENTATION_GUIDE.md`: use shared state, handoffs, heartbeats, and conflict rules when more than one AI agent is working.
+7. **Document AI tool compatibility** with `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`: track assistant modes, tool access, adapter files, verification paths, and safe prompt-source boundaries.
+8. **Add README visual context** with `VISUAL_CONTEXT_MERMAID.md`: include a safe, high-level Mermaid flowchart in project READMEs for faster human and AI orientation.
+9. **Refactor existing file layouts safely** with `FILE_STRUCTURE_REFACTOR_PROTOCOL.md`: move files iteratively, update references, and prove old code still runs from the new structure.
+10. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`, and `DEBLOAT_APPLICATION_GUIDE.md` when the work needs release gates, backend/API safety, stack contracts, update-system fit checks, lean app defaults, or phase-by-phase verification.
+11. **Enforce output hygiene** with `EMOJI_POLICY.md`: keep docs, code, generated bundles, and AI responses emoji-free.
+12. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
 
 ## Ideal Use Cases
 
@@ -213,6 +220,8 @@ Caveman Mode:
 
 Same technical meaning, fewer tokens, easier scanning.
 
+Activate it by running `python scripts/apcp-gather.py --caveman`, adding `PROTOCOL: CAVEMAN` to the active session, or asking the assistant to use Caveman Mode. Ask for normal detail or set `CAVEMAN_MODE: false` to suspend it.
+
 ## Recommended GitHub Topics
 
 For better GitHub discovery, use these repository topics:
@@ -231,7 +240,7 @@ Nexus-APCP includes the repository hygiene expected from a serious open-source p
 - [`SUPPORT.md`](./SUPPORT.md): where to ask for help and what to keep private.
 - [`.github/pull_request_template.md`](./.github/pull_request_template.md): PR checklist for docs, protocol, security, and metadata changes.
 - [`.github/ISSUE_TEMPLATE/`](./.github/ISSUE_TEMPLATE/): structured issue forms for bugs, docs, protocol suggestions, and security-sensitive process notes.
-- [`.github/workflows/validate.yml`](./.github/workflows/validate.yml): repository validation for required files, metadata, links, SVG, and context gathering.
+- [`.github/workflows/validate.yml`](./.github/workflows/validate.yml): repository validation for required files, copy-safe template state, generated context hygiene, metadata, links, SVG, and context gathering.
 
 ## FAQ
 

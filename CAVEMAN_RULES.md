@@ -6,6 +6,24 @@ Nexus-APCP uses Caveman Mode to bypass LLM verbosity, reduce API latency, and sl
 
 ---
 
+## Activation and Deactivation
+
+Caveman Mode is off by default unless a project explicitly enables it.
+
+Activate Caveman Mode with any of these signals:
+- Run `python scripts/apcp-gather.py --caveman`; the generated bundle includes `Mode: CAVEMAN`.
+- Add `PROTOCOL: CAVEMAN` or `CAVEMAN_MODE: true` to the active AI session context.
+- User says "use Caveman Mode", "be terse", or equivalent project-approved instruction.
+
+Deactivate or suspend Caveman Mode with any of these signals:
+- User asks for normal detail, teaching mode, stakeholder-ready prose, or a long-form explanation.
+- Project context sets `CAVEMAN_MODE: false`.
+- The current answer needs legal, security, incident, onboarding, or migration nuance that would be unsafe if over-compressed.
+
+When suspended for one response, return to Caveman Mode after that response unless the user changed the default.
+
+---
+
 ## Standard Operating Procedures (SOP)
 
 ### 1. Grammatical Stripping (The "Caveman" Voice)

@@ -79,7 +79,7 @@ This kit consists of 4 core files. You should use them all together as agent ope
 # Copy the 4 files to your project root:
 cp AI_PROJECT_CONTEXT_PROTOCOL.md /your/project/
 cp TASK_PROGRESS.yaml /your/project/
-cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/docs/
+cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/
 cp SETUP_GUIDE.md /your/project/docs/
 ```
 
@@ -359,7 +359,7 @@ On GitHub:
 Local Clone:
   ./AI_PROJECT_CONTEXT_PROTOCOL.md
   ./TASK_PROGRESS.yaml
-  ./docs/AI_ASSISTANT_PROMPT_TEMPLATES.md
+  ./AI_ASSISTANT_PROMPT_TEMPLATES.md
   ./docs/SETUP_GUIDE.md
 ```
 
@@ -460,7 +460,7 @@ Even if the model is switched, the project is remembered."
 
 ---
 
-**Last Updated**: 2024-01-15  
+**Last Updated**: 2026-05-20
 **Maintained By**: AI Development Community  
 **Questions?** Create an issue or ask your AI assistant
 
