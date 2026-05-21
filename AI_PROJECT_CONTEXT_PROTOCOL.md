@@ -11,6 +11,19 @@ This file is the **single source of truth** for AI coding assistants and agents 
 - Changes are synchronized automatically
 - The AI takes on the role of project manager
 
+### Active Context Profile
+
+Nexus-APCP supports profile-based context loading through `apcp-profile.json`.
+Use `core` unless the project clearly needs `web`, `backend-api`, `cli`, `game`, `ai-rag`, or `full`.
+Specialized protocols outside the active profile are references, not standing instructions, unless the current user request or task explicitly invokes them.
+
+Rule priority:
+1. Current user request and explicit approvals.
+2. Security, privacy, secret-handling, and public/private boundary rules.
+3. Filled project context and current task state.
+4. Selected APCP profile files and task-invoked specialized protocols.
+5. General examples, templates, and optional reference protocols.
+
 ---
 
 ## SECTION 1: GENERAL PROJECT INFORMATION

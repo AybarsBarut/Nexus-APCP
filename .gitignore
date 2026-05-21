@@ -17,6 +17,8 @@ PROMPT_READY.txt
 PROMPT_READY.tmp
 PROMPT_READY*.txt
 PROMPT_READY*.tmp
+apcp-profile.json
+.apcp-profile.json
 .checkpoint
 .apcp-cache/
 .codegraph/

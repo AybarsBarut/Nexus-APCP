@@ -60,98 +60,49 @@ Public repository rule:
 - Before any GitHub push, keep installed APCP files, generated context bundles, private task state, and internal maps out of the public repository unless I explicitly approve sanitized public templates.
 - Prefer `.git/info/exclude` or a private global excludes file when the public GitHub repo should not reveal local AI workflow files.
 
-Install these core files when available:
-- AI_PROJECT_CONTEXT_PROTOCOL.md
-- AI_MAIN.md
-- TASK_PROGRESS.yaml
-- DECISION_LOG_PROTOCOL.md
-- CONTEXT_OPTIMIZATION.md
-- CAVEMAN_RULES.md
-- EMOJI_POLICY.md
-- VISUAL_CONTEXT_MERMAID.md
-- AI_AGENT_SKILLS_PROTOCOL.md
-- AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
-- CODEGRAPH_INTEGRATION_PROTOCOL.md
-- FILE_STRUCTURE_REFACTOR_PROTOCOL.md
-- AI_ASSISTANT_PROMPT_TEMPLATES.md
-- WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
-- DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
-- MACP_IMPLEMENTATION_GUIDE.md
-- WATERFALL_DEVELOPMENT_PROTOCOL.md
-- UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
-- DEBLOAT_APPLICATION_GUIDE.md
-- WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
-- scripts/apcp_core_files.py
-- scripts/apcp-gather.py
-- scripts/install-local-excludes.sh
-- scripts/install-local-excludes.ps1
+Profile rule:
+- Inspect the project type before choosing context.
+- Start with `core` unless the project clearly matches `web`, `backend-api`, `cli`, `game`, or `ai-rag`.
+- Use `full` only when I explicitly ask for every public Nexus-APCP protocol.
+- Keep task-specific protocols inactive unless they match the current project or current request.
+
+Bootstrap files:
+- Fetch `scripts/apcp_core_files.py`, `scripts/apcp-install.py`, and `scripts/apcp-gather.py` first when possible.
+- Run `python scripts/apcp-install.py --list-profiles` to show supported profiles.
+- If a local Nexus-APCP clone or source path is available, install from that source with `python /path/to/Nexus-APCP/scripts/apcp-install.py --target . --profile core`, replacing `core` with the selected profile.
+- If only raw GitHub access is available, run `python scripts/apcp-install.py --list-files --profile core` after fetching the bootstrap scripts, then download those selected paths from the raw source and preserve their paths.
+- The installer writes `apcp-profile.json`; keep it local/private by default.
 
 Then inspect this project, customize placeholders, preserve secrets/private context, and run:
 python scripts/apcp-gather.py --caveman
 ```
 
-#### 1.1 Copy Files to the Repo
+#### 1.1 Install a Project Profile
 
 ```bash
-# In the project root:
-
-# Copy the minimum files:
-# - AI_PROJECT_CONTEXT_PROTOCOL.md
-# - AI_MAIN.md
-# - TASK_PROGRESS.yaml
-# - DECISION_LOG_PROTOCOL.md
-# - CONTEXT_OPTIMIZATION.md
-# - CAVEMAN_RULES.md
-# - EMOJI_POLICY.md
-# - VISUAL_CONTEXT_MERMAID.md
-# - AI_AGENT_SKILLS_PROTOCOL.md
-# - AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
-# - CODEGRAPH_INTEGRATION_PROTOCOL.md
-# - FILE_STRUCTURE_REFACTOR_PROTOCOL.md
-# - AI_ASSISTANT_PROMPT_TEMPLATES.md
-# - WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
-# - DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
-# - MACP_IMPLEMENTATION_GUIDE.md
-# - WATERFALL_DEVELOPMENT_PROTOCOL.md
-# - UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
-# - DEBLOAT_APPLICATION_GUIDE.md
-# - WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
-# - scripts/apcp_core_files.py
-# - scripts/apcp-gather.py
-# - scripts/install-local-excludes.sh
-# - scripts/install-local-excludes.ps1
-
-cp AI_PROJECT_CONTEXT_PROTOCOL.md /path/to/your/project/
-cp AI_MAIN.md /path/to/your/project/
-cp TASK_PROGRESS.yaml /path/to/your/project/
-cp DECISION_LOG_PROTOCOL.md /path/to/your/project/
-cp CONTEXT_OPTIMIZATION.md /path/to/your/project/
-cp CAVEMAN_RULES.md /path/to/your/project/
-cp EMOJI_POLICY.md /path/to/your/project/
-cp VISUAL_CONTEXT_MERMAID.md /path/to/your/project/
-cp AI_AGENT_SKILLS_PROTOCOL.md /path/to/your/project/
-cp AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md /path/to/your/project/
-cp CODEGRAPH_INTEGRATION_PROTOCOL.md /path/to/your/project/
-cp FILE_STRUCTURE_REFACTOR_PROTOCOL.md /path/to/your/project/
-cp AI_ASSISTANT_PROMPT_TEMPLATES.md /path/to/your/project/
-cp WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md /path/to/your/project/
-cp DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md /path/to/your/project/
-cp MACP_IMPLEMENTATION_GUIDE.md /path/to/your/project/
-cp WATERFALL_DEVELOPMENT_PROTOCOL.md /path/to/your/project/
-cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /path/to/your/project/
-cp DEBLOAT_APPLICATION_GUIDE.md /path/to/your/project/
-cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /path/to/your/project/
-mkdir -p /path/to/your/project/scripts
-cp scripts/apcp_core_files.py /path/to/your/project/scripts/
-cp scripts/apcp-gather.py /path/to/your/project/scripts/
-cp scripts/install-local-excludes.sh /path/to/your/project/scripts/
-cp scripts/install-local-excludes.ps1 /path/to/your/project/scripts/
+# From the Nexus-APCP source repository:
+python scripts/apcp-install.py --list-profiles
+python scripts/apcp-install.py --target /path/to/your/project --profile core
 
 # Do not add these installed APCP operating files to Git by default.
 # Keep them local, or sync them through an approved private/cloud knowledge base.
 ```
 
-The canonical install and gather file list lives in `scripts/apcp_core_files.py`. The repository validator checks this guide, the README, the gather bundle, and the validator against that same source.
+Available profiles:
+
+| Profile | Use when |
+| :--- | :--- |
+| `core` | Any project needs project memory, tasks, decisions, token rules, prompts, and safe publishing. |
+| `web` | Frontend or website projects need UI guidance, static-first backend safety, lean app defaults, and delivery gates. |
+| `backend-api` | API or service projects need application security and delivery gates. |
+| `cli` | Command-line or developer-tool projects need delivery guidance and optional updater fit checks. |
+| `game` | Game or simulation projects need algorithm/design discovery and delivery gates. |
+| `ai-rag` | AI, RAG, or data-assisted applications need discovery, security, and delivery gates. |
+| `full` | Every public protocol file is intentionally needed. |
+
+The installer skips existing files unless `--overwrite` is passed. Use `--dry-run` to preview file operations. It writes `apcp-profile.json` in the target project; `scripts/apcp-gather.py` reads that profile automatically and accepts `--profile` for one-off overrides.
+
+The canonical install and gather file inventory lives in `scripts/apcp_core_files.py`. The repository validator checks this guide, the README, the gather bundle, installer, local excludes, and validator against that same source.
 
 #### 1.2 Keep APCP Out of Public GitHub by Default
 
@@ -424,7 +375,9 @@ APCP Setup Verification:
 □ [ ] AI_ASSISTANT_PROMPT_TEMPLATES.md installed at the project root
 □ [ ] AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md installed if the project supports multiple AI coding tools
 □ [ ] CODEGRAPH_INTEGRATION_PROTOCOL.md installed if the project uses local code graph discovery
+□ [ ] apcp-profile.json exists with the selected project profile
 □ [ ] scripts/apcp_core_files.py is installed next to scripts/apcp-gather.py
+□ [ ] scripts/apcp-install.py is available for future profile updates
 □ [ ] scripts/apcp-gather.py is working (test: python scripts/apcp-gather.py --caveman)
 □ [ ] scripts/install-local-excludes.sh or scripts/install-local-excludes.ps1 has been run when public repository visibility matters
 □ [ ] scripts/checkpoint.sh is working (test: bash scripts/checkpoint.sh)

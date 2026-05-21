@@ -8,7 +8,7 @@ This checklist keeps GitHub search, README search snippets, package metadata, an
 - Long name: `Nexus-APCP: AI Project Context Protocol`
 - Primary category: `AI Project Context Protocol`
 - Core audience: developers using AI coding assistants, IDE agents, local LLMs, and multi-agent workflows.
-- Primary value: stable project memory, context engineering, AI tool adapter compatibility, reusable AI agent skills, task state, decision history, safety rules, and token-optimized AI collaboration.
+- Primary value: stable project memory, profile-based context engineering, AI tool adapter compatibility, reusable AI agent skills, task state, decision history, safety rules, and token-optimized AI collaboration.
 
 ## GitHub Repository Description
 
@@ -60,7 +60,7 @@ If GitHub rejects SVG upload for social preview, export it as a `1200x630` PNG a
 | Intent | Target phrases |
 | :--- | :--- |
 | AI workflow | AI-assisted development, AI coding assistant workflow, AI agent handoff |
-| Context | AI Project Context Protocol, context engineering, LLM project memory |
+| Context | AI Project Context Protocol, context engineering, profile-based AI context, LLM project memory |
 | Prompting | prompt engineering, prompt templates, reusable AI prompts |
 | Agent skills | AI agent skills, skill-based agent workflows, reusable AI workflows |
 | Tool compatibility | AI tool adapter compatibility, AI coding tool compatibility, model tool drift, prompt-source hygiene |

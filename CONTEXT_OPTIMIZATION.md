@@ -5,6 +5,13 @@ As a software project grows, the codebase and documentation eventually exceed th
 
 ## Modular Context Strategy
 
+### Profile Filter
+**Usage**: Before packaging context for a project.
+- **Default**: `core`, loaded from `apcp-profile.json` when present.
+- **Project profiles**: `web`, `backend-api`, `cli`, `game`, `ai-rag`, and `full`.
+- **Rule**: Use the narrowest profile that matches the project. Add files through `include` only when the current task needs them, and remove unrelated files through `exclude`.
+- **Token Impact**: prevents specialized protocols from entering the model context when they do not match the project.
+
 ### Level 1: Standard (Bootstrap Mode)
 **Usage**: When starting a new session or a new project.
 - **Files**: Full `AI_PROJECT_CONTEXT_PROTOCOL.md` + Full `TASK_PROGRESS.yaml`.

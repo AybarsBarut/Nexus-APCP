@@ -19,6 +19,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 
 - **Persistent AI project context**: architecture, folder structure, conventions, security rules, and delivery gates stay in one reusable protocol.
 - **Token optimization**: Caveman Mode keeps responses compact while preserving technical depth.
+- **Profile-based context**: project profiles keep unrelated protocols out of the active AI context.
 - **Decision memory**: architecture decision records explain why choices were made and reduce refactor loops.
 - **Task continuity**: `TASK_PROGRESS.yaml` tracks active work, sprint goals, checkpoints, and quality gates.
 - **Model portability**: move between Claude, Cursor, ChatGPT, Gemini, Copilot, and local agents without rebuilding context.
@@ -41,6 +42,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | :--- | :--- |
 | AI Project Context Protocol | Keeps project identity, architecture, workflows, and constraints available to every AI session. |
 | Caveman Compression | Reduces verbose AI output with short, high-signal technical language. |
+| Profile-Based Context | Selects `core`, `web`, `backend-api`, `cli`, `game`, `ai-rag`, or `full` so project-irrelevant protocols stay out of the bundle. |
 | ADR-style Decision Log | Records technical intent so agents do not undo settled architecture. |
 | Task Progress YAML | Gives humans and agents a shared source of truth for status, priorities, and checkpoints. |
 | Prompt Templates | Provides ready-to-use prompts for implementation, review, debugging, refactoring, and handoff. |
@@ -67,47 +69,27 @@ git clone https://github.com/AybarsBarut/Nexus-APCP.git
 cd Nexus-APCP
 ```
 
-Copy the protocol into your project:
+Choose a project profile and install only the relevant local agent context:
 
 ```bash
-cp AI_PROJECT_CONTEXT_PROTOCOL.md /your/project/
-cp AI_MAIN.md /your/project/
-cp TASK_PROGRESS.yaml /your/project/
-cp DECISION_LOG_PROTOCOL.md /your/project/
-cp CONTEXT_OPTIMIZATION.md /your/project/
-cp CAVEMAN_RULES.md /your/project/
-cp EMOJI_POLICY.md /your/project/
-cp VISUAL_CONTEXT_MERMAID.md /your/project/
-cp AI_AGENT_SKILLS_PROTOCOL.md /your/project/
-cp AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md /your/project/
-cp CODEGRAPH_INTEGRATION_PROTOCOL.md /your/project/
-cp FILE_STRUCTURE_REFACTOR_PROTOCOL.md /your/project/
-cp AI_ASSISTANT_PROMPT_TEMPLATES.md /your/project/
-cp WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md /your/project/
-cp DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md /your/project/
-cp MACP_IMPLEMENTATION_GUIDE.md /your/project/
-cp WATERFALL_DEVELOPMENT_PROTOCOL.md /your/project/
-cp UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md /your/project/
-cp DEBLOAT_APPLICATION_GUIDE.md /your/project/
-cp WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md /your/project/
-mkdir -p /your/project/scripts
-cp scripts/apcp_core_files.py /your/project/scripts/
-cp scripts/apcp-gather.py /your/project/scripts/
-cp scripts/install-local-excludes.sh /your/project/scripts/
-cp scripts/install-local-excludes.ps1 /your/project/scripts/
+python scripts/apcp-install.py --list-profiles
+python scripts/apcp-install.py --target /your/project --profile core
 ```
 
-The canonical install and gather file list lives in [`scripts/apcp_core_files.py`](./scripts/apcp_core_files.py). Repository validation fails if the README, setup guide, gather bundle, or validator drift from that list.
+Available profiles: `core`, `web`, `backend-api`, `cli`, `game`, `ai-rag`, and `full`. The installer skips existing files unless `--overwrite` is passed, and it writes `apcp-profile.json` so the gather script can reuse the same profile without repeating flags. Use `--dry-run` before copying into an existing project.
+
+The canonical profile and install file inventory lives in [`scripts/apcp_core_files.py`](./scripts/apcp_core_files.py). Repository validation fails if the README, setup guide, gather bundle, installer, local excludes, or validator drift from that source.
 
 For a downstream product repository, treat these copied files as local agent operating context by default. AI agents can read them from local paths, private cloud docs, or generated context bundles, but the public GitHub repository does not need to expose the AI workflow files unless you intentionally publish sanitized templates. If the public repo should not show these files, run `bash scripts/install-local-excludes.sh` or `powershell -ExecutionPolicy Bypass -File scripts/install-local-excludes.ps1` before any push; use a committed `.gitignore` block only when the public ignore rule itself is acceptable.
 
 Generate an AI-ready context package:
 
 ```bash
+cd /your/project
 python scripts/apcp-gather.py --caveman
 ```
 
-Paste the generated `PROMPT_READY.txt` into your AI assistant, or start with the ready-made prompt in [`MASTER_PROMPT.md`](./MASTER_PROMPT.md).
+`scripts/apcp-gather.py` reads `apcp-profile.json` when present. Override with `python scripts/apcp-gather.py --profile web --caveman`, or use `--profile full` only when intentionally sending every public protocol file. Paste the generated `PROMPT_READY.txt` into your AI assistant, or start with the ready-made prompt in [`MASTER_PROMPT.md`](./MASTER_PROMPT.md).
 
 ### Agent Bootstrap Without Search Indexing
 
@@ -135,31 +117,18 @@ Public repository rule:
 - Before any GitHub push, keep installed APCP files, generated context bundles, private task state, and internal maps out of the public repository unless I explicitly approve sanitized public templates.
 - Prefer `.git/info/exclude` or a private global excludes file when the public GitHub repo should not reveal local AI workflow files.
 
-Install these core files when available:
-- AI_PROJECT_CONTEXT_PROTOCOL.md
-- AI_MAIN.md
-- TASK_PROGRESS.yaml
-- DECISION_LOG_PROTOCOL.md
-- CONTEXT_OPTIMIZATION.md
-- CAVEMAN_RULES.md
-- EMOJI_POLICY.md
-- VISUAL_CONTEXT_MERMAID.md
-- AI_AGENT_SKILLS_PROTOCOL.md
-- AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md
-- CODEGRAPH_INTEGRATION_PROTOCOL.md
-- FILE_STRUCTURE_REFACTOR_PROTOCOL.md
-- AI_ASSISTANT_PROMPT_TEMPLATES.md
-- WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md
-- DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md
-- MACP_IMPLEMENTATION_GUIDE.md
-- WATERFALL_DEVELOPMENT_PROTOCOL.md
-- UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md
-- DEBLOAT_APPLICATION_GUIDE.md
-- WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md
-- scripts/apcp_core_files.py
-- scripts/apcp-gather.py
-- scripts/install-local-excludes.sh
-- scripts/install-local-excludes.ps1
+Profile rule:
+- Inspect the project type before choosing context.
+- Start with `core` unless the project clearly matches `web`, `backend-api`, `cli`, `game`, or `ai-rag`.
+- Use `full` only when I explicitly ask for every public Nexus-APCP protocol.
+- Keep task-specific protocols inactive unless they match the current project or current request.
+
+Bootstrap files:
+- Fetch `scripts/apcp_core_files.py`, `scripts/apcp-install.py`, and `scripts/apcp-gather.py` first when possible.
+- Run `python scripts/apcp-install.py --list-profiles` to show supported profiles.
+- If a local Nexus-APCP clone or source path is available, install from that source with `python /path/to/Nexus-APCP/scripts/apcp-install.py --target . --profile core`, replacing `core` with the selected profile.
+- If only raw GitHub access is available, run `python scripts/apcp-install.py --list-files --profile core` after fetching the bootstrap scripts, then download those selected paths from the raw source and preserve their paths.
+- The installer writes `apcp-profile.json`; keep it local/private by default.
 
 Then inspect this project, customize placeholders, preserve secrets/private context, and run:
 python scripts/apcp-gather.py --caveman
@@ -189,10 +158,14 @@ python scripts/apcp-gather.py --caveman
 | [`DEBLOAT_APPLICATION_GUIDE.md`](./DEBLOAT_APPLICATION_GUIDE.md) | Lean application guide for reducing ads, hidden tracking, heavy dependencies, optional feature load, and resource usage. |
 | [`WATERFALL_DEVELOPMENT_PROTOCOL.md`](./WATERFALL_DEVELOPMENT_PROTOCOL.md) | Phase-gated waterfall protocol with worked examples and web research rules for stack combinations such as web + database, web + Python, Python + Unity, backend APIs, Unity services, and AI/RAG workflows. |
 | [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
+| [`DISCOVER_ALGORITHM_DESIGN_GUIDE.md`](./DISCOVER_ALGORITHM_DESIGN_GUIDE.md) | Optional algorithm and design discovery guide for projects that need deeper problem exploration. |
+| [`FRONTEND_APPLICATION_DESIGN_PROTOCOL.md`](./FRONTEND_APPLICATION_DESIGN_PROTOCOL.md) | Optional frontend application design protocol for UI-heavy web and app projects. |
+| [`UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md`](./UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md) | Optional baseline application security protocol for API, web, AI, and service projects. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
 | [`CHANGELOG.md`](./CHANGELOG.md) | Release history and SemVer notes for public protocol-kit versions. |
 | [`scripts/apcp_core_files.py`](./scripts/apcp_core_files.py) | Canonical file list shared by gather, validation, and documentation consistency checks. |
-| [`scripts/apcp-gather.py`](./scripts/apcp-gather.py) | Context packer that generates `PROMPT_READY.txt`. |
+| [`scripts/apcp-install.py`](./scripts/apcp-install.py) | Profile-aware installer for copying selected Nexus-APCP files into a target project. |
+| [`scripts/apcp-gather.py`](./scripts/apcp-gather.py) | Profile-aware context packer that generates `PROMPT_READY.txt`. |
 | [`scripts/install-local-excludes.sh`](./scripts/install-local-excludes.sh) and [`scripts/install-local-excludes.ps1`](./scripts/install-local-excludes.ps1) | Local Git exclude installers for downstream repositories that should keep APCP operating files private. |
 | [`AGENTS.md`](./AGENTS.md) | Repository instructions for AI coding assistants and automation agents. |
 | [`examples/`](./examples/README.md) | Sanitized starter kits for web apps, backend APIs, and AI/RAG systems. |
@@ -202,14 +175,14 @@ python scripts/apcp-gather.py --caveman
 1. **Capture project truth** in `AI_PROJECT_CONTEXT_PROTOCOL.md`: architecture, modules, conventions, security boundaries, tooling, and delivery rules.
 2. **Track execution state** in `TASK_PROGRESS.yaml`: active tasks, priorities, estimates, dependencies, and quality gates.
 3. **Preserve decisions** in `DECISION_LOG_PROTOCOL.md`: accepted tradeoffs, rejected paths, and architectural intent.
-4. **Package context** with `scripts/apcp-gather.py`: combine the core protocol files into one prompt-ready bundle.
+4. **Package selected context** with `scripts/apcp-gather.py`: combine the active project profile into one prompt-ready bundle.
 5. **Select reusable agent skills** with `AI_AGENT_SKILLS_PROTOCOL.md`: use named workflows for diagnosis, TDD, triage, PRDs, handoff, architecture improvement, and prototypes.
 6. **Coordinate parallel models** with `MACP_IMPLEMENTATION_GUIDE.md`: use shared state, handoffs, heartbeats, and conflict rules when more than one AI agent is working.
 7. **Document AI tool compatibility** with `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`: track assistant modes, tool access, adapter files, verification paths, and safe prompt-source boundaries.
 8. **Use local code intelligence** with `CODEGRAPH_INTEGRATION_PROTOCOL.md`: when a `.codegraph/` index exists, prefer targeted graph discovery before broad file scans, then verify against source and tests.
 9. **Add README visual context** with `VISUAL_CONTEXT_MERMAID.md`: include a safe, high-level Mermaid flowchart in project READMEs for faster human and AI orientation.
 10. **Refactor existing file layouts safely** with `FILE_STRUCTURE_REFACTOR_PROTOCOL.md`: move files iteratively, update references, and prove old code still runs from the new structure.
-11. **Apply delivery protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`, and `DEBLOAT_APPLICATION_GUIDE.md` when the work needs release gates, backend/API safety, stack contracts, update-system fit checks, lean app defaults, or phase-by-phase verification.
+11. **Apply profile or task-specific protocols** such as `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`, `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`, `WATERFALL_DEVELOPMENT_PROTOCOL.md`, `UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`, and `DEBLOAT_APPLICATION_GUIDE.md` only when the selected profile or current task needs release gates, backend/API safety, stack contracts, update-system fit checks, lean app defaults, or phase-by-phase verification.
 12. **Enforce output hygiene** with `EMOJI_POLICY.md`: keep docs, code, generated bundles, and AI responses emoji-free.
 13. **Run compact AI sessions** with Caveman Mode: lower token usage, fewer repeated explanations, and cleaner handoffs.
 

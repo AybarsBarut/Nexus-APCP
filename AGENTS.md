@@ -26,6 +26,9 @@ The public repository should remain safe to share. Real project context files, p
 | `CODEGRAPH_INTEGRATION_PROTOCOL.md` | Optional local CodeGraph-compatible code knowledge graph workflow and generated-index hygiene. |
 | `FILE_STRUCTURE_REFACTOR_PROTOCOL.md` | Safe iterative file and folder restructuring protocol for existing projects. |
 | `DEBLOAT_APPLICATION_GUIDE.md` | Lean application guidance for reducing ads, hidden tracking, heavy dependencies, optional feature load, and resource usage. |
+| `DISCOVER_ALGORITHM_DESIGN_GUIDE.md` | Optional problem-discovery and algorithm design guide for projects that need deeper exploration. |
+| `FRONTEND_APPLICATION_DESIGN_PROTOCOL.md` | Optional frontend application design protocol for UI-heavy projects. |
+| `UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md` | Optional baseline application security protocol for API, web, AI, and service projects. |
 | `AI_ASSISTANT_PROMPT_TEMPLATES.md` | Reusable prompts for common AI-assisted development scenarios. |
 | `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md` | Domain-specific delivery gates and release expectations. |
 | `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md` | Safe publishing patterns for different project domains. |
@@ -34,6 +37,7 @@ The public repository should remain safe to share. Real project context files, p
 | `CHANGELOG.md` | Release history and SemVer notes for public protocol-kit versions. |
 | `scripts/apcp_core_files.py` | Canonical core and install file lists used by scripts and validation. |
 | `scripts/apcp-gather.py` | Generates an AI-ready context bundle from core protocol files. |
+| `scripts/apcp-install.py` | Profile-aware installer for copying selected Nexus-APCP files into downstream projects. |
 | `scripts/validate-repo.py` | Repository integrity, metadata, and link validation script. |
 | `scripts/install-local-excludes.sh` / `scripts/install-local-excludes.ps1` | Local Git exclude installers for downstream repositories. |
 | `docs/SEO_CHECKLIST.md` | Repository SEO metadata and keyword source of truth. |
@@ -44,7 +48,8 @@ Run these from the repository root.
 
 ```bash
 python scripts/apcp-gather.py --caveman
-python -m py_compile scripts/apcp_core_files.py scripts/apcp-gather.py scripts/validate-repo.py
+python -m py_compile scripts/apcp_core_files.py scripts/apcp-gather.py scripts/apcp-install.py scripts/validate-repo.py
+python -m unittest discover -s tests
 python scripts/validate-repo.py
 ```
 

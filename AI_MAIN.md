@@ -9,6 +9,7 @@ This file is a copy-safe starter template. After copying Nexus-APCP into a proje
 
 ## SYSTEM_INIT
 - **Protocol**: CAVEMAN optional. Activate only when requested or when `PROMPT_READY.txt` says `Mode: CAVEMAN`.
+- **Context Profile**: load `apcp-profile.json` when present. If absent, assume `core` and activate specialized protocols only when task-relevant.
 - **Quality**: production-ready, verified, no simulated work.
 - **Safety**: DRY, SOLID, secure, public/private boundary respected.
 - **Checkpoints**: mandatory validation at each gate.
@@ -65,7 +66,20 @@ This file is a copy-safe starter template. After copying Nexus-APCP into a proje
 - Preserve the public/private boundary from `AI_PROJECT_CONTEXT_PROTOCOL.md` and `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`.
 - Keep generated prompt bundles such as `PROMPT_READY.txt` out of public commits.
 - Prefer current project evidence over copied template state.
+- Treat selected profile files as active context. Treat non-selected specialized protocols as references, not standing instructions, unless the user or task explicitly invokes them.
 - If context is stale or contradictory, stop and reconcile before implementation.
+
+## RULE_PRIORITY
+
+When rules conflict, use this order:
+
+1. Current user request and explicit approvals.
+2. Security, privacy, secret-handling, and public/private boundary rules.
+3. Project-specific filled context and current task state.
+4. Selected APCP profile files and task-invoked specialized protocols.
+5. General examples, templates, and optional reference protocols.
+
+If two active rules still conflict, choose the narrower task-specific rule, explain the conflict briefly, and ask only when proceeding would create real risk.
 
 ---
 

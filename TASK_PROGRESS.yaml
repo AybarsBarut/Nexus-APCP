@@ -7,13 +7,13 @@ project:
   status: "MAINTENANCE"
   version: "1.0.0"
   repository_visibility: "public"
-  last_updated: "2026-05-20 09:10:00 UTC"
+  last_updated: "2026-05-21 09:00:00 UTC"
 
 active_sprint:
   name: "Repository hardening"
-  goal: "Align core file lists, validation, CI, security reporting, safe setup guidance, and local code graph support."
+  goal: "Align core file lists, profile-based context, validation, CI, security reporting, safe setup guidance, and local code graph support."
   start_date: "2026-05-20"
-  end_date: "2026-05-20"
+  end_date: "2026-05-21"
 
 tasks:
   - id: "TASK-REPO-001"
@@ -33,6 +33,23 @@ tasks:
     dependencies: []
     notes:
       - "Keep generated context bundles untracked and cleaned after validation tests."
+  - id: "TASK-REPO-002"
+    title: "Add profile-based APCP install and context gathering"
+    status: "COMPLETED"
+    priority: "CRITICAL"
+    effort: "1d"
+    assignee: "AI coding assistant"
+    description: "Reduce context pollution and manual install-list drift by adding project profiles, a profile-aware installer, stricter gather behavior, tests, and updated setup guidance."
+    acceptance_criteria:
+      - "Context profiles select only task-relevant protocol files by default."
+      - "Gather reads apcp-profile.json and fails clearly when selected files are missing."
+      - "Installer copies selected profile files without overwriting existing files by default."
+      - "README and setup guide use installer commands instead of long manual copy blocks."
+      - "Unit tests cover profile selection, gather failure behavior, config filtering, and installer dry-run behavior."
+      - "Validation checks profile consistency, TASK_PROGRESS.yaml shape, and generated bundle profile behavior."
+    dependencies: ["TASK-REPO-001"]
+    notes:
+      - "Default gather profile is core; full context must be requested explicitly."
 
 checkpoints:
   context_loaded: true
@@ -41,12 +58,12 @@ checkpoints:
   user_acceptance: false
 
 metrics:
-  tasks_completed: 1
-  total_tasks: 1
+  tasks_completed: 2
+  total_tasks: 2
   velocity: 1.0
   quality_score: 1.0
 
 handoff:
-  last_session_summary: "Repository hardening and CodeGraph integration guidance completed; validation passed locally."
-  next_action: "Review the patch, then push the requested branch."
+  last_session_summary: "Profile-based installer, gather filtering, tests, and documentation drift reduction completed."
+  next_action: "Review the profile-based APCP patch and publish when ready."
   blockers: []

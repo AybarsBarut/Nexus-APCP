@@ -15,10 +15,14 @@ except ImportError:
 
 from apcp_core_files import (
     CORE_FILES,
+    DEFAULT_PROFILE,
     GENERATED_CONTEXT_PATTERNS,
     INSTALL_FILES,
+    INSTALL_SUPPORT_FILES,
     LOCAL_EXCLUDE_PATTERNS,
     PUBLIC_REQUIRED_FILES,
+    available_profiles,
+    get_profile_files,
 )
 
 
@@ -83,6 +87,8 @@ REQUIRED_GITIGNORE_PATTERNS = [
     "PROMPT_READY.tmp",
     "PROMPT_READY*.txt",
     "PROMPT_READY*.tmp",
+    "apcp-profile.json",
+    ".apcp-profile.json",
 ]
 
 
@@ -175,6 +181,55 @@ def check_yaml_files():
             yaml.safe_load(text)
         except yaml.YAMLError as exc:
             errors.append(f"YAML parse failed in {relative}: {exc}")
+    return errors
+
+
+def check_task_progress_schema():
+    errors = []
+    if yaml is None:
+        return ["PyYAML is required for TASK_PROGRESS.yaml schema checks"]
+
+    path = ROOT / "TASK_PROGRESS.yaml"
+    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        return ["TASK_PROGRESS.yaml must contain a mapping at the top level"]
+
+    required_sections = [
+        "project",
+        "active_sprint",
+        "tasks",
+        "checkpoints",
+        "metrics",
+        "handoff",
+    ]
+    for section in required_sections:
+        if section not in data:
+            errors.append(f"TASK_PROGRESS.yaml missing section: {section}")
+
+    tasks = data.get("tasks")
+    if not isinstance(tasks, list) or not tasks:
+        errors.append("TASK_PROGRESS.yaml tasks must be a non-empty list")
+        return errors
+
+    required_task_fields = [
+        "id",
+        "title",
+        "status",
+        "priority",
+        "acceptance_criteria",
+    ]
+    for index, task in enumerate(tasks, start=1):
+        if not isinstance(task, dict):
+            errors.append(f"TASK_PROGRESS.yaml task {index} must be a mapping")
+            continue
+        for field in required_task_fields:
+            if field not in task:
+                errors.append(f"TASK_PROGRESS.yaml task {index} missing field: {field}")
+        criteria = task.get("acceptance_criteria")
+        if criteria is not None and not isinstance(criteria, list):
+            errors.append(
+                f"TASK_PROGRESS.yaml task {index} acceptance_criteria must be a list"
+            )
     return errors
 
 
@@ -290,29 +345,42 @@ def check_core_file_consistency():
         if not (ROOT / relative).exists():
             errors.append(f"CORE_FILES entry does not exist: {relative}")
 
+    for profile in available_profiles():
+        files = get_profile_files(profile)
+        if len(files) != len(set(files)):
+            errors.append(f"Profile contains duplicate files: {profile}")
+        for relative in files:
+            if relative not in CORE_FILES:
+                errors.append(f"Profile {profile} references non-canonical file: {relative}")
+            if not (ROOT / relative).exists():
+                errors.append(f"Profile {profile} entry does not exist: {relative}")
+
     expected_install = list(INSTALL_FILES)
     for relative in ["README.md", "SETUP_GUIDE.md"]:
         text = (ROOT / relative).read_text(encoding="utf-8")
         bullet_lists = extract_install_bullet_lists(text)
-        if not bullet_lists:
-            errors.append(f"{relative} is missing the canonical install file list")
-        for items in bullet_lists:
-            if items != expected_install:
-                errors.append(
-                    f"{relative} install list does not match scripts/apcp_core_files.py"
-                )
-                break
+        if bullet_lists:
+            errors.append(
+                f"{relative} must use scripts/apcp-install.py instead of literal install lists"
+            )
 
         copied_files = {
             match.group(1).replace("\\", "/")
             for match in COPY_COMMAND_RE.finditer(text)
             if match.group(1).replace("\\", "/") in INSTALL_FILES
         }
-        missing_copy_commands = [item for item in INSTALL_FILES if item not in copied_files]
-        if missing_copy_commands:
+        if len(copied_files) > len(INSTALL_SUPPORT_FILES):
             errors.append(
-                f"{relative} copy commands missing: {', '.join(missing_copy_commands)}"
+                f"{relative} contains broad manual copy commands instead of profile install"
             )
+        for fragment in [
+            "scripts/apcp-install.py",
+            "--profile",
+            "--list-profiles",
+            "apcp-profile.json",
+        ]:
+            if fragment not in text:
+                errors.append(f"{relative} missing profile setup guidance: {fragment}")
 
     for relative in ["scripts/install-local-excludes.ps1", "scripts/install-local-excludes.sh"]:
         text = (ROOT / relative).read_text(encoding="utf-8")
@@ -423,8 +491,24 @@ def check_context_gatherer():
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
     runs = [
-        ("repository root", ROOT, [sys.executable, "scripts/apcp-gather.py", "--caveman"]),
-        ("scripts directory", ROOT / "scripts", [sys.executable, "apcp-gather.py", "--caveman"]),
+        (
+            "repository root",
+            ROOT,
+            [sys.executable, "scripts/apcp-gather.py", "--caveman"],
+            get_profile_files(DEFAULT_PROFILE),
+        ),
+        (
+            "full profile",
+            ROOT,
+            [sys.executable, "scripts/apcp-gather.py", "--profile", "full", "--caveman"],
+            CORE_FILES,
+        ),
+        (
+            "scripts directory",
+            ROOT / "scripts",
+            [sys.executable, "apcp-gather.py", "--caveman"],
+            get_profile_files(DEFAULT_PROFILE),
+        ),
     ]
 
     bundle = ROOT / "PROMPT_READY.txt"
@@ -432,7 +516,7 @@ def check_context_gatherer():
     errors = []
 
     try:
-        for label, cwd, command in runs:
+        for label, cwd, command, expected_files in runs:
             result = subprocess.run(
                 command,
                 cwd=cwd,
@@ -450,14 +534,22 @@ def check_context_gatherer():
             if "Skipped (Not Found)" in result.stdout:
                 errors.append(f"Context gatherer skipped files from {label}:\n{result.stdout}")
 
-        if not bundle.exists():
-            errors.append("Context gatherer did not produce PROMPT_READY.txt")
-        else:
+            if not bundle.exists():
+                errors.append(f"Context gatherer did not produce PROMPT_READY.txt from {label}")
+                continue
             bundle_text = bundle.read_text(encoding="utf-8", errors="replace")
-            for relative in CORE_FILES:
+            for relative in expected_files:
                 marker = f"=== START OF FILE: {relative} ==="
                 if marker not in bundle_text:
-                    errors.append(f"Context gatherer output missing required file: {relative}")
+                    errors.append(
+                        f"Context gatherer output from {label} missing file: {relative}"
+                    )
+            if label == "repository root":
+                excluded_marker = (
+                    "=== START OF FILE: WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md ==="
+                )
+                if excluded_marker in bundle_text:
+                    errors.append("Default context gatherer included web-only profile file")
     finally:
         if original_bundle is None:
             bundle.unlink(missing_ok=True)
@@ -475,6 +567,7 @@ def main():
         ("JSON metadata", check_json),
         ("SVG social preview", check_svg),
         ("YAML files", check_yaml_files),
+        ("TASK_PROGRESS schema", check_task_progress_schema),
         ("core file consistency", check_core_file_consistency),
         ("template hygiene", check_public_template_hygiene),
         ("generated context hygiene", check_generated_context_hygiene),

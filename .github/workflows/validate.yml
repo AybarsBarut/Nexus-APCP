@@ -28,7 +28,10 @@ jobs:
         run: python -m pip install --upgrade pip PyYAML
 
       - name: Check Python syntax
-        run: python -m py_compile scripts/apcp_core_files.py scripts/apcp-gather.py scripts/validate-repo.py
+        run: python -m py_compile scripts/apcp_core_files.py scripts/apcp-gather.py scripts/apcp-install.py scripts/validate-repo.py
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests
 
       - name: Check PowerShell syntax
         shell: pwsh
