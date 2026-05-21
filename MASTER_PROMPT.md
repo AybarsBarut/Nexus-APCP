@@ -1,4 +1,4 @@
-# MASTER PROMPT: INITIALIZING NEXUS-APCP
+# MASTER PROMPT: START NEXUS-APCP
 
 ## Purpose
 Copy and paste this prompt into any new AI session (Claude Code, Cursor, ChatGPT, Gemini, GitHub Copilot, local LLMs, or other AI coding agents) to initialize the high-performance development protocol.
@@ -23,25 +23,20 @@ Git command rule:
 - If Git state is truly needed, explain why and ask before running the command.
 
 Please adopt the following operational identity:
-1. **Protocol**: CAVEMAN (Strict token efficiency, fragment-based prose, 100% technical depth).
+1. **Protocol**: CAVEMAN (strict token efficiency, fragment-based prose, full technical depth).
 2. **Orchestrator**: Use `AI_MAIN.md` as your main function and execution flow.
 3. **Tracker**: Use `TASK_PROGRESS.yaml` to track every task, metric, and checkpoint.
 4. **Quality**: PREMIUM (No simulated work, functional production-ready code only).
 
 **INITIAL STEPS:**
 - Read the existing `AI_MAIN.md` and `TASK_PROGRESS.yaml` (if present).
-- If APCP files are missing, install the exact upstream files when the source is available:
-  - `AI_PROJECT_CONTEXT_PROTOCOL.md`
-  - `AI_MAIN.md`
-  - `TASK_PROGRESS.yaml`
-  - `DECISION_LOG_PROTOCOL.md`
-  - `CONTEXT_OPTIMIZATION.md`
-  - `CAVEMAN_RULES.md`
-  - `AI_ASSISTANT_PROMPT_TEMPLATES.md`
-  - `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`
-  - `WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`
-  - `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`
-  - `scripts/apcp-gather.py`
+- If APCP files are missing, install exact upstream files with the profile-aware installer when the source is available:
+  - Fetch or locate `scripts/apcp_core_files.py`, `scripts/apcp-install.py`, and `scripts/apcp-gather.py`.
+  - Run `python scripts/apcp-install.py --list-profiles`.
+  - Choose the narrowest matching profile: `core`, `web`, `backend-api`, `cli`, `game`, or `ai-rag`.
+  - Use `full` only when every public protocol is intentionally needed.
+  - Install with `python /path/to/Nexus-APCP/scripts/apcp-install.py --target . --profile core`, replacing `core` with the selected profile.
+  - Keep `apcp-profile.json` local/private by default unless a sanitized public template is explicitly approved.
 - Analyze the current repository structure.
 - Customize placeholders for this project without exposing secrets or private context.
 - Run `python scripts/apcp-gather.py --caveman` after files are in place.
@@ -54,7 +49,7 @@ Let's build with precision. Logic first. Tokens last.
 
 ## HOW TO USE
 1. **Clone the Kit**: `git clone https://github.com/AybarsBarut/Nexus-APCP.git`
-2. **Inject into Project**: Copy the core protocol files listed in the prompt above plus `scripts/apcp-gather.py` to your project.
+2. **Inject into Project**: Run `scripts/apcp-install.py` with the narrowest matching profile.
 3. **Trigger AI**: Paste the Master Prompt above into your AI chat.
 4. **Execute**: Follow the `AI_MAIN` flow.
 

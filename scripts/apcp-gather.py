@@ -107,6 +107,27 @@ def validate_files_exist(root, files):
         raise FileNotFoundError("Missing required context file(s): " + ", ".join(missing))
 
 
+def compact_markdown_content(text):
+    """Apply lossless whitespace compaction for prompt bundles."""
+    compacted = []
+    previous_blank = False
+    for line in text.splitlines():
+        stripped_line = line.rstrip()
+        is_blank = stripped_line == ""
+        if is_blank and previous_blank:
+            continue
+        compacted.append(stripped_line)
+        previous_blank = is_blank
+    return "\n".join(compacted).strip() + "\n"
+
+
+def read_context_file(path, caveman_mode):
+    text = path.read_text(encoding="utf-8")
+    if caveman_mode:
+        return compact_markdown_content(text)
+    return text
+
+
 def write_bundle(root, output_file, files, timestamp, caveman_mode, profile):
     temp_file = output_file.with_name("PROMPT_READY.tmp")
     with temp_file.open("w", encoding="utf-8", newline="\n") as out:
@@ -117,13 +138,14 @@ def write_bundle(root, output_file, files, timestamp, caveman_mode, profile):
         out.write(f"Included Files: {len(files)}\n")
         if caveman_mode:
             out.write("Mode: CAVEMAN (Token Optimized)\n")
+            out.write("Compaction: whitespace-trimmed, repeated blank lines collapsed\n")
         out.write("---------------------------\n\n")
 
         for relative in files:
             path = root / relative
             print(f"Adding: {relative}")
             out.write(f"=== START OF FILE: {relative} ===\n")
-            out.write(path.read_text(encoding="utf-8"))
+            out.write(read_context_file(path, caveman_mode))
             out.write(f"\n=== END OF FILE: {relative} ===\n\n")
 
         out.write("\n--- INSTRUCTIONS ---\n")

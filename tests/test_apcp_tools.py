@@ -56,13 +56,23 @@ class ApcpToolTests(unittest.TestCase):
         with temporary_project() as directory:
             root = Path(directory)
             self.write_profile_files(root, "core")
+            (root / "AI_MAIN.md").write_text(
+                "# AI_MAIN.md  \n\n\nBody line   \n",
+                encoding="utf-8",
+            )
 
             result = self.gather.gather_context(caveman_mode=True, root=root)
 
             self.assertEqual(result, 0)
             bundle = (root / "PROMPT_READY.txt").read_text(encoding="utf-8")
             self.assertIn("Profile: core", bundle)
+            self.assertIn(
+                "Compaction: whitespace-trimmed, repeated blank lines collapsed",
+                bundle,
+            )
             self.assertIn("=== START OF FILE: AI_MAIN.md ===", bundle)
+            self.assertIn("# AI_MAIN.md\n\nBody line\n", bundle)
+            self.assertNotIn("# AI_MAIN.md  \n\n\nBody line   \n", bundle)
             self.assertNotIn(
                 "=== START OF FILE: WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md ===",
                 bundle,
@@ -130,6 +140,26 @@ class ApcpToolTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stdout)
             self.assertIn("Installing Nexus-APCP profile: cli", result.stdout)
             self.assertFalse((Path(directory) / "apcp-profile.json").exists())
+
+    def test_validator_supports_named_checks(self):
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(SCRIPTS / "validate-repo.py"),
+                "--only",
+                "required-files",
+            ],
+            cwd=ROOT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=30,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertIn("OK: required files", result.stdout)
 
 
 if __name__ == "__main__":

@@ -172,6 +172,8 @@ PUBLIC_REQUIRED_FILES = [
     *CORE_FILES,
     "MASTER_PROMPT.md",
     "docs/SEO_CHECKLIST.md",
+    "docs/RELEASE_PROCESS.md",
+    "docs/REPOSITORY_LAYOUT.md",
     "scripts/apcp_core_files.py",
     "scripts/apcp-gather.py",
     "scripts/apcp-install.py",

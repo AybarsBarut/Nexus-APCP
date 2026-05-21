@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If Nexus-APCP helps your AI-assisted development workflow, please cite the repository."
 title: "Nexus-APCP: AI Project Context Protocol"
 version: "1.0.0"
+date-released: "2026-05-19"
 license: MIT
 repository-code: "https://github.com/AybarsBarut/Nexus-APCP"
 url: "https://github.com/AybarsBarut/Nexus-APCP"

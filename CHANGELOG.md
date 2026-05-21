@@ -8,6 +8,9 @@ Nexus-APCP follows SemVer for public protocol-kit releases. A version in `codeme
 
 - Centralize the canonical APCP core file list for gather, validation, and documentation consistency.
 - Add profile-based install and context gathering with `apcp-profile.json`, `scripts/apcp-install.py`, and default narrow `core` context.
+- Add Caveman gather whitespace compaction and clarify that it is lossless, not rule-dropping summarization.
+- Split CI validation into named checks through `scripts/validate-repo.py --only`.
+- Add release process and repository layout docs, move the password hashing prompt into sanitized examples, and clean up example inventory docs.
 - Add unit tests for profile selection, gather error handling, config filtering, and installer dry-run behavior.
 - Harden repository validation with syntax checks, YAML parsing, generated artifact cleanup, Markdown anchor checks, and simple leak-pattern scanning.
 - Add safer local-exclude and checkpoint workflows for downstream public repository hygiene.

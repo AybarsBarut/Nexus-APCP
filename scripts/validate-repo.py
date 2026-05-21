@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import py_compile
@@ -27,6 +28,13 @@ from apcp_core_files import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SKIPPED_SCAN_DIRS = {
+    ".apcp-cache",
+    ".codegraph",
+    ".git",
+    "__pycache__",
+    "tmp",
+}
 
 YAML_FILES = [
     "TASK_PROGRESS.yaml",
@@ -103,7 +111,7 @@ def check_required_files():
 def check_python_syntax():
     errors = []
     for path in sorted(ROOT.rglob("*.py")):
-        if ".git" in path.parts or "__pycache__" in path.parts:
+        if any(part in SKIPPED_SCAN_DIRS for part in path.parts):
             continue
         try:
             py_compile.compile(str(path), doraise=True)
@@ -119,7 +127,7 @@ def check_powershell_syntax():
         return ["PowerShell is required to parse .ps1 scripts"]
 
     for path in sorted(ROOT.rglob("*.ps1")):
-        if ".git" in path.parts:
+        if any(part in SKIPPED_SCAN_DIRS for part in path.parts):
             continue
         escaped = str(path).replace("'", "''")
         command = (
@@ -154,6 +162,23 @@ def check_json():
     with path.open("r", encoding="utf-8") as handle:
         json.load(handle)
     return []
+
+
+def check_metadata_required_fields():
+    errors = []
+    with (ROOT / "codemeta.json").open("r", encoding="utf-8") as handle:
+        codemeta = json.load(handle)
+    for field in ["dateCreated", "dateModified", "version"]:
+        if not codemeta.get(field):
+            errors.append(f"codemeta.json missing required metadata field: {field}")
+
+    if yaml is None:
+        return errors + ["PyYAML is required for CITATION.cff metadata checks"]
+    citation = yaml.safe_load((ROOT / "CITATION.cff").read_text(encoding="utf-8"))
+    for field in ["date-released", "version", "repository-code"]:
+        if not citation.get(field):
+            errors.append(f"CITATION.cff missing required metadata field: {field}")
+    return errors
 
 
 def check_svg():
@@ -267,7 +292,7 @@ def check_markdown_links():
     errors = []
     anchor_cache = {}
     for path in sorted(ROOT.rglob("*.md")):
-        if ".git" in path.parts:
+        if any(part in SKIPPED_SCAN_DIRS for part in path.parts):
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         for match in LINK_RE.finditer(text):
@@ -453,11 +478,10 @@ def check_generated_context_hygiene():
 
 
 def iter_text_files():
-    skipped_dirs = {".git", "__pycache__"}
     for path in sorted(ROOT.rglob("*")):
         if path.is_dir():
             continue
-        if any(part in skipped_dirs for part in path.parts):
+        if any(part in SKIPPED_SCAN_DIRS for part in path.parts):
             continue
         if path.suffix.lower() in TEXT_SCAN_EXTENSIONS:
             yield path
@@ -559,26 +583,58 @@ def check_context_gatherer():
     return errors
 
 
-def main():
-    checks = [
-        ("required files", check_required_files),
-        ("Python syntax", check_python_syntax),
-        ("PowerShell syntax", check_powershell_syntax),
-        ("JSON metadata", check_json),
-        ("SVG social preview", check_svg),
-        ("YAML files", check_yaml_files),
-        ("TASK_PROGRESS schema", check_task_progress_schema),
-        ("core file consistency", check_core_file_consistency),
-        ("template hygiene", check_public_template_hygiene),
-        ("generated context hygiene", check_generated_context_hygiene),
-        ("Markdown links", check_markdown_links),
-        ("emoji policy", check_no_emoji),
-        ("secret pattern scan", check_secret_patterns),
-        ("context gatherer", check_context_gatherer),
-    ]
+CHECKS = [
+    ("required-files", "required files", check_required_files),
+    ("python-syntax", "Python syntax", check_python_syntax),
+    ("powershell-syntax", "PowerShell syntax", check_powershell_syntax),
+    ("json-metadata", "JSON metadata", check_json),
+    ("metadata-required-fields", "metadata required fields", check_metadata_required_fields),
+    ("svg-social-preview", "SVG social preview", check_svg),
+    ("yaml-files", "YAML files", check_yaml_files),
+    ("task-progress-schema", "TASK_PROGRESS schema", check_task_progress_schema),
+    ("core-file-consistency", "core file consistency", check_core_file_consistency),
+    ("template-hygiene", "template hygiene", check_public_template_hygiene),
+    ("generated-context-hygiene", "generated context hygiene", check_generated_context_hygiene),
+    ("markdown-links", "Markdown links", check_markdown_links),
+    ("emoji-policy", "emoji policy", check_no_emoji),
+    ("secret-pattern-scan", "secret pattern scan", check_secret_patterns),
+    ("context-gatherer", "context gatherer", check_context_gatherer),
+]
+
+
+def selected_checks(only):
+    if not only:
+        return CHECKS
+    requested = set(only)
+    return [check for check in CHECKS if check[0] in requested]
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(description="Validate Nexus-APCP repository health.")
+    parser.add_argument(
+        "--only",
+        action="append",
+        choices=[key for key, _, _ in CHECKS],
+        help="Run one named validation check. Repeat to run multiple checks.",
+    )
+    parser.add_argument(
+        "--list-checks",
+        action="store_true",
+        help="List validation check names and exit.",
+    )
+    return parser
+
+
+def main(argv=None):
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    if args.list_checks:
+        for key, label, _ in CHECKS:
+            print(f"{key}: {label}")
+        return 0
 
     errors = []
-    for label, check in checks:
+    for _, label, check in selected_checks(args.only):
         try:
             check_errors = check()
         except Exception as exc:

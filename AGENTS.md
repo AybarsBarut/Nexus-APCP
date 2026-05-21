@@ -35,6 +35,8 @@ The public repository should remain safe to share. Real project context files, p
 | `MACP_IMPLEMENTATION_GUIDE.md` | Multi-AI Coordination Protocol for parallel model workflows. |
 | `SETUP_GUIDE.md` | Step-by-step setup instructions and routine maintenance. |
 | `CHANGELOG.md` | Release history and SemVer notes for public protocol-kit versions. |
+| `docs/RELEASE_PROCESS.md` | Release checklist, SemVer policy, metadata update rules, and tag guidance. |
+| `docs/REPOSITORY_LAYOUT.md` | Root protocol, docs, examples, and adapter-file layout policy. |
 | `scripts/apcp_core_files.py` | Canonical core and install file lists used by scripts and validation. |
 | `scripts/apcp-gather.py` | Generates an AI-ready context bundle from core protocol files. |
 | `scripts/apcp-install.py` | Profile-aware installer for copying selected Nexus-APCP files into downstream projects. |

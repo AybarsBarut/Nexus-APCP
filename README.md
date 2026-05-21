@@ -41,7 +41,7 @@ AI-assisted software development gets slower when every new model, chat, IDE age
 | Feature | What it does |
 | :--- | :--- |
 | AI Project Context Protocol | Keeps project identity, architecture, workflows, and constraints available to every AI session. |
-| Caveman Compression | Reduces verbose AI output with short, high-signal technical language. |
+| Caveman Compression | Applies bundle whitespace compaction and tells AI assistants to answer with short, high-signal technical language. |
 | Profile-Based Context | Selects `core`, `web`, `backend-api`, `cli`, `game`, `ai-rag`, or `full` so project-irrelevant protocols stay out of the bundle. |
 | ADR-style Decision Log | Records technical intent so agents do not undo settled architecture. |
 | Task Progress YAML | Gives humans and agents a shared source of truth for status, priorities, and checkpoints. |
@@ -163,12 +163,16 @@ python scripts/apcp-gather.py --caveman
 | [`UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md`](./UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md) | Optional baseline application security protocol for API, web, AI, and service projects. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
 | [`CHANGELOG.md`](./CHANGELOG.md) | Release history and SemVer notes for public protocol-kit versions. |
+| [`docs/RELEASE_PROCESS.md`](./docs/RELEASE_PROCESS.md) | Release checklist, SemVer policy, metadata update rules, and tag guidance. |
+| [`docs/REPOSITORY_LAYOUT.md`](./docs/REPOSITORY_LAYOUT.md) | Repository layout policy for root protocols, docs, examples, and adapter files. |
 | [`scripts/apcp_core_files.py`](./scripts/apcp_core_files.py) | Canonical file list shared by gather, validation, and documentation consistency checks. |
 | [`scripts/apcp-install.py`](./scripts/apcp-install.py) | Profile-aware installer for copying selected Nexus-APCP files into a target project. |
 | [`scripts/apcp-gather.py`](./scripts/apcp-gather.py) | Profile-aware context packer that generates `PROMPT_READY.txt`. |
 | [`scripts/install-local-excludes.sh`](./scripts/install-local-excludes.sh) and [`scripts/install-local-excludes.ps1`](./scripts/install-local-excludes.ps1) | Local Git exclude installers for downstream repositories that should keep APCP operating files private. |
 | [`AGENTS.md`](./AGENTS.md) | Repository instructions for AI coding assistants and automation agents. |
 | [`examples/`](./examples/README.md) | Sanitized starter kits for web apps, backend APIs, and AI/RAG systems. |
+
+Adapter files such as `CODEX.md`, `CLAUDE.md`, `CURSOR.md`, `GEMINI.md`, and `COPILOT.md` are intentionally short tool-specific entry points. `AGENTS.md` is the repository source of truth; adapter files point back to it and add only tool-specific startup notes when needed.
 
 ## How Nexus-APCP Works
 
@@ -200,7 +204,7 @@ python scripts/apcp-gather.py --caveman
 
 ## Token Optimization With Caveman Mode
 
-Nexus-APCP includes the Caveman Protocol: short, direct, fragment-based technical communication for lower token cost and faster AI collaboration.
+Nexus-APCP includes the Caveman Protocol: short, direct, fragment-based technical communication for lower token cost and faster AI collaboration. When `scripts/apcp-gather.py --caveman` builds `PROMPT_READY.txt`, it also applies lossless whitespace compaction to the bundled files by trimming trailing whitespace and collapsing repeated blank lines. It does not remove rules or summarize protocol text unless a future explicit lossy mode is added.
 
 Normal AI style:
 
@@ -216,7 +220,7 @@ Activate it by running `python scripts/apcp-gather.py --caveman`, adding `PROTOC
 
 ## Versioning And Releases
 
-See [`CHANGELOG.md`](./CHANGELOG.md) for release history. Nexus-APCP uses SemVer for public protocol-kit releases; `codemeta.json` and `CITATION.cff` version values should match a reviewed Git tag and GitHub release once that release is published.
+See [`CHANGELOG.md`](./CHANGELOG.md) for release history and [`docs/RELEASE_PROCESS.md`](./docs/RELEASE_PROCESS.md) for the release checklist. Nexus-APCP uses SemVer for public protocol-kit releases; `codemeta.json` and `CITATION.cff` version values should match a reviewed Git tag and GitHub release once that release is published.
 
 This repository is a protocol and documentation kit with helper scripts. It is not packaged as an installable CLI unless a future release adds a `pyproject.toml`, entry points, tests, and release artifacts for commands such as `nexus-apcp gather`.
 
@@ -238,7 +242,7 @@ Nexus-APCP includes the repository hygiene expected from a serious open-source p
 - [`SUPPORT.md`](./SUPPORT.md): where to ask for help and what to keep private.
 - [`.github/pull_request_template.md`](./.github/pull_request_template.md): PR checklist for docs, protocol, security, and metadata changes.
 - [`.github/ISSUE_TEMPLATE/`](./.github/ISSUE_TEMPLATE/): structured issue forms for bugs, docs, protocol suggestions, and security-sensitive process notes.
-- [`.github/workflows/validate.yml`](./.github/workflows/validate.yml): repository validation for required files, Python syntax, PowerShell syntax, YAML parsing, generated context cleanup, metadata, links, SVG, simple leak-pattern scanning, emoji policy, and context gathering.
+- [`.github/workflows/validate.yml`](./.github/workflows/validate.yml): split repository validation for required files, Python syntax, PowerShell syntax, YAML parsing, generated context cleanup, metadata, links, SVG, simple leak-pattern scanning, emoji policy, and context gathering.
 
 ## FAQ
 

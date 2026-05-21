@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - master
-      - main
 
 permissions:
   contents: read
@@ -49,8 +48,29 @@ jobs:
           }
           if ($hadError) { exit 1 }
 
-      - name: Run repository validation
-        run: python scripts/validate-repo.py
+      - name: Validate required files
+        run: python scripts/validate-repo.py --only required-files
+
+      - name: Validate metadata formats
+        run: python scripts/validate-repo.py --only json-metadata --only yaml-files --only svg-social-preview
+
+      - name: Validate required metadata fields
+        run: python scripts/validate-repo.py --only metadata-required-fields
+
+      - name: Validate TASK_PROGRESS schema
+        run: python scripts/validate-repo.py --only task-progress-schema
+
+      - name: Validate core file consistency
+        run: python scripts/validate-repo.py --only core-file-consistency
+
+      - name: Validate hygiene rules
+        run: python scripts/validate-repo.py --only template-hygiene --only generated-context-hygiene --only emoji-policy --only secret-pattern-scan
+
+      - name: Validate Markdown links
+        run: python scripts/validate-repo.py --only markdown-links
+
+      - name: Validate context gathering
+        run: python scripts/validate-repo.py --only context-gatherer
 
       - name: Ensure generated bundle was cleaned
         run: test ! -e PROMPT_READY.txt

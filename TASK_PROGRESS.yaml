@@ -7,7 +7,7 @@ project:
   status: "MAINTENANCE"
   version: "1.0.0"
   repository_visibility: "public"
-  last_updated: "2026-05-21 09:00:00 UTC"
+  last_updated: "2026-05-21 07:45:00 UTC"
 
 active_sprint:
   name: "Repository hardening"
@@ -50,6 +50,23 @@ tasks:
     dependencies: ["TASK-REPO-001"]
     notes:
       - "Default gather profile is core; full context must be requested explicitly."
+  - id: "TASK-REPO-003"
+    title: "Close CI metadata and documentation consistency gaps"
+    status: "COMPLETED"
+    priority: "HIGH"
+    effort: "0.5d"
+    assignee: "AI coding assistant"
+    description: "Address follow-up repository reliability feedback with split validation checks, metadata completion, lossless Caveman bundle compaction, release/layout docs, and example cleanup."
+    acceptance_criteria:
+      - "CI validation runs named checks so failures identify the affected area."
+      - "CITATION.cff and codemeta.json include release and creation dates."
+      - "Caveman gather mode applies lossless whitespace compaction and documents the behavior."
+      - "Password hashing prompt lives under sanitized examples instead of the repository root."
+      - "Release process and repository layout policy are documented."
+      - "Example inventory Markdown is valid and describes available example kits."
+    dependencies: ["TASK-REPO-002"]
+    notes:
+      - "Claims about missing validate-repo.py, missing CODEOWNERS, missing SEO docs, and missing CodeGraph docs were stale against the current repository state."
 
 checkpoints:
   context_loaded: true
@@ -58,12 +75,12 @@ checkpoints:
   user_acceptance: false
 
 metrics:
-  tasks_completed: 2
-  total_tasks: 2
+  tasks_completed: 3
+  total_tasks: 3
   velocity: 1.0
   quality_score: 1.0
 
 handoff:
-  last_session_summary: "Profile-based installer, gather filtering, tests, and documentation drift reduction completed."
-  next_action: "Review the profile-based APCP patch and publish when ready."
+  last_session_summary: "CI split validation, metadata, Caveman compaction, release/layout docs, and example cleanup completed."
+  next_action: "Review the follow-up hardening patch and publish when ready."
   blockers: []
