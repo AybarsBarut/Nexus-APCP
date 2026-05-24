@@ -41,7 +41,7 @@ flowchart TD
 README flowchart rules:
 - Use `flowchart TD` when the reader should scan from entry point to outcome.
 - Use `flowchart LR` when the project is a pipeline, workflow, or integration chain.
-- Use clear human labels, not internal class names, unless those names are already public documentation terms.
+- Use clear human labels, not internal class names, unless those names are already public documentation terms. Mermaid graphs generate tokens based on their syntax length and nodes. Avoid unnecessary edge labels or stylistic parameters unless they clarify architectural decisions. For large systems, link from `[../AI_PROJECT_CONTEXT_PROTOCOL.md]` to an external mermaid file instead of inline rendering.
 - Keep the diagram between 5 and 9 nodes for the root README.
 - Link to `docs/ARCHITECTURE.md` or `AI_PROJECT_CONTEXT_PROTOCOL.md` for deeper diagrams.
 - Review the diagram whenever a major feature, service, storage layer, or deployment target changes.
@@ -66,7 +66,7 @@ flowchart TD
     App --> Delivery[Build and Deployment]
 ```
 
-For deeper architecture details, see `docs/ARCHITECTURE.md` in the adopting project or [`AI_PROJECT_CONTEXT_PROTOCOL.md`](./AI_PROJECT_CONTEXT_PROTOCOL.md).
+For deeper architecture details, see `docs/ARCHITECTURE.md` in the adopting project or [`AI_PROJECT_CONTEXT_PROTOCOL.md`](../AI_PROJECT_CONTEXT_PROTOCOL.md).
 ````
 
 ### 2. Architecture Map (High-Level)

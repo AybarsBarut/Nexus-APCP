@@ -1,0 +1,10 @@
+# Archived Sprint 1
+# This is an example of an archived sprint.
+Project: Nexus-APCP
+Sprint: Sprint 1
+Period: 2024-01-01 - 2024-01-15
+
+Tasks:
+  - id: TASK-000
+    title: "Example Archived Task"
+    status: COMPLETED

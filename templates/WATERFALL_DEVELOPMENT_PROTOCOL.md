@@ -33,12 +33,12 @@ This protocol is especially useful for common stack combinations:
 
 Use this protocol with the repository's core APCP files:
 
-- [AI_PROJECT_CONTEXT_PROTOCOL.md](./AI_PROJECT_CONTEXT_PROTOCOL.md)
-- [AI_MAIN.md](./AI_MAIN.md)
-- [TASK_PROGRESS.yaml](./TASK_PROGRESS.yaml)
-- [DECISION_LOG_PROTOCOL.md](./DECISION_LOG_PROTOCOL.md)
-- [WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md)
-- [CONTEXT_OPTIMIZATION.md](./CONTEXT_OPTIMIZATION.md)
+- [AI_PROJECT_CONTEXT_PROTOCOL.md](../AI_PROJECT_CONTEXT_PROTOCOL.md)
+- [../rules/AI_MAIN.md](../rules/AI_MAIN.md)
+- [TASK_PROGRESS.yaml](../TASK_PROGRESS.yaml)
+- [../rules/DECISION_LOG_PROTOCOL.md](../rules/DECISION_LOG_PROTOCOL.md)
+- [../rules/WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md](../rules/WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md)
+- [../rules/CONTEXT_OPTIMIZATION.md](../rules/CONTEXT_OPTIMIZATION.md)
 
 ---
 
@@ -2784,13 +2784,13 @@ Not allowed for:
 
 Use this file as a companion protocol:
 
-- Use [AI_PROJECT_CONTEXT_PROTOCOL.md](./AI_PROJECT_CONTEXT_PROTOCOL.md) for project identity, architecture, conventions, and operating rules.
-- Use [AI_MAIN.md](./AI_MAIN.md) for session startup, checkpointing, and execution flow.
-- Use [TASK_PROGRESS.yaml](./TASK_PROGRESS.yaml) for task state.
-- Use [DECISION_LOG_PROTOCOL.md](./DECISION_LOG_PROTOCOL.md) for architectural intent and rejected paths.
-- Use [WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) for release, security, AI, scalability, packaging, and handoff gates.
-- Use [CONTEXT_OPTIMIZATION.md](./CONTEXT_OPTIMIZATION.md) when context windows are too large.
-- Use [CAVEMAN_RULES.md](./CAVEMAN_RULES.md) when responses must be token-efficient.
+- Use [AI_PROJECT_CONTEXT_PROTOCOL.md](../AI_PROJECT_CONTEXT_PROTOCOL.md) for project identity, architecture, conventions, and operating rules.
+- Use [../rules/AI_MAIN.md](../rules/AI_MAIN.md) for session startup, checkpointing, and execution flow.
+- Use [TASK_PROGRESS.yaml](../TASK_PROGRESS.yaml) for task state.
+- Use [../rules/DECISION_LOG_PROTOCOL.md](../rules/DECISION_LOG_PROTOCOL.md) for architectural intent and rejected paths.
+- Use [../rules/WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md](../rules/WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) for release, security, AI, scalability, packaging, and handoff gates.
+- Use [../rules/CONTEXT_OPTIMIZATION.md](../rules/CONTEXT_OPTIMIZATION.md) when context windows are too large.
+- Use [../CONTRIBUTING.md](../CONTRIBUTING.md) when responses must be token-efficient.
 
 Recommended workflow:
 

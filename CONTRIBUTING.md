@@ -39,3 +39,39 @@ python scripts/validate-repo.py
 - [ ] Token-saving guidance still preserves technical accuracy.
 - [ ] Security-sensitive guidance is not weakened.
 - [ ] `python scripts/validate-repo.py` passes.
+
+---
+
+## Emoji Usage Policy
+
+Nexus-APCP forbids emoji usage across repository content and AI-generated output. The rule keeps documentation, prompts, code, logs, examples, metadata, and generated context bundles consistent, professional, accessible, and easy to search.
+
+### Scope
+Applies to all repo-facing artifacts: READMEs, code, scripts, YAML/JSON, PR titles, and AI assistant responses.
+
+### Rule
+Do not use emoji. Use plain words, ASCII labels, or existing icon components instead (e.g. `COMPLETED`, `WARNING`).
+
+### Temporary UI Exception
+Emoji may be proposed only as a temporary button icon placeholder when all conditions are true:
+- No suitable project-approved icon is available.
+- The emoji is only a short-lived replacement marker.
+- The AI assistant asks the user first and receives explicit approval.
+- The follow-up task records that the placeholder must be replaced.
+
+---
+
+## CAVEMAN PROTOCOL: Advanced Token Compression
+
+**"Maximum Signal. Minimum Noise."**
+Caveman Mode bypasses LLM verbosity, reducing API latency and token costs by up to 80% without sacrificing technical precision.
+
+### Activation and Deactivation
+- Activate: Run `python scripts/apcp-gather.py --caveman`, add `PROTOCOL: CAVEMAN` to session, or user says "use Caveman Mode".
+- Deactivate: User asks for normal detail/teaching mode, or the answer needs legal/security nuance that would be unsafe if over-compressed.
+
+### Standard Operating Procedures (SOP)
+1. **Grammatical Stripping**: Drop articles (a, an, the), auxiliary verbs (is, are), pronouns (I, you, we), and politeness.
+2. **Structural Compression**: Fragments only. Use `-` or `*` instead of paragraphs. Newlines = logic breaks.
+3. **Technical Anchoring**: Use standard industry shorthand (MVP, CI/CD). Use `File.ext` directly. Use plain ASCII status labels (e.g., `DONE`, `FAIL`, `WARN`). Follow the Emoji Policy.
+4. **Code vs. Prose**: NEVER compress code blocks. Only describe the change in prose.

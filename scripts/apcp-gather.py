@@ -128,7 +128,7 @@ def read_context_file(path, caveman_mode):
     return text
 
 
-def write_bundle(root, output_file, files, timestamp, caveman_mode, profile):
+def write_bundle(root, output_file, files, timestamp, caveman_mode, profile, target="generic"):
     temp_file = output_file.with_name("PROMPT_READY.tmp")
     with temp_file.open("w", encoding="utf-8", newline="\n") as out:
         out.write("--- APCP CONTEXT PACKAGE ---\n")
@@ -144,9 +144,19 @@ def write_bundle(root, output_file, files, timestamp, caveman_mode, profile):
         for relative in files:
             path = root / relative
             print(f"Adding: {relative}")
-            out.write(f"=== START OF FILE: {relative} ===\n")
-            out.write(read_context_file(path, caveman_mode))
-            out.write(f"\n=== END OF FILE: {relative} ===\n\n")
+            content = read_context_file(path, caveman_mode)
+            if target == "claude":
+                out.write(f'<file name="{relative}">\n')
+                out.write(content)
+                out.write(f'</file>\n\n')
+            elif target == "cursor":
+                out.write(f"### {relative} ###\n")
+                out.write(content)
+                out.write("\n\n")
+            else:
+                out.write(f"=== START OF FILE: {relative} ===\n")
+                out.write(content)
+                out.write(f"\n=== END OF FILE: {relative} ===\n\n")
 
         out.write("\n--- INSTRUCTIONS ---\n")
         if caveman_mode:
@@ -166,6 +176,7 @@ def gather_context(
     profile=None,
     config_path=None,
     output_path=None,
+    target="generic",
     root=ROOT,
 ):
     """
@@ -196,7 +207,7 @@ def gather_context(
 
     try:
         output_file.parent.mkdir(parents=True, exist_ok=True)
-        write_bundle(root, output_file, files, timestamp, caveman_mode, selected_profile)
+        write_bundle(root, output_file, files, timestamp, caveman_mode, selected_profile, target)
     except Exception as exc:
         return fail(f"Unable to write context bundle: {exc}")
 
@@ -224,6 +235,12 @@ def build_parser():
         help="Path to apcp-profile.json. Defaults to apcp-profile.json or .apcp-profile.json.",
     )
     parser.add_argument(
+        "--target",
+        choices=["claude", "cursor", "codex", "generic"],
+        default="generic",
+        help="Target AI tool for optimized output formatting.",
+    )
+    parser.add_argument(
         "--output",
         default="PROMPT_READY.txt",
         help="Output bundle path. Defaults to PROMPT_READY.txt.",
@@ -247,6 +264,7 @@ def main(argv=None):
         profile=args.profile,
         config_path=args.config,
         output_path=args.output,
+        target=args.target,
     )
 
 

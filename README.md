@@ -139,28 +139,28 @@ python scripts/apcp-gather.py --caveman
 | File | Purpose |
 | :--- | :--- |
 | [`AI_PROJECT_CONTEXT_PROTOCOL.md`](./AI_PROJECT_CONTEXT_PROTOCOL.md) | Main project context template and operating rules. |
-| [`AI_MAIN.md`](./AI_MAIN.md) | Execution orchestrator for AI sessions and workflow gates. |
+| [`AI_MAIN.md`](./rules/AI_MAIN.md) | Execution orchestrator for AI sessions and workflow gates. |
 | [`TASK_PROGRESS.yaml`](./TASK_PROGRESS.yaml) | Task tracking, sprint status, checkpoints, and velocity metrics. |
-| [`DECISION_LOG_PROTOCOL.md`](./DECISION_LOG_PROTOCOL.md) | Architecture decision record protocol for intent preservation. |
-| [`CONTEXT_OPTIMIZATION.md`](./CONTEXT_OPTIMIZATION.md) | Strategies for large codebases, context windows, and token limits. |
-| [`CAVEMAN_RULES.md`](./CAVEMAN_RULES.md) | Token-efficient communication rules for concise AI output. |
-| [`EMOJI_POLICY.md`](./EMOJI_POLICY.md) | Repository-wide and AI-wide ban on emoji usage, with a narrow user-approved temporary button icon exception. |
-| [`VISUAL_CONTEXT_MERMAID.md`](./VISUAL_CONTEXT_MERMAID.md) | README Mermaid flowchart and visual context protocol for architecture, workflow, and state diagrams. |
-| [`AI_AGENT_SKILLS_PROTOCOL.md`](./AI_AGENT_SKILLS_PROTOCOL.md) | Skill-based AI agent workflows adapted from public engineering-skill patterns for diagnosis, TDD, triage, PRDs, handoff, architecture review, and prototyping. |
-| [`AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`](./AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md) | Safe compatibility protocol for AI tool modes, adapter files, model/tool drift, verification paths, and prompt-source hygiene. |
-| [`CODEGRAPH_INTEGRATION_PROTOCOL.md`](./CODEGRAPH_INTEGRATION_PROTOCOL.md) | Optional CodeGraph-compatible local code knowledge graph workflow for semantic search, call tracing, impact analysis, and safe generated-index handling. |
-| [`FILE_STRUCTURE_REFACTOR_PROTOCOL.md`](./FILE_STRUCTURE_REFACTOR_PROTOCOL.md) | Safe file and folder reorganization protocol for existing projects, including iterative migration and verification gates. |
-| [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
-| [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
-| [`MACP_IMPLEMENTATION_GUIDE.md`](./MACP_IMPLEMENTATION_GUIDE.md) | Multi-AI Coordination Protocol for parallel model workflows, handoffs, heartbeats, shared state, and conflict control. |
-| [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md) | Static-first website backend security, API secret handling, database necessity, optimization, and penetration-test closure protocol. |
-| [`UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`](./UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md) | Fit-check protocol for recommending a lightweight update/version sync system only when user intent and project profile match. |
-| [`DEBLOAT_APPLICATION_GUIDE.md`](./DEBLOAT_APPLICATION_GUIDE.md) | Lean application guide for reducing ads, hidden tracking, heavy dependencies, optional feature load, and resource usage. |
-| [`WATERFALL_DEVELOPMENT_PROTOCOL.md`](./WATERFALL_DEVELOPMENT_PROTOCOL.md) | Phase-gated waterfall protocol with worked examples and web research rules for stack combinations such as web + database, web + Python, Python + Unity, backend APIs, Unity services, and AI/RAG workflows. |
-| [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
-| [`DISCOVER_ALGORITHM_DESIGN_GUIDE.md`](./DISCOVER_ALGORITHM_DESIGN_GUIDE.md) | Optional algorithm and design discovery guide for projects that need deeper problem exploration. |
-| [`FRONTEND_APPLICATION_DESIGN_PROTOCOL.md`](./FRONTEND_APPLICATION_DESIGN_PROTOCOL.md) | Optional frontend application design protocol for UI-heavy web and app projects. |
-| [`UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md`](./UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md) | Optional baseline application security protocol for API, web, AI, and service projects. |
+| [`DECISION_LOG_PROTOCOL.md`](./rules/DECISION_LOG_PROTOCOL.md) | Architecture decision record protocol for intent preservation. |
+| [`CONTEXT_OPTIMIZATION.md`](./rules/CONTEXT_OPTIMIZATION.md) | Strategies for large codebases, context windows, and token limits. |
+| [`CAVEMAN_RULES.md`](./CONTRIBUTING.md) | Token-efficient communication rules for concise AI output. |
+| [`EMOJI_POLICY.md`](./CONTRIBUTING.md) | Repository-wide and AI-wide ban on emoji usage, with a narrow user-approved temporary button icon exception. |
+| [`VISUAL_CONTEXT_MERMAID.md`](./rules/VISUAL_CONTEXT_MERMAID.md) | README Mermaid flowchart and visual context protocol for architecture, workflow, and state diagrams. |
+| [`AI_AGENT_SKILLS_PROTOCOL.md`](./rules/AI_AGENT_SKILLS_PROTOCOL.md) | Skill-based AI agent workflows adapted from public engineering-skill patterns for diagnosis, TDD, triage, PRDs, handoff, architecture review, and prototyping. |
+| [`AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md`](./rules/AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md) | Safe compatibility protocol for AI tool modes, adapter files, model/tool drift, verification paths, and prompt-source hygiene. |
+| [`CODEGRAPH_INTEGRATION_PROTOCOL.md`](./rules/CODEGRAPH_INTEGRATION_PROTOCOL.md) | Optional CodeGraph-compatible local code knowledge graph workflow for semantic search, call tracing, impact analysis, and safe generated-index handling. |
+| [`FILE_STRUCTURE_REFACTOR_PROTOCOL.md`](./rules/FILE_STRUCTURE_REFACTOR_PROTOCOL.md) | Safe file and folder reorganization protocol for existing projects, including iterative migration and verification gates. |
+| [`AI_ASSISTANT_PROMPT_TEMPLATES.md`](./templates/AI_ASSISTANT_PROMPT_TEMPLATES.md) | Prompt templates for common AI-assisted development scenarios. |
+| [`WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md`](./rules/WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md) | Delivery gates by workspace type and product domain. |
+| [`MACP_IMPLEMENTATION_GUIDE.md`](./rules/MACP_IMPLEMENTATION_GUIDE.md) | Multi-AI Coordination Protocol for parallel model workflows, handoffs, heartbeats, shared state, and conflict control. |
+| [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./templates/WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md) | Static-first website backend security, API secret handling, database necessity, optimization, and penetration-test closure protocol. |
+| [`UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md`](./rules/UPDATE_SYSTEM_RECOMMENDATION_PROTOCOL.md) | Fit-check protocol for recommending a lightweight update/version sync system only when user intent and project profile match. |
+| [`DEBLOAT_APPLICATION_GUIDE.md`](./templates/DEBLOAT_APPLICATION_GUIDE.md) | Lean application guide for reducing ads, hidden tracking, heavy dependencies, optional feature load, and resource usage. |
+| [`WATERFALL_DEVELOPMENT_PROTOCOL.md`](./templates/WATERFALL_DEVELOPMENT_PROTOCOL.md) | Phase-gated waterfall protocol with worked examples and web research rules for stack combinations such as web + database, web + Python, Python + Unity, backend APIs, Unity services, and AI/RAG workflows. |
+| [`DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`](./rules/DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md) | Safe publishing patterns for different technical domains. |
+| [`DISCOVER_ALGORITHM_DESIGN_GUIDE.md`](./templates/DISCOVER_ALGORITHM_DESIGN_GUIDE.md) | Optional algorithm and design discovery guide for projects that need deeper problem exploration. |
+| [`FRONTEND_APPLICATION_DESIGN_PROTOCOL.md`](./templates/FRONTEND_APPLICATION_DESIGN_PROTOCOL.md) | Optional frontend application design protocol for UI-heavy web and app projects. |
+| [`UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md`](./templates/UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md) | Optional baseline application security protocol for API, web, AI, and service projects. |
 | [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) | Step-by-step setup instructions. |
 | [`CHANGELOG.md`](./CHANGELOG.md) | Release history and SemVer notes for public protocol-kit versions. |
 | [`docs/RELEASE_PROCESS.md`](./docs/RELEASE_PROCESS.md) | Release checklist, SemVer policy, metadata update rules, and tag guidance. |

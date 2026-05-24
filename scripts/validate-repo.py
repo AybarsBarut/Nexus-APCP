@@ -423,7 +423,7 @@ def check_core_file_consistency():
 def check_public_template_hygiene():
     errors = []
 
-    ai_main = (ROOT / "AI_MAIN.md").read_text(encoding="utf-8")
+    ai_main = (ROOT / "rules" / "AI_MAIN.md").read_text(encoding="utf-8")
     if re.search(r"(?m)^\s*(?:[-*]|\d+\.)\s+\[[xX]\]", ai_main):
         errors.append("AI_MAIN.md must not ship with completed checklist items")
 

@@ -421,7 +421,7 @@ Before GitHub push, build packaging, or customer handoff:
 
 Use this protocol for websites, dashboards, SaaS frontends, landing pages with forms, admin panels, browser tools, static sites, and browser-delivered applications.
 
-When a website touches backend logic, APIs, forms, secrets, data storage, auth, serverless functions, edge workers, or deployment security, also apply [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md). For portfolio, brochure, landing, and static content sites, the default architecture is static-first with no SQL database unless a real dynamic data requirement exists.
+When a website touches backend logic, APIs, forms, secrets, data storage, auth, serverless functions, edge workers, or deployment security, also apply [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](../templates/WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md). For portfolio, brochure, landing, and static content sites, the default architecture is static-first with no SQL database unless a real dynamic data requirement exists.
 
 ### 4.1 Web Stack Intake
 
@@ -570,7 +570,7 @@ Before GitHub push, deployment, or customer delivery:
 
 Use this protocol for APIs, workers, services, databases, queues, cron jobs, webhooks, SaaS backends, and internal platforms.
 
-For website-specific backend decisions, API secret visibility, static-first architecture, and end-of-work web penetration testing, also apply [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](./WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md).
+For website-specific backend decisions, API secret visibility, static-first architecture, and end-of-work web penetration testing, also apply [`WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md`](../templates/WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md).
 
 ### 5.1 Backend Intake
 
