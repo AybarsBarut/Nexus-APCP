@@ -189,7 +189,6 @@ PUBLIC_REQUIRED_FILES = [
     ".github/pull_request_template.md",
     ".github/pull_request_title_conventions.md",
     ".github/repository-metadata.yml",
-    ".github/workflows/validate.yml",
     ".github/ISSUE_TEMPLATE/config.yml",
     ".github/ISSUE_TEMPLATE/bug_report.yml",
     ".github/ISSUE_TEMPLATE/docs_improvement.yml",

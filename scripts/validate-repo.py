@@ -45,7 +45,6 @@ YAML_FILES = [
     ".github/ISSUE_TEMPLATE/docs_improvement.yml",
     ".github/ISSUE_TEMPLATE/protocol_suggestion.yml",
     ".github/ISSUE_TEMPLATE/security_private.yml",
-    ".github/workflows/validate.yml",
 ]
 
 LINK_RE = re.compile(r"!?\[[^\]]*]\(([^)]+)\)")

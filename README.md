@@ -242,7 +242,7 @@ Nexus-APCP includes the repository hygiene expected from a serious open-source p
 - [`SUPPORT.md`](./SUPPORT.md): where to ask for help and what to keep private.
 - [`.github/pull_request_template.md`](./.github/pull_request_template.md): PR checklist for docs, protocol, security, and metadata changes.
 - [`.github/ISSUE_TEMPLATE/`](./.github/ISSUE_TEMPLATE/): structured issue forms for bugs, docs, protocol suggestions, and security-sensitive process notes.
-- [`.github/workflows/validate.yml`](./.github/workflows/validate.yml): split repository validation for required files, Python syntax, PowerShell syntax, YAML parsing, generated context cleanup, metadata, links, SVG, simple leak-pattern scanning, emoji policy, and context gathering.
+- [`scripts/validate-repo.py`](./scripts/validate-repo.py): local repository validation covering required files, Python syntax, PowerShell syntax, YAML parsing, generated context hygiene, metadata, links, SVG, leak-pattern scanning, emoji policy, and context gathering. Run with `python scripts/validate-repo.py`.
 
 ## FAQ
 
