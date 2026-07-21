@@ -56,8 +56,9 @@ class ApcpToolTests(unittest.TestCase):
         with temporary_project() as directory:
             root = Path(directory)
             self.write_profile_files(root, "core")
-            (root / "AI_MAIN.md").write_text(
-                "# AI_MAIN.md  \n\n\nBody line   \n",
+            ai_main = root / "rules" / "AI_MAIN.md"
+            ai_main.write_text(
+                "# rules/AI_MAIN.md  \n\n\nBody line   \n",
                 encoding="utf-8",
             )
 
@@ -70,11 +71,11 @@ class ApcpToolTests(unittest.TestCase):
                 "Compaction: whitespace-trimmed, repeated blank lines collapsed",
                 bundle,
             )
-            self.assertIn("=== START OF FILE: AI_MAIN.md ===", bundle)
-            self.assertIn("# AI_MAIN.md\n\nBody line\n", bundle)
-            self.assertNotIn("# AI_MAIN.md  \n\n\nBody line   \n", bundle)
+            self.assertIn("=== START OF FILE: rules/AI_MAIN.md ===", bundle)
+            self.assertIn("# rules/AI_MAIN.md\n\nBody line\n", bundle)
+            self.assertNotIn("# rules/AI_MAIN.md  \n\n\nBody line   \n", bundle)
             self.assertNotIn(
-                "=== START OF FILE: WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md ===",
+                "=== START OF FILE: templates/WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md ===",
                 bundle,
             )
 
@@ -82,7 +83,7 @@ class ApcpToolTests(unittest.TestCase):
         with temporary_project() as directory:
             root = Path(directory)
             self.write_profile_files(root, "core")
-            (root / "AI_MAIN.md").unlink()
+            (root / "rules" / "AI_MAIN.md").unlink()
 
             result = self.gather.gather_context(caveman_mode=True, root=root)
 
@@ -97,22 +98,23 @@ class ApcpToolTests(unittest.TestCase):
             config.write_text(
                 '{\n'
                 '  "profile": "web",\n'
-                '  "include": ["MACP_IMPLEMENTATION_GUIDE.md"],\n'
-                '  "exclude": ["WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md"]\n'
+                '  "include": ["rules/MACP_IMPLEMENTATION_GUIDE.md"],\n'
+                '  "exclude": ["templates/WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md"]\n'
                 '}\n',
                 encoding="utf-8",
             )
-            macp = root / "MACP_IMPLEMENTATION_GUIDE.md"
-            macp.write_text("# MACP_IMPLEMENTATION_GUIDE.md\n", encoding="utf-8")
+            macp = root / "rules" / "MACP_IMPLEMENTATION_GUIDE.md"
+            macp.parent.mkdir(parents=True, exist_ok=True)
+            macp.write_text("# rules/MACP_IMPLEMENTATION_GUIDE.md\n", encoding="utf-8")
 
             result = self.gather.gather_context(caveman_mode=False, root=root)
 
             self.assertEqual(result, 0)
             bundle = (root / "PROMPT_READY.txt").read_text(encoding="utf-8")
             self.assertIn("Profile: web", bundle)
-            self.assertIn("=== START OF FILE: MACP_IMPLEMENTATION_GUIDE.md ===", bundle)
+            self.assertIn("=== START OF FILE: rules/MACP_IMPLEMENTATION_GUIDE.md ===", bundle)
             self.assertNotIn(
-                "=== START OF FILE: WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md ===",
+                "=== START OF FILE: templates/WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md ===",
                 bundle,
             )
 

@@ -73,4 +73,5 @@ jobs:
         run: python scripts/validate-repo.py --only context-gatherer
 
       - name: Ensure generated bundle was cleaned
+        shell: bash
         run: test ! -e PROMPT_READY.txt

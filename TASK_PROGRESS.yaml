@@ -7,13 +7,13 @@ project:
   status: "MAINTENANCE"
   version: "1.0.0"
   repository_visibility: "public"
-  last_updated: "2026-07-21 16:15:00 UTC"
+  last_updated: "2026-07-21 13:28:00 UTC"
 
 active_sprint:
-  name: "Repository hardening"
-  goal: "Align core file lists, profile-based context, validation, CI, security reporting, safe setup guidance, and local code graph support."
-  start_date: "2026-05-20"
-  end_date: "2026-05-21"
+  name: "CI reliability and path migration"
+  goal: "Fix broken unit tests caused by rules/ and templates/ directory refactor, harden workflow shell specifiers, and keep validation green."
+  start_date: "2026-07-21"
+  end_date: "2026-07-21"
 
 tasks:
   - id: "TASK-REPO-001"
@@ -81,6 +81,21 @@ tasks:
     dependencies: ["TASK-REPO-001"]
     notes:
       - "Maintained strict adherence to EMOJI_POLICY.md during integration."
+  - id: "TASK-REPO-005"
+    title: "Fix unit test path references after rules/ and templates/ refactor"
+    status: "COMPLETED"
+    priority: "CRITICAL"
+    effort: "0.25d"
+    assignee: "AI coding assistant"
+    description: "Three unit tests in test_apcp_tools.py referenced bare filenames that were moved to rules/ and templates/ subdirectories in a prior refactor. Updated tests to use full relative paths and added shell: bash to the workflow PROMPT_READY.txt check step."
+    acceptance_criteria:
+      - "All 6 unit tests pass with zero failures or errors."
+      - "validate-repo.py full run reports zero errors."
+      - "GitHub Actions workflow passes on push to master."
+    dependencies: ["TASK-REPO-001"]
+    notes:
+      - "Root cause: test_default_gather_uses_core_profile wrote AI_MAIN.md at root; core profile now references rules/AI_MAIN.md."
+      - "Config include/exclude entries validated against CORE_FILES which uses full subdirectory-prefixed paths."
 
 checkpoints:
   context_loaded: true
@@ -89,12 +104,12 @@ checkpoints:
   user_acceptance: false
 
 metrics:
-  tasks_completed: 4
-  total_tasks: 4
+  tasks_completed: 5
+  total_tasks: 5
   velocity: 1.0
   quality_score: 1.0
 
 handoff:
-  last_session_summary: "Integrated multica-ai/andrej-karpathy-skills guidelines into AI_AGENT_SKILLS_PROTOCOL.md and verified repo validity."
-  next_action: "Push changes to remote origin/master."
+  last_session_summary: "Fixed 3 broken unit tests caused by rules/ and templates/ directory refactor not updating test path references. Added shell: bash to workflow PROMPT_READY.txt check step."
+  next_action: "Monitor GitHub Actions on next push to master."
   blockers: []
