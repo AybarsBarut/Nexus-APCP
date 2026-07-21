@@ -76,6 +76,7 @@ Use this registry as a model-agnostic equivalent of slash commands. Agents can i
 | `setup-pre-commit` | User wants commit-time formatting, type checking, or tests. | Pre-commit setup adapted to the detected package manager. |
 | `migrate-test-assertions` | User wants to replace unsafe TypeScript test assertions with a safer helper. | Test-only migration plan and verification. |
 | `scaffold-exercises` | User wants structured exercise folders. | Section/exercise directories, stub readmes, linter-compatible layout. |
+| `karpathy-guidelines` | User wants to enforce caution, simplicity, surgical changes, explicit assumptions, and goal-driven execution. | Explicit assumptions, minimal implementation, surgical diff, and verified loop plan. |
 
 ## Setup Protocol
 
@@ -358,6 +359,17 @@ Description rules:
 - Include concrete triggers, file types, or phrases.
 
 Split reference files when the main skill grows too long or mixes rare advanced material with common flow. Add scripts when a deterministic task would otherwise be generated repeatedly.
+
+## Karpathy Behavioral Guidelines
+
+Use `karpathy-guidelines` when writing, reviewing, or refactoring code to reduce common LLM pitfalls derived from Andrej Karpathy's observations.
+
+Core principles:
+
+1. **Think Before Coding**: State assumptions explicitly before implementing. If uncertain or if multiple interpretations exist, surface them. If a simpler approach exists, push back. Name confusion and ask when unclear.
+2. **Simplicity First**: Write the minimum code necessary to solve the problem. Avoid speculative features, abstractions for single-use code, unrequested flexibility, or error handling for impossible scenarios.
+3. **Surgical Changes**: Touch only what you must. Do not clean up, reformat, or refactor unrelated code. Match existing style. Remove only unused code created by your own changes.
+4. **Goal-Driven Execution**: Define verifiable success criteria upfront. Transform abstract tasks into testable goals and loop until verified.
 
 ## Optional Hygiene Recipes
 
