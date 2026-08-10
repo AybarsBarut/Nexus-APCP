@@ -163,6 +163,81 @@ class ApcpToolTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout)
         self.assertIn("OK: required files", result.stdout)
 
+    def test_ponytail_files_in_core_and_specialized_lists(self):
+        self.assertIn(
+            "rules/PONYTAIL_LAZY_DEV_PROTOCOL.md",
+            core_files.BASE_CONTEXT_FILES,
+        )
+        self.assertIn(
+            "rules/PONYTAIL_REVIEW_PROTOCOL.md",
+            core_files.SPECIALIZED_CONTEXT_FILES,
+        )
+        self.assertIn(
+            "rules/PONYTAIL_LAZY_DEV_PROTOCOL.md",
+            core_files.CORE_FILES,
+        )
+
+    def test_ponytail_off_excludes_ponytail_files_from_bundle(self):
+        with temporary_project() as directory:
+            root = Path(directory)
+            self.write_profile_files(root, "core")
+            config = root / "apcp-profile.json"
+            config.write_text(
+                '{\n'
+                '  "profile": "core",\n'
+                '  "ponytail": "off",\n'
+                '  "include": [],\n'
+                '  "exclude": []\n'
+                '}\n',
+                encoding="utf-8",
+            )
+
+            result = self.gather.gather_context(caveman_mode=False, root=root)
+
+            self.assertEqual(result, 0)
+            bundle = (root / "PROMPT_READY.txt").read_text(encoding="utf-8")
+            self.assertIn("Ponytail Mode: off", bundle)
+            self.assertNotIn("PONYTAIL_LAZY_DEV_PROTOCOL", bundle)
+
+    def test_ponytail_full_includes_ponytail_files_in_bundle(self):
+        with temporary_project() as directory:
+            root = Path(directory)
+            self.write_profile_files(root, "core")
+
+            result = self.gather.gather_context(caveman_mode=False, root=root)
+
+            self.assertEqual(result, 0)
+            bundle = (root / "PROMPT_READY.txt").read_text(encoding="utf-8")
+            self.assertIn("Ponytail Mode: full", bundle)
+            self.assertIn("PONYTAIL_LAZY_DEV_PROTOCOL", bundle)
+
+    def test_installer_config_includes_ponytail_field(self):
+        with temporary_project() as directory:
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(SCRIPTS / "apcp-install.py"),
+                    "--target",
+                    directory,
+                    "--profile",
+                    "core",
+                ],
+                cwd=ROOT,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                timeout=30,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout)
+            import json
+            config = json.loads(
+                (Path(directory) / "apcp-profile.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(config.get("ponytail"), "full")
+
 
 if __name__ == "__main__":
     unittest.main()

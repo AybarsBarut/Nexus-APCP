@@ -96,6 +96,9 @@ def resolve_context_files(profile=None, config=None):
 
     files = unique_files([*files, *include_files])
     files = [item for item in files if item not in exclude_files]
+    ponytail_mode = (config.get("ponytail") or "full").strip().lower()
+    if ponytail_mode == "off":
+        files = [f for f in files if "PONYTAIL" not in Path(f).name.upper()]
     if not files:
         raise ValueError("Selected APCP profile produced no context files.")
     return selected_profile, files
@@ -128,13 +131,14 @@ def read_context_file(path, caveman_mode):
     return text
 
 
-def write_bundle(root, output_file, files, timestamp, caveman_mode, profile, target="generic"):
+def write_bundle(root, output_file, files, timestamp, caveman_mode, profile, target="generic", ponytail_mode="full"):
     temp_file = output_file.with_name("PROMPT_READY.tmp")
     with temp_file.open("w", encoding="utf-8", newline="\n") as out:
         out.write("--- APCP CONTEXT PACKAGE ---\n")
         out.write(f"Generated: {timestamp}\n")
         out.write(f"Project Root: {root}\n")
         out.write(f"Profile: {profile}\n")
+        out.write(f"Ponytail Mode: {ponytail_mode}\n")
         out.write(f"Included Files: {len(files)}\n")
         if caveman_mode:
             out.write("Mode: CAVEMAN (Token Optimized)\n")
@@ -198,8 +202,11 @@ def gather_context(
     except Exception as exc:
         return fail(str(exc))
 
+    ponytail_mode = (config.get("ponytail") or "full").strip().lower()
+
     print(f"Gathering project context at {timestamp}...")
     print(f"Profile: {selected_profile} - {profile_description(selected_profile)}")
+    print(f"Ponytail Mode: {ponytail_mode}")
     if config_file:
         print(f"Config: {config_file}")
     if caveman_mode:
@@ -207,7 +214,7 @@ def gather_context(
 
     try:
         output_file.parent.mkdir(parents=True, exist_ok=True)
-        write_bundle(root, output_file, files, timestamp, caveman_mode, selected_profile, target)
+        write_bundle(root, output_file, files, timestamp, caveman_mode, selected_profile, target, ponytail_mode=ponytail_mode)
     except Exception as exc:
         return fail(f"Unable to write context bundle: {exc}")
 

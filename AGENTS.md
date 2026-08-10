@@ -33,6 +33,8 @@ The public repository should remain safe to share. Real project context files, p
 | `WORKSPACE_SPECIFIC_DELIVERY_PROTOCOLS.md` | Domain-specific delivery gates and release expectations. |
 | `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md` | Safe publishing patterns for different project domains. |
 | `MACP_IMPLEMENTATION_GUIDE.md` | Multi-AI Coordination Protocol for parallel model workflows. |
+| `PONYTAIL_LAZY_DEV_PROTOCOL.md` | Lazy senior developer mode: Decision Ladder, YAGNI enforcement, minimal code philosophy. Based on DietrichGebert/ponytail (MIT). |
+| `PONYTAIL_REVIEW_PROTOCOL.md` | Code review, repository audit, and technical debt tracking for over-engineering. Based on DietrichGebert/ponytail (MIT). |
 | `SETUP_GUIDE.md` | Step-by-step setup instructions and routine maintenance. |
 | `CHANGELOG.md` | Release history and SemVer notes for public protocol-kit versions. |
 | `docs/RELEASE_PROCESS.md` | Release checklist, SemVer policy, metadata update rules, and tag guidance. |
@@ -67,6 +69,8 @@ powershell -ExecutionPolicy Bypass -File scripts/checkpoint.ps1
 - Preserve the public/private boundary. Public templates are welcome; filled private project context is not.
 - Prefer durable wording over model-version-specific wording.
 - Keep repository-facing terminology consistent: `Nexus-APCP`, `AI Project Context Protocol`, `context engineering`, `AI-assisted development`, and `token optimization`.
+- Follow the Ponytail Decision Ladder before writing code: YAGNI, codebase reuse, stdlib, native platform, existing dependency, one-liner, then minimum implementation. See `rules/PONYTAIL_LAZY_DEV_PROTOCOL.md`.
+- Mark deliberate shortcuts with `ponytail:` comments naming the ceiling and upgrade path.
 - When adding or changing reusable agent workflows, keep them aligned with `AI_AGENT_SKILLS_PROTOCOL.md`.
 - When adding or changing AI tool adapter guidance, keep it aligned with `AI_TOOL_ADAPTER_COMPATIBILITY_PROTOCOL.md` and do not copy vendor system prompts, prompt dumps, or proprietary tool schemas.
 - When adding or changing local code graph guidance, keep it aligned with `CODEGRAPH_INTEGRATION_PROTOCOL.md` and do not commit `.codegraph/` indexes, generated graph databases, private MCP configs, or local absolute paths.

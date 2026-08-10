@@ -6,6 +6,7 @@ Nexus-APCP follows SemVer for public protocol-kit releases. A version in `codeme
 
 ## [Unreleased]
 
+- Integrate Ponytail lazy-senior-dev protocol (Decision Ladder, YAGNI enforcement, code review, audit, and debt tracking) from DietrichGebert/ponytail. Adds `rules/PONYTAIL_LAZY_DEV_PROTOCOL.md` and `rules/PONYTAIL_REVIEW_PROTOCOL.md`. Ponytail intensity (`off`/`lite`/`full`/`ultra`) is configurable via `apcp-profile.json`. All AI adapter files updated with Decision Ladder references.
 - Centralize the canonical APCP core file list for gather, validation, and documentation consistency.
 - Add profile-based install and context gathering with `apcp-profile.json`, `scripts/apcp-install.py`, and default narrow `core` context.
 - Add Caveman gather whitespace compaction and clarify that it is lossless, not rule-dropping summarization.

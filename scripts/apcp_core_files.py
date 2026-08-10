@@ -27,6 +27,7 @@ BASE_CONTEXT_FILES = [
     "rules/FILE_STRUCTURE_REFACTOR_PROTOCOL.md",
     "templates/AI_ASSISTANT_PROMPT_TEMPLATES.md",
     "rules/DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md",
+    "rules/PONYTAIL_LAZY_DEV_PROTOCOL.md",
 ]
 
 SPECIALIZED_CONTEXT_FILES = [
@@ -40,6 +41,7 @@ SPECIALIZED_CONTEXT_FILES = [
     "templates/DISCOVER_ALGORITHM_DESIGN_GUIDE.md",
     "templates/FRONTEND_APPLICATION_DESIGN_PROTOCOL.md",
     "templates/UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md",
+    "rules/PONYTAIL_REVIEW_PROTOCOL.md",
 ]
 
 # Backward-compatible name used by validation and older helpers.

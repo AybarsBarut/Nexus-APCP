@@ -56,6 +56,7 @@ def write_profile_config(target_root, profile, overwrite=False, dry_run=False):
 
     data = {
         "profile": profile,
+        "ponytail": "full",
         "include": [],
         "exclude": [],
     }

@@ -10,6 +10,7 @@ This file is a copy-safe starter template. After copying Nexus-APCP into a proje
 ## SYSTEM_INIT
 - **Protocol**: CAVEMAN optional. Activate only when requested or when `PROMPT_READY.txt` says `Mode: CAVEMAN`.
 - **Context Profile**: load `apcp-profile.json` when present. If absent, assume `core` and activate specialized protocols only when task-relevant.
+- **Ponytail Mode**: load `ponytail` field from `apcp-profile.json`. Default: `full`. Values: `off`, `lite`, `full`, `ultra`. When active, follow `PONYTAIL_LAZY_DEV_PROTOCOL.md` Decision Ladder before writing code.
 - **Quality**: production-ready, verified, no simulated work.
 - **Safety**: DRY, SOLID, secure, public/private boundary respected.
 - **Checkpoints**: mandatory validation at each gate.
@@ -66,6 +67,7 @@ This file is a copy-safe starter template. After copying Nexus-APCP into a proje
 - Preserve the public/private boundary from `AI_PROJECT_CONTEXT_PROTOCOL.md` and `DOMAIN_SPECIFIC_GITIGNORE_PROTOCOLS.md`.
 - Keep generated prompt bundles such as `PROMPT_READY.txt` out of public commits.
 - Prefer current project evidence over copied template state.
+- Follow the Ponytail Decision Ladder before writing code: YAGNI, codebase reuse, stdlib, native platform, existing dependency, one-liner, then minimum implementation. Mark deliberate shortcuts with `ponytail:` comments.
 - Treat selected profile files as active context. Treat non-selected specialized protocols as references, not standing instructions, unless the user or task explicitly invokes them.
 - If context is stale or contradictory, stop and reconcile before implementation.
 
