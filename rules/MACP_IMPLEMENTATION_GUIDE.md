@@ -613,7 +613,7 @@ from datetime import datetime
 with open('.ai_team/AI_TEAM_STATE.json', 'r') as f:
     state = json.load(f)
 
-# Add new session
+# Register active session
 state['ai_team_state']['active_sessions'].append({
     "session_id": "frontend-2024-01-15-001",
     "ai_model": "Lightweight Claude model",

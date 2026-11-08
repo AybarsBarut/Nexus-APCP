@@ -1,4 +1,4 @@
-﻿# Universal Application Security Protection Protocol
+# Universal Application Security Protection Protocol
 ## SQL gÃ¼venliÄŸi, veri koruma, kimlik, yetki, tedarik zinciri ve daÄŸÄ±tÄ±m savunmalarÄ± iÃ§in savunma odaklÄ± rehber
 
 Version: 1.0
@@ -46,7 +46,7 @@ Security is not one library or one firewall. It is a layered system:
 | Game backend | Cheating, replay, inventory/currency manipulation, account theft | Server-authoritative state, anti-replay, transaction logs, rate limits, fraud review |
 | Data dashboard | Overbroad data access, unsafe exports, formula/file injection, privacy leaks | Row-level controls, export sanitization, aggregation rules, data minimization |
 | Internal admin tool | Excessive privileges, weak review, sensitive logs, lateral movement | MFA/SSO, IP/device controls where possible, least privilege roles, mandatory audit logging |
-| Plugin/extension | Overbroad permissions, unsafe content scripts, token leakage | Minimal permissions, isolated storage, explicit host allowlists, reviewable release package |
+| Plugin/extension | Overbroad permissions, unsafe content scripts, token leakage | Minimal permissions, isolated storage, explicit domain allowlists, reviewable release package |
 | Serverless/cloud job | Overprivileged IAM, public buckets, secret sprawl, event replay | Least-privilege IAM, private-by-default resources, secret manager, event validation | ---
 
 ## 3. Universal Security Lifecycle

@@ -305,7 +305,12 @@ class LightAnalytics {
   flush() {
     if (this.batch.length === 0) return;
 
-    navigator.sendBeacon(this.endpoint, JSON.stringify(this.batch));
+    fetch(this.endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.batch),
+      keepalive: true
+    }).catch(() => {});
     this.batch = [];
   }
 }
@@ -349,13 +354,20 @@ class ConsentManager {
   showBanner(category) {
     return new Promise((resolve) => {
       const banner = document.createElement('div');
-      banner.innerHTML = `
-        <div class="consent-banner">
-          <p>Enable ${category}?</p>
-          <button data-consent-accept="${category}">Yes</button>
-          <button data-consent-decline="${category}">No</button>
-        </div>
-      `;
+      banner.className = 'consent-banner';
+
+      const message = document.createElement('p');
+      message.textContent = `Enable ${category}?`;
+
+      const acceptBtn = document.createElement('button');
+      acceptBtn.dataset.consentAccept = category;
+      acceptBtn.textContent = 'Yes';
+
+      const declineBtn = document.createElement('button');
+      declineBtn.dataset.consentDecline = category;
+      declineBtn.textContent = 'No';
+
+      banner.append(message, acceptBtn, declineBtn);
 
       banner
         .querySelector('[data-consent-accept]')
@@ -684,10 +696,10 @@ The core renderer stays small. Interaction and export capabilities are loaded on
 ### Bundle Analysis
 
 ```bash
-npm install --save-dev webpack-bundle-analyzer
+npm add -D webpack-bundle-analyzer
 npm audit
 npm ls
-npm install --save-dev depcheck
+npm add -D depcheck
 depcheck
 ```
 

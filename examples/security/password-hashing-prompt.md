@@ -199,20 +199,20 @@ These pseudocode snippets help AI tools identify whether a legacy scheme matches
 ```
 hash(password, salt, factor):
   // salt encoded with bcrypt's custom base64 alphabet [./A-Za-z0-9]
-  result = bcrypt(bytes(password), base64Decode(salt), factor, bcryptIV)
+  result = bcrypt(bytes(password), fromBase64(salt), factor, bcryptIV)
   return base64Encode(result[0 .. len(bcryptIV)*4 - 1])
 ```
 
 ### PBKDF2-HMAC-SHA256
 ```
 hash(password, salt, factor):
-  return base64Encode(pbkdf2Sha256(password, base64Decode(salt), factor, keyLength=256))
+  return base64Encode(pbkdf2Sha256(password, fromBase64(salt), factor, keyLength=256))
 ```
 
 ### PBKDF2-HMAC-SHA512
 ```
 hash(password, salt, factor):
-  return base64Encode(pbkdf2Sha512(password, base64Decode(salt), factor, keyLength=512))
+  return base64Encode(pbkdf2Sha512(password, fromBase64(salt), factor, keyLength=512))
 ```
 
 ### phpass MD5 (legacy — migration only)
@@ -226,7 +226,7 @@ hash(password, salt, factor):
 ### Salted SHA-256 (legacy — migration only)
 ```
 hash(password, salt, factor):
-  result = concat(bytes(password), base64Decode(salt))
+  result = concat(bytes(password), fromBase64(salt))
   repeat factor times: result = sha256(result)
   return result
 ```

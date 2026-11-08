@@ -13,7 +13,7 @@ As a software project grows, the codebase and documentation eventually exceed th
 - **Token Impact**: prevents specialized protocols from entering the model context when they do not match the project.
 
 ### Level 1: Standard (Bootstrap Mode)
-**Usage**: When starting a new session or a new project.
+**Usage**: When bootstrapping a fresh conversation or a new project.
 - **Files**: Full `AI_PROJECT_CONTEXT_PROTOCOL.md` + Full `TASK_PROGRESS.yaml`.
 - **Token Impact**: ~3,000 - 5,000 tokens.
 

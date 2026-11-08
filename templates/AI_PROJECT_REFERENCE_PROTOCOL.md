@@ -265,8 +265,11 @@ Rule: Will never be committed to the repo
 
 ### 4.2 .env File Template (.env.example)
 
+> [!NOTE]
+> All credentials and configurations in this template are non-functional mock placeholders. The example `DATABASE_URL` value contains dummy placeholder credentials (`user:password`) and does not contain real credentials, secrets, or keys. Never commit real passwords or API keys to the repository.
+
 ```bash
-# Database
+# Database (Sanitized template placeholder - does not contain real credentials)
 DATABASE_URL=postgresql://user:password@localhost:5432/dbname
 DATABASE_POOL_SIZE=10
 DATABASE_TIMEOUT=30
@@ -727,8 +730,8 @@ flowchart TD
 git clone [repo-url]
 cd [project-name]
 python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-pip install -r requirements.txt
+source venv/bin/activate  # on Windows: venv/Scripts/activate
+pip3 install -r requirements.txt
 python -m flask run
 ```
 
