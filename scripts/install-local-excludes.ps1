@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$ExcludePath = ".git/info/exclude"
 )
 
@@ -33,6 +33,8 @@ $patterns = @(
     "templates/DISCOVER_ALGORITHM_DESIGN_GUIDE.md",
     "templates/FRONTEND_APPLICATION_DESIGN_PROTOCOL.md",
     "templates/UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md",
+    "rules/PONYTAIL_LAZY_DEV_PROTOCOL.md",
+    "rules/PONYTAIL_REVIEW_PROTOCOL.md",
     "scripts/apcp_core_files.py",
     "scripts/apcp-gather.py",
     "scripts/apcp-install.py",

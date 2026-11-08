@@ -1,5 +1,5 @@
-# Universal Application Security Protection Protocol
-## SQL güvenliği, veri koruma, kimlik, yetki, tedarik zinciri ve dağıtım savunmaları için savunma odaklı rehber
+﻿# Universal Application Security Protection Protocol
+## SQL gÃ¼venliÄŸi, veri koruma, kimlik, yetki, tedarik zinciri ve daÄŸÄ±tÄ±m savunmalarÄ± iÃ§in savunma odaklÄ± rehber
 
 Version: 1.0
 Owner: Project team and AI assistants

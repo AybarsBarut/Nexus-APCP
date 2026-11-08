@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -euo pipefail
 
 exclude_file="${1:-.git/info/exclude}"
@@ -41,6 +41,8 @@ add_pattern "templates/WEBSITE_BACKEND_SECURITY_OPTIMIZATION_PROTOCOL.md"
 add_pattern "templates/DISCOVER_ALGORITHM_DESIGN_GUIDE.md"
 add_pattern "templates/FRONTEND_APPLICATION_DESIGN_PROTOCOL.md"
 add_pattern "templates/UNIVERSAL_APPLICATION_SECURITY_PROTOCOL.md"
+add_pattern "rules/PONYTAIL_LAZY_DEV_PROTOCOL.md"
+add_pattern "rules/PONYTAIL_REVIEW_PROTOCOL.md"
 add_pattern "scripts/apcp_core_files.py"
 add_pattern "scripts/apcp-gather.py"
 add_pattern "scripts/apcp-install.py"

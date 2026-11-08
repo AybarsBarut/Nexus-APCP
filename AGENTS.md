@@ -1,4 +1,4 @@
-# Nexus-APCP Agent Guide
+﻿# Nexus-APCP Agent Guide
 
 This file gives AI coding assistants and automation agents the repository-specific rules for working on Nexus-APCP. Treat it as the first file to read before changing docs, prompts, scripts, metadata, or examples.
 

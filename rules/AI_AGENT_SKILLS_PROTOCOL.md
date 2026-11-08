@@ -1,4 +1,4 @@
-# Nexus-APCP AI Agent Skills Protocol
+﻿# Nexus-APCP AI Agent Skills Protocol
 ## Skill-based workflows for AI-assisted development
 
 This protocol adds a model-agnostic skill layer to Nexus-APCP. A skill is a compact, named workflow that an AI agent can invoke when the user asks for a specific kind of work: diagnosis, TDD, triage, PRD creation, handoff, architecture review, prototyping, or token-compressed communication.
@@ -77,6 +77,7 @@ Use this registry as a model-agnostic equivalent of slash commands. Agents can i
 | `migrate-test-assertions` | User wants to replace unsafe TypeScript test assertions with a safer helper. | Test-only migration plan and verification. |
 | `scaffold-exercises` | User wants structured exercise folders. | Section/exercise directories, stub readmes, linter-compatible layout. |
 | `karpathy-guidelines` | User wants to enforce caution, simplicity, surgical changes, explicit assumptions, and goal-driven execution. | Explicit assumptions, minimal implementation, surgical diff, and verified loop plan. |
+| `skillguard` | User wants to audit security, detect prompt injection, verify skill integrity, block secret leaks, or inspect dependencies and DB configurations. | Deterministic security analysis, skill lockfile verification, Git/agent hooks, SARIF/Markdown security reports. |
 
 ## Setup Protocol
 
