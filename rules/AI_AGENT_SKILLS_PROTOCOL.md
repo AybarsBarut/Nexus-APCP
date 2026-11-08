@@ -1,4 +1,4 @@
-﻿# Nexus-APCP AI Agent Skills Protocol
+# Nexus-APCP AI Agent Skills Protocol
 ## Skill-based workflows for AI-assisted development
 
 This protocol adds a model-agnostic skill layer to Nexus-APCP. A skill is a compact, named workflow that an AI agent can invoke when the user asks for a specific kind of work: diagnosis, TDD, triage, PRD creation, handoff, architecture review, prototyping, or token-compressed communication.
@@ -78,6 +78,7 @@ Use this registry as a model-agnostic equivalent of slash commands. Agents can i
 | `scaffold-exercises` | User wants structured exercise folders. | Section/exercise directories, stub readmes, linter-compatible layout. |
 | `karpathy-guidelines` | User wants to enforce caution, simplicity, surgical changes, explicit assumptions, and goal-driven execution. | Explicit assumptions, minimal implementation, surgical diff, and verified loop plan. |
 | `skillguard` | User wants to audit security, detect prompt injection, verify skill integrity, block secret leaks, or inspect dependencies and DB configurations. | Deterministic security analysis, skill lockfile verification, Git/agent hooks, SARIF/Markdown security reports. |
+| `how-it-vibed` | User wants post-vibe-coding architecture audit, component rationales, algorithm flowcharts, security hardening, and zero-pollution exposed secret checks. | Direct in-chat tech stack rationale, algorithm breakdown, Mermaid flowchart/sequence diagrams, secret & credential audit, and hardening blueprint without creating files in project directory. |
 
 ## Setup Protocol
 
@@ -371,6 +372,18 @@ Core principles:
 2. **Simplicity First**: Write the minimum code necessary to solve the problem. Avoid speculative features, abstractions for single-use code, unrequested flexibility, or error handling for impossible scenarios.
 3. **Surgical Changes**: Touch only what you must. Do not clean up, reformat, or refactor unrelated code. Match existing style. Remove only unused code created by your own changes.
 4. **Goal-Driven Execution**: Define verifiable success criteria upfront. Transform abstract tasks into testable goals and loop until verified.
+
+## How It Vibed Architecture and Security Audit
+
+Use how-it-vibed after completing a vibe-coding session, rapid prototyping phase, or feature implementation to perform a deep technical audit without cluttering the repository.
+
+Core principles:
+
+1. **Zero Repo Pollution**: Never write documentation markdown files, temporary setup configs, or architectural notes into the target repository. Deliver the complete analysis, Mermaid diagrams, and security reviews directly in chat.
+2. **Secret and Credential Audit**: Scan project files for exposed API keys, private certificates, JWT secrets, hash salts, and client-side credential leaks. Alert immediately with severity warnings, line references, and remediation steps. Mask secrets in chat to prevent secondary leaks.
+3. **Component and Stack Rationales**: Articulate why each technology, dependency, and critical component was selected and what trade-offs exist for future production scaling.
+4. **Algorithmic Flowcharts**: Visualize execution paths, state transitions, and request/response lifecycles using standard Mermaid flowcharts and sequence diagrams.
+5. **Hardening Blueprint**: Provide concrete, stack-specific security recommendations covering input validation, session management, CORS/CSP, rate limiting, and production readiness.
 
 ## Optional Hygiene Recipes
 
